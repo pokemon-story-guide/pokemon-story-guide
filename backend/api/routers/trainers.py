@@ -1,9 +1,10 @@
 from fastapi import APIRouter, HTTPException
 from api.services.data_loader import load_trainers
+from api.schemas.trainer import TrainerSummary, TrainerDetail
 
 router = APIRouter(prefix="/api/trainers", tags=["trainers"])
 
-@router.get("")
+@router.get("", response_model=list[TrainerSummary])
 def list_trainers(category: str | None = None):
     result = []
     for trainer in load_trainers():
@@ -19,7 +20,7 @@ def list_trainers(category: str | None = None):
         })
     return result
 
-@router.get("/{trainer_id}")
+@router.get("/{trainer_id}", response_model=TrainerDetail,responses={404: {"description": "해당 관장·사천왕이 없음"}})
 def get_trainer(trainer_id: str):
     for trainer in load_trainers():
         if trainer["id"] == trainer_id:
