@@ -27,8 +27,11 @@ ai/             LLM 연동
 
 ## API 추가하는 법
 
-1. `api/routers/`에 파일을 만들고 `router = APIRouter()` 작성 (`health.py` 참고)
-2. `api/main.py`에 `app.include_router(파일이름.router)` 한 줄 추가
+1. `api/routers/`에 파일을 만들고 `router = APIRouter(prefix="/기능이름", tags=["기능이름"])` 작성 (`health.py` 참고)
+   - prefix에는 `/api` 제외 (예: `/locations`)
+2. `api/main.py`에 `app.include_router(파일이름.router, prefix="/api")` 한 줄 추가
+   - 최종 주소: `/api/기능이름`
+   - `/health`는 서버 상태 확인용이라 `/api` 없이 연결
 
 ## 라이브러리 추가할 때
 
