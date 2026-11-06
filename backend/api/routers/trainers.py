@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from api.services.data_loader import load_trainers
 from api.schemas.trainer import TrainerSummary, TrainerDetail
 
-router = APIRouter(prefix="/api/trainers", tags=["trainers"])
+router = APIRouter(prefix="/trainers", tags=["trainers"])
 
 @router.get("", response_model=list[TrainerSummary])
 def list_trainers(category: str | None = None):
