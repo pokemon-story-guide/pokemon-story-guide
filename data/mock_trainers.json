@@ -1,0 +1,35 @@
+[
+  {
+    "id": "mock-leader-1",
+    "name": "임시 관장 1",
+    "category": "gym-leader",
+    "type": "normal",
+    "badge_order": 1,
+    "image": "",
+    "party": [
+      { "pokemon_id": 1, "level": 10 },
+      { "pokemon_id": 4, "level": 12 }
+    ]
+  },
+  {
+    "id": "mock-leader-2",
+    "name": "임시 관장 2",
+    "category": "gym-leader",
+    "type": "water",
+    "badge_order": 2,
+    "image": "",
+    "party": [
+      { "pokemon_id": 7, "level": 15 }
+    ]
+  },
+  {
+    "id": "mock-elite-1",
+    "name": "임시 사천왕 1",
+    "category": "elite-four",
+    "type": "psychic",
+    "image": "",
+    "party": [
+      { "pokemon_id": 25, "level": 40 }
+    ]
+  }
+]
