@@ -1,0 +1,13 @@
+{
+  "id": "n-accumula-town",
+  "name": "N (칠보시티)",
+  "category": "rival",
+  "type": "",
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 15,
+      "level": 7
+    }
+  ]
+}

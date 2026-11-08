@@ -1,0 +1,21 @@
+{
+  "id": "n-nacrene-city",
+  "name": "N (벽화시티)",
+  "category": "rival",
+  "type": "",
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 25,
+      "level": 13
+    },
+    {
+      "pokemon_id": 41,
+      "level": 13
+    },
+    {
+      "pokemon_id": 38,
+      "level": 13
+    }
+  ]
+}

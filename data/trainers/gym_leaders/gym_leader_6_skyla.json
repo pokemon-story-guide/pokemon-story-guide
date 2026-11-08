@@ -1,0 +1,22 @@
+{
+  "id": "skyla",
+  "name": "풍란",
+  "category": "gym-leader",
+  "type": "flying",
+  "badge_order": 6,
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 34,
+      "level": 33
+    },
+    {
+      "pokemon_id": 27,
+      "level": 33
+    },
+    {
+      "pokemon_id": 87,
+      "level": 35
+    }
+  ]
+}

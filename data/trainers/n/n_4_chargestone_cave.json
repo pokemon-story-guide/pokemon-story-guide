@@ -1,0 +1,25 @@
+{
+  "id": "n-chargestone-cave",
+  "name": "N (전기돌동굴)",
+  "category": "rival",
+  "type": "",
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 31,
+      "level": 28
+    },
+    {
+      "pokemon_id": 103,
+      "level": 28
+    },
+    {
+      "pokemon_id": 101,
+      "level": 28
+    },
+    {
+      "pokemon_id": 105,
+      "level": 28
+    }
+  ]
+}

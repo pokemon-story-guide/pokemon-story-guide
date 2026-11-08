@@ -1,0 +1,33 @@
+{
+  "id": "n-castle-black",
+  "name": "N (N의 성 · 블랙)",
+  "category": "rival",
+  "type": "",
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 150,
+      "level": 52
+    },
+    {
+      "pokemon_id": 71,
+      "level": 50
+    },
+    {
+      "pokemon_id": 90,
+      "level": 50
+    },
+    {
+      "pokemon_id": 73,
+      "level": 50
+    },
+    {
+      "pokemon_id": 77,
+      "level": 50
+    },
+    {
+      "pokemon_id": 107,
+      "level": 50
+    }
+  ]
+}
