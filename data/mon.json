@@ -1,0 +1,2170 @@
+[
+  {
+    "id": 0,
+    "name": "비크티니",
+    "types": [
+      "psychic",
+      "fire"
+    ],
+    "base_stat_total": 600,
+    "location_ids": [
+      0
+    ],
+    "evolution": null,
+    "usable": 0
+  },
+  {
+    "id": 1,
+    "name": "주리비얀",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 308,
+    "location_ids": null,
+    "evolution": 17,
+    "usable": 1
+  },
+  {
+    "id": 2,
+    "name": "샤비",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 413,
+    "location_ids": null,
+    "evolution": 36,
+    "usable": 1
+  },
+  {
+    "id": 3,
+    "name": "샤로다",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 528,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 4,
+    "name": "뚜꾸리",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 308,
+    "location_ids": null,
+    "evolution": 17,
+    "usable": 1
+  },
+  {
+    "id": 5,
+    "name": "차오꿀",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "base_stat_total": 418,
+    "location_ids": null,
+    "evolution": 36,
+    "usable": 1
+  },
+  {
+    "id": 6,
+    "name": "염무왕",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "base_stat_total": 528,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 7,
+    "name": "수댕이",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 308,
+    "location_ids": null,
+    "evolution": 17,
+    "usable": 1
+  },
+  {
+    "id": 8,
+    "name": "쌍검자비",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 413,
+    "location_ids": null,
+    "evolution": 36,
+    "usable": 1
+  },
+  {
+    "id": 9,
+    "name": "대검귀",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 528,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 10,
+    "name": "보르쥐",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 255,
+    "location_ids": [
+      1,
+      2,
+      3,
+      26
+    ],
+    "evolution": 20,
+    "usable": 1
+  },
+  {
+    "id": 11,
+    "name": "보르그",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 420,
+    "location_ids": [
+      1,
+      7,
+      15,
+      18,
+      26,
+      44
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 12,
+    "name": "요테리",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 275,
+    "location_ids": [
+      1,
+      2,
+      3
+    ],
+    "evolution": 16,
+    "usable": 1
+  },
+  {
+    "id": 13,
+    "name": "하데리어",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 370,
+    "location_ids": [
+      1,
+      10,
+      32,
+      43
+    ],
+    "evolution": 32,
+    "usable": 1
+  },
+  {
+    "id": 14,
+    "name": "바랜드",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 490,
+    "location_ids": [
+      10,
+      32,
+      43
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 15,
+    "name": "쌔비냥",
+    "types": [
+      "dark"
+    ],
+    "base_stat_total": 281,
+    "location_ids": [
+      2,
+      3,
+      26
+    ],
+    "evolution": 20,
+    "usable": 1
+  },
+  {
+    "id": 16,
+    "name": "레파르다스",
+    "types": [
+      "dark"
+    ],
+    "base_stat_total": 446,
+    "location_ids": [
+      5,
+      9,
+      16,
+      26
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 17,
+    "name": "야나프",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 316,
+    "location_ids": [
+      28,
+      31,
+      26
+    ],
+    "evolution": "리프의 돌",
+    "usable": 1
+  },
+  {
+    "id": 18,
+    "name": "야나키",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 498,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 19,
+    "name": "바오프",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 316,
+    "location_ids": [
+      28,
+      31,
+      26
+    ],
+    "evolution": "불꽃의 돌",
+    "usable": 1
+  },
+  {
+    "id": 20,
+    "name": "바오키",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 498,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 21,
+    "name": "앗차프",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 316,
+    "location_ids": [
+      28,
+      31,
+      26
+    ],
+    "evolution": "물의 돌",
+    "usable": 1
+  },
+  {
+    "id": 22,
+    "name": "앗차키",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 498,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 23,
+    "name": "몽나",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 292,
+    "location_ids": [
+      26
+    ],
+    "evolution": "달의 돌",
+    "usable": 1
+  },
+  {
+    "id": 24,
+    "name": "몽얌나",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 487,
+    "location_ids": [
+      26
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 25,
+    "name": "콩둘기",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 264,
+    "location_ids": [
+      3,
+      28
+    ],
+    "evolution": 21,
+    "usable": 1
+  },
+  {
+    "id": 26,
+    "name": "유토브",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 358,
+    "location_ids": [
+      6,
+      7,
+      12,
+      28,
+      31,
+      37
+    ],
+    "evolution": 32,
+    "usable": 1
+  },
+  {
+    "id": 27,
+    "name": "켄호로우",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 478,
+    "location_ids": [
+      6,
+      7,
+      12,
+      31,
+      37
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 28,
+    "name": "줄뮤마",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 295,
+    "location_ids": [
+      3
+    ],
+    "evolution": 27,
+    "usable": 1
+  },
+  {
+    "id": 29,
+    "name": "제브라이카",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 497,
+    "location_ids": [
+      7
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 30,
+    "name": "단굴",
+    "types": [
+      "rock"
+    ],
+    "base_stat_total": 280,
+    "location_ids": [
+      27
+    ],
+    "evolution": 25,
+    "usable": 1
+  },
+  {
+    "id": 31,
+    "name": "암트르",
+    "types": [
+      "rock"
+    ],
+    "base_stat_total": 390,
+    "location_ids": [
+      33,
+      34,
+      36,
+      39,
+      40
+    ],
+    "evolution": "통신",
+    "usable": 1
+  },
+  {
+    "id": 32,
+    "name": "기가이어스",
+    "types": [
+      "rock"
+    ],
+    "base_stat_total": 505,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 33,
+    "name": "또르박쥐",
+    "types": [
+      "psychic",
+      "flying"
+    ],
+    "base_stat_total": 313,
+    "location_ids": [
+      27,
+      34,
+      36,
+      39
+    ],
+    "evolution": "친밀도",
+    "usable": 1
+  },
+  {
+    "id": 34,
+    "name": "맘박쥐",
+    "types": [
+      "psychic",
+      "flying"
+    ],
+    "base_stat_total": 425,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 35,
+    "name": "두더류",
+    "types": [
+      "ground"
+    ],
+    "base_stat_total": 328,
+    "location_ids": [
+      27,
+      33,
+      34,
+      36
+    ],
+    "evolution": 35,
+    "usable": 1
+  },
+  {
+    "id": 36,
+    "name": "몰드류",
+    "types": [
+      "ground",
+      "steel"
+    ],
+    "base_stat_total": 508,
+    "location_ids": [
+      39,
+      40
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 37,
+    "name": "다부니",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 445,
+    "location_ids": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      25,
+      26,
+      28,
+      31,
+      32,
+      37,
+      40,
+      43
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 38,
+    "name": "으랏차",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 305,
+    "location_ids": [
+      28,
+      32
+    ],
+    "evolution": 25,
+    "usable": 1
+  },
+  {
+    "id": 39,
+    "name": "토쇠골",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 405,
+    "location_ids": [
+      36
+    ],
+    "evolution": "통신",
+    "usable": 1
+  },
+  {
+    "id": 40,
+    "name": "노보청",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 505,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 41,
+    "name": "동챙이",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 206,
+    "location_ids": [
+      28
+    ],
+    "evolution": 25,
+    "usable": 1
+  },
+  {
+    "id": 42,
+    "name": "두까비",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "base_stat_total": 384,
+    "location_ids": [
+      8,
+      38
+    ],
+    "evolution": 36,
+    "usable": 1
+  },
+  {
+    "id": 43,
+    "name": "두빅굴",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "base_stat_total": 499,
+    "location_ids": [
+      8,
+      38
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 44,
+    "name": "던지미",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 465,
+    "location_ids": [
+      10,
+      15,
+      18,
+      28
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 45,
+    "name": "타격귀",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 465,
+    "location_ids": [
+      10,
+      15,
+      18,
+      28
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 46,
+    "name": "두르보",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "base_stat_total": 310,
+    "location_ids": [
+      28
+    ],
+    "evolution": 20,
+    "usable": 1
+  },
+  {
+    "id": 47,
+    "name": "두르쿤",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "base_stat_total": 380,
+    "location_ids": [
+      6,
+      31,
+      28
+    ],
+    "evolution": "친밀도",
+    "usable": 1
+  },
+  {
+    "id": 48,
+    "name": "모아머",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "base_stat_total": 480,
+    "location_ids": [
+      6,
+      31
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 49,
+    "name": "마디네",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "base_stat_total": 260,
+    "location_ids": [
+      28,
+      31
+    ],
+    "evolution": 22,
+    "usable": 1
+  },
+  {
+    "id": 50,
+    "name": "휠구",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "base_stat_total": 360,
+    "location_ids": [
+      28
+    ],
+    "evolution": 30,
+    "usable": 1
+  },
+  {
+    "id": 51,
+    "name": "펜드라",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "base_stat_total": 475,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 52,
+    "name": "소미안",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 280,
+    "location_ids": [
+      28,
+      31,
+      42
+    ],
+    "evolution": "태양의 돌",
+    "usable": 1
+  },
+  {
+    "id": 53,
+    "name": "엘풍",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 480,
+    "location_ids": [
+      28,
+      31,
+      42
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 54,
+    "name": "치릴리",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 280,
+    "location_ids": [
+      28,
+      31,
+      42
+    ],
+    "evolution": "태양의 돌",
+    "usable": 1
+  },
+  {
+    "id": 55,
+    "name": "드레디어",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 480,
+    "location_ids": [
+      28,
+      31,
+      42
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 56,
+    "name": "배쓰나이",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 460,
+    "location_ids": [
+      1,
+      3,
+      6,
+      11,
+      14,
+      25,
+      27,
+      28,
+      31,
+      37,
+      39,
+      40,
+      42
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 57,
+    "name": "깜눈크",
+    "types": [
+      "ground",
+      "dark"
+    ],
+    "base_stat_total": 292,
+    "location_ids": [
+      4,
+      29,
+      30
+    ],
+    "evolution": 29,
+    "usable": 1
+  },
+  {
+    "id": 58,
+    "name": "악비르",
+    "types": [
+      "ground",
+      "dark"
+    ],
+    "base_stat_total": 351,
+    "location_ids": [
+      30
+    ],
+    "evolution": 40,
+    "usable": 1
+  },
+  {
+    "id": 59,
+    "name": "악비아르",
+    "types": [
+      "ground",
+      "dark"
+    ],
+    "base_stat_total": 509,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 60,
+    "name": "달막화",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 315,
+    "location_ids": [
+      4,
+      29
+    ],
+    "evolution": 35,
+    "usable": 1
+  },
+  {
+    "id": 61,
+    "name": "불비달마",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 480,
+    "location_ids": [
+      29
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 62,
+    "name": "마라카치",
+    "types": [
+      "grass"
+    ],
+    "base_stat_total": 461,
+    "location_ids": [
+      29
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 63,
+    "name": "돌살이",
+    "types": [
+      "bug",
+      "rock"
+    ],
+    "base_stat_total": 325,
+    "location_ids": [
+      8,
+      29
+    ],
+    "evolution": 34,
+    "usable": 1
+  },
+  {
+    "id": 64,
+    "name": "암팰리스",
+    "types": [
+      "bug",
+      "rock"
+    ],
+    "base_stat_total": 475,
+    "location_ids": [
+      18
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 65,
+    "name": "곤율랭",
+    "types": [
+      "dark",
+      "fighting"
+    ],
+    "base_stat_total": 348,
+    "location_ids": [
+      1,
+      4,
+      18,
+      29,
+      43
+    ],
+    "evolution": 39,
+    "usable": 1
+  },
+  {
+    "id": 66,
+    "name": "곤율거니",
+    "types": [
+      "dark",
+      "fighting"
+    ],
+    "base_stat_total": 488,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 67,
+    "name": "심보러",
+    "types": [
+      "psychic",
+      "flying"
+    ],
+    "base_stat_total": 490,
+    "location_ids": [
+      29
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 68,
+    "name": "데스마스",
+    "types": [
+      "ghost"
+    ],
+    "base_stat_total": 303,
+    "location_ids": [
+      30
+    ],
+    "evolution": 34,
+    "usable": 1
+  },
+  {
+    "id": 69,
+    "name": "데스니칸",
+    "types": [
+      "ghost"
+    ],
+    "base_stat_total": 483,
+    "location_ids": [
+      30
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 70,
+    "name": "프로토가",
+    "types": [
+      "water",
+      "rock"
+    ],
+    "base_stat_total": 355,
+    "location_ids": null,
+    "evolution": 37,
+    "usable": 1
+  },
+  {
+    "id": 71,
+    "name": "늑골라",
+    "types": [
+      "water",
+      "rock"
+    ],
+    "base_stat_total": 495,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 72,
+    "name": "아켄",
+    "types": [
+      "rock",
+      "flying"
+    ],
+    "base_stat_total": 401,
+    "location_ids": null,
+    "evolution": 37,
+    "usable": 1
+  },
+  {
+    "id": 73,
+    "name": "아케오스",
+    "types": [
+      "rock",
+      "flying"
+    ],
+    "base_stat_total": 567,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 74,
+    "name": "꺠봉이",
+    "types": [
+      "poison"
+    ],
+    "base_stat_total": 329,
+    "location_ids": [
+      5,
+      16
+    ],
+    "evolution": 36,
+    "usable": 1
+  },
+  {
+    "id": 75,
+    "name": "더스트나",
+    "types": [
+      "poison"
+    ],
+    "base_stat_total": 474,
+    "location_ids": [
+      9
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 76,
+    "name": "조로아",
+    "types": [
+      "dark"
+    ],
+    "base_stat_total": 330,
+    "location_ids": null,
+    "evolution": 30,
+    "usable": 1
+  },
+  {
+    "id": 77,
+    "name": "조로아크",
+    "types": [
+      "dark"
+    ],
+    "base_stat_total": 510,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 78,
+    "name": "치라미",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 300,
+    "location_ids": [
+      5,
+      9,
+      16,
+      32
+    ],
+    "evolution": "빛의 돌",
+    "usable": 1
+  },
+  {
+    "id": 79,
+    "name": "치라치노",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 470,
+    "location_ids": [
+      5,
+      9,
+      16,
+      32
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 80,
+    "name": "고디탱",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 290,
+    "location_ids": [
+      5,
+      16
+    ],
+    "evolution": 32,
+    "usable": 1
+  },
+  {
+    "id": 81,
+    "name": "고디보미",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 390,
+    "location_ids": [
+      9
+    ],
+    "evolution": 41,
+    "usable": 1
+  },
+  {
+    "id": 82,
+    "name": "고디모아젤",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 490,
+    "location_ids": [
+      9
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 83,
+    "name": "유니란",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 290,
+    "location_ids": [
+      5,
+      16
+    ],
+    "evolution": 32,
+    "usable": 1
+  },
+  {
+    "id": 84,
+    "name": "듀란",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 370,
+    "location_ids": [
+      9
+    ],
+    "evolution": 41,
+    "usable": 1
+  },
+  {
+    "id": 85,
+    "name": "란쿨루스",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 490,
+    "location_ids": [
+      9
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 86,
+    "name": "꼬지보리",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "base_stat_total": 305,
+    "location_ids": [
+      24
+    ],
+    "evolution": 35,
+    "usable": 1
+  },
+  {
+    "id": 87,
+    "name": "스완나",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "base_stat_total": 473,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 88,
+    "name": "바닐프티",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 305,
+    "location_ids": [
+      6,
+      32,
+      37
+    ],
+    "evolution": 35,
+    "usable": 1
+  },
+  {
+    "id": 89,
+    "name": "바닐리치",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 395,
+    "location_ids": [
+      37
+    ],
+    "evolution": 47,
+    "usable": 1
+  },
+  {
+    "id": 90,
+    "name": "배바닐라",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 535,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 91,
+    "name": "사철록",
+    "types": [
+      "normal",
+      "grass"
+    ],
+    "base_stat_total": 335,
+    "location_ids": [
+      6,
+      7,
+      37
+    ],
+    "evolution": 34,
+    "usable": 1
+  },
+  {
+    "id": 92,
+    "name": "바라철록",
+    "types": [
+      "normal",
+      "grass"
+    ],
+    "base_stat_total": 475,
+    "location_ids": [
+      37
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 93,
+    "name": "에몽가",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "base_stat_total": 428,
+    "location_ids": [
+      5,
+      6,
+      7,
+      10,
+      11,
+      16,
+      25,
+      31,
+      37,
+      40,
+      42
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 94,
+    "name": "딱정곤",
+    "types": [
+      "bug"
+    ],
+    "base_stat_total": 315,
+    "location_ids": [
+      6,
+      11
+    ],
+    "evolution": "통신",
+    "usable": 1
+  },
+  {
+    "id": 95,
+    "name": "슈바르고",
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "base_stat_total": 495,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 96,
+    "name": "깜놀버슬",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_stat_total": 294,
+    "location_ids": [
+      6,
+      7,
+      10
+    ],
+    "evolution": 39,
+    "usable": 1
+  },
+  {
+    "id": 97,
+    "name": "뽀록나",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "base_stat_total": 464,
+    "location_ids": [
+      10,
+      11
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 98,
+    "name": "탱그릴",
+    "types": [
+      "water",
+      "ghost"
+    ],
+    "base_stat_total": 335,
+    "location_ids": [
+      4,
+      17,
+      43
+    ],
+    "evolution": 40,
+    "usable": 1
+  },
+  {
+    "id": 99,
+    "name": "탱탱겔",
+    "types": [
+      "water",
+      "ghost"
+    ],
+    "base_stat_total": 480,
+    "location_ids": [
+      4,
+      17,
+      18,
+      43
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 100,
+    "name": "맘복치",
+    "types": [
+      "water"
+    ],
+    "base_stat_total": 470,
+    "location_ids": [
+      4,
+      17,
+      18,
+      43
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 101,
+    "name": "파쪼옥",
+    "types": [
+      "bug",
+      "electric"
+    ],
+    "base_stat_total": 319,
+    "location_ids": [
+      33
+    ],
+    "evolution": 36,
+    "usable": 1
+  },
+  {
+    "id": 102,
+    "name": "전툴라",
+    "types": [
+      "bug",
+      "electric"
+    ],
+    "base_stat_total": 472,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 103,
+    "name": "철시드",
+    "types": [
+      "grass",
+      "steel"
+    ],
+    "base_stat_total": 305,
+    "location_ids": [
+      33
+    ],
+    "evolution": 40,
+    "usable": 1
+  },
+  {
+    "id": 104,
+    "name": "너트령",
+    "types": [
+      "grass",
+      "steel"
+    ],
+    "base_stat_total": 489,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 105,
+    "name": "기어르",
+    "types": [
+      "steel"
+    ],
+    "base_stat_total": 300,
+    "location_ids": [
+      33,
+      43
+    ],
+    "evolution": 38,
+    "usable": 1
+  },
+  {
+    "id": 106,
+    "name": "기기어르",
+    "types": [
+      "steel"
+    ],
+    "base_stat_total": 440,
+    "location_ids": null,
+    "evolution": 49,
+    "usable": 1
+  },
+  {
+    "id": 107,
+    "name": "기기기어르",
+    "types": [
+      "steel"
+    ],
+    "base_stat_total": 520,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 108,
+    "name": "저리어",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 275,
+    "location_ids": [
+      33
+    ],
+    "evolution": 39,
+    "usable": 1
+  },
+  {
+    "id": 109,
+    "name": "저리릴",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 405,
+    "location_ids": null,
+    "evolution": "천둥의 돌",
+    "usable": 1
+  },
+  {
+    "id": 110,
+    "name": "저리더프",
+    "types": [
+      "electric"
+    ],
+    "base_stat_total": 515,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 111,
+    "name": "리그레",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 335,
+    "location_ids": [
+      35
+    ],
+    "evolution": 42,
+    "usable": 1
+  },
+  {
+    "id": 112,
+    "name": "벰크",
+    "types": [
+      "psychic"
+    ],
+    "base_stat_total": 485,
+    "location_ids": [
+      14
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 113,
+    "name": "불켜미",
+    "types": [
+      "ghost",
+      "fire"
+    ],
+    "base_stat_total": 275,
+    "location_ids": [
+      35
+    ],
+    "evolution": 41,
+    "usable": 1
+  },
+  {
+    "id": 114,
+    "name": "램프라",
+    "types": [
+      "ghost",
+      "fire"
+    ],
+    "base_stat_total": 370,
+    "location_ids": null,
+    "evolution": "어둠의 돌",
+    "usable": 1
+  },
+  {
+    "id": 115,
+    "name": "샹델라",
+    "types": [
+      "ghost",
+      "fire"
+    ],
+    "base_stat_total": 520,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 116,
+    "name": "터검니",
+    "types": [
+      "dragon"
+    ],
+    "base_stat_total": 320,
+    "location_ids": [
+      34
+    ],
+    "evolution": 38,
+    "usable": 1
+  },
+  {
+    "id": 117,
+    "name": "액슨도",
+    "types": [
+      "dragon"
+    ],
+    "base_stat_total": 410,
+    "location_ids": [
+      39
+    ],
+    "evolution": 48,
+    "usable": 1
+  },
+  {
+    "id": 118,
+    "name": "액스라이즈",
+    "types": [
+      "dragon"
+    ],
+    "base_stat_total": 540,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 119,
+    "name": "코고미",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 305,
+    "location_ids": [
+      7,
+      36,
+      37
+    ],
+    "evolution": 37,
+    "usable": 1
+  },
+  {
+    "id": 120,
+    "name": "툰베어",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 485,
+    "location_ids": [
+      37
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 121,
+    "name": "프리지오",
+    "types": [
+      "ice"
+    ],
+    "base_stat_total": 485,
+    "location_ids": [
+      36
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 122,
+    "name": "쪼마리",
+    "types": [
+      "bug"
+    ],
+    "base_stat_total": 305,
+    "location_ids": [
+      8,
+      38
+    ],
+    "evolution": "통신",
+    "usable": 1
+  },
+  {
+    "id": 123,
+    "name": "어지리더",
+    "types": [
+      "bug"
+    ],
+    "base_stat_total": 495,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 124,
+    "name": "메더",
+    "types": [
+      "ground",
+      "electric"
+    ],
+    "base_stat_total": 471,
+    "location_ids": [
+      8,
+      38
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 125,
+    "name": "비조푸",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 350,
+    "location_ids": [
+      14,
+      37,
+      39
+    ],
+    "evolution": 50,
+    "usable": 1
+  },
+  {
+    "id": 126,
+    "name": "비조도",
+    "types": [
+      "fighting"
+    ],
+    "base_stat_total": 510,
+    "location_ids": [
+      14
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 127,
+    "name": "크리만",
+    "types": [
+      "dragon"
+    ],
+    "base_stat_total": 485,
+    "location_ids": [
+      37
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 128,
+    "name": "골비람",
+    "types": [
+      "ground",
+      "ghost"
+    ],
+    "base_stat_total": 303,
+    "location_ids": [
+      37
+    ],
+    "evolution": 43,
+    "usable": 1
+  },
+  {
+    "id": 129,
+    "name": "골루그",
+    "types": [
+      "ground",
+      "ghost"
+    ],
+    "base_stat_total": 483,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 130,
+    "name": "자망칼",
+    "types": [
+      "dark",
+      "steel"
+    ],
+    "base_stat_total": 340,
+    "location_ids": [
+      9,
+      11
+    ],
+    "evolution": 52,
+    "usable": 1
+  },
+  {
+    "id": 131,
+    "name": "절각참",
+    "types": [
+      "dark",
+      "steel"
+    ],
+    "base_stat_total": 490,
+    "location_ids": [
+      11
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 132,
+    "name": "버프론",
+    "types": [
+      "normal"
+    ],
+    "base_stat_total": 490,
+    "location_ids": [
+      10
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 133,
+    "name": "수리둥보",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 350,
+    "location_ids": [
+      10,
+      11,
+      25,
+      39
+    ],
+    "evolution": 54,
+    "usable": 1
+  },
+  {
+    "id": 134,
+    "name": "워글",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "base_stat_total": 510,
+    "location_ids": [
+      11,
+      25
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 135,
+    "name": "벌차이",
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "base_stat_total": 370,
+    "location_ids": [
+      10,
+      11,
+      25,
+      39
+    ],
+    "evolution": 54,
+    "usable": 1
+  },
+  {
+    "id": 136,
+    "name": "버랜지나",
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "base_stat_total": 510,
+    "location_ids": [
+      11,
+      25
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 137,
+    "name": "앤티골",
+    "types": [
+      "fire"
+    ],
+    "base_stat_total": 484,
+    "location_ids": [
+      39
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 138,
+    "name": "아이앤트",
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "base_stat_total": 484,
+    "location_ids": [
+      39
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 139,
+    "name": "모노두",
+    "types": [
+      "dark",
+      "dragon"
+    ],
+    "base_stat_total": 300,
+    "location_ids": [
+      39
+    ],
+    "evolution": 50,
+    "usable": 1
+  },
+  {
+    "id": 140,
+    "name": "디헤드",
+    "types": [
+      "dark",
+      "dragon"
+    ],
+    "base_stat_total": 420,
+    "location_ids": null,
+    "evolution": 64,
+    "usable": 1
+  },
+  {
+    "id": 141,
+    "name": "삼삼드래",
+    "types": [
+      "dark",
+      "dragon"
+    ],
+    "base_stat_total": 600,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 142,
+    "name": "활화르바",
+    "types": [
+      "bug",
+      "fire"
+    ],
+    "base_stat_total": 360,
+    "location_ids": [
+      18
+    ],
+    "evolution": 59,
+    "usable": 1
+  },
+  {
+    "id": 143,
+    "name": "불카모스",
+    "types": [
+      "bug",
+      "fire"
+    ],
+    "base_stat_total": 550,
+    "location_ids": [
+      30
+    ],
+    "evolution": null,
+    "usable": 1
+  },
+  {
+    "id": 144,
+    "name": "코바르온",
+    "types": [
+      "steel",
+      "fighting"
+    ],
+    "base_stat_total": 580,
+    "location_ids": [
+      34
+    ],
+    "evolution": null,
+    "usable": 0
+  },
+  {
+    "id": 145,
+    "name": "테라키온",
+    "types": [
+      "rock",
+      "fighting"
+    ],
+    "base_stat_total": 580,
+    "location_ids": [
+      39
+    ],
+    "evolution": null,
+    "usable": 0
+  },
+  {
+    "id": 146,
+    "name": "비리디온",
+    "types": [
+      "grass",
+      "fighting"
+    ],
+    "base_stat_total": 580,
+    "location_ids": [
+      28
+    ],
+    "evolution": null,
+    "usable": 0
+  },
+  {
+    "id": 147,
+    "name": "토네로스",
+    "types": [
+      "flying"
+    ],
+    "base_stat_total": 580,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 0
+  },
+  {
+    "id": 148,
+    "name": "볼트로스",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "base_stat_total": 580,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 0
+  },
+  {
+    "id": 149,
+    "name": "레시라무",
+    "types": [
+      "dragon",
+      "fire"
+    ],
+    "base_stat_total": 680,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 0
+  },
+  {
+    "id": 150,
+    "name": "제크로무",
+    "types": [
+      "dragon",
+      "electric"
+    ],
+    "base_stat_total": 680,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 0
+  },
+  {
+    "id": 151,
+    "name": "랜드로스",
+    "types": [
+      "ground",
+      "flying"
+    ],
+    "base_stat_total": 580,
+    "location_ids": [
+      42
+    ],
+    "evolution": null,
+    "usable": 0
+  },
+  {
+    "id": 152,
+    "name": "큐레무",
+    "types": [
+      "dragon",
+      "ice"
+    ],
+    "base_stat_total": 660,
+    "location_ids": [
+      40
+    ],
+    "evolution": null,
+    "usable": 0
+  },
+  {
+    "id": 153,
+    "name": "케르디오",
+    "types": [
+      "water",
+      "fighting"
+    ],
+    "base_stat_total": 580,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 0
+  },
+  {
+    "id": 154,
+    "name": "메로엣타",
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "base_stat_total": 600,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 0
+  },
+  {
+    "id": 155,
+    "name": "게노세크트",
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "base_stat_total": 600,
+    "location_ids": null,
+    "evolution": null,
+    "usable": 0
+  }
+]
