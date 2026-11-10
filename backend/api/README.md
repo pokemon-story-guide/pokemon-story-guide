@@ -36,3 +36,15 @@ ai/             LLM 연동
 ## 라이브러리 추가할 때
 
 `pip install 라이브러리` 후 `pip freeze > requirements.txt`로 목록 갱신
+
+## Docker로 실행
+
+저장소 맨 위에서 실행 (Docker Desktop 실행 필요)
+
+```bash
+docker compose up --build   # 켜기
+docker compose down         # 끄기
+```
+
+- API 문서: http://127.0.0.1:8000/docs
+- Redis는 백엔드 컨테이너에서만 접근 (호스트 `redis`, 포트 `6379`)
