@@ -11,7 +11,14 @@ CATEGORY_DIRS = ["gym_leaders", "elite_four", "n"]
 def _load_data():
     trainers = []
     for folder in CATEGORY_DIRS:
-        for path in sorted((DATA_DIR / folder).glob("*.json")):
+        folder_path = DATA_DIR / folder
+        # 필수 폴더가 없거나 비어 있으면 빈 목록으로 숨기지 않고 오류를 냅니다.
+        if not folder_path.is_dir():
+            raise FileNotFoundError(f"관장 데이터 폴더가 없습니다: {folder_path}")
+        paths = sorted(folder_path.glob("*.json"))
+        if not paths:
+            raise FileNotFoundError(f"관장 데이터 폴더가 비어 있습니다: {folder_path}")
+        for path in paths:
             with path.open(encoding="utf-8") as file:
                 trainers.append(json.load(file))
     return trainers
@@ -25,7 +32,7 @@ def get_trainers(category: str | None = None):
 
 
 def get_trainer(trainer_id: str):
-    """해당 ID의 관장·사천왕이 없으면 None을 반환합니다."""
+    """해당 ID의 인물이 없으면 None을 반환합니다."""
     for trainer in _load_data():
         if trainer["id"] == trainer_id:
             return trainer
