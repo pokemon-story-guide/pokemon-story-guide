@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException, Query
 
+from api.schemas.location import Location
 from api.schemas.pokemon import PokemonCard, PokemonDetail, PokemonType
 from api.services import pokemon_service
 
@@ -20,3 +21,11 @@ def get_pokemon(pokemon_id: int):
     if pokemon is None:
         raise HTTPException(status_code=404, detail="존재하지 않는 포켓몬입니다.")
     return pokemon
+
+
+@router.get("/{pokemon_id}/locations", response_model=list[Location])
+def list_pokemon_locations(pokemon_id: int):
+    locations = pokemon_service.get_pokemon_locations(pokemon_id)
+    if locations is None:
+        raise HTTPException(status_code=404, detail="존재하지 않는 포켓몬입니다.")
+    return locations
