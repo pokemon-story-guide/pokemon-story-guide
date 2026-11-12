@@ -1,0 +1,1035 @@
+[
+  {
+    "id": 0,
+    "english_name": "normal",
+    "name": "노말",
+    "attack_multipliers": [
+      {
+        "type_id": 12,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 13,
+        "multiplier": 0
+      },
+      {
+        "type_id": 16,
+        "multiplier": 0.5
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 6,
+        "multiplier": 2
+      },
+      {
+        "type_id": 13,
+        "multiplier": 0
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "english_name": "fire",
+    "name": "불꽃",
+    "attack_multipliers": [
+      {
+        "type_id": 1,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 2,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 3,
+        "multiplier": 2
+      },
+      {
+        "type_id": 5,
+        "multiplier": 2
+      },
+      {
+        "type_id": 11,
+        "multiplier": 2
+      },
+      {
+        "type_id": 12,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 14,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 16,
+        "multiplier": 2
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 1,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 2,
+        "multiplier": 2
+      },
+      {
+        "type_id": 3,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 5,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 8,
+        "multiplier": 2
+      },
+      {
+        "type_id": 11,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 12,
+        "multiplier": 2
+      },
+      {
+        "type_id": 16,
+        "multiplier": 0.5
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "english_name": "water",
+    "name": "물",
+    "attack_multipliers": [
+      {
+        "type_id": 1,
+        "multiplier": 2
+      },
+      {
+        "type_id": 2,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 3,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 8,
+        "multiplier": 2
+      },
+      {
+        "type_id": 12,
+        "multiplier": 2
+      },
+      {
+        "type_id": 14,
+        "multiplier": 0.5
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 1,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 2,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 3,
+        "multiplier": 2
+      },
+      {
+        "type_id": 4,
+        "multiplier": 2
+      },
+      {
+        "type_id": 5,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 16,
+        "multiplier": 0.5
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "english_name": "grass",
+    "name": "풀",
+    "attack_multipliers": [
+      {
+        "type_id": 1,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 2,
+        "multiplier": 2
+      },
+      {
+        "type_id": 3,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 7,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 8,
+        "multiplier": 2
+      },
+      {
+        "type_id": 9,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 11,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 12,
+        "multiplier": 2
+      },
+      {
+        "type_id": 14,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 16,
+        "multiplier": 0.5
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 1,
+        "multiplier": 2
+      },
+      {
+        "type_id": 2,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 3,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 4,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 5,
+        "multiplier": 2
+      },
+      {
+        "type_id": 7,
+        "multiplier": 2
+      },
+      {
+        "type_id": 8,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 9,
+        "multiplier": 2
+      },
+      {
+        "type_id": 11,
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "english_name": "electric",
+    "name": "전기",
+    "attack_multipliers": [
+      {
+        "type_id": 2,
+        "multiplier": 2
+      },
+      {
+        "type_id": 3,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 4,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 8,
+        "multiplier": 0
+      },
+      {
+        "type_id": 9,
+        "multiplier": 2
+      },
+      {
+        "type_id": 14,
+        "multiplier": 0.5
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 4,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 8,
+        "multiplier": 2
+      },
+      {
+        "type_id": 9,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 16,
+        "multiplier": 0.5
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "english_name": "ice",
+    "name": "얼음",
+    "attack_multipliers": [
+      {
+        "type_id": 1,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 2,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 3,
+        "multiplier": 2
+      },
+      {
+        "type_id": 5,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 8,
+        "multiplier": 2
+      },
+      {
+        "type_id": 9,
+        "multiplier": 2
+      },
+      {
+        "type_id": 14,
+        "multiplier": 2
+      },
+      {
+        "type_id": 16,
+        "multiplier": 0.5
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 1,
+        "multiplier": 2
+      },
+      {
+        "type_id": 5,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 6,
+        "multiplier": 2
+      },
+      {
+        "type_id": 12,
+        "multiplier": 2
+      },
+      {
+        "type_id": 16,
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "english_name": "fighting",
+    "name": "격투",
+    "attack_multipliers": [
+      {
+        "type_id": 0,
+        "multiplier": 2
+      },
+      {
+        "type_id": 5,
+        "multiplier": 2
+      },
+      {
+        "type_id": 7,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 9,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 10,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 11,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 12,
+        "multiplier": 2
+      },
+      {
+        "type_id": 13,
+        "multiplier": 0
+      },
+      {
+        "type_id": 15,
+        "multiplier": 2
+      },
+      {
+        "type_id": 16,
+        "multiplier": 2
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 9,
+        "multiplier": 2
+      },
+      {
+        "type_id": 10,
+        "multiplier": 2
+      },
+      {
+        "type_id": 11,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 12,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 15,
+        "multiplier": 0.5
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "english_name": "poison",
+    "name": "독",
+    "attack_multipliers": [
+      {
+        "type_id": 3,
+        "multiplier": 2
+      },
+      {
+        "type_id": 7,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 8,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 12,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 13,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 16,
+        "multiplier": 0
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 3,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 6,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 7,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 8,
+        "multiplier": 2
+      },
+      {
+        "type_id": 10,
+        "multiplier": 2
+      },
+      {
+        "type_id": 11,
+        "multiplier": 0.5
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "english_name": "ground",
+    "name": "땅",
+    "attack_multipliers": [
+      {
+        "type_id": 1,
+        "multiplier": 2
+      },
+      {
+        "type_id": 3,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 4,
+        "multiplier": 2
+      },
+      {
+        "type_id": 7,
+        "multiplier": 2
+      },
+      {
+        "type_id": 9,
+        "multiplier": 0
+      },
+      {
+        "type_id": 11,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 12,
+        "multiplier": 2
+      },
+      {
+        "type_id": 16,
+        "multiplier": 2
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 2,
+        "multiplier": 2
+      },
+      {
+        "type_id": 3,
+        "multiplier": 2
+      },
+      {
+        "type_id": 4,
+        "multiplier": 0
+      },
+      {
+        "type_id": 5,
+        "multiplier": 2
+      },
+      {
+        "type_id": 7,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 12,
+        "multiplier": 0.5
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "english_name": "flying",
+    "name": "비행",
+    "attack_multipliers": [
+      {
+        "type_id": 3,
+        "multiplier": 2
+      },
+      {
+        "type_id": 4,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 6,
+        "multiplier": 2
+      },
+      {
+        "type_id": 11,
+        "multiplier": 2
+      },
+      {
+        "type_id": 12,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 16,
+        "multiplier": 0.5
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 3,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 4,
+        "multiplier": 2
+      },
+      {
+        "type_id": 5,
+        "multiplier": 2
+      },
+      {
+        "type_id": 6,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 8,
+        "multiplier": 0
+      },
+      {
+        "type_id": 11,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 12,
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "english_name": "psychic",
+    "name": "에스퍼",
+    "attack_multipliers": [
+      {
+        "type_id": 6,
+        "multiplier": 2
+      },
+      {
+        "type_id": 7,
+        "multiplier": 2
+      },
+      {
+        "type_id": 10,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 15,
+        "multiplier": 0
+      },
+      {
+        "type_id": 16,
+        "multiplier": 0.5
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 6,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 10,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 11,
+        "multiplier": 2
+      },
+      {
+        "type_id": 13,
+        "multiplier": 2
+      },
+      {
+        "type_id": 15,
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "english_name": "bug",
+    "name": "벌레",
+    "attack_multipliers": [
+      {
+        "type_id": 1,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 3,
+        "multiplier": 2
+      },
+      {
+        "type_id": 6,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 7,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 9,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 10,
+        "multiplier": 2
+      },
+      {
+        "type_id": 13,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 15,
+        "multiplier": 2
+      },
+      {
+        "type_id": 16,
+        "multiplier": 0.5
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 1,
+        "multiplier": 2
+      },
+      {
+        "type_id": 3,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 6,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 8,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 9,
+        "multiplier": 2
+      },
+      {
+        "type_id": 12,
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "english_name": "rock",
+    "name": "바위",
+    "attack_multipliers": [
+      {
+        "type_id": 1,
+        "multiplier": 2
+      },
+      {
+        "type_id": 5,
+        "multiplier": 2
+      },
+      {
+        "type_id": 6,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 8,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 9,
+        "multiplier": 2
+      },
+      {
+        "type_id": 11,
+        "multiplier": 2
+      },
+      {
+        "type_id": 16,
+        "multiplier": 0.5
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 0,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 1,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 2,
+        "multiplier": 2
+      },
+      {
+        "type_id": 3,
+        "multiplier": 2
+      },
+      {
+        "type_id": 6,
+        "multiplier": 2
+      },
+      {
+        "type_id": 7,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 8,
+        "multiplier": 2
+      },
+      {
+        "type_id": 9,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 16,
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "english_name": "ghost",
+    "name": "고스트",
+    "attack_multipliers": [
+      {
+        "type_id": 0,
+        "multiplier": 0
+      },
+      {
+        "type_id": 10,
+        "multiplier": 2
+      },
+      {
+        "type_id": 13,
+        "multiplier": 2
+      },
+      {
+        "type_id": 15,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 16,
+        "multiplier": 0.5
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 0,
+        "multiplier": 0
+      },
+      {
+        "type_id": 6,
+        "multiplier": 0
+      },
+      {
+        "type_id": 7,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 11,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 13,
+        "multiplier": 2
+      },
+      {
+        "type_id": 15,
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "english_name": "dragon",
+    "name": "드래곤",
+    "attack_multipliers": [
+      {
+        "type_id": 14,
+        "multiplier": 2
+      },
+      {
+        "type_id": 16,
+        "multiplier": 0.5
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 1,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 2,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 3,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 4,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 5,
+        "multiplier": 2
+      },
+      {
+        "type_id": 14,
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "english_name": "dark",
+    "name": "악",
+    "attack_multipliers": [
+      {
+        "type_id": 6,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 10,
+        "multiplier": 2
+      },
+      {
+        "type_id": 13,
+        "multiplier": 2
+      },
+      {
+        "type_id": 15,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 16,
+        "multiplier": 0.5
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 6,
+        "multiplier": 2
+      },
+      {
+        "type_id": 10,
+        "multiplier": 0
+      },
+      {
+        "type_id": 11,
+        "multiplier": 2
+      },
+      {
+        "type_id": 13,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 15,
+        "multiplier": 0.5
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "english_name": "steel",
+    "name": "강철",
+    "attack_multipliers": [
+      {
+        "type_id": 1,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 2,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 4,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 5,
+        "multiplier": 2
+      },
+      {
+        "type_id": 12,
+        "multiplier": 2
+      },
+      {
+        "type_id": 16,
+        "multiplier": 0.5
+      }
+    ],
+    "defense_multipliers": [
+      {
+        "type_id": 0,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 1,
+        "multiplier": 2
+      },
+      {
+        "type_id": 3,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 5,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 6,
+        "multiplier": 2
+      },
+      {
+        "type_id": 7,
+        "multiplier": 0
+      },
+      {
+        "type_id": 8,
+        "multiplier": 2
+      },
+      {
+        "type_id": 9,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 10,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 11,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 12,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 13,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 14,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 15,
+        "multiplier": 0.5
+      },
+      {
+        "type_id": 16,
+        "multiplier": 0.5
+      }
+    ]
+  }
+]
