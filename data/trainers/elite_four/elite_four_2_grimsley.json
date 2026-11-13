@@ -1,0 +1,25 @@
+{
+  "id": "grimsley",
+  "name": "블래리",
+  "category": "elite-four",
+  "type": "dark",
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 66,
+      "level": 48
+    },
+    {
+      "pokemon_id": 16,
+      "level": 48
+    },
+    {
+      "pokemon_id": 59,
+      "level": 48
+    },
+    {
+      "pokemon_id": 131,
+      "level": 50
+    }
+  ]
+}

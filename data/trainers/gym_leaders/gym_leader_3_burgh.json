@@ -1,0 +1,22 @@
+{
+  "id": "burgh",
+  "name": "아티",
+  "category": "gym-leader",
+  "type": "bug",
+  "badge_order": 3,
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 50,
+      "level": 21
+    },
+    {
+      "pokemon_id": 63,
+      "level": 21
+    },
+    {
+      "pokemon_id": 48,
+      "level": 23
+    }
+  ]
+}

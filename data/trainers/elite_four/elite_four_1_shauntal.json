@@ -1,0 +1,25 @@
+{
+  "id": "shauntal",
+  "name": "망초",
+  "category": "elite-four",
+  "type": "ghost",
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 69,
+      "level": 48
+    },
+    {
+      "pokemon_id": 99,
+      "level": 48
+    },
+    {
+      "pokemon_id": 129,
+      "level": 48
+    },
+    {
+      "pokemon_id": 115,
+      "level": 50
+    }
+  ]
+}

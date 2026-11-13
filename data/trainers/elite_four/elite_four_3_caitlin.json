@@ -1,0 +1,25 @@
+{
+  "id": "caitlin",
+  "name": "카틀레야",
+  "category": "elite-four",
+  "type": "psychic",
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 85,
+      "level": 48
+    },
+    {
+      "pokemon_id": 24,
+      "level": 48
+    },
+    {
+      "pokemon_id": 67,
+      "level": 48
+    },
+    {
+      "pokemon_id": 82,
+      "level": 50
+    }
+  ]
+}
