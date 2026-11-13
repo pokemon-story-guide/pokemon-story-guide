@@ -1,7 +1,10 @@
+import json
 import unittest
+from pathlib import Path
 
 from algorithm.type_chart import TYPE_CHART, TYPES, get_multiplier
 
+TYPE_DATA = Path(__file__).resolve().parents[2] / "data" / "type.json"
 
 class TypeChartTest(unittest.TestCase):
     def test_chart_has_17_types_without_fairy(self):
@@ -37,7 +40,29 @@ class TypeChartTest(unittest.TestCase):
             get_multiplier("water", ["fairy"])
         with self.assertRaises(ValueError):
             get_multiplier("water", [])
+    def test_matches_type_json_for_all_combinations(self):
+        type_data = json.loads(TYPE_DATA.read_text(encoding="utf-8"))
+        names = {item["id"]: item["english_name"] for item in type_data}
+        self.assertEqual(set(names.values()), set(TYPES))
 
+        for item in type_data:
+            attack_type = item["english_name"]
+            expected = {names[x["type_id"]]: x["multiplier"] for x in item["attack_multipliers"]}
+            for defense_type in TYPES:
+                with self.subTest(attack=attack_type, defense=defense_type):
+                    self.assertEqual(
+                        get_multiplier(attack_type, [defense_type]),
+                        expected.get(defense_type, 1),
+                    )
+
+    def test_unlisted_combination_is_neutral(self):
+        self.assertEqual(get_multiplier("normal", ["water"]), 1)
+        self.assertEqual(get_multiplier("dragon", ["fire"]), 1)
+
+    def test_dual_type_cancel_and_immune(self):
+        self.assertEqual(get_multiplier("ice", ["water", "ground"]), 1)
+        self.assertEqual(get_multiplier("fighting", ["normal", "ghost"]), 0)
+        self.assertEqual(get_multiplier("bug", ["fire", "fighting"]), 0.25)
 
 if __name__ == "__main__":
     unittest.main()
