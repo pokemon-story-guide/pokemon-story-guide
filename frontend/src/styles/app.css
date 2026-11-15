@@ -1,0 +1,811 @@
+/* 화면 구조 스타일. 색과 크기는 theme.css의 변수만 사용합니다. */
+
+/* 메인 화면 */
+.main-menu {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--space-unit) * 3);
+  padding: calc(var(--space-unit) * 2);
+}
+
+.main-menu__logo {
+  /* 로고 이미지가 생기면 background-image 또는 img로 교체합니다. */
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-menu__title {
+  margin: 0;
+  font-size: var(--font-size-title);
+  color: var(--color-accent);
+  text-align: center;
+}
+
+.main-menu__panel {
+  width: min(560px, 100%);
+  background: var(--color-panel);
+  border: 2px solid var(--color-panel-border);
+  border-radius: var(--radius-panel);
+  padding: calc(var(--space-unit) * 2);
+}
+
+.main-menu__hint {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-desc);
+}
+
+/* 메뉴 목록 */
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-unit);
+  outline: none;
+}
+
+.menu-list:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-focus);
+  border-radius: var(--radius-panel);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 2);
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.menu-item--selected {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.menu-item__cursor {
+  width: 1em;
+  color: var(--color-accent);
+}
+
+.menu-item__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item__label {
+  font-size: var(--font-size-menu);
+  font-weight: 700;
+}
+
+.menu-item__desc {
+  font-size: var(--font-size-desc);
+  color: var(--color-text-muted);
+}
+
+/* 공통 화면 틀 */
+.screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--space-unit) * 2);
+  gap: calc(var(--space-unit) * 2);
+}
+
+.screen__title {
+  margin: 0;
+  font-size: var(--font-size-title);
+  color: var(--color-accent);
+}
+
+.screen__body {
+  flex: 1;
+}
+
+.placeholder {
+  color: var(--color-text-muted);
+}
+
+.screen__footer {
+  display: flex;
+  gap: calc(var(--space-unit) * 2);
+}
+
+.back-link {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+/* 화면 공통: 경로 표시 */
+.screen__breadcrumb {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-desc);
+}
+
+/* 목록 격자 (카드, 시티) */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-unit);
+}
+
+.card-grid--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 640px) {
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 트레이너 카드 (디자인 대기: 구조와 기본 간격만) */
+.trainer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: calc(var(--space-unit) * 2);
+  background: var(--color-panel);
+  color: var(--color-text);
+  border: 1px solid var(--color-panel-border);
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.trainer-card__image {
+  width: 100%;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 인물 이미지는 원본 비율을 유지하고 칸 안에 맞춥니다. */
+.trainer-card__image img {
+  max-width: 100%;
+  max-height: 96px;
+  height: auto;
+  object-fit: contain;
+}
+
+.trainer-card__fallback {
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: var(--font-size-title);
+}
+
+.trainer-card__name {
+  font-weight: 700;
+}
+
+.trainer-card__sub {
+  font-size: var(--font-size-desc);
+  color: var(--color-text-muted);
+}
+
+/* 시티 카드 (디자인 대기) */
+.city-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 2);
+  background: var(--color-panel);
+  color: var(--color-text);
+  border: 1px solid var(--color-panel-border);
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.city-card__name {
+  font-weight: 700;
+  font-size: var(--font-size-menu);
+}
+
+.city-card__sub {
+  font-size: var(--font-size-desc);
+  color: var(--color-text-muted);
+}
+
+/* 챔피언 진입 화면 */
+.champion-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-unit);
+}
+
+/* 상세 화면 (UI-08 구성: 4개 영역) */
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-unit);
+}
+
+.detail-section {
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-border);
+  border-radius: var(--radius-panel);
+  padding: calc(var(--space-unit) * 2);
+}
+
+.detail-section__title {
+  margin: 0 0 var(--space-unit);
+  font-size: var(--font-size-desc);
+  color: var(--color-accent);
+}
+
+.detail-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.detail-profile__image {
+  width: 100%;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-profile__image img {
+  max-width: 100%;
+  max-height: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+.detail-profile__name {
+  margin: 0;
+  font-weight: 700;
+  font-size: var(--font-size-menu);
+}
+
+.detail-profile__sub {
+  margin: 0;
+  font-size: var(--font-size-desc);
+  color: var(--color-text-muted);
+}
+
+.party-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.party-list__item {
+  display: flex;
+  gap: var(--space-unit);
+  align-items: center;
+}
+
+.party-list__no,
+.party-list__level {
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 640px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 트레이너 정보 첫 화면: 카테고리 카드 3개 */
+/* 바깥 여백은 바깥 요소(.trainer-page)가 맡습니다. 여백이 겹쳐 화면이 넘치지 않도록 합니다. */
+.trainer-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+/* 틀은 내용 높이만큼만 차지합니다. 배경은 채우지 않아서 뒤의 배경이 보입니다. */
+.trainer-categories {
+  width: min(1040px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 3);
+  border: 2px solid var(--color-panel-border);
+  border-radius: var(--radius-panel);
+  background: transparent;
+}
+
+.trainer-categories__title {
+  margin: 0;
+  font-size: var(--font-size-menu);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.trainer-categories__body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--space-unit) * 6) 0;
+}
+
+.trainer-categories__footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu-button {
+  padding: var(--space-unit) calc(var(--space-unit) * 2);
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-panel-border);
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: var(--font-size-desc);
+}
+
+.menu-button:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* 카테고리 카드 줄 */
+.category-cards {
+  width: min(960px, 100%);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: calc(var(--space-unit) * 3);
+  outline: none;
+}
+
+@media (max-width: 480px) {
+  .category-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 포커스 테두리는 두지 않습니다. 선택 상태는 노란 테두리와 ▼로 보여 줍니다. */
+.category-cards:focus,
+.category-cards:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.category-card__slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ▼ 선택 표시: 메인 화면의 ▶와 같은 크기와 색 */
+.category-card__pointer {
+  font-size: var(--font-size-menu);
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.category-card__pointer--hidden {
+  visibility: hidden;
+}
+
+/* 카드 본체: 색은 채우지 않고 테두리와 글씨만 둡니다. */
+.category-card {
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-panel-border);
+  border-radius: 4px;
+  background: transparent;
+  transition: transform 150ms ease, border-color 150ms ease;
+}
+
+/* 선택된 카드: 노란 테두리 + 살짝 확대 */
+.category-card--selected {
+  border: 3px solid var(--color-accent);
+  transform: scale(1.06);
+}
+
+.category-card__label {
+  font-size: var(--font-size-title);
+  font-weight: 700;
+  text-align: center;
+  white-space: pre-line;
+  line-height: 1.3;
+}
+
+/* 어두운 패널 위의 글씨: 배경이 밝아도 패널 안은 밝은 글씨를 씁니다. */
+.main-menu__panel,
+.trainer-card,
+.city-card,
+.detail-section {
+  color: var(--color-panel-text);
+}
+
+.main-menu__panel .menu-item__desc,
+.trainer-card__sub,
+.city-card__sub,
+.detail-profile__sub,
+.detail-section .placeholder,
+.party-list__no,
+.party-list__level {
+  color: var(--color-panel-text-muted);
+}
+
+/* 팝업 상자: 틀(인터넷 창) 안에서 카드 3개를 담는 어두운 패널. 디자인은 추후 조정합니다. */
+.trainer-popup {
+  width: min(960px, 100%);
+  padding: calc(var(--space-unit) * 4) calc(var(--space-unit) * 3);
+  background: var(--color-panel);
+  border: 2px solid var(--color-panel-border);
+  border-radius: var(--radius-panel);
+  color: var(--color-panel-text);
+}
+
+/* 메인으로 아이콘 버튼 (↺, 테두리 없음) */
+.return-icon {
+  display: inline-flex;
+  color: var(--color-text);
+  text-decoration: none;
+  line-height: 0;
+  border-radius: 50%;
+}
+
+.return-icon:hover {
+  color: var(--color-accent);
+}
+
+.return-icon:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+/* 관장 선택 화면: 틀 안에 카드 8개(4×2)를 감쌉니다. 1번 카드 팝오버는 틀 밖으로 나가도 됩니다. */
+.trainer-categories__body--compact {
+  padding: 0;
+}
+
+/* 관장 8명을 한 덩어리로 모아 배치합니다. 칸 사이는 좁게. */
+
+@media (max-width: 720px) {
+  .gym-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 뱃지 칸: 배경 없이 뱃지만 놓입니다. 선택되면 노란 테두리가 뱃지를 감쌉니다. */
+/* 칸: 네모 테두리와 배경 없이 PNG만 놓입니다. 레이아웃은 PNG 자체가 맡습니다. */
+
+/* 선택: PNG가 25% 커지고 노란 빛이 감쌉니다. */
+
+
+
+.gym-card__no {
+  position: absolute;
+  left: 8px;
+  top: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1b1f2a;
+}
+
+.gym-card__city {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  text-align: center;
+  font-size: 13px;
+  color: #1b1f2a;
+}
+
+/* 사진 자리: 카드 가운데. 빨간 영역(정사각형)만큼 크기를 잡습니다. 파일이 없으면 글자 타일. */
+
+.gym-card__image img,
+.gym-mini__image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.gym-card__fallback,
+.gym-mini__image .gym-card__fallback {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #e5e7ee;
+  color: #1b1f2a;
+  font-weight: 700;
+}
+
+/* 잠긴 관장 카드: 카드 자체는 보이지 않고, 뱃지 모양의 홈만 남깁니다. */
+
+.gym-card__lock {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #8a93a8;
+}
+
+.demo-unlock {
+  margin-right: auto;
+  padding: var(--space-unit) calc(var(--space-unit) * 2);
+  background: transparent;
+  color: var(--color-panel-text);
+  border: 1px solid var(--color-panel-border);
+  border-radius: 8px;
+  font: inherit;
+  font-size: var(--font-size-desc);
+  cursor: pointer;
+}
+
+.demo-unlock:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.demo-unlock:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* 관장 선택 팝업: 뒤는 어둡게, 가운데에 관장 카드가 들어간 창 */
+
+
+
+@keyframes gym-popup-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -46%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* 팝업 안의 관장 카드: 카드보다 살짝 작은 흰 카드 */
+
+
+
+
+
+/* 관장 선택 화면 배경: 메인 메뉴 항목 패널과 같은 색 */
+.trainer-categories--dark {
+  background: var(--color-panel);
+  color: var(--color-panel-text);
+  border-color: var(--color-panel-border);
+}
+
+.trainer-categories--dark .trainer-categories__title {
+  color: var(--color-panel-text);
+}
+
+.trainer-categories--dark .return-icon {
+  color: var(--color-panel-text);
+}
+
+.trainer-categories--dark .return-icon:hover {
+  color: var(--color-accent);
+}
+
+/* 칸의 관장 사진 (WebP, 투명 배경) */
+
+/* 잠김: 같은 사진을 검은 그림자로 */
+
+/* 채우기 효과 (기본안, 효과는 추후 고릅니다)
+   사진이 크게 떠 있다가 칸에 자리 잡으며 밝게 번쩍입니다. */
+
+@keyframes gym-portrait-fill {
+  0% {
+    transform: scale(1.8);
+    opacity: 0;
+    filter: brightness(3);
+  }
+  60% {
+    transform: scale(1.05);
+    opacity: 1;
+    filter: brightness(2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: brightness(1);
+  }
+}
+
+/* 관장 선택 화면 (마우스 전용, 칸은 PNG 자체가 레이아웃) */
+.gym-stage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* 칸이 틀 폭을 가득 채웁니다. 가로 간격은 2px로 아주 좁게. */
+.gym-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px 2px;
+  padding: 0;
+  align-content: center;
+}
+
+.gym-card {
+  position: relative;
+  width: 100%;
+  height: 118px;
+  cursor: pointer;
+}
+
+.gym-card--locked {
+  cursor: default;
+}
+
+.gym-card__image {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 관장 PNG: 칸 가로에 꽉 차게 */
+.gym-card__portrait {
+  width: calc(88% + 8px);
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 150ms ease, filter 150ms ease;
+}
+
+/* 잠김: 같은 PNG를 검은 그림자로 */
+.gym-card__portrait--shadow {
+  filter: brightness(0) invert(0.22);
+}
+
+/* 선택: PNG가 25% 커지고 노란 빛이 감쌉니다. */
+.gym-card--selected .gym-card__portrait {
+  transform: scale(1.25);
+  filter: drop-shadow(0 0 10px rgba(245, 197, 66, 0.8));
+}
+
+/* 채우기 효과 (기본안) */
+.gym-card__portrait--fill {
+  animation: gym-portrait-fill 900ms ease-out forwards;
+}
+
+/* 화면 전체를 어둡게 덮습니다. 기본은 클릭을 통과시키고, 팝오버를 클릭으로 연 경우만 바깥 클릭을 받습니다. */
+.gym-dim {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 15, 24, 0.6);
+  z-index: 50;
+  pointer-events: none;
+}
+
+.gym-dim--click {
+  pointer-events: auto;
+}
+
+/* 팝오버: 화면 가운데. 배경은 어두운 패널이고, 흰색 배경은 없습니다. */
+.gym-popup {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 51;
+  display: flex;
+  gap: 16px;
+  padding: 14px 18px;
+  background: var(--color-panel);
+  border: 3px solid var(--color-accent);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: gym-popup-in 160ms ease-out;
+  pointer-events: auto;
+}
+
+/* 1초 미리보기 팝오버는 보기만 하고, 클릭은 칸으로 통과합니다. */
+.gym-popup--preview {
+  pointer-events: none;
+}
+
+.gym-mini {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  color: var(--color-panel-text);
+  border: none;
+  cursor: pointer;
+  transition: transform 150ms ease, filter 150ms ease;
+}
+
+.gym-mini:hover {
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 10px rgba(245, 197, 66, 0.8));
+}
+
+.gym-mini__image {
+  width: 150px;
+  height: 110px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.gym-mini__image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.gym-mini__name {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.gym-mini__sub {
+  font-size: 0.75rem;
+  color: var(--color-panel-text-muted);
+}
+
+/* 관장 선택 화면 제목: 굵기는 유지하고 크기만 줄입니다. */
+.trainer-categories__title--gym {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* 관장 선택 화면 본문: 위아래 여백을 두어 PNG가 틀 안에 머물게 합니다. */
+.trainer-categories__body--gym {
+  padding: 16px 0;
+}
+
+/* 관장 선택 틀: 좌우 여백을 줄여 칸이 틀을 꽉 채우게 합니다. */
+/* 틀은 내용에 맞춰 세로 길이가 정해집니다. 칸 사이 세로 간격은 없앴습니다. */
+.trainer-categories--gym-fill {
+  gap: 8px;
+  padding: 12px 0;
+}
+
+.trainer-categories--gym-fill .trainer-categories__body {
+  padding: 0;
+}
+
+/* 바깥쪽 칸은 선택 시 안쪽(칸 사이 방향)으로만 커지도록 기준점을 잡습니다. 틀 밖으로 나가지 않게 하기 위함입니다. */
+.gym-card:nth-child(4n + 1) .gym-card__portrait {
+  transform-origin: left center;
+}
+
+.gym-card:nth-child(4n) .gym-card__portrait {
+  transform-origin: right center;
+}
+
+/* 좌우 여백은 칸 영역에서만 없애고, 제목과 하단 버튼에는 여백을 남깁니다. */
+.trainer-categories--gym-fill > .trainer-categories__title,
+.trainer-categories--gym-fill > .trainer-categories__footer {
+  padding: 0 12px;
+}
