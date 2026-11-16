@@ -52,9 +52,6 @@ export function imageIdFor(trainerId: string): string {
 }
 
 /** 인물 사진 주소. format으로 WebP(기본, 고해상도)와 PNG를 고릅니다. */
-/** 칸과 팝오버에 쓰는 사진 형식. GIF를 받으면 여기만 "gif"로 바꾸면 됩니다. */
-export const PORTRAIT_FORMAT: "png" | "gif" = "png";
-
-export function trainerImageSrc(trainerId: string, format: "webp" | "png" | "gif" = "webp"): string {
+export function trainerImageSrc(trainerId: string, format: "webp" | "png" = "webp"): string {
   return `${TRAINER_IMAGE_BASE}/${imageIdFor(trainerId)}.${format}`;
 }

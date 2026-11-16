@@ -14,7 +14,8 @@ const ROLE_LABEL: Record<TrainerRecord["role"], string> = {
 /** 목록 화면 경로 (뒤로 가기 대상) */
 function parentPath(trainer: TrainerRecord): string {
   if (trainer.role === "gym-leader") return "/trainers/gym";
-  if (trainer.role === "elite-four" || trainer.role === "champion") return "/trainers/elite";
+  if (trainer.role === "elite-four") return "/trainers/elite/four";
+  if (trainer.role === "champion") return "/trainers/elite/champion";
   if (trainer.id.startsWith("n-")) return "/trainers/plasma/n";
   return "/trainers/plasma";
 }

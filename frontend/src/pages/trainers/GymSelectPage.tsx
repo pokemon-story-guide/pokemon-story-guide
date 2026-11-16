@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GYM_CARDS } from "../../config/gymSelect";
 import { TRAINERS } from "../../config/trainerData";
-import { PORTRAIT_FORMAT, trainerImageSrc } from "../../config/trainerGroups";
+import { trainerImageSrc } from "../../config/trainerGroups";
 
 /** 처음 열려 있는 관장 수. 1이면 1번 관장(성신시티)만 열려 있습니다. */
 const START_UNLOCKED = 1;
@@ -34,7 +34,7 @@ function SlotPicture({ id, name, state }: { id: string; name: string; state: Slo
   return (
     <img
       className={className}
-      src={trainerImageSrc(id, PORTRAIT_FORMAT)}
+      src={trainerImageSrc(id, "png")}
       alt=""
       onError={() => setFailed(true)}
     />
