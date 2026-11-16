@@ -2,7 +2,7 @@
  * 트레이너 데이터 (시연용).
  * 출처: bw_trainers_DataV2.zip (블랙·화이트 기준, 팀 데이터).
  * 2단계에서 /api/trainers 연결 후 이 파일을 제거합니다.
- * party의 pokemonId는 전국 도감 번호입니다. 포켓몬 이름은 아직 연결하지 않았습니다.
+ * party의 pokemonId는 데이터 출처의 도감 번호입니다. 전국 도감 번호와 다를 수 있어 확인이 필요합니다. 포켓몬 이름은 아직 연결하지 않았습니다.
  */
 export interface PartyMember {
   pokemonId: number;
@@ -45,3 +45,9 @@ export const TRAINERS: Record<string, TrainerRecord> = {
   "shauntal": { id: "shauntal", name: "망초", role: "elite-four", type: "ghost", version: null, party: [{"pokemonId": 69, "level": 48}, {"pokemonId": 99, "level": 48}, {"pokemonId": 129, "level": 48}, {"pokemonId": 115, "level": 50}] },
   "skyla": { id: "skyla", name: "풍란", role: "gym-leader", type: "flying", version: null, party: [{"pokemonId": 34, "level": 33}, {"pokemonId": 27, "level": 33}, {"pokemonId": 87, "level": 35}] },
 };
+
+/** 주소로 들어온 ID가 등록된 인물인지 확인합니다. toString 같은 객체 기본 속성은 제외합니다. */
+export function findTrainer(id: string | undefined): TrainerRecord | undefined {
+  if (!id || !Object.prototype.hasOwnProperty.call(TRAINERS, id)) return undefined;
+  return TRAINERS[id];
+}

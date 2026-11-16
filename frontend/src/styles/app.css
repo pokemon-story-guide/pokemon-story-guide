@@ -485,11 +485,6 @@
 
 /* 관장 8명을 한 덩어리로 모아 배치합니다. 칸 사이는 좁게. */
 
-@media (max-width: 720px) {
-  .gym-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
 
 /* 뱃지 칸: 배경 없이 뱃지만 놓입니다. 선택되면 노란 테두리가 뱃지를 감쌉니다. */
 /* 칸: 네모 테두리와 배경 없이 PNG만 놓입니다. 레이아웃은 PNG 자체가 맡습니다. */
@@ -650,6 +645,12 @@
   gap: 6px 2px;
   padding: 0;
   align-content: center;
+}
+
+@media (max-width: 720px) {
+  .gym-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .gym-card {

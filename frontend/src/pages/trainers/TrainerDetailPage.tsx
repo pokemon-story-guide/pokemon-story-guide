@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { ScreenFrame } from "../../components/ScreenFrame";
-import { TRAINERS, type TrainerRecord } from "../../config/trainerData";
+import { findTrainer, type TrainerRecord } from "../../config/trainerData";
 import { trainerImageSrc } from "../../config/trainerGroups";
 
 const ROLE_LABEL: Record<TrainerRecord["role"], string> = {
@@ -27,7 +27,7 @@ function parentPath(trainer: TrainerRecord): string {
  */
 export function TrainerDetailPage() {
   const { trainerId } = useParams();
-  const trainer = trainerId ? TRAINERS[trainerId] : undefined;
+  const trainer = findTrainer(trainerId);
   const [imageFailed, setImageFailed] = useState(false);
 
   if (!trainer) {
