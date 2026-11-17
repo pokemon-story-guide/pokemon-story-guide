@@ -14,29 +14,33 @@ class TypeChartTest(unittest.TestCase):
             self.assertLessEqual(set(matchups), set(TYPES))
             self.assertLessEqual(set(matchups.values()), {0, 0.5, 2})
 
-    def test_single_type(self):
-        self.assertEqual(get_multiplier("water", ["fire"]), 2)
-        self.assertEqual(get_multiplier("fire", ["water"]), 0.5)
-        self.assertEqual(get_multiplier("normal", ["fire"]), 1)
-        self.assertEqual(get_multiplier("electric", ["ground"]), 0)
-
-    def test_gen5_steel_resists_ghost_and_dark(self):
-        self.assertEqual(get_multiplier("ghost", ["steel"]), 0.5)
-        self.assertEqual(get_multiplier("dark", ["steel"]), 0.5)
-
-    def test_dual_type(self):
-        self.assertEqual(get_multiplier("ice", ["dragon", "flying"]), 4)
-        self.assertEqual(get_multiplier("grass", ["fire", "flying"]), 0.25)
-        self.assertEqual(get_multiplier("water", ["ground", "flying"]), 2)
-        self.assertEqual(get_multiplier("ground", ["electric", "flying"]), 0)
+    def test_multipliers(self):
+        cases = [
+            ("water", ["fire"], 2),
+            ("fire", ["water"], 0.5),
+            ("electric", ["ground"], 0),
+            ("normal", ["water"], 1),           
+            ("dragon", ["fire"], 1),
+            ("ghost", ["steel"], 0.5),        
+            ("dark", ["steel"], 0.5),            
+            ("ice", ["dragon", "flying"], 4),
+            ("grass", ["fire", "flying"], 0.25),
+            ("bug", ["fire", "fighting"], 0.25),
+            ("ice", ["water", "ground"], 1),    
+            ("water", ["ground", "flying"], 2),
+            ("ground", ["electric", "flying"], 0),
+            ("fighting", ["normal", "ghost"], 0),
+        ]
+        for attack_type, defense_types, expected in cases:
+            with self.subTest(attack=attack_type, defense=defense_types):
+                self.assertEqual(get_multiplier(attack_type, defense_types), expected)
 
     def test_invalid_input(self):
-        with self.assertRaises(ValueError):
-            get_multiplier("fairy", ["normal"])
-        with self.assertRaises(ValueError):
-            get_multiplier("water", ["fairy"])
-        with self.assertRaises(ValueError):
-            get_multiplier("water", [])
+        cases = [("fairy", ["normal"]), ("water", ["fairy"]), ("water", [])]
+        for attack_type, defense_types in cases:
+            with self.subTest(attack=attack_type, defense=defense_types):
+                with self.assertRaises(ValueError):
+                    get_multiplier(attack_type, defense_types)
 
 
 if __name__ == "__main__":
