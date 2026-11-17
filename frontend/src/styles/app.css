@@ -7,6 +7,7 @@
  * 제목과 메뉴는 왼쪽 위에 두어 가운데 주인공이 가려지지 않게 합니다.
  */
 .main-menu {
+  position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -14,7 +15,7 @@
   justify-content: flex-start;
   gap: calc(var(--space-unit) / 2);
   /* 제목과 메뉴는 가운데 위쪽에 둡니다. 가운데 아래 주인공은 가리지 않습니다. */
-  padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);
+  padding: 38px calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);
   /* 아래쪽을 맞춰서 발이 잘리지 않게 합니다. 화면이 그림보다 높으면 위쪽은 하늘색으로 채웁니다. */
   /* 낮 장면 움직이는 GIF(main-day.gif, 576×1025, 48프레임). 보라색 꽃 아래는 잘라 지평선이 가운데 오게 함. 양옆은 하늘색. 1배 표시로 픽셀을 고르게 둡니다. */
   background: #7ccbf8 url("../data/screens/main-day.gif") center bottom / 576px 1025px no-repeat;
@@ -37,7 +38,7 @@
 
 /* 로고는 원본(2172px)의 1/6인 362px로 씁니다. 픽셀 칸이 고르게 보이도록 정수 배율로 맞춥니다. */
 .main-menu__title img {
-  width: 362px;
+  width: 430px;
   height: auto;
   image-rendering: pixelated;
   display: block;
@@ -45,11 +46,23 @@
 
 /* 닌텐도 메뉴처럼 작은 창: 설명 줄은 숨기고 이름만 보입니다. */
 .main-menu__panel {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: min(240px, 100%);
-  background: var(--color-panel);
-  border: 2px solid var(--color-panel-border);
-  border-radius: var(--radius-panel);
-  padding: calc(var(--space-unit) * 2);
+  margin: 0;
+  padding: 12px 14px;
+  background: #ffffff;
+  /* 도트 테두리: 남색 두꺼운 외곽 + 안쪽 하늘색 한 줄 + 아래·오른쪽 그림자 */
+  border: 4px solid #203078;
+  box-shadow:
+    inset 0 0 0 4px #ffffff,
+    inset 0 0 0 8px #80d0ff,
+    6px 6px 0 0 #203078;
+  border-radius: 0;
+  color: #203078;
+  -webkit-font-smoothing: none;
 }
 
 .main-menu__panel .menu-item__desc {

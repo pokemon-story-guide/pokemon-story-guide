@@ -15,7 +15,7 @@ export function MainMenuPage() {
         {/* 로고 자리: 디자인이 정해지면 여기에 넣습니다. */}
         <div className="main-menu__logo" aria-label="로고 자리">
           <h1 className="main-menu__title">
-            <img src={titleLogo} alt="PokePath 포켓몬 스토리 공략 도우미" />
+            <img src={titleLogo} alt="PokéNav 포켓몬 스토리 공략 도우미" />
           </h1>
         </div>
 
