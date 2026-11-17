@@ -1,0 +1,3356 @@
+[
+  {
+    "id": 1,
+    "name": "막치기",
+    "type": "normal",
+    "expected_power": 40
+  },
+  {
+    "id": 2,
+    "name": "태권당수",
+    "type": "fighting",
+    "expected_power": 50
+  },
+  {
+    "id": 3,
+    "name": "연속뺨치기",
+    "type": "normal",
+    "expected_power": 26
+  },
+  {
+    "id": 4,
+    "name": "연속펀치",
+    "type": "normal",
+    "expected_power": 31
+  },
+  {
+    "id": 5,
+    "name": "메가톤펀치",
+    "type": "normal",
+    "expected_power": 68
+  },
+  {
+    "id": 6,
+    "name": "고양이돈받기",
+    "type": "normal",
+    "expected_power": 40
+  },
+  {
+    "id": 7,
+    "name": "불꽃펀치",
+    "type": "fire",
+    "expected_power": 75
+  },
+  {
+    "id": 8,
+    "name": "냉동펀치",
+    "type": "ice",
+    "expected_power": 75
+  },
+  {
+    "id": 9,
+    "name": "번개펀치",
+    "type": "electric",
+    "expected_power": 75
+  },
+  {
+    "id": 10,
+    "name": "할퀴기",
+    "type": "normal",
+    "expected_power": 40
+  },
+  {
+    "id": 11,
+    "name": "찝기",
+    "type": "normal",
+    "expected_power": 55
+  },
+  {
+    "id": 12,
+    "name": "가위자르기",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 13,
+    "name": "칼바람",
+    "type": "normal",
+    "expected_power": 40
+  },
+  {
+    "id": 14,
+    "name": "칼춤",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 15,
+    "name": "풀베기",
+    "type": "normal",
+    "expected_power": 48
+  },
+  {
+    "id": 16,
+    "name": "바람일으키기",
+    "type": "flying",
+    "expected_power": 40
+  },
+  {
+    "id": 17,
+    "name": "날개치기",
+    "type": "flying",
+    "expected_power": 60
+  },
+  {
+    "id": 18,
+    "name": "날려버리기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 19,
+    "name": "공중날기",
+    "type": "flying",
+    "expected_power": 43
+  },
+  {
+    "id": 20,
+    "name": "조이기",
+    "type": "normal",
+    "expected_power": 13
+  },
+  {
+    "id": 21,
+    "name": "힘껏치기",
+    "type": "normal",
+    "expected_power": 60
+  },
+  {
+    "id": 22,
+    "name": "덩굴채찍",
+    "type": "grass",
+    "expected_power": 35
+  },
+  {
+    "id": 23,
+    "name": "짓밟기",
+    "type": "normal",
+    "expected_power": 65
+  },
+  {
+    "id": 24,
+    "name": "두번차기",
+    "type": "fighting",
+    "expected_power": 60
+  },
+  {
+    "id": 25,
+    "name": "메가톤킥",
+    "type": "normal",
+    "expected_power": 90
+  },
+  {
+    "id": 26,
+    "name": "점프킥",
+    "type": "fighting",
+    "expected_power": 95
+  },
+  {
+    "id": 27,
+    "name": "돌려차기",
+    "type": "fighting",
+    "expected_power": 51
+  },
+  {
+    "id": 28,
+    "name": "모래뿌리기",
+    "type": "ground",
+    "expected_power": 0
+  },
+  {
+    "id": 29,
+    "name": "박치기",
+    "type": "normal",
+    "expected_power": 70
+  },
+  {
+    "id": 30,
+    "name": "뿔찌르기",
+    "type": "normal",
+    "expected_power": 65
+  },
+  {
+    "id": 31,
+    "name": "마구찌르기",
+    "type": "normal",
+    "expected_power": 26
+  },
+  {
+    "id": 32,
+    "name": "뿔드릴",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 33,
+    "name": "몸통박치기",
+    "type": "normal",
+    "expected_power": 50
+  },
+  {
+    "id": 34,
+    "name": "누르기",
+    "type": "normal",
+    "expected_power": 85
+  },
+  {
+    "id": 35,
+    "name": "김밥말이",
+    "type": "normal",
+    "expected_power": 14
+  },
+  {
+    "id": 36,
+    "name": "돌진",
+    "type": "normal",
+    "expected_power": 77
+  },
+  {
+    "id": 37,
+    "name": "난동부리기",
+    "type": "normal",
+    "expected_power": 120
+  },
+  {
+    "id": 38,
+    "name": "이판사판태클",
+    "type": "normal",
+    "expected_power": 120
+  },
+  {
+    "id": 39,
+    "name": "꼬리흔들기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 40,
+    "name": "독침",
+    "type": "poison",
+    "expected_power": 15
+  },
+  {
+    "id": 41,
+    "name": "더블니들",
+    "type": "bug",
+    "expected_power": 50
+  },
+  {
+    "id": 42,
+    "name": "바늘미사일",
+    "type": "bug",
+    "expected_power": 24
+  },
+  {
+    "id": 43,
+    "name": "째려보기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 44,
+    "name": "물기",
+    "type": "dark",
+    "expected_power": 60
+  },
+  {
+    "id": 45,
+    "name": "울음소리",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 46,
+    "name": "울부짖기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 47,
+    "name": "노래하기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 48,
+    "name": "초음파",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 49,
+    "name": "소닉붐",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 50,
+    "name": "사슬묶기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 51,
+    "name": "용해액",
+    "type": "poison",
+    "expected_power": 40
+  },
+  {
+    "id": 52,
+    "name": "불꽃세례",
+    "type": "fire",
+    "expected_power": 40
+  },
+  {
+    "id": 53,
+    "name": "화염방사",
+    "type": "fire",
+    "expected_power": 95
+  },
+  {
+    "id": 54,
+    "name": "흰안개",
+    "type": "ice",
+    "expected_power": 0
+  },
+  {
+    "id": 55,
+    "name": "물대포",
+    "type": "water",
+    "expected_power": 40
+  },
+  {
+    "id": 56,
+    "name": "하이드로펌프",
+    "type": "water",
+    "expected_power": 96
+  },
+  {
+    "id": 57,
+    "name": "파도타기",
+    "type": "water",
+    "expected_power": 95
+  },
+  {
+    "id": 58,
+    "name": "냉동빔",
+    "type": "ice",
+    "expected_power": 95
+  },
+  {
+    "id": 59,
+    "name": "눈보라",
+    "type": "ice",
+    "expected_power": 84
+  },
+  {
+    "id": 60,
+    "name": "환상빔",
+    "type": "psychic",
+    "expected_power": 65
+  },
+  {
+    "id": 61,
+    "name": "거품광선",
+    "type": "water",
+    "expected_power": 65
+  },
+  {
+    "id": 62,
+    "name": "오로라빔",
+    "type": "ice",
+    "expected_power": 65
+  },
+  {
+    "id": 63,
+    "name": "파괴광선",
+    "type": "normal",
+    "expected_power": 68
+  },
+  {
+    "id": 64,
+    "name": "쪼기",
+    "type": "flying",
+    "expected_power": 35
+  },
+  {
+    "id": 65,
+    "name": "회전부리",
+    "type": "flying",
+    "expected_power": 80
+  },
+  {
+    "id": 66,
+    "name": "지옥의바퀴",
+    "type": "fighting",
+    "expected_power": 64
+  },
+  {
+    "id": 67,
+    "name": "안다리걸기",
+    "type": "fighting",
+    "expected_power": 1
+  },
+  {
+    "id": 68,
+    "name": "카운터",
+    "type": "fighting",
+    "expected_power": 1
+  },
+  {
+    "id": 69,
+    "name": "지구던지기",
+    "type": "fighting",
+    "expected_power": 1
+  },
+  {
+    "id": 70,
+    "name": "괴력",
+    "type": "normal",
+    "expected_power": 80
+  },
+  {
+    "id": 71,
+    "name": "흡수",
+    "type": "grass",
+    "expected_power": 20
+  },
+  {
+    "id": 72,
+    "name": "메가드레인",
+    "type": "grass",
+    "expected_power": 40
+  },
+  {
+    "id": 73,
+    "name": "씨뿌리기",
+    "type": "grass",
+    "expected_power": 0
+  },
+  {
+    "id": 74,
+    "name": "성장",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 75,
+    "name": "잎날가르기",
+    "type": "grass",
+    "expected_power": 52
+  },
+  {
+    "id": 76,
+    "name": "솔라빔",
+    "type": "grass",
+    "expected_power": 60
+  },
+  {
+    "id": 77,
+    "name": "독가루",
+    "type": "poison",
+    "expected_power": 0
+  },
+  {
+    "id": 78,
+    "name": "저리가루",
+    "type": "grass",
+    "expected_power": 0
+  },
+  {
+    "id": 79,
+    "name": "수면가루",
+    "type": "grass",
+    "expected_power": 0
+  },
+  {
+    "id": 80,
+    "name": "꽃잎댄스",
+    "type": "grass",
+    "expected_power": 120
+  },
+  {
+    "id": 81,
+    "name": "실뿜기",
+    "type": "bug",
+    "expected_power": 0
+  },
+  {
+    "id": 82,
+    "name": "용의분노",
+    "type": "dragon",
+    "expected_power": 1
+  },
+  {
+    "id": 83,
+    "name": "회오리불꽃",
+    "type": "fire",
+    "expected_power": 30
+  },
+  {
+    "id": 84,
+    "name": "전기쇼크",
+    "type": "electric",
+    "expected_power": 40
+  },
+  {
+    "id": 85,
+    "name": "10만볼트",
+    "type": "electric",
+    "expected_power": 95
+  },
+  {
+    "id": 86,
+    "name": "전기자석파",
+    "type": "electric",
+    "expected_power": 0
+  },
+  {
+    "id": 87,
+    "name": "번개",
+    "type": "electric",
+    "expected_power": 84
+  },
+  {
+    "id": 88,
+    "name": "돌떨구기",
+    "type": "rock",
+    "expected_power": 45
+  },
+  {
+    "id": 89,
+    "name": "지진",
+    "type": "ground",
+    "expected_power": 100
+  },
+  {
+    "id": 90,
+    "name": "땅가르기",
+    "type": "ground",
+    "expected_power": 1
+  },
+  {
+    "id": 91,
+    "name": "구멍파기",
+    "type": "ground",
+    "expected_power": 40
+  },
+  {
+    "id": 92,
+    "name": "맹독",
+    "type": "poison",
+    "expected_power": 0
+  },
+  {
+    "id": 93,
+    "name": "염동력",
+    "type": "psychic",
+    "expected_power": 50
+  },
+  {
+    "id": 94,
+    "name": "사이코키네시스",
+    "type": "psychic",
+    "expected_power": 90
+  },
+  {
+    "id": 95,
+    "name": "최면술",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 96,
+    "name": "요가포즈",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 97,
+    "name": "고속이동",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 98,
+    "name": "전광석화",
+    "type": "normal",
+    "expected_power": 40
+  },
+  {
+    "id": 99,
+    "name": "분노",
+    "type": "normal",
+    "expected_power": 20
+  },
+  {
+    "id": 100,
+    "name": "순간이동",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 101,
+    "name": "나이트헤드",
+    "type": "ghost",
+    "expected_power": 1
+  },
+  {
+    "id": 102,
+    "name": "흉내내기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 103,
+    "name": "싫은소리",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 104,
+    "name": "그림자분신",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 105,
+    "name": "HP회복",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 106,
+    "name": "단단해지기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 107,
+    "name": "작아지기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 108,
+    "name": "연막",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 109,
+    "name": "이상한빛",
+    "type": "ghost",
+    "expected_power": 0
+  },
+  {
+    "id": 110,
+    "name": "껍질에숨기",
+    "type": "water",
+    "expected_power": 0
+  },
+  {
+    "id": 111,
+    "name": "웅크리기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 112,
+    "name": "배리어",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 113,
+    "name": "빛의장막",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 114,
+    "name": "흑안개",
+    "type": "ice",
+    "expected_power": 0
+  },
+  {
+    "id": 115,
+    "name": "리플렉터",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 116,
+    "name": "기충전",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 117,
+    "name": "참기",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 118,
+    "name": "손가락흔들기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 119,
+    "name": "따라하기",
+    "type": "flying",
+    "expected_power": 0
+  },
+  {
+    "id": 120,
+    "name": "자폭",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 121,
+    "name": "알폭탄",
+    "type": "normal",
+    "expected_power": 75
+  },
+  {
+    "id": 122,
+    "name": "핥기",
+    "type": "ghost",
+    "expected_power": 20
+  },
+  {
+    "id": 123,
+    "name": "스모그",
+    "type": "poison",
+    "expected_power": 14
+  },
+  {
+    "id": 124,
+    "name": "오물공격",
+    "type": "poison",
+    "expected_power": 65
+  },
+  {
+    "id": 125,
+    "name": "뼈다귀치기",
+    "type": "ground",
+    "expected_power": 55
+  },
+  {
+    "id": 126,
+    "name": "불대문자",
+    "type": "fire",
+    "expected_power": 102
+  },
+  {
+    "id": 127,
+    "name": "폭포오르기",
+    "type": "water",
+    "expected_power": 80
+  },
+  {
+    "id": 128,
+    "name": "껍질끼우기",
+    "type": "water",
+    "expected_power": 30
+  },
+  {
+    "id": 129,
+    "name": "스피드스타",
+    "type": "normal",
+    "expected_power": 60
+  },
+  {
+    "id": 130,
+    "name": "로켓박치기",
+    "type": "normal",
+    "expected_power": 50
+  },
+  {
+    "id": 131,
+    "name": "가시대포",
+    "type": "normal",
+    "expected_power": 40
+  },
+  {
+    "id": 132,
+    "name": "휘감기",
+    "type": "normal",
+    "expected_power": 10
+  },
+  {
+    "id": 133,
+    "name": "망각술",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 134,
+    "name": "숟가락휘기",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 135,
+    "name": "알낳기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 136,
+    "name": "무릎차기",
+    "type": "fighting",
+    "expected_power": 117
+  },
+  {
+    "id": 137,
+    "name": "뱀눈초리",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 138,
+    "name": "꿈먹기",
+    "type": "psychic",
+    "expected_power": 1
+  },
+  {
+    "id": 139,
+    "name": "독가스",
+    "type": "poison",
+    "expected_power": 0
+  },
+  {
+    "id": 140,
+    "name": "구슬던지기",
+    "type": "normal",
+    "expected_power": 26
+  },
+  {
+    "id": 141,
+    "name": "흡혈",
+    "type": "bug",
+    "expected_power": 20
+  },
+  {
+    "id": 142,
+    "name": "악마의키스",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 143,
+    "name": "불새",
+    "type": "flying",
+    "expected_power": 63
+  },
+  {
+    "id": 144,
+    "name": "변신",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 145,
+    "name": "거품",
+    "type": "water",
+    "expected_power": 20
+  },
+  {
+    "id": 146,
+    "name": "잼잼펀치",
+    "type": "normal",
+    "expected_power": 70
+  },
+  {
+    "id": 147,
+    "name": "버섯포자",
+    "type": "grass",
+    "expected_power": 0
+  },
+  {
+    "id": 148,
+    "name": "플래시",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 149,
+    "name": "사이코웨이브",
+    "type": "psychic",
+    "expected_power": 1
+  },
+  {
+    "id": 150,
+    "name": "튀어오르기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 151,
+    "name": "녹기",
+    "type": "poison",
+    "expected_power": 0
+  },
+  {
+    "id": 152,
+    "name": "집게해머",
+    "type": "water",
+    "expected_power": 81
+  },
+  {
+    "id": 153,
+    "name": "대폭발",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 154,
+    "name": "마구할퀴기",
+    "type": "normal",
+    "expected_power": 29
+  },
+  {
+    "id": 155,
+    "name": "뼈다귀부메랑",
+    "type": "ground",
+    "expected_power": 90
+  },
+  {
+    "id": 156,
+    "name": "잠자기",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 157,
+    "name": "스톤샤워",
+    "type": "rock",
+    "expected_power": 68
+  },
+  {
+    "id": 158,
+    "name": "필살앞니",
+    "type": "normal",
+    "expected_power": 72
+  },
+  {
+    "id": 159,
+    "name": "각지기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 160,
+    "name": "텍스처",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 161,
+    "name": "트라이어택",
+    "type": "normal",
+    "expected_power": 80
+  },
+  {
+    "id": 162,
+    "name": "분노의앞니",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 163,
+    "name": "베어가르기",
+    "type": "normal",
+    "expected_power": 70
+  },
+  {
+    "id": 164,
+    "name": "대타출동",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 165,
+    "name": "발버둥",
+    "type": "normal",
+    "expected_power": 50
+  },
+  {
+    "id": 166,
+    "name": "스케치",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 167,
+    "name": "트리플킥",
+    "type": "fighting",
+    "expected_power": 51
+  },
+  {
+    "id": 168,
+    "name": "도둑질",
+    "type": "dark",
+    "expected_power": 40
+  },
+  {
+    "id": 169,
+    "name": "거미집",
+    "type": "bug",
+    "expected_power": 0
+  },
+  {
+    "id": 170,
+    "name": "마음의눈",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 171,
+    "name": "악몽",
+    "type": "ghost",
+    "expected_power": 0
+  },
+  {
+    "id": 172,
+    "name": "화염바퀴",
+    "type": "fire",
+    "expected_power": 60
+  },
+  {
+    "id": 173,
+    "name": "코골기",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 174,
+    "name": "저주",
+    "type": "ghost",
+    "expected_power": 0
+  },
+  {
+    "id": 175,
+    "name": "바둥바둥",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 176,
+    "name": "텍스처2",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 177,
+    "name": "에어로블라스트",
+    "type": "flying",
+    "expected_power": 95
+  },
+  {
+    "id": 178,
+    "name": "목화포자",
+    "type": "grass",
+    "expected_power": 0
+  },
+  {
+    "id": 179,
+    "name": "기사회생",
+    "type": "fighting",
+    "expected_power": 1
+  },
+  {
+    "id": 180,
+    "name": "원한",
+    "type": "ghost",
+    "expected_power": 0
+  },
+  {
+    "id": 181,
+    "name": "눈싸라기",
+    "type": "ice",
+    "expected_power": 40
+  },
+  {
+    "id": 182,
+    "name": "방어",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 183,
+    "name": "마하펀치",
+    "type": "fighting",
+    "expected_power": 40
+  },
+  {
+    "id": 184,
+    "name": "겁나는얼굴",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 185,
+    "name": "속여때리기",
+    "type": "dark",
+    "expected_power": 60
+  },
+  {
+    "id": 186,
+    "name": "천사의키스",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 187,
+    "name": "배북",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 188,
+    "name": "오물폭탄",
+    "type": "poison",
+    "expected_power": 90
+  },
+  {
+    "id": 189,
+    "name": "진흙뿌리기",
+    "type": "ground",
+    "expected_power": 20
+  },
+  {
+    "id": 190,
+    "name": "대포무노포",
+    "type": "water",
+    "expected_power": 55
+  },
+  {
+    "id": 191,
+    "name": "압정뿌리기",
+    "type": "ground",
+    "expected_power": 0
+  },
+  {
+    "id": 192,
+    "name": "전자포",
+    "type": "electric",
+    "expected_power": 60
+  },
+  {
+    "id": 193,
+    "name": "꿰뚫어보기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 194,
+    "name": "길동무",
+    "type": "ghost",
+    "expected_power": 0
+  },
+  {
+    "id": 195,
+    "name": "멸망의노래",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 196,
+    "name": "얼어붙은바람",
+    "type": "ice",
+    "expected_power": 52
+  },
+  {
+    "id": 197,
+    "name": "판별",
+    "type": "fighting",
+    "expected_power": 0
+  },
+  {
+    "id": 198,
+    "name": "본러시",
+    "type": "ground",
+    "expected_power": 45
+  },
+  {
+    "id": 199,
+    "name": "록온",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 200,
+    "name": "역린",
+    "type": "dragon",
+    "expected_power": 120
+  },
+  {
+    "id": 201,
+    "name": "모래바람",
+    "type": "rock",
+    "expected_power": 0
+  },
+  {
+    "id": 202,
+    "name": "기가드레인",
+    "type": "grass",
+    "expected_power": 75
+  },
+  {
+    "id": 203,
+    "name": "버티기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 204,
+    "name": "애교부리기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 205,
+    "name": "구르기",
+    "type": "rock",
+    "expected_power": 27
+  },
+  {
+    "id": 206,
+    "name": "칼등치기",
+    "type": "normal",
+    "expected_power": 40
+  },
+  {
+    "id": 207,
+    "name": "뽐내기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 208,
+    "name": "우유마시기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 209,
+    "name": "스파크",
+    "type": "electric",
+    "expected_power": 65
+  },
+  {
+    "id": 210,
+    "name": "연속자르기",
+    "type": "bug",
+    "expected_power": 19
+  },
+  {
+    "id": 211,
+    "name": "강철날개",
+    "type": "steel",
+    "expected_power": 63
+  },
+  {
+    "id": 212,
+    "name": "검은눈빛",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 213,
+    "name": "헤롱헤롱",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 214,
+    "name": "잠꼬대",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 215,
+    "name": "치료방울",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 216,
+    "name": "은혜갚기",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 217,
+    "name": "프레젠트",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 218,
+    "name": "화풀이",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 219,
+    "name": "신비의부적",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 220,
+    "name": "아픔나누기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 221,
+    "name": "성스러운불꽃",
+    "type": "fire",
+    "expected_power": 95
+  },
+  {
+    "id": 222,
+    "name": "매그니튜드",
+    "type": "ground",
+    "expected_power": 1
+  },
+  {
+    "id": 223,
+    "name": "폭발펀치",
+    "type": "fighting",
+    "expected_power": 50
+  },
+  {
+    "id": 224,
+    "name": "메가혼",
+    "type": "bug",
+    "expected_power": 102
+  },
+  {
+    "id": 225,
+    "name": "용의숨결",
+    "type": "dragon",
+    "expected_power": 60
+  },
+  {
+    "id": 226,
+    "name": "배턴터치",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 227,
+    "name": "앙코르",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 228,
+    "name": "따라가때리기",
+    "type": "dark",
+    "expected_power": 40
+  },
+  {
+    "id": 229,
+    "name": "고속스핀",
+    "type": "normal",
+    "expected_power": 20
+  },
+  {
+    "id": 230,
+    "name": "달콤한향기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 231,
+    "name": "아이언테일",
+    "type": "steel",
+    "expected_power": 75
+  },
+  {
+    "id": 232,
+    "name": "메탈클로",
+    "type": "steel",
+    "expected_power": 48
+  },
+  {
+    "id": 233,
+    "name": "받아던지기",
+    "type": "fighting",
+    "expected_power": 70
+  },
+  {
+    "id": 234,
+    "name": "아침햇살",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 235,
+    "name": "광합성",
+    "type": "grass",
+    "expected_power": 0
+  },
+  {
+    "id": 236,
+    "name": "달빛",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 237,
+    "name": "잠재파워",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 238,
+    "name": "크로스촙",
+    "type": "fighting",
+    "expected_power": 80
+  },
+  {
+    "id": 239,
+    "name": "회오리",
+    "type": "dragon",
+    "expected_power": 40
+  },
+  {
+    "id": 240,
+    "name": "비바라기",
+    "type": "water",
+    "expected_power": 0
+  },
+  {
+    "id": 241,
+    "name": "쾌청",
+    "type": "fire",
+    "expected_power": 0
+  },
+  {
+    "id": 242,
+    "name": "깨물어부수기",
+    "type": "dark",
+    "expected_power": 80
+  },
+  {
+    "id": 243,
+    "name": "미러코트",
+    "type": "psychic",
+    "expected_power": 1
+  },
+  {
+    "id": 244,
+    "name": "자기암시",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 245,
+    "name": "신속",
+    "type": "normal",
+    "expected_power": 80
+  },
+  {
+    "id": 246,
+    "name": "원시의힘",
+    "type": "rock",
+    "expected_power": 60
+  },
+  {
+    "id": 247,
+    "name": "섀도볼",
+    "type": "ghost",
+    "expected_power": 80
+  },
+  {
+    "id": 248,
+    "name": "미래예지",
+    "type": "psychic",
+    "expected_power": 1
+  },
+  {
+    "id": 249,
+    "name": "바위깨기",
+    "type": "fighting",
+    "expected_power": 40
+  },
+  {
+    "id": 250,
+    "name": "바다회오리",
+    "type": "water",
+    "expected_power": 30
+  },
+  {
+    "id": 251,
+    "name": "집단구타",
+    "type": "dark",
+    "expected_power": 1
+  },
+  {
+    "id": 252,
+    "name": "속이기",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 253,
+    "name": "소란피기",
+    "type": "normal",
+    "expected_power": 90
+  },
+  {
+    "id": 254,
+    "name": "비축하기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 255,
+    "name": "토해내기",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 256,
+    "name": "꿀꺽",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 257,
+    "name": "열풍",
+    "type": "fire",
+    "expected_power": 90
+  },
+  {
+    "id": 258,
+    "name": "싸라기눈",
+    "type": "ice",
+    "expected_power": 0
+  },
+  {
+    "id": 259,
+    "name": "트집",
+    "type": "dark",
+    "expected_power": 0
+  },
+  {
+    "id": 260,
+    "name": "부추기기",
+    "type": "dark",
+    "expected_power": 0
+  },
+  {
+    "id": 261,
+    "name": "도깨비불",
+    "type": "fire",
+    "expected_power": 0
+  },
+  {
+    "id": 262,
+    "name": "추억의선물",
+    "type": "dark",
+    "expected_power": 0
+  },
+  {
+    "id": 263,
+    "name": "객기",
+    "type": "normal",
+    "expected_power": 70
+  },
+  {
+    "id": 264,
+    "name": "힘껏펀치",
+    "type": "fighting",
+    "expected_power": 1
+  },
+  {
+    "id": 265,
+    "name": "정신차리기",
+    "type": "normal",
+    "expected_power": 60
+  },
+  {
+    "id": 266,
+    "name": "날따름",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 267,
+    "name": "자연의힘",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 268,
+    "name": "충전",
+    "type": "electric",
+    "expected_power": 0
+  },
+  {
+    "id": 269,
+    "name": "도발",
+    "type": "dark",
+    "expected_power": 0
+  },
+  {
+    "id": 270,
+    "name": "도우미",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 271,
+    "name": "트릭",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 272,
+    "name": "역할",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 273,
+    "name": "희망사항",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 274,
+    "name": "조수",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 275,
+    "name": "뿌리박기",
+    "type": "grass",
+    "expected_power": 0
+  },
+  {
+    "id": 276,
+    "name": "엄청난힘",
+    "type": "fighting",
+    "expected_power": 120
+  },
+  {
+    "id": 277,
+    "name": "매직코트",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 278,
+    "name": "리사이클",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 279,
+    "name": "리벤지",
+    "type": "fighting",
+    "expected_power": 60
+  },
+  {
+    "id": 280,
+    "name": "깨트리기",
+    "type": "fighting",
+    "expected_power": 75
+  },
+  {
+    "id": 281,
+    "name": "하품",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 282,
+    "name": "탁쳐서떨구기",
+    "type": "dark",
+    "expected_power": 20
+  },
+  {
+    "id": 283,
+    "name": "죽기살기",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 284,
+    "name": "분화",
+    "type": "fire",
+    "expected_power": 1
+  },
+  {
+    "id": 285,
+    "name": "스킬스왑",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 286,
+    "name": "봉인",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 287,
+    "name": "리프레시",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 288,
+    "name": "원념",
+    "type": "ghost",
+    "expected_power": 0
+  },
+  {
+    "id": 289,
+    "name": "가로채기",
+    "type": "dark",
+    "expected_power": 0
+  },
+  {
+    "id": 290,
+    "name": "비밀의힘",
+    "type": "normal",
+    "expected_power": 70
+  },
+  {
+    "id": 291,
+    "name": "다이빙",
+    "type": "water",
+    "expected_power": 40
+  },
+  {
+    "id": 292,
+    "name": "손바닥치기",
+    "type": "fighting",
+    "expected_power": 30
+  },
+  {
+    "id": 293,
+    "name": "보호색",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 294,
+    "name": "반딧불",
+    "type": "bug",
+    "expected_power": 0
+  },
+  {
+    "id": 295,
+    "name": "러스터퍼지",
+    "type": "psychic",
+    "expected_power": 70
+  },
+  {
+    "id": 296,
+    "name": "미스트볼",
+    "type": "psychic",
+    "expected_power": 70
+  },
+  {
+    "id": 297,
+    "name": "깃털댄스",
+    "type": "flying",
+    "expected_power": 0
+  },
+  {
+    "id": 298,
+    "name": "흔들흔들댄스",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 299,
+    "name": "블레이즈킥",
+    "type": "fire",
+    "expected_power": 77
+  },
+  {
+    "id": 300,
+    "name": "흙놀이",
+    "type": "ground",
+    "expected_power": 0
+  },
+  {
+    "id": 301,
+    "name": "아이스볼",
+    "type": "ice",
+    "expected_power": 27
+  },
+  {
+    "id": 302,
+    "name": "바늘팔",
+    "type": "grass",
+    "expected_power": 60
+  },
+  {
+    "id": 303,
+    "name": "게으름피우기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 304,
+    "name": "하이퍼보이스",
+    "type": "normal",
+    "expected_power": 90
+  },
+  {
+    "id": 305,
+    "name": "맹독엄니",
+    "type": "poison",
+    "expected_power": 50
+  },
+  {
+    "id": 306,
+    "name": "브레이크클로",
+    "type": "normal",
+    "expected_power": 71
+  },
+  {
+    "id": 307,
+    "name": "블라스트번",
+    "type": "fire",
+    "expected_power": 68
+  },
+  {
+    "id": 308,
+    "name": "하이드로캐논",
+    "type": "water",
+    "expected_power": 68
+  },
+  {
+    "id": 309,
+    "name": "코멧펀치",
+    "type": "steel",
+    "expected_power": 85
+  },
+  {
+    "id": 310,
+    "name": "놀래키기",
+    "type": "ghost",
+    "expected_power": 30
+  },
+  {
+    "id": 311,
+    "name": "웨더볼",
+    "type": "normal",
+    "expected_power": 50
+  },
+  {
+    "id": 312,
+    "name": "아로마테라피",
+    "type": "grass",
+    "expected_power": 0
+  },
+  {
+    "id": 313,
+    "name": "거짓울음",
+    "type": "dark",
+    "expected_power": 0
+  },
+  {
+    "id": 314,
+    "name": "에어커터",
+    "type": "flying",
+    "expected_power": 52
+  },
+  {
+    "id": 315,
+    "name": "오버히트",
+    "type": "fire",
+    "expected_power": 126
+  },
+  {
+    "id": 316,
+    "name": "냄새구별",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 317,
+    "name": "암석봉인",
+    "type": "rock",
+    "expected_power": 40
+  },
+  {
+    "id": 318,
+    "name": "은빛바람",
+    "type": "bug",
+    "expected_power": 60
+  },
+  {
+    "id": 319,
+    "name": "금속음",
+    "type": "steel",
+    "expected_power": 0
+  },
+  {
+    "id": 320,
+    "name": "풀피리",
+    "type": "grass",
+    "expected_power": 0
+  },
+  {
+    "id": 321,
+    "name": "간지르기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 322,
+    "name": "코스믹파워",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 323,
+    "name": "해수스파우팅",
+    "type": "water",
+    "expected_power": 1
+  },
+  {
+    "id": 324,
+    "name": "시그널빔",
+    "type": "bug",
+    "expected_power": 75
+  },
+  {
+    "id": 325,
+    "name": "섀도펀치",
+    "type": "ghost",
+    "expected_power": 60
+  },
+  {
+    "id": 326,
+    "name": "신통력",
+    "type": "psychic",
+    "expected_power": 80
+  },
+  {
+    "id": 327,
+    "name": "스카이어퍼",
+    "type": "fighting",
+    "expected_power": 77
+  },
+  {
+    "id": 328,
+    "name": "모래지옥",
+    "type": "ground",
+    "expected_power": 30
+  },
+  {
+    "id": 329,
+    "name": "절대영도",
+    "type": "ice",
+    "expected_power": 1
+  },
+  {
+    "id": 330,
+    "name": "탁류",
+    "type": "water",
+    "expected_power": 81
+  },
+  {
+    "id": 331,
+    "name": "씨기관총",
+    "type": "grass",
+    "expected_power": 50
+  },
+  {
+    "id": 332,
+    "name": "제비반환",
+    "type": "flying",
+    "expected_power": 60
+  },
+  {
+    "id": 333,
+    "name": "고드름침",
+    "type": "ice",
+    "expected_power": 50
+  },
+  {
+    "id": 334,
+    "name": "철벽",
+    "type": "steel",
+    "expected_power": 0
+  },
+  {
+    "id": 335,
+    "name": "블록",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 336,
+    "name": "멀리짖기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 337,
+    "name": "드래곤클로",
+    "type": "dragon",
+    "expected_power": 80
+  },
+  {
+    "id": 338,
+    "name": "하드플랜트",
+    "type": "grass",
+    "expected_power": 68
+  },
+  {
+    "id": 339,
+    "name": "벌크업",
+    "type": "fighting",
+    "expected_power": 0
+  },
+  {
+    "id": 340,
+    "name": "뛰어오르기",
+    "type": "flying",
+    "expected_power": 36
+  },
+  {
+    "id": 341,
+    "name": "머드샷",
+    "type": "ground",
+    "expected_power": 52
+  },
+  {
+    "id": 342,
+    "name": "포이즌테일",
+    "type": "poison",
+    "expected_power": 50
+  },
+  {
+    "id": 343,
+    "name": "탐내기",
+    "type": "normal",
+    "expected_power": 60
+  },
+  {
+    "id": 344,
+    "name": "볼트태클",
+    "type": "electric",
+    "expected_power": 120
+  },
+  {
+    "id": 345,
+    "name": "매지컬리프",
+    "type": "grass",
+    "expected_power": 60
+  },
+  {
+    "id": 346,
+    "name": "물놀이",
+    "type": "water",
+    "expected_power": 0
+  },
+  {
+    "id": 347,
+    "name": "명상",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 348,
+    "name": "리프블레이드",
+    "type": "grass",
+    "expected_power": 90
+  },
+  {
+    "id": 349,
+    "name": "용의춤",
+    "type": "dragon",
+    "expected_power": 0
+  },
+  {
+    "id": 350,
+    "name": "록블라스트",
+    "type": "rock",
+    "expected_power": 45
+  },
+  {
+    "id": 351,
+    "name": "전격파",
+    "type": "electric",
+    "expected_power": 60
+  },
+  {
+    "id": 352,
+    "name": "물의파동",
+    "type": "water",
+    "expected_power": 60
+  },
+  {
+    "id": 353,
+    "name": "파멸의소원",
+    "type": "steel",
+    "expected_power": 1
+  },
+  {
+    "id": 354,
+    "name": "사이코부스트",
+    "type": "psychic",
+    "expected_power": 126
+  },
+  {
+    "id": 355,
+    "name": "날개쉬기",
+    "type": "flying",
+    "expected_power": 0
+  },
+  {
+    "id": 356,
+    "name": "중력",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 357,
+    "name": "미라클아이",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 358,
+    "name": "잠깨움뺨치기",
+    "type": "fighting",
+    "expected_power": 60
+  },
+  {
+    "id": 359,
+    "name": "암해머",
+    "type": "fighting",
+    "expected_power": 90
+  },
+  {
+    "id": 360,
+    "name": "자이로볼",
+    "type": "steel",
+    "expected_power": 1
+  },
+  {
+    "id": 361,
+    "name": "치유소원",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 362,
+    "name": "소금물",
+    "type": "water",
+    "expected_power": 65
+  },
+  {
+    "id": 363,
+    "name": "자연의은혜",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 364,
+    "name": "페인트",
+    "type": "normal",
+    "expected_power": 30
+  },
+  {
+    "id": 365,
+    "name": "쪼아대기",
+    "type": "flying",
+    "expected_power": 60
+  },
+  {
+    "id": 366,
+    "name": "순풍",
+    "type": "flying",
+    "expected_power": 0
+  },
+  {
+    "id": 367,
+    "name": "경혈찌르기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 368,
+    "name": "메탈버스트",
+    "type": "steel",
+    "expected_power": 1
+  },
+  {
+    "id": 369,
+    "name": "유턴",
+    "type": "bug",
+    "expected_power": 70
+  },
+  {
+    "id": 370,
+    "name": "인파이트",
+    "type": "fighting",
+    "expected_power": 120
+  },
+  {
+    "id": 371,
+    "name": "보복",
+    "type": "dark",
+    "expected_power": 50
+  },
+  {
+    "id": 372,
+    "name": "승부굳히기",
+    "type": "dark",
+    "expected_power": 50
+  },
+  {
+    "id": 373,
+    "name": "금제",
+    "type": "dark",
+    "expected_power": 0
+  },
+  {
+    "id": 374,
+    "name": "내던지기",
+    "type": "dark",
+    "expected_power": 1
+  },
+  {
+    "id": 375,
+    "name": "사이코시프트",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 376,
+    "name": "마지막수단",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 377,
+    "name": "회복봉인",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 378,
+    "name": "쥐어짜기",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 379,
+    "name": "파워트릭",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 380,
+    "name": "위액",
+    "type": "poison",
+    "expected_power": 0
+  },
+  {
+    "id": 381,
+    "name": "주술",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 382,
+    "name": "선취",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 383,
+    "name": "흉내쟁이",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 384,
+    "name": "파워스왑",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 385,
+    "name": "가드스왑",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 386,
+    "name": "혼내기",
+    "type": "dark",
+    "expected_power": 1
+  },
+  {
+    "id": 387,
+    "name": "비장의무기",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 388,
+    "name": "고민씨",
+    "type": "grass",
+    "expected_power": 0
+  },
+  {
+    "id": 389,
+    "name": "기습",
+    "type": "dark",
+    "expected_power": 1
+  },
+  {
+    "id": 390,
+    "name": "독압정",
+    "type": "poison",
+    "expected_power": 0
+  },
+  {
+    "id": 391,
+    "name": "하트스왑",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 392,
+    "name": "아쿠아링",
+    "type": "water",
+    "expected_power": 0
+  },
+  {
+    "id": 393,
+    "name": "전자부유",
+    "type": "electric",
+    "expected_power": 0
+  },
+  {
+    "id": 394,
+    "name": "플레어드라이브",
+    "type": "fire",
+    "expected_power": 120
+  },
+  {
+    "id": 395,
+    "name": "발경",
+    "type": "fighting",
+    "expected_power": 60
+  },
+  {
+    "id": 396,
+    "name": "파동탄",
+    "type": "fighting",
+    "expected_power": 90
+  },
+  {
+    "id": 397,
+    "name": "록커트",
+    "type": "rock",
+    "expected_power": 0
+  },
+  {
+    "id": 398,
+    "name": "독찌르기",
+    "type": "poison",
+    "expected_power": 80
+  },
+  {
+    "id": 399,
+    "name": "악의파동",
+    "type": "dark",
+    "expected_power": 80
+  },
+  {
+    "id": 400,
+    "name": "깜짝베기",
+    "type": "dark",
+    "expected_power": 70
+  },
+  {
+    "id": 401,
+    "name": "아쿠아테일",
+    "type": "water",
+    "expected_power": 81
+  },
+  {
+    "id": 402,
+    "name": "씨폭탄",
+    "type": "grass",
+    "expected_power": 80
+  },
+  {
+    "id": 403,
+    "name": "에어슬래시",
+    "type": "flying",
+    "expected_power": 71
+  },
+  {
+    "id": 404,
+    "name": "시저크로스",
+    "type": "bug",
+    "expected_power": 80
+  },
+  {
+    "id": 405,
+    "name": "벌레의야단법석",
+    "type": "bug",
+    "expected_power": 90
+  },
+  {
+    "id": 406,
+    "name": "용의파동",
+    "type": "dragon",
+    "expected_power": 90
+  },
+  {
+    "id": 407,
+    "name": "드래곤다이브",
+    "type": "dragon",
+    "expected_power": 75
+  },
+  {
+    "id": 408,
+    "name": "파워젬",
+    "type": "rock",
+    "expected_power": 70
+  },
+  {
+    "id": 409,
+    "name": "드레인펀치",
+    "type": "fighting",
+    "expected_power": 75
+  },
+  {
+    "id": 410,
+    "name": "진공파",
+    "type": "fighting",
+    "expected_power": 40
+  },
+  {
+    "id": 411,
+    "name": "기합구슬",
+    "type": "fighting",
+    "expected_power": 84
+  },
+  {
+    "id": 412,
+    "name": "에너지볼",
+    "type": "grass",
+    "expected_power": 80
+  },
+  {
+    "id": 413,
+    "name": "브레이브버드",
+    "type": "flying",
+    "expected_power": 120
+  },
+  {
+    "id": 414,
+    "name": "대지의힘",
+    "type": "ground",
+    "expected_power": 90
+  },
+  {
+    "id": 415,
+    "name": "바꿔치기",
+    "type": "dark",
+    "expected_power": 0
+  },
+  {
+    "id": 416,
+    "name": "기가임팩트",
+    "type": "normal",
+    "expected_power": 68
+  },
+  {
+    "id": 417,
+    "name": "나쁜음모",
+    "type": "dark",
+    "expected_power": 0
+  },
+  {
+    "id": 418,
+    "name": "불릿펀치",
+    "type": "steel",
+    "expected_power": 40
+  },
+  {
+    "id": 419,
+    "name": "눈사태",
+    "type": "ice",
+    "expected_power": 60
+  },
+  {
+    "id": 420,
+    "name": "얼음뭉치",
+    "type": "ice",
+    "expected_power": 40
+  },
+  {
+    "id": 421,
+    "name": "섀도클로",
+    "type": "ghost",
+    "expected_power": 70
+  },
+  {
+    "id": 422,
+    "name": "번개엄니",
+    "type": "electric",
+    "expected_power": 62
+  },
+  {
+    "id": 423,
+    "name": "얼음엄니",
+    "type": "ice",
+    "expected_power": 62
+  },
+  {
+    "id": 424,
+    "name": "불꽃엄니",
+    "type": "fire",
+    "expected_power": 62
+  },
+  {
+    "id": 425,
+    "name": "야습",
+    "type": "ghost",
+    "expected_power": 40
+  },
+  {
+    "id": 426,
+    "name": "진흙폭탄",
+    "type": "ground",
+    "expected_power": 55
+  },
+  {
+    "id": 427,
+    "name": "사이코커터",
+    "type": "psychic",
+    "expected_power": 70
+  },
+  {
+    "id": 428,
+    "name": "사념의박치기",
+    "type": "psychic",
+    "expected_power": 72
+  },
+  {
+    "id": 429,
+    "name": "미러샷",
+    "type": "steel",
+    "expected_power": 55
+  },
+  {
+    "id": 430,
+    "name": "러스터캐논",
+    "type": "steel",
+    "expected_power": 80
+  },
+  {
+    "id": 431,
+    "name": "록클라임",
+    "type": "normal",
+    "expected_power": 77
+  },
+  {
+    "id": 432,
+    "name": "안개제거",
+    "type": "flying",
+    "expected_power": 0
+  },
+  {
+    "id": 433,
+    "name": "트릭룸",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 434,
+    "name": "용성군",
+    "type": "dragon",
+    "expected_power": 126
+  },
+  {
+    "id": 435,
+    "name": "방전",
+    "type": "electric",
+    "expected_power": 80
+  },
+  {
+    "id": 436,
+    "name": "분연",
+    "type": "fire",
+    "expected_power": 80
+  },
+  {
+    "id": 437,
+    "name": "리프스톰",
+    "type": "grass",
+    "expected_power": 126
+  },
+  {
+    "id": 438,
+    "name": "파워휩",
+    "type": "grass",
+    "expected_power": 102
+  },
+  {
+    "id": 439,
+    "name": "암석포",
+    "type": "rock",
+    "expected_power": 68
+  },
+  {
+    "id": 440,
+    "name": "크로스포이즌",
+    "type": "poison",
+    "expected_power": 70
+  },
+  {
+    "id": 441,
+    "name": "더스트슈트",
+    "type": "poison",
+    "expected_power": 84
+  },
+  {
+    "id": 442,
+    "name": "아이언헤드",
+    "type": "steel",
+    "expected_power": 80
+  },
+  {
+    "id": 443,
+    "name": "마그넷봄",
+    "type": "steel",
+    "expected_power": 60
+  },
+  {
+    "id": 444,
+    "name": "스톤에지",
+    "type": "rock",
+    "expected_power": 80
+  },
+  {
+    "id": 445,
+    "name": "유혹",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 446,
+    "name": "스텔스록",
+    "type": "rock",
+    "expected_power": 0
+  },
+  {
+    "id": 447,
+    "name": "풀묶기",
+    "type": "grass",
+    "expected_power": 1
+  },
+  {
+    "id": 448,
+    "name": "수다",
+    "type": "flying",
+    "expected_power": 60
+  },
+  {
+    "id": 449,
+    "name": "심판의뭉치",
+    "type": "normal",
+    "expected_power": 100
+  },
+  {
+    "id": 450,
+    "name": "벌레먹기",
+    "type": "bug",
+    "expected_power": 60
+  },
+  {
+    "id": 451,
+    "name": "차지빔",
+    "type": "electric",
+    "expected_power": 45
+  },
+  {
+    "id": 452,
+    "name": "우드해머",
+    "type": "grass",
+    "expected_power": 120
+  },
+  {
+    "id": 453,
+    "name": "아쿠아제트",
+    "type": "water",
+    "expected_power": 40
+  },
+  {
+    "id": 454,
+    "name": "공격지령",
+    "type": "bug",
+    "expected_power": 90
+  },
+  {
+    "id": 455,
+    "name": "방어지령",
+    "type": "bug",
+    "expected_power": 0
+  },
+  {
+    "id": 456,
+    "name": "회복지령",
+    "type": "bug",
+    "expected_power": 0
+  },
+  {
+    "id": 457,
+    "name": "양날박치기",
+    "type": "rock",
+    "expected_power": 120
+  },
+  {
+    "id": 458,
+    "name": "더블어택",
+    "type": "normal",
+    "expected_power": 63
+  },
+  {
+    "id": 459,
+    "name": "시간의포효",
+    "type": "dragon",
+    "expected_power": 68
+  },
+  {
+    "id": 460,
+    "name": "공간절단",
+    "type": "dragon",
+    "expected_power": 95
+  },
+  {
+    "id": 461,
+    "name": "초승달춤",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 462,
+    "name": "묵사발",
+    "type": "normal",
+    "expected_power": 1
+  },
+  {
+    "id": 463,
+    "name": "마그마스톰",
+    "type": "fire",
+    "expected_power": 90
+  },
+  {
+    "id": 464,
+    "name": "다크홀",
+    "type": "dark",
+    "expected_power": 0
+  },
+  {
+    "id": 465,
+    "name": "시드플레어",
+    "type": "grass",
+    "expected_power": 102
+  },
+  {
+    "id": 466,
+    "name": "괴상한바람",
+    "type": "ghost",
+    "expected_power": 60
+  },
+  {
+    "id": 467,
+    "name": "섀도다이브",
+    "type": "ghost",
+    "expected_power": 60
+  },
+  {
+    "id": 468,
+    "name": "손톱갈기",
+    "type": "dark",
+    "expected_power": 0
+  },
+  {
+    "id": 469,
+    "name": "와이드가드",
+    "type": "rock",
+    "expected_power": 0
+  },
+  {
+    "id": 470,
+    "name": "가드셰어",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 471,
+    "name": "파워셰어",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 472,
+    "name": "원더룸",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 473,
+    "name": "사이코쇼크",
+    "type": "psychic",
+    "expected_power": 80
+  },
+  {
+    "id": 474,
+    "name": "베놈쇼크",
+    "type": "poison",
+    "expected_power": 65
+  },
+  {
+    "id": 475,
+    "name": "바디퍼지",
+    "type": "steel",
+    "expected_power": 0
+  },
+  {
+    "id": 476,
+    "name": "분노가루",
+    "type": "bug",
+    "expected_power": 0
+  },
+  {
+    "id": 477,
+    "name": "텔레키네시스",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 478,
+    "name": "매직룸",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 479,
+    "name": "떨어뜨리기",
+    "type": "rock",
+    "expected_power": 50
+  },
+  {
+    "id": 480,
+    "name": "업어후리기",
+    "type": "fighting",
+    "expected_power": 40
+  },
+  {
+    "id": 481,
+    "name": "불꽃튀기기",
+    "type": "fire",
+    "expected_power": 70
+  },
+  {
+    "id": 482,
+    "name": "오물웨이브",
+    "type": "poison",
+    "expected_power": 95
+  },
+  {
+    "id": 483,
+    "name": "나비춤",
+    "type": "bug",
+    "expected_power": 0
+  },
+  {
+    "id": 484,
+    "name": "헤비봄버",
+    "type": "steel",
+    "expected_power": 1
+  },
+  {
+    "id": 485,
+    "name": "싱크로노이즈",
+    "type": "psychic",
+    "expected_power": 70
+  },
+  {
+    "id": 486,
+    "name": "일렉트릭볼",
+    "type": "electric",
+    "expected_power": 1
+  },
+  {
+    "id": 487,
+    "name": "물붓기",
+    "type": "water",
+    "expected_power": 0
+  },
+  {
+    "id": 488,
+    "name": "니트로차지",
+    "type": "fire",
+    "expected_power": 50
+  },
+  {
+    "id": 489,
+    "name": "똬리틀기",
+    "type": "poison",
+    "expected_power": 0
+  },
+  {
+    "id": 490,
+    "name": "로킥",
+    "type": "fighting",
+    "expected_power": 60
+  },
+  {
+    "id": 491,
+    "name": "애시드봄",
+    "type": "poison",
+    "expected_power": 40
+  },
+  {
+    "id": 492,
+    "name": "속임수",
+    "type": "dark",
+    "expected_power": 95
+  },
+  {
+    "id": 493,
+    "name": "심플빔",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 494,
+    "name": "동료만들기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 495,
+    "name": "당신먼저",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 496,
+    "name": "돌림노래",
+    "type": "normal",
+    "expected_power": 60
+  },
+  {
+    "id": 497,
+    "name": "에코보이스",
+    "type": "normal",
+    "expected_power": 40
+  },
+  {
+    "id": 498,
+    "name": "야금야금",
+    "type": "normal",
+    "expected_power": 70
+  },
+  {
+    "id": 499,
+    "name": "클리어스모그",
+    "type": "poison",
+    "expected_power": 50
+  },
+  {
+    "id": 500,
+    "name": "어시스트파워",
+    "type": "psychic",
+    "expected_power": 20
+  },
+  {
+    "id": 501,
+    "name": "패스트가드",
+    "type": "fighting",
+    "expected_power": 0
+  },
+  {
+    "id": 502,
+    "name": "사이드체인지",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 503,
+    "name": "열탕",
+    "type": "water",
+    "expected_power": 80
+  },
+  {
+    "id": 504,
+    "name": "껍질깨기",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 505,
+    "name": "치유파동",
+    "type": "psychic",
+    "expected_power": 0
+  },
+  {
+    "id": 506,
+    "name": "병상첨병",
+    "type": "ghost",
+    "expected_power": 50
+  },
+  {
+    "id": 507,
+    "name": "프리폴",
+    "type": "flying",
+    "expected_power": 30
+  },
+  {
+    "id": 508,
+    "name": "기어체인지",
+    "type": "steel",
+    "expected_power": 0
+  },
+  {
+    "id": 509,
+    "name": "배대뒤치기",
+    "type": "fighting",
+    "expected_power": 54
+  },
+  {
+    "id": 510,
+    "name": "불태우기",
+    "type": "fire",
+    "expected_power": 30
+  },
+  {
+    "id": 511,
+    "name": "순서미루기",
+    "type": "dark",
+    "expected_power": 0
+  },
+  {
+    "id": 512,
+    "name": "애크러뱃",
+    "type": "flying",
+    "expected_power": 55
+  },
+  {
+    "id": 513,
+    "name": "미러타입",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 514,
+    "name": "원수갚기",
+    "type": "normal",
+    "expected_power": 70
+  },
+  {
+    "id": 515,
+    "name": "목숨걸기",
+    "type": "fighting",
+    "expected_power": 1
+  },
+  {
+    "id": 516,
+    "name": "기프트패스",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 517,
+    "name": "연옥",
+    "type": "fire",
+    "expected_power": 50
+  },
+  {
+    "id": 518,
+    "name": "물의맹세",
+    "type": "water",
+    "expected_power": 50
+  },
+  {
+    "id": 519,
+    "name": "불꽃의맹세",
+    "type": "fire",
+    "expected_power": 50
+  },
+  {
+    "id": 520,
+    "name": "풀의맹세",
+    "type": "grass",
+    "expected_power": 50
+  },
+  {
+    "id": 521,
+    "name": "볼트체인지",
+    "type": "electric",
+    "expected_power": 70
+  },
+  {
+    "id": 522,
+    "name": "벌레의저항",
+    "type": "bug",
+    "expected_power": 30
+  },
+  {
+    "id": 523,
+    "name": "땅고르기",
+    "type": "ground",
+    "expected_power": 60
+  },
+  {
+    "id": 524,
+    "name": "얼음숨결",
+    "type": "ice",
+    "expected_power": 36
+  },
+  {
+    "id": 525,
+    "name": "드래곤테일",
+    "type": "dragon",
+    "expected_power": 54
+  },
+  {
+    "id": 526,
+    "name": "분발",
+    "type": "normal",
+    "expected_power": 0
+  },
+  {
+    "id": 527,
+    "name": "일렉트릭네트",
+    "type": "electric",
+    "expected_power": 52
+  },
+  {
+    "id": 528,
+    "name": "와일드볼트",
+    "type": "electric",
+    "expected_power": 90
+  },
+  {
+    "id": 529,
+    "name": "드릴라이너",
+    "type": "ground",
+    "expected_power": 76
+  },
+  {
+    "id": 530,
+    "name": "더블촙",
+    "type": "dragon",
+    "expected_power": 72
+  },
+  {
+    "id": 531,
+    "name": "하트스탬프",
+    "type": "psychic",
+    "expected_power": 60
+  },
+  {
+    "id": 532,
+    "name": "우드혼",
+    "type": "grass",
+    "expected_power": 75
+  },
+  {
+    "id": 533,
+    "name": "성스러운칼",
+    "type": "fighting",
+    "expected_power": 90
+  },
+  {
+    "id": 534,
+    "name": "셸블레이드",
+    "type": "water",
+    "expected_power": 71
+  },
+  {
+    "id": 535,
+    "name": "히트스탬프",
+    "type": "fire",
+    "expected_power": 1
+  },
+  {
+    "id": 536,
+    "name": "그래스믹서",
+    "type": "grass",
+    "expected_power": 59
+  },
+  {
+    "id": 537,
+    "name": "하드롤러",
+    "type": "bug",
+    "expected_power": 65
+  },
+  {
+    "id": 538,
+    "name": "코튼가드",
+    "type": "grass",
+    "expected_power": 0
+  },
+  {
+    "id": 539,
+    "name": "나이트버스트",
+    "type": "dark",
+    "expected_power": 81
+  },
+  {
+    "id": 540,
+    "name": "사이코브레이크",
+    "type": "psychic",
+    "expected_power": 100
+  },
+  {
+    "id": 541,
+    "name": "스위프뺨치기",
+    "type": "normal",
+    "expected_power": 43
+  },
+  {
+    "id": 542,
+    "name": "폭풍",
+    "type": "flying",
+    "expected_power": 84
+  },
+  {
+    "id": 543,
+    "name": "아프로브레이크",
+    "type": "normal",
+    "expected_power": 120
+  },
+  {
+    "id": 544,
+    "name": "기어소서",
+    "type": "steel",
+    "expected_power": 85
+  },
+  {
+    "id": 545,
+    "name": "화염탄",
+    "type": "fire",
+    "expected_power": 100
+  },
+  {
+    "id": 546,
+    "name": "테크노버스터",
+    "type": "normal",
+    "expected_power": 85
+  },
+  {
+    "id": 547,
+    "name": "옛노래",
+    "type": "normal",
+    "expected_power": 75
+  },
+  {
+    "id": 548,
+    "name": "신비의칼",
+    "type": "fighting",
+    "expected_power": 85
+  },
+  {
+    "id": 549,
+    "name": "얼어붙은세계",
+    "type": "ice",
+    "expected_power": 62
+  },
+  {
+    "id": 550,
+    "name": "뇌격",
+    "type": "electric",
+    "expected_power": 111
+  },
+  {
+    "id": 551,
+    "name": "푸른불꽃",
+    "type": "fire",
+    "expected_power": 111
+  },
+  {
+    "id": 552,
+    "name": "불꽃춤",
+    "type": "fire",
+    "expected_power": 80
+  },
+  {
+    "id": 553,
+    "name": "프리즈볼트",
+    "type": "ice",
+    "expected_power": 63
+  },
+  {
+    "id": 554,
+    "name": "콜드플레어",
+    "type": "ice",
+    "expected_power": 63
+  },
+  {
+    "id": 555,
+    "name": "바크아웃",
+    "type": "dark",
+    "expected_power": 52
+  },
+  {
+    "id": 556,
+    "name": "고드름떨구기",
+    "type": "ice",
+    "expected_power": 77
+  },
+  {
+    "id": 557,
+    "name": "V제너레이트",
+    "type": "fire",
+    "expected_power": 171
+  },
+  {
+    "id": 558,
+    "name": "크로스플레임",
+    "type": "fire",
+    "expected_power": 100
+  },
+  {
+    "id": 559,
+    "name": "크로스썬더",
+    "type": "electric",
+    "expected_power": 100
+  }
+]

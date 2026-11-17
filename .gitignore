@@ -9,3 +9,5 @@ node_modules/
 dist/
 build/
 .DS_Store
+data/scripts/.cache/
+data/_test/
