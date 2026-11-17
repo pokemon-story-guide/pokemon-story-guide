@@ -52,8 +52,8 @@ class EvaluateAgainstPartyTest(unittest.TestCase):
             evaluate_against_party(["water"], [])
 
     def test_rating_boundaries(self):
-        self.assertEqual(recommendation._to_rating(65)[0], "good")
-        self.assertEqual(recommendation._to_rating(64)[0], "normal")
+        self.assertEqual(recommendation._to_rating(70)[0], "good")
+        self.assertEqual(recommendation._to_rating(69)[0], "normal")
         self.assertEqual(recommendation._to_rating(40)[0], "normal")
         self.assertEqual(recommendation._to_rating(39)[0], "bad")
 
