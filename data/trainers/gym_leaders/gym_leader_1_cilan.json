@@ -1,0 +1,18 @@
+{
+  "id": "cilan",
+  "name": "덴트",
+  "category": "gym-leader",
+  "type": "grass",
+  "badge_order": 1,
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 12,
+      "level": 12
+    },
+    {
+      "pokemon_id": 17,
+      "level": 14
+    }
+  ]
+}

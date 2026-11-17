@@ -1,0 +1,25 @@
+{
+  "id": "n-nimbasa-city",
+  "name": "N (뇌문시티)",
+  "category": "rival",
+  "type": "",
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 57,
+      "level": 22
+    },
+    {
+      "pokemon_id": 60,
+      "level": 22
+    },
+    {
+      "pokemon_id": 65,
+      "level": 22
+    },
+    {
+      "pokemon_id": 67,
+      "level": 22
+    }
+  ]
+}

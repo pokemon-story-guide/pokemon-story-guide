@@ -1,0 +1,22 @@
+{
+  "id": "brycen",
+  "name": "하치쿠",
+  "category": "gym-leader",
+  "type": "ice",
+  "badge_order": 7,
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 89,
+      "level": 37
+    },
+    {
+      "pokemon_id": 121,
+      "level": 37
+    },
+    {
+      "pokemon_id": 120,
+      "level": 39
+    }
+  ]
+}

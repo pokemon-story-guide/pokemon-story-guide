@@ -1,0 +1,18 @@
+{
+  "id": "cress",
+  "name": "콘",
+  "category": "gym-leader",
+  "type": "water",
+  "badge_order": 1,
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 12,
+      "level": 12
+    },
+    {
+      "pokemon_id": 21,
+      "level": 14
+    }
+  ]
+}

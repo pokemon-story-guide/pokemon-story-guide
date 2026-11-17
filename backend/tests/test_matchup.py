@@ -6,53 +6,58 @@ from algorithm.matchup import get_defense_matchups, get_offense_matchups, get_po
 def _types(entries):
     return {entry["type"]: entry["multiplier"] for entry in entries}
 
-
 class PokemonMatchupTest(unittest.TestCase):
-    def test_defense_single_type(self):
-        result = get_defense_matchups(["fire"])
-        self.assertEqual(_types(result["weak"]), {"water": 2, "ground": 2, "rock": 2})
-        self.assertIn("grass", _types(result["resist"]))
-        self.assertEqual(result["immune"], [])
+    def test_defense_matchups(self):
+        cases = [
+            (["fire"], "weak", {"water": 2, "ground": 2, "rock": 2}),
+            (["fire"], "immune", {}),
+            (["water", "ground"], "weak", {"grass": 4}),          
+            (["water", "ground"], "immune", {"electric": 0}),
+            (["bug", "steel"], "weak", {"fire": 4}),             
+            (["bug", "steel"], "immune", {"poison": 0}),
+            (["normal", "flying"], "immune", {"ground": 0, "ghost": 0}),
+        ]
+        for types, group, expected in cases:
+            with self.subTest(types=types, group=group):
+                self.assertEqual(_types(get_defense_matchups(types)[group]), expected)
 
-    def test_defense_dual_type_four_times_and_quarter(self):
-        result = get_defense_matchups(["water", "ground"])  # 두빅굴
-        self.assertEqual(_types(result["weak"]), {"grass": 4})
-        self.assertEqual(_types(result["immune"]), {"electric": 0})
+    def test_defense_quarter_resist(self):
+        resist = _types(get_defense_matchups(["bug", "steel"])["resist"])
+        self.assertEqual(resist["grass"], 0.25)
 
-        result = get_defense_matchups(["bug", "steel"])  # 슈바르고
-        self.assertEqual(_types(result["weak"]), {"fire": 4})
-        self.assertEqual(_types(result["resist"])["grass"], 0.25)
-        self.assertEqual(_types(result["immune"]), {"poison": 0})
-
-    def test_defense_covers_all_types_once(self):
-        result = get_defense_matchups(["normal", "flying"])
-        all_types = [entry["type"] for group in result.values() for entry in group]
-        self.assertEqual(len(all_types), 17)
-        self.assertEqual(len(set(all_types)), 17)
-        self.assertEqual(_types(result["immune"]), {"ground": 0, "ghost": 0})
+    def test_offense_matchups(self):
+        cases = [
+            (["normal"], "no_effect", {"ghost": 0}),
+            (["normal"], "strong", {}),
+            (["fire", "fighting"], "no_effect", {}), 
+        ]
+        for types, group, expected in cases:
+            with self.subTest(types=types, group=group):
+                self.assertEqual(_types(get_offense_matchups(types)[group]), expected)
 
     def test_offense_uses_best_of_own_types(self):
-        result = get_offense_matchups(["fire", "fighting"])  # 염무왕
-        strong = _types(result["strong"])
+        strong = _types(get_offense_matchups(["fire", "fighting"])["strong"])  
         self.assertEqual(strong["normal"], 2)
         self.assertEqual(strong["grass"], 2)
-        self.assertEqual(_types(result["neutral"])["ghost"], 1)  # 격투는 무효지만 불꽃은 1배
 
-    def test_offense_no_effect(self):
-        result = get_offense_matchups(["normal"])
-        self.assertEqual(_types(result["no_effect"]), {"ghost": 0})
-        self.assertEqual(result["strong"], [])
+    def test_each_type_appears_once(self):
+        for result in (get_defense_matchups(["normal", "flying"]), get_offense_matchups(["water"])):
+            all_types = [entry["type"] for group in result.values() for entry in group]
+            self.assertEqual(len(all_types), 17)
+            self.assertEqual(len(set(all_types)), 17)
 
     def test_pokemon_matchups_shape(self):
         result = get_pokemon_matchups(["water"])
         self.assertEqual(result["types"], ["water"])
         self.assertEqual(set(result), {"types", "defense", "offense"})
+        self.assertEqual(set(result["defense"]), {"weak", "resist", "immune", "neutral"})
+        self.assertEqual(set(result["offense"]), {"strong", "weak", "no_effect", "neutral"})
 
     def test_invalid_types(self):
-        with self.assertRaises(ValueError):
-            get_pokemon_matchups([])
-        with self.assertRaises(ValueError):
-            get_pokemon_matchups(["fairy"])
+        for types in ([], ["fairy"]):
+            with self.subTest(types=types):
+                with self.assertRaises(ValueError):
+                    get_pokemon_matchups(types)
 
 
 if __name__ == "__main__":
