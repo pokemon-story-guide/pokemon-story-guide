@@ -1,19 +1,31 @@
 /* 화면 구조 스타일. 색과 크기는 theme.css의 변수만 사용합니다. */
 
 /* 메인 화면 */
+/*
+ * 메인 화면: 배경은 낮 장면 움직이는 GIF(src/data/screens/main-day.gif)입니다.
+ * 3배 정수 배율(1620×1212)로 표시해 픽셀이 깨지지 않게 하고, 가운데를 잘라 보여 줍니다.
+ * 제목과 메뉴는 왼쪽 위에 두어 가운데 주인공이 가려지지 않게 합니다.
+ */
 .main-menu {
+  position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: calc(var(--space-unit) * 3);
-  padding: calc(var(--space-unit) * 2);
+  justify-content: flex-start;
+  gap: calc(var(--space-unit) / 2);
+  /* 제목과 메뉴는 가운데 위쪽에 둡니다. 가운데 아래 주인공은 가리지 않습니다. */
+  padding: 38px calc(var(--space-unit) * 2) calc(var(--space-unit) * 2);
+  /* 아래쪽을 맞춰서 발이 잘리지 않게 합니다. 화면이 그림보다 높으면 위쪽은 하늘색으로 채웁니다. */
+  /* 낮 장면 움직이는 GIF(main-day.gif, 576×1025, 48프레임). 보라색 꽃 아래는 잘라 지평선이 가운데 오게 함. 양옆은 하늘색. 1배 표시로 픽셀을 고르게 둡니다. */
+  background: #7ccbf8 url("../data/screens/main-day.gif") center bottom / 576px 1025px no-repeat;
+  image-rendering: pixelated;
+  image-rendering: pixelated;
 }
 
 .main-menu__logo {
   /* 로고 이미지가 생기면 background-image 또는 img로 교체합니다. */
-  min-height: 120px;
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,18 +33,93 @@
 
 .main-menu__title {
   margin: 0;
-  font-size: var(--font-size-title);
-  color: var(--color-accent);
-  text-align: center;
+  line-height: 0;
 }
 
-.main-menu__panel {
-  width: min(560px, 100%);
-  background: var(--color-panel);
-  border: 2px solid var(--color-panel-border);
-  border-radius: var(--radius-panel);
-  padding: calc(var(--space-unit) * 2);
+/* 로고는 원본(2172px)의 1/6인 362px로 씁니다. 픽셀 칸이 고르게 보이도록 정수 배율로 맞춥니다. */
+.main-menu__title img {
+  width: 430px;
+  height: auto;
+  image-rendering: pixelated;
+  display: block;
 }
+
+/* 닌텐도 메뉴처럼 작은 창: 설명 줄은 숨기고 이름만 보입니다. */
+.main-menu__panel {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(240px, 100%);
+  margin: 0;
+  padding: 12px 14px;
+  background: #ffffff;
+  /* 도트 테두리: 남색 두꺼운 외곽 + 안쪽 하늘색 한 줄 + 아래·오른쪽 그림자 */
+  border: 4px solid #203078;
+  box-shadow:
+    inset 0 0 0 4px #ffffff,
+    inset 0 0 0 8px #80d0ff,
+    6px 6px 0 0 #203078;
+  border-radius: 0;
+  color: #203078;
+  -webkit-font-smoothing: none;
+}
+
+.main-menu__panel .menu-item__desc {
+  display: none;
+}
+
+/* 메뉴 패널: 흰 바탕에 하늘색 도트 테두리. 선택은 ▶와 굵은 글씨로 표시합니다. 캐릭터를 가리지 않도록 로고 바로 아래 가운데에 둡니다. */
+.main-menu__panel {
+  width: min(220px, 100%);
+  padding: 10px 12px;
+  margin: 0;
+  background: #ffffff;
+  border: 0;
+  border-radius: 0;
+  box-shadow:
+    0 -4px 0 0 #80d0ff, 0 4px 0 0 #80d0ff, -4px 0 0 0 #80d0ff, 4px 0 0 0 #80d0ff,
+    -4px -4px 0 0 #80d0ff, 4px -4px 0 0 #80d0ff, -4px 4px 0 0 #80d0ff, 4px 4px 0 0 #80d0ff,
+    4px 8px 0 0 #203078, 8px 4px 0 0 #203078;
+  color: #203078;
+  -webkit-font-smoothing: none;
+}
+
+.main-menu__panel .menu-list {
+  gap: 0;
+}
+
+.main-menu__panel .menu-item {
+  min-height: 28px;
+  align-items: center;
+  padding: 2px 4px;
+  background: transparent;
+}
+
+.main-menu__panel .menu-item--selected {
+  background: transparent;
+}
+
+.main-menu__panel .menu-item__cursor {
+  color: #203078;
+  text-shadow: none;
+}
+
+.main-menu__panel .menu-item__label {
+  color: #203078;
+  font-size: 15px;
+  text-shadow: none;
+}
+
+.main-menu__panel .menu-item--selected .menu-item__label {
+  font-weight: 700;
+}
+
+.main-menu__panel .menu-list:focus-visible {
+  box-shadow: none;
+  border-radius: 0;
+}
+
 
 .main-menu__hint {
   margin: 0;

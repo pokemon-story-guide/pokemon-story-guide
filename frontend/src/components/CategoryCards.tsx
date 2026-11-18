@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { useNavigate } from "react-router-dom";
+import { playSound, SOUND_CHOOSE, SOUND_MOVE } from "../sound";
 
 export interface CategoryCardItem {
   id: string;
@@ -30,12 +31,15 @@ export function CategoryCards({ items }: CategoryCardsProps) {
     const key = event.key.toLowerCase();
     if (key === "arrowright" || key === "d") {
       event.preventDefault();
+      playSound(SOUND_MOVE);
       setCursor((prev) => (prev + 1) % items.length);
     } else if (key === "arrowleft" || key === "a") {
       event.preventDefault();
+      playSound(SOUND_MOVE);
       setCursor((prev) => (prev - 1 + items.length) % items.length);
     } else if (key === "enter") {
       event.preventDefault();
+      playSound(SOUND_CHOOSE);
       navigate(items[cursor].path);
     }
   };
@@ -58,7 +62,10 @@ export function CategoryCards({ items }: CategoryCardsProps) {
             aria-selected={selected}
             className="category-card__slot"
             onMouseEnter={() => setCursor(index)}
-            onClick={() => navigate(item.path)}
+            onClick={() => {
+              playSound(SOUND_CHOOSE);
+              navigate(item.path);
+            }}
           >
             <span className={selected ? "category-card__pointer" : "category-card__pointer category-card__pointer--hidden"} aria-hidden="true">
               ▼
