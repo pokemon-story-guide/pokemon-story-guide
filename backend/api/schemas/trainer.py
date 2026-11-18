@@ -2,6 +2,8 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
+from api.schemas.pokemon import PokemonType
+
 # 관장 목록에서 허용하는 분류 값입니다.
 TrainerCategory = Literal["gym-leader", "elite-four", "rival"]
 
@@ -11,7 +13,13 @@ class PartyPokemon(BaseModel):
         description="하나도감 기준 포켓몬 ID. 전국도감 번호와 다르며, 포켓몬 상세 API의 ID와 같습니다.",
         examples=[93],
     )
+    name: str = Field(description="포켓몬의 한글 이름.", examples=["에몽가"])
+    types: list[PokemonType] = Field(
+        description="5세대 영문 타입 목록. 복합 타입은 두 항목을 반환합니다.",
+        examples=[["electric", "flying"]],
+    )
     level: int = Field(description="배틀에서 사용하는 레벨.", examples=[25])
+    image: str | None = Field(default=None, description="이미지 주소. 현재 데이터에 없으면 null입니다.")
 
 
 class TrainerSummary(BaseModel):
