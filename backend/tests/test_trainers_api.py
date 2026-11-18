@@ -13,6 +13,14 @@ class TrainerApiTest(unittest.TestCase):
     def setUp(self):
         self.client = TestClient(app)
         self.addCleanup(self.client.close)
+        self.pokemon = [
+            {"id": 1, "name": "예시 포켓몬 1", "types": ["fire"]},
+            {"id": 2, "name": "예시 포켓몬 2", "types": ["ghost", "fire"]},
+            {"id": 3, "name": "예시 포켓몬 3", "types": ["dragon"]},
+        ]
+        pokemon_loader = patch("api.services.pokemon_service._load_pokemon", return_value=self.pokemon)
+        pokemon_loader.start()
+        self.addCleanup(pokemon_loader.stop)
         self.trainers = [
             {"id": "leader-a", "name": "예시 관장", "category": "gym-leader", "type": "fire",
              "badge_order": 1, "image": "", "party": [{"pokemon_id": 1, "level": 10}]},
@@ -50,8 +58,18 @@ class TrainerApiTest(unittest.TestCase):
         response = self.client.get("/api/trainers/elite-a")
         self.assertEqual(response.status_code, 200)
         row = response.json()
-        self.assertEqual(row["party"], [{"pokemon_id": 2, "level": 50}])
+        expected = [
+            {"pokemon_id": 2, "name": "예시 포켓몬 2", "types": ["ghost", "fire"],
+             "level": 50, "image": None},
+        ]
+        self.assertEqual(row["party"], expected)
         self.assertIsNone(row["badge_order"])
+
+    def test_party_with_unknown_pokemon_returns_500(self):
+        self.trainers[0]["party"] = [{"pokemon_id": 999, "level": 10}]
+        with TestClient(app, raise_server_exceptions=False) as client:
+            response = client.get("/api/trainers/leader-a")
+        self.assertEqual(response.status_code, 500)
 
     def test_every_listed_id_has_detail(self):
         ids = [row["id"] for row in self.client.get("/api/trainers").json()]
