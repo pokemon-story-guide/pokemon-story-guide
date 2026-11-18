@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { EliteIntro } from "../../components/EliteIntro";
 import { GYM_CARDS } from "../../config/gymSelect";
 import { TRAINERS } from "../../config/trainerData";
-import { trainerImageSrc } from "../../config/trainerGroups";
+import { PORTRAIT_FORMAT, trainerImageSrc } from "../../config/trainerGroups";
 
 /** 처음 열려 있는 관장 수. 1이면 1번 관장(성신시티)만 열려 있습니다. */
 const START_UNLOCKED = 1;
@@ -34,7 +35,7 @@ function SlotPicture({ id, name, state }: { id: string; name: string; state: Slo
   return (
     <img
       className={className}
-      src={trainerImageSrc(id, "png")}
+      src={trainerImageSrc(id, PORTRAIT_FORMAT)}
       alt=""
       onError={() => setFailed(true)}
     />
@@ -44,10 +45,11 @@ function SlotPicture({ id, name, state }: { id: string; name: string; state: Slo
 /**
  * 관장 선택 화면 (카드 8개, 4×2). 마우스로만 조작합니다.
  * - 카드에 마우스를 올리면 PNG가 커지는 선택 효과가 보입니다.
- * - 관장이 여러 명인 카드(1번, 8번): 클릭하면 팝오버가 뜹니다. 팝오버 안의 관장을 클릭하면 상세로 갑니다.
+ * - 관장이 여러 명인 카드(1번, 8번): 클릭하면 팝오버가 뜹니다. 팝오버 안의 관장을 클릭하면 연출 후 상세로 갑니다.
  *   팝오버는 바깥을 클릭하면 닫힙니다.
- * - 관장이 1명인 카드(2~7번): 마우스를 올리고 0.5초 뒤 팝오버가 뜹니다. 클릭하면 바로 상세로 갑니다.
+ * - 관장이 1명인 카드(2~7번): 마우스를 올리고 0.5초 뒤 팝오버가 뜹니다. 클릭하면 바로 연출 후 상세로 갑니다.
  *   마우스를 떼면 팝오버도 함께 사라집니다.
+ * - 연출 중에도 다른 칸을 클릭할 수 있습니다. 진행 중인 연출은 취소되고 새 관장의 연출이 처음부터 시작됩니다.
  */
 export function GymSelectPage() {
   const navigate = useNavigate();
@@ -60,6 +62,9 @@ export function GymSelectPage() {
   /** 팝오버가 열린 칸 번호 */
   const [popIdx, setPopIdx] = useState<number | null>(null);
   const timerRef = useRef<number | null>(null);
+  /** 지금 재생 중인 연출(관장 id와 재시작용 key). 없으면 null */
+  const [intro, setIntro] = useState<{ id: string; key: number } | null>(null);
+  const introSeq = useRef(0);
 
   /** 화면이 열리면 1번 칸의 채우기 효과가 한 번 끝난 뒤 평소 상태가 됩니다. */
   useEffect(() => {
@@ -83,10 +88,18 @@ export function GymSelectPage() {
   const openDetail = (id: string) => navigate(`/trainers/detail/${id}`);
   const isMulti = (index: number) => GYM_CARDS[index].leaderIds.length > 1;
 
+  /** 연출을 시작합니다. 이미 재생 중이면 취소하고 새 관장으로 다시 시작합니다(key가 바뀌어 다시 그려짐). */
+  const startIntro = (id: string) => {
+    clearTimer();
+    setPopIdx(null);
+    introSeq.current += 1;
+    setIntro({ id, key: introSeq.current });
+  };
+
   const handleEnter = (index: number) => {
     if (index >= unlocked) return;
     setHoverIdx(index);
-    if (!isMulti(index)) {
+    if (!isMulti(index) && intro === null) {
       clearTimer();
       timerRef.current = window.setTimeout(() => {
         setPopIdx(index);
@@ -110,7 +123,7 @@ export function GymSelectPage() {
     if (isMulti(index)) {
       setPopIdx(index);
     } else {
-      openDetail(GYM_CARDS[index].leaderIds[0]);
+      startIntro(GYM_CARDS[index].leaderIds[0]);
     }
   };
 
@@ -182,6 +195,10 @@ export function GymSelectPage() {
         </div>
       </div>
 
+      {intro !== null && (
+        <EliteIntro key={intro.key} id={intro.id} onDone={() => openDetail(intro.id)} />
+      )}
+
       {popup && (
         <>
           {/* 화면 전체를 어둡게 합니다. 여러 명짜리 팝오버는 바깥을 클릭하면 닫힙니다. */}
@@ -195,7 +212,7 @@ export function GymSelectPage() {
             aria-label={`${popup.cityName} 관장`}
           >
             {popup.leaderIds.map((id) => (
-              <div key={id} role="option" aria-selected={false} className="gym-mini" onClick={() => openDetail(id)}>
+              <div key={id} role="option" aria-selected={false} className="gym-mini" onClick={() => startIntro(id)}>
                 <span className="gym-mini__image">
                   <SlotPicture id={id} name={TRAINERS[id].name} state="earned" />
                 </span>

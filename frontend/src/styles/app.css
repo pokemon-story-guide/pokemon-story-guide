@@ -810,3 +810,238 @@
 .trainer-categories--gym-fill > .trainer-categories__footer {
   padding: 0 12px;
 }
+
+/* 사천왕 · 챔피언 화면: 챔피언 칸은 오른쪽 절반(3·4열, 두 줄)을 차지합니다. */
+.elite-champion {
+  grid-column: 3 / span 2;
+  grid-row: 1 / span 2;
+  height: auto;
+}
+
+/* 챔피언 사진: 칸 가운데를 기준으로 커지고, 선택 크기(1.25배)가 칸 안에 들어가도록 80%로 맞춥니다. */
+.gym-card.elite-champion .gym-card__portrait {
+  width: 80%;
+  transform-origin: center center;
+}
+
+/* 사천왕·챔피언 미리보기 팝오버: WebP 사진을 정사각형 칸에 맞춥니다. */
+.elite-preview .gym-mini__image {
+  width: 180px;
+  height: 180px;
+}
+
+.elite-preview .gym-mini__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 사천왕 클릭 연출 (총 2.85초). 키프레임 퍼센트: 1% ≈ 28.5ms */
+.intro-dim {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 15, 24, 0.6);
+  z-index: 60;
+  /* 연출 중에도 뒤의 칸을 클릭할 수 있도록 마우스 이벤트를 통과시킵니다. */
+  pointer-events: none;
+  animation: intro-dim-fade 3000ms forwards;
+}
+
+@keyframes intro-dim-fade {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+.intro-flash {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 62;
+  opacity: 0;
+  pointer-events: none;
+  animation: intro-flash 3000ms forwards;
+}
+
+/* 섬광(23%에서 가장 밝음)이 걷히면서 0.71초(25%)에 띠가 나타나 겹쳐 보이지 않게 이어집니다 */
+.intro-stage {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 0;
+  z-index: 61;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* 번개 줄: 오른쪽 끝에서 왼쪽으로 그려지고, 띠가 나타날 때 사라짐 */
+.intro-bolt {
+  position: absolute;
+  left: 0;
+  top: -40px;
+  width: 100vw;
+  height: 80px;
+  overflow: visible;
+}
+
+.intro-bolt path {
+  fill: none;
+  stroke-linejoin: round;
+}
+
+/* 번개가 오른쪽 끝에서 왼쪽으로 조금씩 펼쳐짐 (0.6초) */
+/* 바깥 빛 번짐 */
+.intro-bolt .bolt-blur {
+  stroke: #ffe600;
+  stroke-width: 12;
+  opacity: 0.35;
+  filter: blur(5px);
+}
+
+/* 노란 본선 */
+.intro-bolt .bolt-glow {
+  stroke: #ffe600;
+  stroke-width: 7;
+  filter: drop-shadow(0 0 4px #ffe600) drop-shadow(0 0 8px #fff7a0);
+}
+
+/* 흰 속선 */
+.intro-bolt .bolt-core {
+  stroke: #fffbe0;
+  stroke-width: 2.5;
+}
+
+/* 번개는 섬광 직전(21%)까지 보였다가 사라집니다 */
+/* 띠와 사진 묶음: 등장 → 1.4배까지 커짐 → 더 커지며 흐려짐 */
+/* 띠: 크기는 그대로. 섬광이 끝난 뒤 나타나고, 퇴장 때 흐려짐 */
+.intro-group {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -40px;
+}
+
+/* 섬광이 끝나는 순간(30%) 바로 띠가 나타납니다 */
+/* 사진: 유지 동안 1.7배까지 커지고, 퇴장 때 더 흐려지며 사라짐 */
+.intro-band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #8a4b00, #d98a00 45%, #ffd21f);
+  opacity: 0;
+  animation: intro-band-fade 3000ms forwards;
+}
+
+/* 사진은 띠 오른쪽에, 띠와 같은 높이로 맞춤 */
+.intro-photo {
+  position: absolute;
+  right: 60px;
+  top: 0;
+  opacity: 0;
+  /* 사진의 아래쪽은 띠 아래에 고정하고, 위로만 커집니다 */
+  transform-origin: center bottom;
+  animation: intro-photo-grow 3000ms forwards;
+}
+
+.intro-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.intro-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1b1f2a;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* 이름: 띠 왼쪽 위 구석에 고정 (커지지 않음) */
+.intro-name {
+  position: absolute;
+  left: 14px;
+  top: -36px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 3px #000;
+  white-space: nowrap;
+  opacity: 0;
+  animation: intro-name 3000ms forwards;
+}
+
+
+/* 사천왕 연출 시간표 (총 3.0초). 1% = 30ms */
+/* 번개 윗줄 0~0.5초, 아랫줄 0.5~1.0초 */
+.intro-bolt .bolt-reveal {
+  transform-box: view-box;
+  transform-origin: 1280px 0;
+  transform: scaleX(0);
+}
+
+.intro-bolt .bolt-reveal-top {
+  animation: intro-bolt-reveal 500ms ease-out forwards;
+}
+
+.intro-bolt .bolt-reveal-bottom {
+  animation: intro-bolt-reveal 500ms ease-out 500ms forwards;
+}
+
+@keyframes intro-bolt-reveal {
+  to { transform: scaleX(1); }
+}
+
+/* 번개는 섬광 직전(약 1.05초)까지 보였다가 사라집니다 */
+.intro-bolt .bolt-layer {
+  animation: intro-bolt-fade 3000ms forwards;
+}
+
+@keyframes intro-bolt-fade {
+  0% { opacity: 1; }
+  35% { opacity: 1; }
+  37% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* 섬광: 1.0초에 시작해 1.08초에 가장 밝고 1.26초에 사라짐 */
+@keyframes intro-flash {
+  0% { opacity: 0; }
+  33% { opacity: 0; }
+  36% { opacity: 0.95; }
+  42% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* 띠는 섬광이 끝나는 1.26초(42%)에 바로 나타나고, 2.46초(82%)까지 유지 후 흐려짐 */
+@keyframes intro-band-fade {
+  0% { opacity: 0; }
+  41.6% { opacity: 0; }
+  42% { opacity: 1; }
+  81.6% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* 사진: 유지 동안 1.7배까지 커지고, 퇴장 때 더 흐려지며 사라짐 */
+@keyframes intro-photo-grow {
+  0% { opacity: 0; transform: scale(1); }
+  41.6% { opacity: 0; transform: scale(1); }
+  42% { opacity: 1; transform: scale(1); }
+  81.6% { opacity: 1; transform: scale(1.7); }
+  100% { opacity: 0; transform: scale(1.7); }
+}
+
+@keyframes intro-name {
+  0% { opacity: 0; }
+  41.6% { opacity: 0; }
+  42% { opacity: 1; }
+  81.6% { opacity: 1; }
+  100% { opacity: 0; }
+}
