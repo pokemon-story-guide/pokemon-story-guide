@@ -1,0 +1,33 @@
+{
+  "id": "alder",
+  "name": "노간주",
+  "category": "champion",
+  "type": null,
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 123,
+      "level": 75
+    },
+    {
+      "pokemon_id": 132,
+      "level": 75
+    },
+    {
+      "pokemon_id": 127,
+      "level": 75
+    },
+    {
+      "pokemon_id": 90,
+      "level": 75
+    },
+    {
+      "pokemon_id": 95,
+      "level": 75
+    },
+    {
+      "pokemon_id": 143,
+      "level": 77
+    }
+  ]
+}
