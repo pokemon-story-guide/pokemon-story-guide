@@ -104,7 +104,7 @@ class TrainerDataIntegrityTest(unittest.TestCase):
 
                 # 챔피언과 플라스마단은 대표 타입이 없어 null입니다.
                 if trainer["category"] in ("champion", "plasma"):
-                    self.assertInNone(trainer["type"])
+                    self.assertIsNone(trainer["type"])
                 else:
                     self.assertIn(trainer["type"], TYPES)
 
