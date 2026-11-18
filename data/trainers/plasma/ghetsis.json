@@ -1,0 +1,33 @@
+{
+  "id": "ghetsis",
+  "name": "게치스",
+  "category": "plasma",
+  "type": null,
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 69,
+      "level": 52
+    },
+    {
+      "pokemon_id": 132,
+      "level": 52
+    },
+    {
+      "pokemon_id": 43,
+      "level": 52
+    },
+    {
+      "pokemon_id": 131,
+      "level": 52
+    },
+    {
+      "pokemon_id": 110,
+      "level": 52
+    },
+    {
+      "pokemon_id": 141,
+      "level": 54
+    }
+  ]
+}

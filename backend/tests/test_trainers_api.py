@@ -26,7 +26,9 @@ class TrainerApiTest(unittest.TestCase):
              "badge_order": 1, "image": "", "party": [{"pokemon_id": 1, "level": 10}]},
             {"id": "elite-a", "name": "예시 사천왕", "category": "elite-four", "type": "ghost",
              "image": "", "party": [{"pokemon_id": 2, "level": 50}]},
-            {"id": "rival-a", "name": "예시 라이벌", "category": "rival", "type": "",
+            {"id": "champion-a", "name": "예시 챔피언", "category": "champion", "type": None,
+             "image": "", "party": [{"pokemon_id": 1, "level": 70}]},
+            {"id": "plasma-a", "name": "예시 플라스마단", "category": "plasma", "type": None,
              "image": "", "party": [{"pokemon_id": 3, "level": 20}]},
         ]
         loader = patch("api.services.trainer_service._load_data", return_value=self.trainers)
@@ -37,11 +39,11 @@ class TrainerApiTest(unittest.TestCase):
         response = self.client.get("/api/trainers")
         self.assertEqual(response.status_code, 200)
         rows = response.json()
-        self.assertEqual([row["id"] for row in rows], ["leader-a", "elite-a", "rival-a"])
+        self.assertEqual([row["id"] for row in rows], ["leader-a", "elite-a", "champion-a", "plasma-a"])
         self.assertTrue(all("party" not in row for row in rows))
 
     def test_category_filter(self):
-        cases = {"gym-leader": ["leader-a"], "elite-four": ["elite-a"], "rival": ["rival-a"]}
+        cases = {"gym-leader": ["leader-a"], "elite-four": ["elite-a"], "champion": ["champion-a"], "plasma": ["plasma-a"],}
         for category, expected in cases.items():
             with self.subTest(category=category):
                 response = self.client.get("/api/trainers", params={"category": category})

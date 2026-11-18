@@ -1,8 +1,8 @@
 {
   "id": "n-chargestone-cave",
   "name": "N (전기돌동굴)",
-  "category": "rival",
-  "type": "",
+  "category": "plasma",
+  "type": null,
   "image": "",
   "party": [
     {

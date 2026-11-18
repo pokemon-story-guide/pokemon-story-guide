@@ -7,7 +7,7 @@ from api.services import pokemon_service
 DATA_DIR = Path(__file__).resolve().parents[3] / "data" / "trainers"
 
 # 데이터 담당이 제공한 관장·사천왕·N 폴더를 읽습니다.
-CATEGORY_DIRS = ["gym_leaders", "elite_four", "n"]
+CATEGORY_DIRS = ["gym_leaders", "elite_four", "champion", "plasma"]
 
 
 def _load_data():

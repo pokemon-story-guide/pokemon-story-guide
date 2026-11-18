@@ -60,7 +60,8 @@ TRAINER_DIR = DATA_DIR / "trainers"
 TRAINER_CATEGORY_BY_FOLDER = {
     "gym_leaders": "gym-leader",
     "elite_four": "elite-four",
-    "n": "rival",
+    "champion": "champion",
+    "plasma": "plasma",
 }
 
 TRAINER_REQUIRED_FIELDS = {"id", "name", "category", "type", "image", "party"}
@@ -101,9 +102,9 @@ class TrainerDataIntegrityTest(unittest.TestCase):
                 self.assertIsInstance(trainer["image"], str)
                 self.assertEqual(trainer["category"], TRAINER_CATEGORY_BY_FOLDER[folder])
 
-
-                if trainer["category"] == "rival":
-                    self.assertIn(trainer["type"], ("", *TYPES))
+                # 챔피언과 플라스마단은 대표 타입이 없어 null입니다.
+                if trainer["category"] in ("champion", "plasma"):
+                    self.assertInNone(trainer["type"])
                 else:
                     self.assertIn(trainer["type"], TYPES)
 
