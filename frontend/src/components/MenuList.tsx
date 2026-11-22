@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import type { MenuItem } from "../config/menuItems";
+import { playSound, SOUND_CHOOSE, SOUND_MOVE } from "../sound";
 
 interface MenuListProps {
   items: readonly MenuItem[];
@@ -15,6 +16,12 @@ export function MenuList({ items, onSelect }: MenuListProps) {
   const [cursor, setCursor] = useState(0);
   const listRef = useRef<HTMLDivElement>(null);
 
+  /** 고를 때(Enter 또는 클릭) 소리를 내고 선택을 알립니다. */
+  const choose = (item: MenuItem) => {
+    playSound(SOUND_CHOOSE);
+    onSelect(item);
+  };
+
   useEffect(() => {
     listRef.current?.focus();
   }, []);
@@ -23,13 +30,15 @@ export function MenuList({ items, onSelect }: MenuListProps) {
     const key = event.key.toLowerCase();
     if (key === "arrowdown" || key === "s") {
       event.preventDefault();
+      playSound(SOUND_MOVE);
       setCursor((prev) => (prev + 1) % items.length);
     } else if (key === "arrowup" || key === "w") {
       event.preventDefault();
+      playSound(SOUND_MOVE);
       setCursor((prev) => (prev - 1 + items.length) % items.length);
     } else if (key === "enter") {
       event.preventDefault();
-      onSelect(items[cursor]);
+      choose(items[cursor]);
     }
   };
 
@@ -51,7 +60,7 @@ export function MenuList({ items, onSelect }: MenuListProps) {
             aria-selected={selected}
             className={selected ? "menu-item menu-item--selected" : "menu-item"}
             onMouseEnter={() => setCursor(index)}
-            onClick={() => onSelect(item)}
+            onClick={() => choose(item)}
           >
             <span className="menu-item__cursor" aria-hidden="true">
               {selected ? "▶" : ""}

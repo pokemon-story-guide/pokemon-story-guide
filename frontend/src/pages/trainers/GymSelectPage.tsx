@@ -4,6 +4,7 @@ import { EliteIntro } from "../../components/EliteIntro";
 import { GYM_CARDS } from "../../config/gymSelect";
 import { TRAINERS } from "../../config/trainerData";
 import { PORTRAIT_FORMAT, trainerImageSrc } from "../../config/trainerGroups";
+import { playSound, SOUND_CHOOSE } from "../../sound";
 
 /** 처음 열려 있는 관장 수. 1이면 1번 관장(성신시티)만 열려 있습니다. */
 const START_UNLOCKED = 1;
@@ -119,6 +120,7 @@ export function GymSelectPage() {
 
   const handleClick = (index: number) => {
     if (index >= unlocked) return;
+    playSound(SOUND_CHOOSE);
     clearTimer();
     if (isMulti(index)) {
       setPopIdx(index);
@@ -212,7 +214,7 @@ export function GymSelectPage() {
             aria-label={`${popup.cityName} 관장`}
           >
             {popup.leaderIds.map((id) => (
-              <div key={id} role="option" aria-selected={false} className="gym-mini" onClick={() => startIntro(id)}>
+              <div key={id} role="option" aria-selected={false} className="gym-mini" onClick={() => { playSound(SOUND_CHOOSE); startIntro(id); }}>
                 <span className="gym-mini__image">
                   <SlotPicture id={id} name={TRAINERS[id].name} state="earned" />
                 </span>
