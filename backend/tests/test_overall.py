@@ -16,8 +16,8 @@ OPPONENTS = [
     {"id": "elesa", "category": "gym-leader", "badge_order": 4, "party": ELECTRIC_PARTY},
     {"id": "shauntal", "category": "elite-four", "badge_order": None, "party": [{"types": ["ghost"]}]},
     {"id": "alder", "category": "champion", "party": [{"types": ["bug", "fire"]}]},
-    # N은 rival이라 제외
-    {"id": "n-accumula-town", "category": "rival", "party": [{"types": ["dark"]}]},
+    {"id": "ghetsis", "category": "plasma", "party": [{"types": ["dark", "dragon"]}]},
+    {"id": "n-accumula-town", "category": "plasma", "party": [{"types": ["dark"]}]},
 ]
 
 
@@ -29,15 +29,16 @@ class OverallRecommendationTest(unittest.TestCase):
     def test_groups_same_badge_order(self):
         result = evaluate_overall(["water"], OPPONENTS)
         groups = {detail["group"]: detail for detail in result["details"]}
-        self.assertEqual(set(groups), {"gym-1", "gym-4", "shauntal", "alder"})
+        self.assertEqual(set(groups), {"gym-1", "gym-4", "shauntal", "alder", "ghetsis"})
         self.assertEqual(len(groups["gym-1"]["opponents"]), 3)
 
         expected = (_score(["water"], FIRE_PARTY) + _score(["water"], WATER_PARTY) + _score(["water"], GRASS_PARTY)) / 3
         self.assertEqual(groups["gym-1"]["score"], round(expected, 1))
 
-    def test_excludes_rival(self):
+    def test_includes_ghetsis_excludes_n(self):
         result = evaluate_overall(["water"], OPPONENTS)
         ids = [item["id"] for detail in result["details"] for item in detail["opponents"]]
+        self.assertIn("ghetsis", ids)
         self.assertNotIn("n-accumula-town", ids)
 
     def test_score_is_equal_weight_average_of_groups(self):
@@ -47,8 +48,8 @@ class OverallRecommendationTest(unittest.TestCase):
 
     def test_summary(self):
         result = evaluate_overall(["ground"], OPPONENTS)
-        self.assertEqual(result["summary"]["group_count"], 4)
-        self.assertEqual(result["summary"]["best_group"], "gym-4") 
+        self.assertEqual(result["summary"]["group_count"], 5)
+        self.assertEqual(result["summary"]["best_group"], "gym-4")
 
     def test_category_weight(self):
         original = dict(overall.CATEGORY_WEIGHTS)

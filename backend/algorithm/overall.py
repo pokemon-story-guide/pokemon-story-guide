@@ -1,8 +1,8 @@
 from algorithm.recommendation import _to_rating, evaluate_against_party
 
-INCLUDED_CATEGORIES = {"gym-leader", "elite-four", "champion", "ghetsis"}
+INCLUDED_CATEGORIES = {"gym-leader", "elite-four", "champion"}
+INCLUDED_IDS = {"ghetsis"}
 CATEGORY_WEIGHTS: dict[str, float] = {}
-
 
 
 def _group_key(opponent: dict) -> str:
@@ -14,7 +14,7 @@ def _group_key(opponent: dict) -> str:
 def evaluate_overall(my_types: list[str], opponents: list[dict]) -> dict:
     groups: dict[str, dict] = {}
     for opponent in opponents:
-        if opponent["category"] not in INCLUDED_CATEGORIES:
+        if opponent["category"] not in INCLUDED_CATEGORIES and opponent["id"] not in INCLUDED_IDS:
             continue
         result = evaluate_against_party(my_types, opponent["party"])
         key = _group_key(opponent)
