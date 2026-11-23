@@ -7,12 +7,14 @@ services:
       - "8000:8000"
     depends_on:
       - redis
+    restart: unless-stopped
 
   redis:
     image: redis:7
     command: ["redis-server", "--appendonly", "yes"]
     volumes:
       - redis-data:/data
+    restart: unless-stopped
 
   nginx:
     build:
@@ -22,6 +24,7 @@ services:
       - "80:80"
     depends_on:
       - backend
+    restart: unless-stopped
 
 volumes:
   redis-data:
