@@ -1,0 +1,22 @@
+{
+  "id": "elesa",
+  "name": "카밀레",
+  "category": "gym-leader",
+  "type": "electric",
+  "badge_order": 4,
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 93,
+      "level": 25
+    },
+    {
+      "pokemon_id": 93,
+      "level": 25
+    },
+    {
+      "pokemon_id": 29,
+      "level": 27
+    }
+  ]
+}

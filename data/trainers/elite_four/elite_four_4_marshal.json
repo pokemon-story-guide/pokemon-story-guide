@@ -1,0 +1,25 @@
+{
+  "id": "marshal",
+  "name": "연무",
+  "category": "elite-four",
+  "type": "fighting",
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 44,
+      "level": 48
+    },
+    {
+      "pokemon_id": 45,
+      "level": 48
+    },
+    {
+      "pokemon_id": 40,
+      "level": 48
+    },
+    {
+      "pokemon_id": 126,
+      "level": 50
+    }
+  ]
+}

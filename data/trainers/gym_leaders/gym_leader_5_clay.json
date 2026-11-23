@@ -1,0 +1,22 @@
+{
+  "id": "clay",
+  "name": "야콘",
+  "category": "gym-leader",
+  "type": "ground",
+  "badge_order": 5,
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 58,
+      "level": 29
+    },
+    {
+      "pokemon_id": 42,
+      "level": 29
+    },
+    {
+      "pokemon_id": 36,
+      "level": 31
+    }
+  ]
+}

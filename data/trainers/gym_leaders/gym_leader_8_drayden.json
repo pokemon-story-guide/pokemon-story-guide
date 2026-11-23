@@ -1,0 +1,22 @@
+{
+  "id": "drayden",
+  "name": "사간",
+  "category": "gym-leader",
+  "type": "dragon",
+  "badge_order": 8,
+  "image": "",
+  "party": [
+    {
+      "pokemon_id": 117,
+      "level": 41
+    },
+    {
+      "pokemon_id": 127,
+      "level": 41
+    },
+    {
+      "pokemon_id": 118,
+      "level": 43
+    }
+  ]
+}
