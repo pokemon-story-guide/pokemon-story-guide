@@ -10,7 +10,8 @@
     "location_ids": [
       0
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 0
   },
   {
@@ -21,7 +22,14 @@
     ],
     "base_stat_total": 308,
     "location_ids": null,
-    "evolution": 17,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 2,
+        "name": "샤비",
+        "condition": "17"
+      }
+    ],
     "usable": 1
   },
   {
@@ -32,7 +40,20 @@
     ],
     "base_stat_total": 413,
     "location_ids": null,
-    "evolution": 36,
+    "evolution_from": [
+      {
+        "id": 1,
+        "name": "주리비얀",
+        "condition": "17"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 3,
+        "name": "샤로다",
+        "condition": "36"
+      }
+    ],
     "usable": 1
   },
   {
@@ -43,7 +64,14 @@
     ],
     "base_stat_total": 528,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 2,
+        "name": "샤비",
+        "condition": "36"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -54,7 +82,14 @@
     ],
     "base_stat_total": 308,
     "location_ids": null,
-    "evolution": 17,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 5,
+        "name": "차오꿀",
+        "condition": "17"
+      }
+    ],
     "usable": 1
   },
   {
@@ -66,7 +101,20 @@
     ],
     "base_stat_total": 418,
     "location_ids": null,
-    "evolution": 36,
+    "evolution_from": [
+      {
+        "id": 4,
+        "name": "뚜꾸리",
+        "condition": "17"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 6,
+        "name": "염무왕",
+        "condition": "36"
+      }
+    ],
     "usable": 1
   },
   {
@@ -78,7 +126,14 @@
     ],
     "base_stat_total": 528,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 5,
+        "name": "차오꿀",
+        "condition": "36"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -89,7 +144,14 @@
     ],
     "base_stat_total": 308,
     "location_ids": null,
-    "evolution": 17,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 8,
+        "name": "쌍검자비",
+        "condition": "17"
+      }
+    ],
     "usable": 1
   },
   {
@@ -100,7 +162,20 @@
     ],
     "base_stat_total": 413,
     "location_ids": null,
-    "evolution": 36,
+    "evolution_from": [
+      {
+        "id": 7,
+        "name": "수댕이",
+        "condition": "17"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 9,
+        "name": "대검귀",
+        "condition": "36"
+      }
+    ],
     "usable": 1
   },
   {
@@ -111,7 +186,14 @@
     ],
     "base_stat_total": 528,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 8,
+        "name": "쌍검자비",
+        "condition": "36"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -127,7 +209,14 @@
       3,
       26
     ],
-    "evolution": 20,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 11,
+        "name": "보르그",
+        "condition": "20"
+      }
+    ],
     "usable": 1
   },
   {
@@ -145,7 +234,14 @@
       26,
       43
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 10,
+        "name": "보르쥐",
+        "condition": "20"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -160,7 +256,14 @@
       2,
       3
     ],
-    "evolution": 16,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 13,
+        "name": "하데리어",
+        "condition": "16"
+      }
+    ],
     "usable": 1
   },
   {
@@ -176,7 +279,20 @@
       32,
       43
     ],
-    "evolution": 32,
+    "evolution_from": [
+      {
+        "id": 12,
+        "name": "요테리",
+        "condition": "16"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 14,
+        "name": "바랜드",
+        "condition": "32"
+      }
+    ],
     "usable": 1
   },
   {
@@ -191,7 +307,14 @@
       32,
       43
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 13,
+        "name": "하데리어",
+        "condition": "32"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -206,7 +329,14 @@
       3,
       26
     ],
-    "evolution": 20,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 16,
+        "name": "레파르다스",
+        "condition": "20"
+      }
+    ],
     "usable": 1
   },
   {
@@ -222,7 +352,14 @@
       16,
       26
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 15,
+        "name": "쌔비냥",
+        "condition": "20"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -237,7 +374,14 @@
       31,
       26
     ],
-    "evolution": "리프의 돌",
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 18,
+        "name": "야나키",
+        "condition": "리프의돌"
+      }
+    ],
     "usable": 1
   },
   {
@@ -248,7 +392,14 @@
     ],
     "base_stat_total": 498,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 17,
+        "name": "야나프",
+        "condition": "리프의돌"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -263,7 +414,14 @@
       31,
       26
     ],
-    "evolution": "불꽃의 돌",
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 20,
+        "name": "바오키",
+        "condition": "불꽃의돌"
+      }
+    ],
     "usable": 1
   },
   {
@@ -274,7 +432,14 @@
     ],
     "base_stat_total": 498,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 19,
+        "name": "바오프",
+        "condition": "불꽃의돌"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -289,7 +454,14 @@
       31,
       26
     ],
-    "evolution": "물의 돌",
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 22,
+        "name": "앗차키",
+        "condition": "물의돌"
+      }
+    ],
     "usable": 1
   },
   {
@@ -300,7 +472,14 @@
     ],
     "base_stat_total": 498,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 21,
+        "name": "앗차프",
+        "condition": "물의돌"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -313,7 +492,14 @@
     "location_ids": [
       26
     ],
-    "evolution": "달의 돌",
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 24,
+        "name": "몽얌나",
+        "condition": "달의돌"
+      }
+    ],
     "usable": 1
   },
   {
@@ -326,7 +512,14 @@
     "location_ids": [
       26
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 23,
+        "name": "몽나",
+        "condition": "달의돌"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -341,7 +534,14 @@
       3,
       28
     ],
-    "evolution": 21,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 26,
+        "name": "유토브",
+        "condition": "21"
+      }
+    ],
     "usable": 1
   },
   {
@@ -360,7 +560,20 @@
       31,
       37
     ],
-    "evolution": 32,
+    "evolution_from": [
+      {
+        "id": 25,
+        "name": "콩둘기",
+        "condition": "21"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 27,
+        "name": "켄호로우",
+        "condition": "32"
+      }
+    ],
     "usable": 1
   },
   {
@@ -378,7 +591,14 @@
       31,
       37
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 26,
+        "name": "유토브",
+        "condition": "32"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -391,7 +611,14 @@
     "location_ids": [
       3
     ],
-    "evolution": 27,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 29,
+        "name": "제브라이카",
+        "condition": "27"
+      }
+    ],
     "usable": 1
   },
   {
@@ -404,7 +631,14 @@
     "location_ids": [
       7
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 28,
+        "name": "줄뮤마",
+        "condition": "27"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -417,7 +651,14 @@
     "location_ids": [
       27
     ],
-    "evolution": 25,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 31,
+        "name": "암트르",
+        "condition": "25"
+      }
+    ],
     "usable": 1
   },
   {
@@ -434,7 +675,20 @@
       39,
       40
     ],
-    "evolution": "통신",
+    "evolution_from": [
+      {
+        "id": 30,
+        "name": "단굴",
+        "condition": "25"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 32,
+        "name": "기가이어스",
+        "condition": "통신"
+      }
+    ],
     "usable": 1
   },
   {
@@ -445,7 +699,14 @@
     ],
     "base_stat_total": 505,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 31,
+        "name": "암트르",
+        "condition": "통신"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -462,7 +723,14 @@
       36,
       39
     ],
-    "evolution": "친밀도",
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 34,
+        "name": "맘박쥐",
+        "condition": "친밀도"
+      }
+    ],
     "usable": 1
   },
   {
@@ -474,7 +742,14 @@
     ],
     "base_stat_total": 425,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 33,
+        "name": "또르박쥐",
+        "condition": "친밀도"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -490,7 +765,14 @@
       34,
       36
     ],
-    "evolution": 35,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 36,
+        "name": "몰드류",
+        "condition": "31"
+      }
+    ],
     "usable": 1
   },
   {
@@ -505,7 +787,14 @@
       39,
       40
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 35,
+        "name": "두더류",
+        "condition": "31"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -541,7 +830,8 @@
       40,
       43
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -555,7 +845,14 @@
       28,
       32
     ],
-    "evolution": 25,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 39,
+        "name": "토쇠골",
+        "condition": "25"
+      }
+    ],
     "usable": 1
   },
   {
@@ -568,7 +865,20 @@
     "location_ids": [
       36
     ],
-    "evolution": "통신",
+    "evolution_from": [
+      {
+        "id": 38,
+        "name": "으랏차",
+        "condition": "25"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 40,
+        "name": "노보청",
+        "condition": "통신"
+      }
+    ],
     "usable": 1
   },
   {
@@ -579,7 +889,14 @@
     ],
     "base_stat_total": 505,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 39,
+        "name": "토쇠골",
+        "condition": "통신"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -588,11 +905,18 @@
     "types": [
       "water"
     ],
-    "base_stat_total": 206,
+    "base_stat_total": 294,
     "location_ids": [
       28
     ],
-    "evolution": 25,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 42,
+        "name": "두까비",
+        "condition": "25"
+      }
+    ],
     "usable": 1
   },
   {
@@ -607,7 +931,20 @@
       8,
       38
     ],
-    "evolution": 36,
+    "evolution_from": [
+      {
+        "id": 41,
+        "name": "동챙이",
+        "condition": "25"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 43,
+        "name": "두빅굴",
+        "condition": "36"
+      }
+    ],
     "usable": 1
   },
   {
@@ -622,7 +959,14 @@
       8,
       38
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 42,
+        "name": "두까비",
+        "condition": "36"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -638,7 +982,8 @@
       18,
       28
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -654,7 +999,8 @@
       18,
       28
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -668,7 +1014,14 @@
     "location_ids": [
       28
     ],
-    "evolution": 20,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 47,
+        "name": "두르쿤",
+        "condition": "20"
+      }
+    ],
     "usable": 1
   },
   {
@@ -684,7 +1037,20 @@
       31,
       28
     ],
-    "evolution": "친밀도",
+    "evolution_from": [
+      {
+        "id": 46,
+        "name": "두르보",
+        "condition": "20"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 48,
+        "name": "모아머",
+        "condition": "친밀도"
+      }
+    ],
     "usable": 1
   },
   {
@@ -694,12 +1060,19 @@
       "bug",
       "grass"
     ],
-    "base_stat_total": 480,
+    "base_stat_total": 490,
     "location_ids": [
       6,
       31
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 47,
+        "name": "두르쿤",
+        "condition": "친밀도"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -714,7 +1087,14 @@
       28,
       31
     ],
-    "evolution": 22,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 50,
+        "name": "휠구",
+        "condition": "22"
+      }
+    ],
     "usable": 1
   },
   {
@@ -728,7 +1108,20 @@
     "location_ids": [
       28
     ],
-    "evolution": 30,
+    "evolution_from": [
+      {
+        "id": 49,
+        "name": "마디네",
+        "condition": "22"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 51,
+        "name": "펜드라",
+        "condition": "30"
+      }
+    ],
     "usable": 1
   },
   {
@@ -740,7 +1133,14 @@
     ],
     "base_stat_total": 475,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 50,
+        "name": "휠구",
+        "condition": "30"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -755,7 +1155,14 @@
       31,
       42
     ],
-    "evolution": "태양의 돌",
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 53,
+        "name": "엘풍",
+        "condition": "태양의돌"
+      }
+    ],
     "usable": 1
   },
   {
@@ -770,7 +1177,14 @@
       31,
       42
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 52,
+        "name": "소미안",
+        "condition": "태양의돌"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -785,7 +1199,14 @@
       31,
       42
     ],
-    "evolution": "태양의 돌",
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 55,
+        "name": "드레디어",
+        "condition": "태양의돌"
+      }
+    ],
     "usable": 1
   },
   {
@@ -800,7 +1221,14 @@
       31,
       42
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 54,
+        "name": "치릴리",
+        "condition": "태양의돌"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -825,7 +1253,8 @@
       40,
       42
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -841,7 +1270,14 @@
       29,
       30
     ],
-    "evolution": 29,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 58,
+        "name": "악비르",
+        "condition": "29"
+      }
+    ],
     "usable": 1
   },
   {
@@ -855,7 +1291,20 @@
     "location_ids": [
       30
     ],
-    "evolution": 40,
+    "evolution_from": [
+      {
+        "id": 57,
+        "name": "깜눈크",
+        "condition": "29"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 59,
+        "name": "악비아르",
+        "condition": "40"
+      }
+    ],
     "usable": 1
   },
   {
@@ -867,7 +1316,14 @@
     ],
     "base_stat_total": 509,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 58,
+        "name": "악비르",
+        "condition": "40"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -881,7 +1337,14 @@
       4,
       29
     ],
-    "evolution": 35,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 61,
+        "name": "불비달마",
+        "condition": "35"
+      }
+    ],
     "usable": 1
   },
   {
@@ -894,7 +1357,14 @@
     "location_ids": [
       29
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 60,
+        "name": "달막화",
+        "condition": "35"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -907,7 +1377,8 @@
     "location_ids": [
       29
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -922,7 +1393,14 @@
       8,
       29
     ],
-    "evolution": 34,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 64,
+        "name": "암팰리스",
+        "condition": "34"
+      }
+    ],
     "usable": 1
   },
   {
@@ -936,7 +1414,14 @@
     "location_ids": [
       18
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 63,
+        "name": "돌살이",
+        "condition": "34"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -954,7 +1439,14 @@
       29,
       43
     ],
-    "evolution": 39,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 66,
+        "name": "곤율거니",
+        "condition": "39"
+      }
+    ],
     "usable": 1
   },
   {
@@ -966,7 +1458,14 @@
     ],
     "base_stat_total": 488,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 65,
+        "name": "곤율랭",
+        "condition": "39"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -980,7 +1479,8 @@
     "location_ids": [
       29
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -993,7 +1493,14 @@
     "location_ids": [
       30
     ],
-    "evolution": 34,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 69,
+        "name": "데스니칸",
+        "condition": "34"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1006,7 +1513,14 @@
     "location_ids": [
       30
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 68,
+        "name": "데스마스",
+        "condition": "34"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1018,7 +1532,14 @@
     ],
     "base_stat_total": 355,
     "location_ids": null,
-    "evolution": 37,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 71,
+        "name": "늑골라",
+        "condition": "37"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1030,7 +1551,14 @@
     ],
     "base_stat_total": 495,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 70,
+        "name": "프로토가",
+        "condition": "37"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1042,7 +1570,14 @@
     ],
     "base_stat_total": 401,
     "location_ids": null,
-    "evolution": 37,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 73,
+        "name": "아케오스",
+        "condition": "37"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1054,12 +1589,19 @@
     ],
     "base_stat_total": 567,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 72,
+        "name": "아켄",
+        "condition": "37"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
     "id": 74,
-    "name": "꺠봉이",
+    "name": "깨봉이",
     "types": [
       "poison"
     ],
@@ -1068,7 +1610,14 @@
       5,
       16
     ],
-    "evolution": 36,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 75,
+        "name": "더스트나",
+        "condition": "36"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1081,7 +1630,14 @@
     "location_ids": [
       9
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 74,
+        "name": "깨봉이",
+        "condition": "36"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1092,7 +1648,14 @@
     ],
     "base_stat_total": 330,
     "location_ids": null,
-    "evolution": 30,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 77,
+        "name": "조로아크",
+        "condition": "30"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1103,7 +1666,14 @@
     ],
     "base_stat_total": 510,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 76,
+        "name": "조로아",
+        "condition": "30"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1119,7 +1689,14 @@
       16,
       32
     ],
-    "evolution": "빛의 돌",
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 79,
+        "name": "치라치노",
+        "condition": "빛의돌"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1135,7 +1712,14 @@
       16,
       32
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 78,
+        "name": "치라미",
+        "condition": "빛의돌"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1149,7 +1733,14 @@
       5,
       16
     ],
-    "evolution": 32,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 81,
+        "name": "고디보미",
+        "condition": "32"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1162,7 +1753,20 @@
     "location_ids": [
       9
     ],
-    "evolution": 41,
+    "evolution_from": [
+      {
+        "id": 80,
+        "name": "고디탱",
+        "condition": "32"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 82,
+        "name": "고디모아젤",
+        "condition": "41"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1175,7 +1779,14 @@
     "location_ids": [
       9
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 81,
+        "name": "고디보미",
+        "condition": "41"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1189,7 +1800,14 @@
       5,
       16
     ],
-    "evolution": 32,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 84,
+        "name": "듀란",
+        "condition": "32"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1202,7 +1820,20 @@
     "location_ids": [
       9
     ],
-    "evolution": 41,
+    "evolution_from": [
+      {
+        "id": 83,
+        "name": "유니란",
+        "condition": "32"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 85,
+        "name": "란쿨루스",
+        "condition": "41"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1215,7 +1846,14 @@
     "location_ids": [
       9
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 84,
+        "name": "듀란",
+        "condition": "41"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1229,7 +1867,14 @@
     "location_ids": [
       24
     ],
-    "evolution": 35,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 87,
+        "name": "스완나",
+        "condition": "35"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1241,7 +1886,14 @@
     ],
     "base_stat_total": 473,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 86,
+        "name": "꼬지보리",
+        "condition": "35"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1256,7 +1908,14 @@
       32,
       37
     ],
-    "evolution": 35,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 89,
+        "name": "바닐리치",
+        "condition": "35"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1269,7 +1928,20 @@
     "location_ids": [
       37
     ],
-    "evolution": 47,
+    "evolution_from": [
+      {
+        "id": 88,
+        "name": "바닐프티",
+        "condition": "35"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 90,
+        "name": "배바닐라",
+        "condition": "47"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1280,7 +1952,14 @@
     ],
     "base_stat_total": 535,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 89,
+        "name": "바닐리치",
+        "condition": "47"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1296,7 +1975,14 @@
       7,
       37
     ],
-    "evolution": 34,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 92,
+        "name": "바라철록",
+        "condition": "34"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1310,7 +1996,14 @@
     "location_ids": [
       37
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 91,
+        "name": "사철록",
+        "condition": "34"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1334,7 +2027,8 @@
       40,
       42
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1348,7 +2042,14 @@
       6,
       11
     ],
-    "evolution": "통신",
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 95,
+        "name": "슈바르고",
+        "condition": "통신"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1360,7 +2061,14 @@
     ],
     "base_stat_total": 495,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 94,
+        "name": "딱정곤",
+        "condition": "통신"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1376,7 +2084,14 @@
       7,
       10
     ],
-    "evolution": 39,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 97,
+        "name": "뽀록나",
+        "condition": "39"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1391,7 +2106,14 @@
       10,
       11
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 96,
+        "name": "깜놀버슬",
+        "condition": "39"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1407,7 +2129,14 @@
       17,
       43
     ],
-    "evolution": 40,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 99,
+        "name": "탱탱겔",
+        "condition": "40"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1424,7 +2153,14 @@
       18,
       43
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 98,
+        "name": "탱그릴",
+        "condition": "40"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1440,7 +2176,8 @@
       18,
       43
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1454,7 +2191,14 @@
     "location_ids": [
       33
     ],
-    "evolution": 36,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 102,
+        "name": "전툴라",
+        "condition": "36"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1466,7 +2210,14 @@
     ],
     "base_stat_total": 472,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 101,
+        "name": "파쪼옥",
+        "condition": "36"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1480,7 +2231,14 @@
     "location_ids": [
       33
     ],
-    "evolution": 40,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 104,
+        "name": "너트령",
+        "condition": "40"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1492,7 +2250,14 @@
     ],
     "base_stat_total": 489,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 103,
+        "name": "철시드",
+        "condition": "40"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1506,7 +2271,14 @@
       33,
       43
     ],
-    "evolution": 38,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 106,
+        "name": "기기어르",
+        "condition": "38"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1517,7 +2289,20 @@
     ],
     "base_stat_total": 440,
     "location_ids": null,
-    "evolution": 49,
+    "evolution_from": [
+      {
+        "id": 105,
+        "name": "기어르",
+        "condition": "38"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 107,
+        "name": "기기기어르",
+        "condition": "49"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1528,7 +2313,14 @@
     ],
     "base_stat_total": 520,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 106,
+        "name": "기기어르",
+        "condition": "49"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1541,7 +2333,14 @@
     "location_ids": [
       33
     ],
-    "evolution": 39,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 109,
+        "name": "저리릴",
+        "condition": "39"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1552,7 +2351,20 @@
     ],
     "base_stat_total": 405,
     "location_ids": null,
-    "evolution": "천둥의 돌",
+    "evolution_from": [
+      {
+        "id": 108,
+        "name": "저리어",
+        "condition": "39"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 110,
+        "name": "저리더프",
+        "condition": "천둥의돌"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1563,7 +2375,14 @@
     ],
     "base_stat_total": 515,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 109,
+        "name": "저리릴",
+        "condition": "천둥의돌"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1576,7 +2395,14 @@
     "location_ids": [
       35
     ],
-    "evolution": 42,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 112,
+        "name": "벰크",
+        "condition": "42"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1589,7 +2415,14 @@
     "location_ids": [
       14
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 111,
+        "name": "리그레",
+        "condition": "42"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1603,7 +2436,14 @@
     "location_ids": [
       35
     ],
-    "evolution": 41,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 114,
+        "name": "램프라",
+        "condition": "41"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1615,7 +2455,20 @@
     ],
     "base_stat_total": 370,
     "location_ids": null,
-    "evolution": "어둠의 돌",
+    "evolution_from": [
+      {
+        "id": 113,
+        "name": "불켜미",
+        "condition": "41"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 115,
+        "name": "샹델라",
+        "condition": "어둠의돌"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1627,7 +2480,14 @@
     ],
     "base_stat_total": 520,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 114,
+        "name": "램프라",
+        "condition": "어둠의돌"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1640,7 +2500,14 @@
     "location_ids": [
       34
     ],
-    "evolution": 38,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 117,
+        "name": "액슨도",
+        "condition": "38"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1653,7 +2520,20 @@
     "location_ids": [
       39
     ],
-    "evolution": 48,
+    "evolution_from": [
+      {
+        "id": 116,
+        "name": "터검니",
+        "condition": "38"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 118,
+        "name": "액스라이즈",
+        "condition": "48"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1664,7 +2544,14 @@
     ],
     "base_stat_total": 540,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 117,
+        "name": "액슨도",
+        "condition": "48"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1679,7 +2566,14 @@
       36,
       37
     ],
-    "evolution": 37,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 120,
+        "name": "툰베어",
+        "condition": "37"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1692,7 +2586,14 @@
     "location_ids": [
       37
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 119,
+        "name": "코고미",
+        "condition": "37"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1705,7 +2606,8 @@
     "location_ids": [
       36
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1719,7 +2621,14 @@
       8,
       38
     ],
-    "evolution": "통신",
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 123,
+        "name": "어지리더",
+        "condition": "통신"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1730,7 +2639,14 @@
     ],
     "base_stat_total": 495,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 122,
+        "name": "쪼마리",
+        "condition": "통신"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1745,7 +2661,8 @@
       8,
       38
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1760,7 +2677,14 @@
       37,
       39
     ],
-    "evolution": 50,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 126,
+        "name": "비조도",
+        "condition": "50"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1773,7 +2697,14 @@
     "location_ids": [
       14
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 125,
+        "name": "비조푸",
+        "condition": "50"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1786,7 +2717,8 @@
     "location_ids": [
       37
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1800,7 +2732,14 @@
     "location_ids": [
       37
     ],
-    "evolution": 43,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 129,
+        "name": "골루그",
+        "condition": "43"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1812,7 +2751,14 @@
     ],
     "base_stat_total": 483,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 128,
+        "name": "골비람",
+        "condition": "43"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1827,7 +2773,14 @@
       9,
       11
     ],
-    "evolution": 52,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 131,
+        "name": "절각참",
+        "condition": "52"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1841,7 +2794,14 @@
     "location_ids": [
       11
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 130,
+        "name": "자망칼",
+        "condition": "52"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1854,7 +2814,8 @@
     "location_ids": [
       10
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1871,7 +2832,14 @@
       25,
       39
     ],
-    "evolution": 54,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 134,
+        "name": "워글",
+        "condition": "54"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1886,7 +2854,14 @@
       11,
       25
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 133,
+        "name": "수리둥보",
+        "condition": "54"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1903,7 +2878,14 @@
       25,
       39
     ],
-    "evolution": 54,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 136,
+        "name": "버랜지나",
+        "condition": "54"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1918,7 +2900,14 @@
       11,
       25
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 135,
+        "name": "벌차이",
+        "condition": "54"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1931,7 +2920,8 @@
     "location_ids": [
       39
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1945,7 +2935,8 @@
     "location_ids": [
       39
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1959,7 +2950,14 @@
     "location_ids": [
       39
     ],
-    "evolution": 50,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 140,
+        "name": "디헤드",
+        "condition": "50"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1971,7 +2969,20 @@
     ],
     "base_stat_total": 420,
     "location_ids": null,
-    "evolution": 64,
+    "evolution_from": [
+      {
+        "id": 139,
+        "name": "모노두",
+        "condition": "50"
+      }
+    ],
+    "evolution_to": [
+      {
+        "id": 141,
+        "name": "삼삼드래",
+        "condition": "64"
+      }
+    ],
     "usable": 1
   },
   {
@@ -1983,7 +2994,14 @@
     ],
     "base_stat_total": 600,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 140,
+        "name": "디헤드",
+        "condition": "64"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -1997,7 +3015,14 @@
     "location_ids": [
       18
     ],
-    "evolution": 59,
+    "evolution_from": null,
+    "evolution_to": [
+      {
+        "id": 143,
+        "name": "불카모스",
+        "condition": "59"
+      }
+    ],
     "usable": 1
   },
   {
@@ -2011,7 +3036,14 @@
     "location_ids": [
       30
     ],
-    "evolution": null,
+    "evolution_from": [
+      {
+        "id": 142,
+        "name": "활화르바",
+        "condition": "59"
+      }
+    ],
+    "evolution_to": null,
     "usable": 1
   },
   {
@@ -2025,7 +3057,8 @@
     "location_ids": [
       34
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 0
   },
   {
@@ -2039,7 +3072,8 @@
     "location_ids": [
       39
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 0
   },
   {
@@ -2053,7 +3087,8 @@
     "location_ids": [
       28
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 0
   },
   {
@@ -2064,7 +3099,8 @@
     ],
     "base_stat_total": 580,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 0
   },
   {
@@ -2076,7 +3112,8 @@
     ],
     "base_stat_total": 580,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 0
   },
   {
@@ -2088,7 +3125,8 @@
     ],
     "base_stat_total": 680,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 0
   },
   {
@@ -2100,7 +3138,8 @@
     ],
     "base_stat_total": 680,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 0
   },
   {
@@ -2110,11 +3149,12 @@
       "ground",
       "flying"
     ],
-    "base_stat_total": 580,
+    "base_stat_total": 600,
     "location_ids": [
       42
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 0
   },
   {
@@ -2128,7 +3168,8 @@
     "location_ids": [
       40
     ],
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 0
   },
   {
@@ -2140,7 +3181,8 @@
     ],
     "base_stat_total": 580,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 0
   },
   {
@@ -2152,7 +3194,8 @@
     ],
     "base_stat_total": 600,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 0
   },
   {
@@ -2164,7 +3207,8 @@
     ],
     "base_stat_total": 600,
     "location_ids": null,
-    "evolution": null,
+    "evolution_from": null,
+    "evolution_to": null,
     "usable": 0
   }
 ]

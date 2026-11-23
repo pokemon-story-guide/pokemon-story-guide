@@ -9,6 +9,8 @@ node_modules/
 dist/
 build/
 .DS_Store
+data/scripts/.cache/
+data/_test/
 *.tsbuildinfo
 
 # 인물 이미지는 저작권 검토 전까지 저장소에 올리지 않습니다 (로컬 시연용)
