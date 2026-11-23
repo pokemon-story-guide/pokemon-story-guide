@@ -15,17 +15,18 @@ DATA_ERROR_RESPONSE = {
 @router.get(
     "",
     response_model=list[TrainerSummary],
-    summary="관장·사천왕·N 카드 목록 조회",
+    summary="트레이너 카드 목록 조회",
     description=(
         "인물 선택 화면에서 사용할 카드 목록을 조회합니다.\n\n"
         "**분류**\n"
         "- `gym-leader`: 관장\n"
         "- `elite-four`: 사천왕\n"
-        "- `rival`: N (스토리 중 여러 장소에서 대전)\n"
+        "- `champion`: 챔피언\n"
+        "- `plasma`: 플라스마단 (게치스, 스토리 중 여러 장소에서 대전하는 N)\n"
         "- 분류를 생략하면 전체를 반환합니다.\n\n"
         "**정렬**\n"
-        "- 관장 → 사천왕 → N 순서입니다.\n"
-        "- 관장은 배지 순서, N은 스토리 순서입니다.\n"
+        "- 관장 → 사천왕 → 챔피언 → 플라스마단 순서입니다.\n"
+        "- 관장은 배지 순서, 플라스마단은 게치스 다음 N이 스토리 순서로 나옵니다.\n"
         "- 1번 체육관(팟·덴트·콘)과 8번 체육관(사간·아이리스)은 같은 `badge_order`를 가집니다.\n\n"
         "**결과**\n"
         "- 카드에 필요한 기본 정보만 반환합니다. 파티는 상세 조회에서 확인합니다."
@@ -41,8 +42,7 @@ def list_trainers(
         default=None,
         description=(
             "**분류 (선택)**\n\n"
-            "- `gym-leader`, `elite-four`, `rival` 중 하나를 선택합니다.\n"
-            "- 전체를 보려면 값을 보내지 마세요."
+            "- `gym-leader`, `elite-four`, `champion`, `plasma` 중 하나를 선택합니다.\n"            "- 전체를 보려면 값을 보내지 마세요."
         ),
         examples=["gym-leader"],
     ),
@@ -53,12 +53,13 @@ def list_trainers(
 @router.get(
     "/{trainer_id}",
     response_model=TrainerDetail,
-    summary="관장·사천왕·N 상세 조회",
+    summary="트레이너 상세 조회",
     description=(
         "선택한 인물의 기본 정보와 보유 파티를 조회합니다.\n\n"
         "**공통 상세**\n"
-        "- 관장·사천왕·N 모두 같은 응답 구조를 사용합니다.\n"
-        "- 사천왕과 N은 `badge_order`가 `null`입니다.\n\n"
+        "- 모든 분류가 같은 응답 구조를 사용합니다.\n"
+        "- 관장이 아니면 `badge_order`가 `null`입니다.\n"
+        "- 대표 타입이 없는 챔피언·플라스마단은 `type`이 `null`입니다.\n\n"
         "**보유 파티**\n"
         "- 배틀에서 사용하는 포켓몬의 ID(하나도감 기준)·이름·타입·레벨을 데이터에 등록된 순서대로 반환합니다.\n"
         "- 포켓몬 이미지는 아직 데이터에 없어 `null`입니다.\n"
@@ -75,8 +76,7 @@ def get_trainer(
         description=(
             "**인물 ID (필수)**\n\n"
             "- 목록 API에서 받은 `id`를 입력합니다.\n"
-            "- 예: `elesa` = 카밀레, `shauntal` = 망초, `n-accumula-town` = N (넝쿨마을)"
-        ),
+            "- 예: `elesa` = 카밀레, `shauntal` = 망초, `alder` = 노간주, `ghetsis` = 게치스, `n-accumula-town` = N (넝쿨마을)"        ),
         examples=["elesa"],
     )],
 ):
