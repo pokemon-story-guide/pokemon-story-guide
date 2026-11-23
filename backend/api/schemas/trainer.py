@@ -36,7 +36,7 @@ class TrainerSummary(BaseModel):
         examples=["gym-leader"],
     )
     type: str | None = Field(
-        description="대표 타입(5세대 영문 타입). 챔피언과 플라스마단은 대표 타입이 없어 빈 문자열입니다.",
+        description="대표 타입(5세대 영문 타입). 챔피언과 플라스마단은 대표 타입이 없어 'null'입니다.",
         examples=["electric"],
     )
     badge_order: int | None = Field(
