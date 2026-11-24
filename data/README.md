@@ -13,6 +13,47 @@
 | `scripts/build_data.py` | PokeAPI 호출 → JSON 생성 |
 | `scripts/compare.py` | 두 폴더의 JSON 차이 비교 |
 
+## 데이터 형식
+
+### mon.json
+
+5세대에 등장하는 포켓몬들에 대한 목록입니다.
+
+| 필드 | 형식 | 설명 |
+| `id` | int | 하나 지방 도감 번호 (0~155) |
+| `name` | string | 한국어 이름 |
+| `types` | string[] | 5세대 기준 영문 타입 1~2개 |
+| `base_stats` | int[6] | 5세대 종족값. 순서: HP, 공격, 방어, 특수공격, 특수방어, 스피드 |
+| `base_stat_total` | int | `base_stats`의 합계 |
+| `location_ids` | int[] \| null | 출현 장소 ID (`place.json`). 야생 출현이 없으면 `null` |
+| `evolution_from` | object[] \| null | 진화 전 포켓몬 `{id, name, condition}`. 없으면 `null` |
+| `evolution_to` | object[] \| null | 진화 후 포켓몬 `{id, name, condition}`. 분기 진화는 여러 개. 없으면 `null` |
+| `usable` | 0 \| 1 | 스토리 진행 중 사용 가능 여부. 전설·환상은 `0` |
+
+진화 `condition`: 레벨이면 기존대로 숫자 문자열(`"17"`), 도구면 도구 이름(`"태양의돌"`), 그 외 `"통신"`, `"친밀도"`
+
+### move.json
+
+5세대에 등장하는 기술들에 대한 목록입니다.
+
+| 필드 | 형식 | 설명 |
+| `id` | int | 기술 번호 (1~559) |
+| `name` | string | 한국어 이름 |
+| `type` | string | 5세대 기준 영문 타입 |
+| `expected_power` | int | 기대 위력. 변화기 `0`, 위력 변동·조건부 기술 `1` |
+
+### learn.json
+
+각 포켓몬이 레벨마다 배우는 기술들의 목록입니다.
+
+| 필드 | 형식 | 설명 |
+| `pokemon_id` | int | `mon.json`의 `id` |
+| `moves` | object[] | 레벨업 기술 `{level, move_id}`. 레벨순 정렬 |
+
+### encounters.json
+
+`{"encounters": {"포켓몬 id": [장소 id, ...]}}` 형식입니다. 키는 문자열로 된 `mon.json`의 `id`입니다.
+
 ## 데이터 다시 만들기
 
 ```bash

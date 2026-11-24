@@ -6,6 +6,14 @@
       "psychic",
       "fire"
     ],
+    "base_stats": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
     "base_stat_total": 600,
     "location_ids": [
       0
@@ -19,6 +27,14 @@
     "name": "주리비얀",
     "types": [
       "grass"
+    ],
+    "base_stats": [
+      45,
+      45,
+      55,
+      45,
+      55,
+      63
     ],
     "base_stat_total": 308,
     "location_ids": null,
@@ -37,6 +53,14 @@
     "name": "샤비",
     "types": [
       "grass"
+    ],
+    "base_stats": [
+      60,
+      60,
+      75,
+      60,
+      75,
+      83
     ],
     "base_stat_total": 413,
     "location_ids": null,
@@ -62,6 +86,14 @@
     "types": [
       "grass"
     ],
+    "base_stats": [
+      75,
+      75,
+      95,
+      75,
+      95,
+      113
+    ],
     "base_stat_total": 528,
     "location_ids": null,
     "evolution_from": [
@@ -79,6 +111,14 @@
     "name": "뚜꾸리",
     "types": [
       "fire"
+    ],
+    "base_stats": [
+      65,
+      63,
+      45,
+      45,
+      45,
+      45
     ],
     "base_stat_total": 308,
     "location_ids": null,
@@ -98,6 +138,14 @@
     "types": [
       "fire",
       "fighting"
+    ],
+    "base_stats": [
+      90,
+      93,
+      55,
+      70,
+      55,
+      55
     ],
     "base_stat_total": 418,
     "location_ids": null,
@@ -124,6 +172,14 @@
       "fire",
       "fighting"
     ],
+    "base_stats": [
+      110,
+      123,
+      65,
+      100,
+      65,
+      65
+    ],
     "base_stat_total": 528,
     "location_ids": null,
     "evolution_from": [
@@ -142,6 +198,14 @@
     "types": [
       "water"
     ],
+    "base_stats": [
+      55,
+      55,
+      45,
+      63,
+      45,
+      45
+    ],
     "base_stat_total": 308,
     "location_ids": null,
     "evolution_from": null,
@@ -159,6 +223,14 @@
     "name": "쌍검자비",
     "types": [
       "water"
+    ],
+    "base_stats": [
+      75,
+      75,
+      60,
+      83,
+      60,
+      60
     ],
     "base_stat_total": 413,
     "location_ids": null,
@@ -184,6 +256,14 @@
     "types": [
       "water"
     ],
+    "base_stats": [
+      95,
+      100,
+      85,
+      108,
+      70,
+      70
+    ],
     "base_stat_total": 528,
     "location_ids": null,
     "evolution_from": [
@@ -201,6 +281,14 @@
     "name": "보르쥐",
     "types": [
       "normal"
+    ],
+    "base_stats": [
+      45,
+      55,
+      39,
+      35,
+      39,
+      42
     ],
     "base_stat_total": 255,
     "location_ids": [
@@ -224,6 +312,14 @@
     "name": "보르그",
     "types": [
       "normal"
+    ],
+    "base_stats": [
+      60,
+      85,
+      69,
+      60,
+      69,
+      77
     ],
     "base_stat_total": 420,
     "location_ids": [
@@ -250,6 +346,14 @@
     "types": [
       "normal"
     ],
+    "base_stats": [
+      45,
+      60,
+      45,
+      25,
+      45,
+      55
+    ],
     "base_stat_total": 275,
     "location_ids": [
       1,
@@ -271,6 +375,14 @@
     "name": "하데리어",
     "types": [
       "normal"
+    ],
+    "base_stats": [
+      65,
+      80,
+      65,
+      35,
+      65,
+      60
     ],
     "base_stat_total": 370,
     "location_ids": [
@@ -301,6 +413,14 @@
     "types": [
       "normal"
     ],
+    "base_stats": [
+      85,
+      100,
+      90,
+      45,
+      90,
+      80
+    ],
     "base_stat_total": 490,
     "location_ids": [
       10,
@@ -323,6 +443,14 @@
     "types": [
       "dark"
     ],
+    "base_stats": [
+      41,
+      50,
+      37,
+      50,
+      37,
+      66
+    ],
     "base_stat_total": 281,
     "location_ids": [
       2,
@@ -344,6 +472,14 @@
     "name": "레파르다스",
     "types": [
       "dark"
+    ],
+    "base_stats": [
+      64,
+      88,
+      50,
+      88,
+      50,
+      106
     ],
     "base_stat_total": 446,
     "location_ids": [
@@ -368,6 +504,14 @@
     "types": [
       "grass"
     ],
+    "base_stats": [
+      50,
+      53,
+      48,
+      53,
+      48,
+      64
+    ],
     "base_stat_total": 316,
     "location_ids": [
       28,
@@ -390,6 +534,14 @@
     "types": [
       "grass"
     ],
+    "base_stats": [
+      75,
+      98,
+      63,
+      98,
+      63,
+      101
+    ],
     "base_stat_total": 498,
     "location_ids": null,
     "evolution_from": [
@@ -407,6 +559,14 @@
     "name": "바오프",
     "types": [
       "fire"
+    ],
+    "base_stats": [
+      50,
+      53,
+      48,
+      53,
+      48,
+      64
     ],
     "base_stat_total": 316,
     "location_ids": [
@@ -430,6 +590,14 @@
     "types": [
       "fire"
     ],
+    "base_stats": [
+      75,
+      98,
+      63,
+      98,
+      63,
+      101
+    ],
     "base_stat_total": 498,
     "location_ids": null,
     "evolution_from": [
@@ -447,6 +615,14 @@
     "name": "앗차프",
     "types": [
       "water"
+    ],
+    "base_stats": [
+      50,
+      53,
+      48,
+      53,
+      48,
+      64
     ],
     "base_stat_total": 316,
     "location_ids": [
@@ -470,6 +646,14 @@
     "types": [
       "water"
     ],
+    "base_stats": [
+      75,
+      98,
+      63,
+      98,
+      63,
+      101
+    ],
     "base_stat_total": 498,
     "location_ids": null,
     "evolution_from": [
@@ -487,6 +671,14 @@
     "name": "몽나",
     "types": [
       "psychic"
+    ],
+    "base_stats": [
+      76,
+      25,
+      45,
+      67,
+      55,
+      24
     ],
     "base_stat_total": 292,
     "location_ids": [
@@ -507,6 +699,14 @@
     "name": "몽얌나",
     "types": [
       "psychic"
+    ],
+    "base_stats": [
+      116,
+      55,
+      85,
+      107,
+      95,
+      29
     ],
     "base_stat_total": 487,
     "location_ids": [
@@ -529,6 +729,14 @@
       "normal",
       "flying"
     ],
+    "base_stats": [
+      50,
+      55,
+      50,
+      36,
+      30,
+      43
+    ],
     "base_stat_total": 264,
     "location_ids": [
       3,
@@ -550,6 +758,14 @@
     "types": [
       "normal",
       "flying"
+    ],
+    "base_stats": [
+      62,
+      77,
+      62,
+      50,
+      42,
+      65
     ],
     "base_stat_total": 358,
     "location_ids": [
@@ -583,6 +799,14 @@
       "normal",
       "flying"
     ],
+    "base_stats": [
+      80,
+      105,
+      80,
+      65,
+      55,
+      93
+    ],
     "base_stat_total": 478,
     "location_ids": [
       6,
@@ -607,6 +831,14 @@
     "types": [
       "electric"
     ],
+    "base_stats": [
+      45,
+      60,
+      32,
+      50,
+      32,
+      76
+    ],
     "base_stat_total": 295,
     "location_ids": [
       3
@@ -626,6 +858,14 @@
     "name": "제브라이카",
     "types": [
       "electric"
+    ],
+    "base_stats": [
+      75,
+      100,
+      63,
+      80,
+      63,
+      116
     ],
     "base_stat_total": 497,
     "location_ids": [
@@ -647,6 +887,14 @@
     "types": [
       "rock"
     ],
+    "base_stats": [
+      55,
+      75,
+      85,
+      25,
+      25,
+      15
+    ],
     "base_stat_total": 280,
     "location_ids": [
       27
@@ -666,6 +914,14 @@
     "name": "암트르",
     "types": [
       "rock"
+    ],
+    "base_stats": [
+      70,
+      105,
+      105,
+      50,
+      40,
+      20
     ],
     "base_stat_total": 390,
     "location_ids": [
@@ -697,6 +953,14 @@
     "types": [
       "rock"
     ],
+    "base_stats": [
+      85,
+      135,
+      130,
+      60,
+      70,
+      25
+    ],
     "base_stat_total": 505,
     "location_ids": null,
     "evolution_from": [
@@ -715,6 +979,14 @@
     "types": [
       "psychic",
       "flying"
+    ],
+    "base_stats": [
+      55,
+      45,
+      43,
+      55,
+      43,
+      72
     ],
     "base_stat_total": 313,
     "location_ids": [
@@ -740,6 +1012,14 @@
       "psychic",
       "flying"
     ],
+    "base_stats": [
+      67,
+      57,
+      55,
+      77,
+      55,
+      114
+    ],
     "base_stat_total": 425,
     "location_ids": null,
     "evolution_from": [
@@ -757,6 +1037,14 @@
     "name": "두더류",
     "types": [
       "ground"
+    ],
+    "base_stats": [
+      60,
+      85,
+      40,
+      30,
+      45,
+      68
     ],
     "base_stat_total": 328,
     "location_ids": [
@@ -782,6 +1070,14 @@
       "ground",
       "steel"
     ],
+    "base_stats": [
+      110,
+      135,
+      60,
+      50,
+      65,
+      88
+    ],
     "base_stat_total": 508,
     "location_ids": [
       39,
@@ -802,6 +1098,14 @@
     "name": "다부니",
     "types": [
       "normal"
+    ],
+    "base_stats": [
+      103,
+      60,
+      86,
+      60,
+      86,
+      50
     ],
     "base_stat_total": 445,
     "location_ids": [
@@ -840,6 +1144,14 @@
     "types": [
       "fighting"
     ],
+    "base_stats": [
+      75,
+      80,
+      55,
+      25,
+      35,
+      35
+    ],
     "base_stat_total": 305,
     "location_ids": [
       28,
@@ -860,6 +1172,14 @@
     "name": "토쇠골",
     "types": [
       "fighting"
+    ],
+    "base_stats": [
+      85,
+      105,
+      85,
+      40,
+      50,
+      40
     ],
     "base_stat_total": 405,
     "location_ids": [
@@ -887,6 +1207,14 @@
     "types": [
       "fighting"
     ],
+    "base_stats": [
+      105,
+      140,
+      95,
+      55,
+      65,
+      45
+    ],
     "base_stat_total": 505,
     "location_ids": null,
     "evolution_from": [
@@ -904,6 +1232,14 @@
     "name": "동챙이",
     "types": [
       "water"
+    ],
+    "base_stats": [
+      50,
+      50,
+      40,
+      50,
+      40,
+      64
     ],
     "base_stat_total": 294,
     "location_ids": [
@@ -925,6 +1261,14 @@
     "types": [
       "water",
       "ground"
+    ],
+    "base_stats": [
+      75,
+      65,
+      55,
+      65,
+      55,
+      69
     ],
     "base_stat_total": 384,
     "location_ids": [
@@ -954,6 +1298,14 @@
       "water",
       "ground"
     ],
+    "base_stats": [
+      105,
+      85,
+      75,
+      85,
+      75,
+      74
+    ],
     "base_stat_total": 499,
     "location_ids": [
       8,
@@ -975,6 +1327,14 @@
     "types": [
       "fighting"
     ],
+    "base_stats": [
+      120,
+      100,
+      85,
+      30,
+      85,
+      45
+    ],
     "base_stat_total": 465,
     "location_ids": [
       10,
@@ -991,6 +1351,14 @@
     "name": "타격귀",
     "types": [
       "fighting"
+    ],
+    "base_stats": [
+      75,
+      125,
+      75,
+      30,
+      75,
+      85
     ],
     "base_stat_total": 465,
     "location_ids": [
@@ -1009,6 +1377,14 @@
     "types": [
       "bug",
       "grass"
+    ],
+    "base_stats": [
+      45,
+      53,
+      70,
+      40,
+      60,
+      42
     ],
     "base_stat_total": 310,
     "location_ids": [
@@ -1030,6 +1406,14 @@
     "types": [
       "bug",
       "grass"
+    ],
+    "base_stats": [
+      55,
+      63,
+      90,
+      50,
+      80,
+      42
     ],
     "base_stat_total": 380,
     "location_ids": [
@@ -1060,6 +1444,14 @@
       "bug",
       "grass"
     ],
+    "base_stats": [
+      75,
+      103,
+      80,
+      70,
+      70,
+      92
+    ],
     "base_stat_total": 490,
     "location_ids": [
       6,
@@ -1082,6 +1474,14 @@
       "bug",
       "poison"
     ],
+    "base_stats": [
+      30,
+      45,
+      59,
+      30,
+      39,
+      57
+    ],
     "base_stat_total": 260,
     "location_ids": [
       28,
@@ -1103,6 +1503,14 @@
     "types": [
       "bug",
       "poison"
+    ],
+    "base_stats": [
+      40,
+      55,
+      99,
+      40,
+      79,
+      47
     ],
     "base_stat_total": 360,
     "location_ids": [
@@ -1131,6 +1539,14 @@
       "bug",
       "poison"
     ],
+    "base_stats": [
+      60,
+      90,
+      89,
+      55,
+      69,
+      112
+    ],
     "base_stat_total": 475,
     "location_ids": null,
     "evolution_from": [
@@ -1148,6 +1564,14 @@
     "name": "소미안",
     "types": [
       "grass"
+    ],
+    "base_stats": [
+      40,
+      27,
+      60,
+      37,
+      50,
+      66
     ],
     "base_stat_total": 280,
     "location_ids": [
@@ -1171,6 +1595,14 @@
     "types": [
       "grass"
     ],
+    "base_stats": [
+      60,
+      67,
+      85,
+      77,
+      75,
+      116
+    ],
     "base_stat_total": 480,
     "location_ids": [
       28,
@@ -1192,6 +1624,14 @@
     "name": "치릴리",
     "types": [
       "grass"
+    ],
+    "base_stats": [
+      45,
+      35,
+      50,
+      70,
+      50,
+      30
     ],
     "base_stat_total": 280,
     "location_ids": [
@@ -1215,6 +1655,14 @@
     "types": [
       "grass"
     ],
+    "base_stats": [
+      70,
+      60,
+      75,
+      110,
+      75,
+      90
+    ],
     "base_stat_total": 480,
     "location_ids": [
       28,
@@ -1236,6 +1684,14 @@
     "name": "배쓰나이",
     "types": [
       "water"
+    ],
+    "base_stats": [
+      70,
+      92,
+      65,
+      80,
+      55,
+      98
     ],
     "base_stat_total": 460,
     "location_ids": [
@@ -1264,6 +1720,14 @@
       "ground",
       "dark"
     ],
+    "base_stats": [
+      50,
+      72,
+      35,
+      35,
+      35,
+      65
+    ],
     "base_stat_total": 292,
     "location_ids": [
       4,
@@ -1286,6 +1750,14 @@
     "types": [
       "ground",
       "dark"
+    ],
+    "base_stats": [
+      60,
+      82,
+      45,
+      45,
+      45,
+      74
     ],
     "base_stat_total": 351,
     "location_ids": [
@@ -1314,6 +1786,14 @@
       "ground",
       "dark"
     ],
+    "base_stats": [
+      95,
+      117,
+      70,
+      65,
+      70,
+      92
+    ],
     "base_stat_total": 509,
     "location_ids": null,
     "evolution_from": [
@@ -1331,6 +1811,14 @@
     "name": "달막화",
     "types": [
       "fire"
+    ],
+    "base_stats": [
+      70,
+      90,
+      45,
+      15,
+      45,
+      50
     ],
     "base_stat_total": 315,
     "location_ids": [
@@ -1353,6 +1841,14 @@
     "types": [
       "fire"
     ],
+    "base_stats": [
+      105,
+      140,
+      55,
+      30,
+      55,
+      95
+    ],
     "base_stat_total": 480,
     "location_ids": [
       29
@@ -1373,6 +1869,14 @@
     "types": [
       "grass"
     ],
+    "base_stats": [
+      75,
+      86,
+      67,
+      106,
+      67,
+      60
+    ],
     "base_stat_total": 461,
     "location_ids": [
       29
@@ -1387,6 +1891,14 @@
     "types": [
       "bug",
       "rock"
+    ],
+    "base_stats": [
+      50,
+      65,
+      85,
+      35,
+      35,
+      55
     ],
     "base_stat_total": 325,
     "location_ids": [
@@ -1410,6 +1922,14 @@
       "bug",
       "rock"
     ],
+    "base_stats": [
+      70,
+      95,
+      125,
+      65,
+      75,
+      45
+    ],
     "base_stat_total": 475,
     "location_ids": [
       18
@@ -1430,6 +1950,14 @@
     "types": [
       "dark",
       "fighting"
+    ],
+    "base_stats": [
+      50,
+      75,
+      70,
+      35,
+      70,
+      48
     ],
     "base_stat_total": 348,
     "location_ids": [
@@ -1456,6 +1984,14 @@
       "dark",
       "fighting"
     ],
+    "base_stats": [
+      65,
+      90,
+      115,
+      45,
+      115,
+      58
+    ],
     "base_stat_total": 488,
     "location_ids": null,
     "evolution_from": [
@@ -1475,6 +2011,14 @@
       "psychic",
       "flying"
     ],
+    "base_stats": [
+      72,
+      58,
+      80,
+      103,
+      80,
+      97
+    ],
     "base_stat_total": 490,
     "location_ids": [
       29
@@ -1488,6 +2032,14 @@
     "name": "데스마스",
     "types": [
       "ghost"
+    ],
+    "base_stats": [
+      38,
+      30,
+      85,
+      55,
+      65,
+      30
     ],
     "base_stat_total": 303,
     "location_ids": [
@@ -1508,6 +2060,14 @@
     "name": "데스니칸",
     "types": [
       "ghost"
+    ],
+    "base_stats": [
+      58,
+      50,
+      145,
+      95,
+      105,
+      30
     ],
     "base_stat_total": 483,
     "location_ids": [
@@ -1530,6 +2090,14 @@
       "water",
       "rock"
     ],
+    "base_stats": [
+      54,
+      78,
+      103,
+      53,
+      45,
+      22
+    ],
     "base_stat_total": 355,
     "location_ids": null,
     "evolution_from": null,
@@ -1548,6 +2116,14 @@
     "types": [
       "water",
       "rock"
+    ],
+    "base_stats": [
+      74,
+      108,
+      133,
+      83,
+      65,
+      32
     ],
     "base_stat_total": 495,
     "location_ids": null,
@@ -1568,6 +2144,14 @@
       "rock",
       "flying"
     ],
+    "base_stats": [
+      55,
+      112,
+      45,
+      74,
+      45,
+      70
+    ],
     "base_stat_total": 401,
     "location_ids": null,
     "evolution_from": null,
@@ -1587,6 +2171,14 @@
       "rock",
       "flying"
     ],
+    "base_stats": [
+      75,
+      140,
+      65,
+      112,
+      65,
+      110
+    ],
     "base_stat_total": 567,
     "location_ids": null,
     "evolution_from": [
@@ -1604,6 +2196,14 @@
     "name": "깨봉이",
     "types": [
       "poison"
+    ],
+    "base_stats": [
+      50,
+      50,
+      62,
+      40,
+      62,
+      65
     ],
     "base_stat_total": 329,
     "location_ids": [
@@ -1626,6 +2226,14 @@
     "types": [
       "poison"
     ],
+    "base_stats": [
+      80,
+      95,
+      82,
+      60,
+      82,
+      75
+    ],
     "base_stat_total": 474,
     "location_ids": [
       9
@@ -1646,6 +2254,14 @@
     "types": [
       "dark"
     ],
+    "base_stats": [
+      40,
+      65,
+      40,
+      80,
+      40,
+      65
+    ],
     "base_stat_total": 330,
     "location_ids": null,
     "evolution_from": null,
@@ -1664,6 +2280,14 @@
     "types": [
       "dark"
     ],
+    "base_stats": [
+      60,
+      105,
+      60,
+      120,
+      60,
+      105
+    ],
     "base_stat_total": 510,
     "location_ids": null,
     "evolution_from": [
@@ -1681,6 +2305,14 @@
     "name": "치라미",
     "types": [
       "normal"
+    ],
+    "base_stats": [
+      55,
+      50,
+      40,
+      40,
+      40,
+      75
     ],
     "base_stat_total": 300,
     "location_ids": [
@@ -1705,6 +2337,14 @@
     "types": [
       "normal"
     ],
+    "base_stats": [
+      75,
+      95,
+      60,
+      65,
+      60,
+      115
+    ],
     "base_stat_total": 470,
     "location_ids": [
       5,
@@ -1728,6 +2368,14 @@
     "types": [
       "psychic"
     ],
+    "base_stats": [
+      45,
+      30,
+      50,
+      55,
+      65,
+      45
+    ],
     "base_stat_total": 290,
     "location_ids": [
       5,
@@ -1748,6 +2396,14 @@
     "name": "고디보미",
     "types": [
       "psychic"
+    ],
+    "base_stats": [
+      60,
+      45,
+      70,
+      75,
+      85,
+      55
     ],
     "base_stat_total": 390,
     "location_ids": [
@@ -1775,6 +2431,14 @@
     "types": [
       "psychic"
     ],
+    "base_stats": [
+      70,
+      55,
+      95,
+      95,
+      110,
+      65
+    ],
     "base_stat_total": 490,
     "location_ids": [
       9
@@ -1794,6 +2458,14 @@
     "name": "유니란",
     "types": [
       "psychic"
+    ],
+    "base_stats": [
+      45,
+      30,
+      40,
+      105,
+      50,
+      20
     ],
     "base_stat_total": 290,
     "location_ids": [
@@ -1815,6 +2487,14 @@
     "name": "듀란",
     "types": [
       "psychic"
+    ],
+    "base_stats": [
+      65,
+      40,
+      50,
+      125,
+      60,
+      30
     ],
     "base_stat_total": 370,
     "location_ids": [
@@ -1842,6 +2522,14 @@
     "types": [
       "psychic"
     ],
+    "base_stats": [
+      110,
+      65,
+      75,
+      125,
+      85,
+      30
+    ],
     "base_stat_total": 490,
     "location_ids": [
       9
@@ -1862,6 +2550,14 @@
     "types": [
       "water",
       "flying"
+    ],
+    "base_stats": [
+      62,
+      44,
+      50,
+      44,
+      50,
+      55
     ],
     "base_stat_total": 305,
     "location_ids": [
@@ -1884,6 +2580,14 @@
       "water",
       "flying"
     ],
+    "base_stats": [
+      75,
+      87,
+      63,
+      87,
+      63,
+      98
+    ],
     "base_stat_total": 473,
     "location_ids": null,
     "evolution_from": [
@@ -1901,6 +2605,14 @@
     "name": "바닐프티",
     "types": [
       "ice"
+    ],
+    "base_stats": [
+      36,
+      50,
+      50,
+      65,
+      60,
+      44
     ],
     "base_stat_total": 305,
     "location_ids": [
@@ -1923,6 +2635,14 @@
     "name": "바닐리치",
     "types": [
       "ice"
+    ],
+    "base_stats": [
+      51,
+      65,
+      65,
+      80,
+      75,
+      59
     ],
     "base_stat_total": 395,
     "location_ids": [
@@ -1950,6 +2670,14 @@
     "types": [
       "ice"
     ],
+    "base_stats": [
+      71,
+      95,
+      85,
+      110,
+      95,
+      79
+    ],
     "base_stat_total": 535,
     "location_ids": null,
     "evolution_from": [
@@ -1968,6 +2696,14 @@
     "types": [
       "normal",
       "grass"
+    ],
+    "base_stats": [
+      60,
+      60,
+      50,
+      40,
+      50,
+      75
     ],
     "base_stat_total": 335,
     "location_ids": [
@@ -1992,6 +2728,14 @@
       "normal",
       "grass"
     ],
+    "base_stats": [
+      80,
+      100,
+      70,
+      60,
+      70,
+      95
+    ],
     "base_stat_total": 475,
     "location_ids": [
       37
@@ -2012,6 +2756,14 @@
     "types": [
       "electric",
       "flying"
+    ],
+    "base_stats": [
+      55,
+      75,
+      60,
+      75,
+      60,
+      103
     ],
     "base_stat_total": 428,
     "location_ids": [
@@ -2037,6 +2789,14 @@
     "types": [
       "bug"
     ],
+    "base_stats": [
+      50,
+      75,
+      45,
+      40,
+      45,
+      60
+    ],
     "base_stat_total": 315,
     "location_ids": [
       6,
@@ -2059,6 +2819,14 @@
       "bug",
       "steel"
     ],
+    "base_stats": [
+      70,
+      135,
+      105,
+      60,
+      105,
+      20
+    ],
     "base_stat_total": 495,
     "location_ids": null,
     "evolution_from": [
@@ -2077,6 +2845,14 @@
     "types": [
       "grass",
       "poison"
+    ],
+    "base_stats": [
+      69,
+      55,
+      45,
+      55,
+      55,
+      15
     ],
     "base_stat_total": 294,
     "location_ids": [
@@ -2101,6 +2877,14 @@
       "grass",
       "poison"
     ],
+    "base_stats": [
+      114,
+      85,
+      70,
+      85,
+      80,
+      30
+    ],
     "base_stat_total": 464,
     "location_ids": [
       10,
@@ -2122,6 +2906,14 @@
     "types": [
       "water",
       "ghost"
+    ],
+    "base_stats": [
+      55,
+      40,
+      50,
+      65,
+      85,
+      40
     ],
     "base_stat_total": 335,
     "location_ids": [
@@ -2146,6 +2938,14 @@
       "water",
       "ghost"
     ],
+    "base_stats": [
+      100,
+      60,
+      70,
+      85,
+      105,
+      60
+    ],
     "base_stat_total": 480,
     "location_ids": [
       4,
@@ -2169,6 +2969,14 @@
     "types": [
       "water"
     ],
+    "base_stats": [
+      165,
+      75,
+      80,
+      40,
+      45,
+      65
+    ],
     "base_stat_total": 470,
     "location_ids": [
       4,
@@ -2186,6 +2994,14 @@
     "types": [
       "bug",
       "electric"
+    ],
+    "base_stats": [
+      50,
+      47,
+      50,
+      57,
+      50,
+      65
     ],
     "base_stat_total": 319,
     "location_ids": [
@@ -2208,6 +3024,14 @@
       "bug",
       "electric"
     ],
+    "base_stats": [
+      70,
+      77,
+      60,
+      97,
+      60,
+      108
+    ],
     "base_stat_total": 472,
     "location_ids": null,
     "evolution_from": [
@@ -2226,6 +3050,14 @@
     "types": [
       "grass",
       "steel"
+    ],
+    "base_stats": [
+      44,
+      50,
+      91,
+      24,
+      86,
+      10
     ],
     "base_stat_total": 305,
     "location_ids": [
@@ -2248,6 +3080,14 @@
       "grass",
       "steel"
     ],
+    "base_stats": [
+      74,
+      94,
+      131,
+      54,
+      116,
+      20
+    ],
     "base_stat_total": 489,
     "location_ids": null,
     "evolution_from": [
@@ -2265,6 +3105,14 @@
     "name": "기어르",
     "types": [
       "steel"
+    ],
+    "base_stats": [
+      40,
+      55,
+      70,
+      45,
+      60,
+      30
     ],
     "base_stat_total": 300,
     "location_ids": [
@@ -2286,6 +3134,14 @@
     "name": "기기어르",
     "types": [
       "steel"
+    ],
+    "base_stats": [
+      60,
+      80,
+      95,
+      70,
+      85,
+      50
     ],
     "base_stat_total": 440,
     "location_ids": null,
@@ -2311,6 +3167,14 @@
     "types": [
       "steel"
     ],
+    "base_stats": [
+      60,
+      100,
+      115,
+      70,
+      85,
+      90
+    ],
     "base_stat_total": 520,
     "location_ids": null,
     "evolution_from": [
@@ -2328,6 +3192,14 @@
     "name": "저리어",
     "types": [
       "electric"
+    ],
+    "base_stats": [
+      35,
+      55,
+      40,
+      45,
+      40,
+      60
     ],
     "base_stat_total": 275,
     "location_ids": [
@@ -2348,6 +3220,14 @@
     "name": "저리릴",
     "types": [
       "electric"
+    ],
+    "base_stats": [
+      65,
+      85,
+      70,
+      75,
+      70,
+      40
     ],
     "base_stat_total": 405,
     "location_ids": null,
@@ -2373,6 +3253,14 @@
     "types": [
       "electric"
     ],
+    "base_stats": [
+      85,
+      115,
+      80,
+      105,
+      80,
+      50
+    ],
     "base_stat_total": 515,
     "location_ids": null,
     "evolution_from": [
@@ -2390,6 +3278,14 @@
     "name": "리그레",
     "types": [
       "psychic"
+    ],
+    "base_stats": [
+      55,
+      55,
+      55,
+      85,
+      55,
+      30
     ],
     "base_stat_total": 335,
     "location_ids": [
@@ -2410,6 +3306,14 @@
     "name": "벰크",
     "types": [
       "psychic"
+    ],
+    "base_stats": [
+      75,
+      75,
+      75,
+      125,
+      95,
+      40
     ],
     "base_stat_total": 485,
     "location_ids": [
@@ -2432,6 +3336,14 @@
       "ghost",
       "fire"
     ],
+    "base_stats": [
+      50,
+      30,
+      55,
+      65,
+      55,
+      20
+    ],
     "base_stat_total": 275,
     "location_ids": [
       35
@@ -2452,6 +3364,14 @@
     "types": [
       "ghost",
       "fire"
+    ],
+    "base_stats": [
+      60,
+      40,
+      60,
+      95,
+      60,
+      55
     ],
     "base_stat_total": 370,
     "location_ids": null,
@@ -2478,6 +3398,14 @@
       "ghost",
       "fire"
     ],
+    "base_stats": [
+      60,
+      55,
+      90,
+      145,
+      90,
+      80
+    ],
     "base_stat_total": 520,
     "location_ids": null,
     "evolution_from": [
@@ -2495,6 +3423,14 @@
     "name": "터검니",
     "types": [
       "dragon"
+    ],
+    "base_stats": [
+      46,
+      87,
+      60,
+      30,
+      40,
+      57
     ],
     "base_stat_total": 320,
     "location_ids": [
@@ -2515,6 +3451,14 @@
     "name": "액슨도",
     "types": [
       "dragon"
+    ],
+    "base_stats": [
+      66,
+      117,
+      70,
+      40,
+      50,
+      67
     ],
     "base_stat_total": 410,
     "location_ids": [
@@ -2542,6 +3486,14 @@
     "types": [
       "dragon"
     ],
+    "base_stats": [
+      76,
+      147,
+      90,
+      60,
+      70,
+      97
+    ],
     "base_stat_total": 540,
     "location_ids": null,
     "evolution_from": [
@@ -2559,6 +3511,14 @@
     "name": "코고미",
     "types": [
       "ice"
+    ],
+    "base_stats": [
+      55,
+      70,
+      40,
+      60,
+      40,
+      40
     ],
     "base_stat_total": 305,
     "location_ids": [
@@ -2582,6 +3542,14 @@
     "types": [
       "ice"
     ],
+    "base_stats": [
+      95,
+      110,
+      80,
+      70,
+      80,
+      50
+    ],
     "base_stat_total": 485,
     "location_ids": [
       37
@@ -2602,6 +3570,14 @@
     "types": [
       "ice"
     ],
+    "base_stats": [
+      70,
+      30,
+      50,
+      95,
+      135,
+      105
+    ],
     "base_stat_total": 485,
     "location_ids": [
       36
@@ -2615,6 +3591,14 @@
     "name": "쪼마리",
     "types": [
       "bug"
+    ],
+    "base_stats": [
+      50,
+      40,
+      85,
+      40,
+      65,
+      25
     ],
     "base_stat_total": 305,
     "location_ids": [
@@ -2637,6 +3621,14 @@
     "types": [
       "bug"
     ],
+    "base_stats": [
+      80,
+      70,
+      40,
+      100,
+      60,
+      145
+    ],
     "base_stat_total": 495,
     "location_ids": null,
     "evolution_from": [
@@ -2656,6 +3648,14 @@
       "ground",
       "electric"
     ],
+    "base_stats": [
+      109,
+      66,
+      84,
+      81,
+      99,
+      32
+    ],
     "base_stat_total": 471,
     "location_ids": [
       8,
@@ -2670,6 +3670,14 @@
     "name": "비조푸",
     "types": [
       "fighting"
+    ],
+    "base_stats": [
+      45,
+      85,
+      50,
+      55,
+      50,
+      65
     ],
     "base_stat_total": 350,
     "location_ids": [
@@ -2693,6 +3701,14 @@
     "types": [
       "fighting"
     ],
+    "base_stats": [
+      65,
+      125,
+      60,
+      95,
+      60,
+      105
+    ],
     "base_stat_total": 510,
     "location_ids": [
       14
@@ -2713,6 +3729,14 @@
     "types": [
       "dragon"
     ],
+    "base_stats": [
+      77,
+      120,
+      90,
+      60,
+      90,
+      48
+    ],
     "base_stat_total": 485,
     "location_ids": [
       37
@@ -2727,6 +3751,14 @@
     "types": [
       "ground",
       "ghost"
+    ],
+    "base_stats": [
+      59,
+      74,
+      50,
+      35,
+      50,
+      35
     ],
     "base_stat_total": 303,
     "location_ids": [
@@ -2749,6 +3781,14 @@
       "ground",
       "ghost"
     ],
+    "base_stats": [
+      89,
+      124,
+      80,
+      55,
+      80,
+      55
+    ],
     "base_stat_total": 483,
     "location_ids": null,
     "evolution_from": [
@@ -2767,6 +3807,14 @@
     "types": [
       "dark",
       "steel"
+    ],
+    "base_stats": [
+      45,
+      85,
+      70,
+      40,
+      40,
+      60
     ],
     "base_stat_total": 340,
     "location_ids": [
@@ -2790,6 +3838,14 @@
       "dark",
       "steel"
     ],
+    "base_stats": [
+      65,
+      125,
+      100,
+      60,
+      70,
+      70
+    ],
     "base_stat_total": 490,
     "location_ids": [
       11
@@ -2810,6 +3866,14 @@
     "types": [
       "normal"
     ],
+    "base_stats": [
+      95,
+      110,
+      95,
+      40,
+      95,
+      55
+    ],
     "base_stat_total": 490,
     "location_ids": [
       10
@@ -2824,6 +3888,14 @@
     "types": [
       "normal",
       "flying"
+    ],
+    "base_stats": [
+      70,
+      83,
+      50,
+      37,
+      50,
+      60
     ],
     "base_stat_total": 350,
     "location_ids": [
@@ -2849,6 +3921,14 @@
       "normal",
       "flying"
     ],
+    "base_stats": [
+      100,
+      123,
+      75,
+      57,
+      75,
+      80
+    ],
     "base_stat_total": 510,
     "location_ids": [
       11,
@@ -2870,6 +3950,14 @@
     "types": [
       "dark",
       "flying"
+    ],
+    "base_stats": [
+      70,
+      55,
+      75,
+      45,
+      65,
+      60
     ],
     "base_stat_total": 370,
     "location_ids": [
@@ -2895,6 +3983,14 @@
       "dark",
       "flying"
     ],
+    "base_stats": [
+      110,
+      65,
+      105,
+      55,
+      95,
+      80
+    ],
     "base_stat_total": 510,
     "location_ids": [
       11,
@@ -2916,6 +4012,14 @@
     "types": [
       "fire"
     ],
+    "base_stats": [
+      85,
+      97,
+      66,
+      105,
+      66,
+      65
+    ],
     "base_stat_total": 484,
     "location_ids": [
       39
@@ -2931,6 +4035,14 @@
       "bug",
       "steel"
     ],
+    "base_stats": [
+      58,
+      109,
+      112,
+      48,
+      48,
+      109
+    ],
     "base_stat_total": 484,
     "location_ids": [
       39
@@ -2945,6 +4057,14 @@
     "types": [
       "dark",
       "dragon"
+    ],
+    "base_stats": [
+      52,
+      65,
+      50,
+      45,
+      50,
+      38
     ],
     "base_stat_total": 300,
     "location_ids": [
@@ -2966,6 +4086,14 @@
     "types": [
       "dark",
       "dragon"
+    ],
+    "base_stats": [
+      72,
+      85,
+      70,
+      65,
+      70,
+      58
     ],
     "base_stat_total": 420,
     "location_ids": null,
@@ -2992,6 +4120,14 @@
       "dark",
       "dragon"
     ],
+    "base_stats": [
+      92,
+      105,
+      90,
+      125,
+      90,
+      98
+    ],
     "base_stat_total": 600,
     "location_ids": null,
     "evolution_from": [
@@ -3010,6 +4146,14 @@
     "types": [
       "bug",
       "fire"
+    ],
+    "base_stats": [
+      55,
+      85,
+      55,
+      50,
+      55,
+      60
     ],
     "base_stat_total": 360,
     "location_ids": [
@@ -3032,6 +4176,14 @@
       "bug",
       "fire"
     ],
+    "base_stats": [
+      85,
+      60,
+      65,
+      135,
+      105,
+      100
+    ],
     "base_stat_total": 550,
     "location_ids": [
       30
@@ -3053,6 +4205,14 @@
       "steel",
       "fighting"
     ],
+    "base_stats": [
+      91,
+      90,
+      129,
+      90,
+      72,
+      108
+    ],
     "base_stat_total": 580,
     "location_ids": [
       34
@@ -3067,6 +4227,14 @@
     "types": [
       "rock",
       "fighting"
+    ],
+    "base_stats": [
+      91,
+      129,
+      90,
+      72,
+      90,
+      108
     ],
     "base_stat_total": 580,
     "location_ids": [
@@ -3083,6 +4251,14 @@
       "grass",
       "fighting"
     ],
+    "base_stats": [
+      91,
+      90,
+      72,
+      90,
+      129,
+      108
+    ],
     "base_stat_total": 580,
     "location_ids": [
       28
@@ -3097,6 +4273,14 @@
     "types": [
       "flying"
     ],
+    "base_stats": [
+      79,
+      115,
+      70,
+      125,
+      80,
+      111
+    ],
     "base_stat_total": 580,
     "location_ids": null,
     "evolution_from": null,
@@ -3109,6 +4293,14 @@
     "types": [
       "electric",
       "flying"
+    ],
+    "base_stats": [
+      79,
+      115,
+      70,
+      125,
+      80,
+      111
     ],
     "base_stat_total": 580,
     "location_ids": null,
@@ -3123,6 +4315,14 @@
       "dragon",
       "fire"
     ],
+    "base_stats": [
+      100,
+      120,
+      100,
+      150,
+      120,
+      90
+    ],
     "base_stat_total": 680,
     "location_ids": null,
     "evolution_from": null,
@@ -3136,6 +4336,14 @@
       "dragon",
       "electric"
     ],
+    "base_stats": [
+      100,
+      150,
+      120,
+      120,
+      100,
+      90
+    ],
     "base_stat_total": 680,
     "location_ids": null,
     "evolution_from": null,
@@ -3148,6 +4356,14 @@
     "types": [
       "ground",
       "flying"
+    ],
+    "base_stats": [
+      89,
+      125,
+      90,
+      115,
+      80,
+      101
     ],
     "base_stat_total": 600,
     "location_ids": [
@@ -3164,6 +4380,14 @@
       "dragon",
       "ice"
     ],
+    "base_stats": [
+      125,
+      130,
+      90,
+      130,
+      90,
+      95
+    ],
     "base_stat_total": 660,
     "location_ids": [
       40
@@ -3179,6 +4403,14 @@
       "water",
       "fighting"
     ],
+    "base_stats": [
+      91,
+      72,
+      90,
+      129,
+      90,
+      108
+    ],
     "base_stat_total": 580,
     "location_ids": null,
     "evolution_from": null,
@@ -3192,6 +4424,14 @@
       "normal",
       "psychic"
     ],
+    "base_stats": [
+      100,
+      77,
+      77,
+      128,
+      128,
+      90
+    ],
     "base_stat_total": 600,
     "location_ids": null,
     "evolution_from": null,
@@ -3204,6 +4444,14 @@
     "types": [
       "bug",
       "steel"
+    ],
+    "base_stats": [
+      71,
+      120,
+      95,
+      120,
+      95,
+      99
     ],
     "base_stat_total": 600,
     "location_ids": null,
