@@ -23,14 +23,45 @@ def search_pokemon(name: str | None = None, pokemon_type: str | None = None):
     ]
 
 
-def _load_evolutions():
-    """전처리 전에는 별도 목 데이터를 사용합니다. 실제 데이터 연결 시 교체합니다."""
-    with (DATA_DIR / "mock" / "evolutions.json").open(encoding="utf-8") as file:
-        return json.load(file)
+def _get_evolution_relations(pokemon_by_id: dict):
+    """mon.json의 양방향 진화 정보를 중복 없는 관계로 합칩니다."""
+    relations = {}
+    for pokemon_id, pokemon in pokemon_by_id.items():
+        for field in ("evolution_from", "evolution_to"):
+            entries = pokemon.get(field)
+            if entries is None:
+                continue
+            if not isinstance(entries, list):
+                raise ValueError(f"진화 정보는 목록이어야 합니다: {pokemon_id}, {field}")
+            for entry in entries:
+                if not isinstance(entry, dict):
+                    raise ValueError(f"진화 관계가 올바르지 않습니다: {pokemon_id}")
+                related_id = entry.get("id")
+                if type(related_id) is not int or related_id not in pokemon_by_id:
+                    raise ValueError(f"존재하지 않는 진화 포켓몬 ID: {related_id}")
+                if related_id == pokemon_id:
+                    raise ValueError(f"자기 자신으로 진화할 수 없습니다: {pokemon_id}")
+                condition = entry.get("condition")
+                if not isinstance(condition, str) or not condition.strip():
+                    raise ValueError(f"진화 조건이 올바르지 않습니다: {pokemon_id}")
+                condition = f"레벨 {condition}" if condition.isdecimal() else condition
+                source, target = (
+                    (related_id, pokemon_id) if field == "evolution_from"
+                    else (pokemon_id, related_id)
+                )
+                key = (source, target)
+                if key in relations and relations[key]["condition"] != condition:
+                    raise ValueError(f"같은 진화 관계의 조건이 다릅니다: {source}, {target}")
+                relations[key] = {
+                    "from_pokemon_id": source,
+                    "to_pokemon_id": target,
+                    "condition": condition,
+                }
+    return list(relations.values())
 
 
-def _build_evolution_chain(pokemon_id: int, pokemon_by_id: dict, evolution_data: dict):
-    relations = evolution_data["relations"]
+def _build_evolution_chain(pokemon_id: int, pokemon_by_id: dict):
+    relations = _get_evolution_relations(pokemon_by_id)
     neighbors = {}
     for relation in relations:
         source = relation["from_pokemon_id"]
@@ -39,7 +70,9 @@ def _build_evolution_chain(pokemon_id: int, pokemon_by_id: dict, evolution_data:
         neighbors.setdefault(target, set()).add(source)
 
     if pokemon_id not in neighbors:
-        return [] if pokemon_id in evolution_data["no_evolution_pokemon_ids"] else None
+        pokemon = pokemon_by_id[pokemon_id]
+        registered = all(field in pokemon for field in ("evolution_from", "evolution_to"))
+        return [] if registered else None
 
     # 양방향으로 탐색해 이전 단계와 이후 단계, 같은 계보의 분기를 모두 찾습니다.
     family = set()
@@ -70,7 +103,7 @@ def get_pokemon_detail(pokemon_id: int):
     pokemon = pokemon_by_id.get(pokemon_id)
     if pokemon is None:
         return None
-    chain = _build_evolution_chain(pokemon_id, pokemon_by_id, _load_evolutions())
+    chain = _build_evolution_chain(pokemon_id, pokemon_by_id)
     return {**pokemon, "evolution_chain": chain}
 
 

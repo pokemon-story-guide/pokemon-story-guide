@@ -27,7 +27,7 @@ class EvolutionPokemon(BaseModel):
 class EvolutionRelation(BaseModel):
     from_pokemon: EvolutionPokemon = Field(alias="from", description="진화 전 포켓몬의 ID·이름.")
     to: EvolutionPokemon = Field(description="진화 후 포켓몬의 ID·이름.")
-    condition: str = Field(description="진화 조건. 현재 일부 개발용 목 데이터만 등록되어 있습니다.", examples=["레벨 17"])
+    condition: str = Field(description="실제 데이터에 등록된 진화 조건. 숫자 조건은 레벨로 표시하고 그 외 조건은 원문을 유지합니다.", examples=["레벨 17"])
 
 
 class PokemonDetail(PokemonCard):
@@ -37,5 +37,5 @@ class PokemonDetail(PokemonCard):
     )
     # None: 정보 미등록, []: 진화 관계가 없는 것으로 등록됨.
     evolution_chain: list[EvolutionRelation] | None = Field(
-        description='이전·이후 단계와 분기를 포함한 전체 진화 계보.\n\n- `null`: 정보 미등록\n- `[]`: 진화 관계 없음으로 등록\n\n현재 일부 목 데이터만 제공합니다.',
+        description='mon.json의 이전·이후 관계와 분기를 포함한 전체 진화 계보.\n\n- `null`: 관련 관계를 찾지 못했고 진화 필드가 미등록됨\n- `[]`: 양쪽 진화 필드가 등록되어 있으나 관계가 없음',
     )
