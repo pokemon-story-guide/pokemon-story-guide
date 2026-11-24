@@ -46,5 +46,8 @@ docker compose up --build   # 켜기
 docker compose down         # 끄기
 ```
 
-- API 문서: http://127.0.0.1:8000/docs
+- 화면: http://localhost
+- API 문서: http://localhost/docs
+- API: http://localhost/api/... (예: http://localhost/api/trainers)
+- 백엔드 직접 접속(Nginx를 거치지 않음): http://localhost:8000/docs
 - Redis는 백엔드 컨테이너에서만 접근 (호스트 `redis`, 포트 `6379`)

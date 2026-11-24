@@ -71,6 +71,11 @@ jobs:
               pokemon = get_json(f"/api/locations/{location['id']}/pokemon")
               assert isinstance(pokemon, list)
           PY
+      - name: Test Nginx routing
+        run: |
+          curl --fail --silent --show-error http://localhost/health
+          curl --fail --silent --show-error http://localhost/api/trainers > /dev/null
+          curl --fail --silent --show-error http://localhost/trainers/gym | grep -q '<div id="root">'
       - name: Show container logs on failure
         if: failure()
         run: docker compose logs --no-color

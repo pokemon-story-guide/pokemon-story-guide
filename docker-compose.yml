@@ -7,12 +7,27 @@ services:
       - "8000:8000"
     depends_on:
       - redis
+    restart: unless-stopped
 
   redis:
     image: redis:7
     command: ["redis-server", "--appendonly", "yes"]
     volumes:
       - redis-data:/data
+    restart: unless-stopped
+
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      backend:
+        condition: service_started
+        # 백엔드 컨테이너가 새로 만들어지면 Nginx도 다시 시작해 새 주소를 찾게 합니다.
+        restart: true
+    restart: unless-stopped
 
 volumes:
   redis-data:

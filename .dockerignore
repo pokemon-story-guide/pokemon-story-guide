@@ -2,3 +2,11 @@ backend/.venv
 **/__pycache__
 .git
 .env
+**/.venv
+**/*.pyc
+*.pem
+.DS_Store
+
+# 프론트는 Docker 안에서 새로 설치하고 빌드합니다.
+**/node_modules
+**/dist
