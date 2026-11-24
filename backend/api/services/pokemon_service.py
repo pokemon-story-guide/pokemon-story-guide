@@ -23,10 +23,12 @@ def search_pokemon(name: str | None = None, pokemon_type: str | None = None):
     ]
 
 
-def _get_evolution_relations(pokemon_by_id: dict):
-    """mon.json의 양방향 진화 정보를 중복 없는 관계로 합칩니다."""
+def _get_evolution_relations(pokemon_by_id: dict, family: set[int] | None = None):
+    """지정한 계보의 관계를 검증·병합합니다. family가 없으면 전체 데이터를 검증합니다."""
     relations = {}
     for pokemon_id, pokemon in pokemon_by_id.items():
+        if family is not None and pokemon_id not in family:
+            continue
         for field in ("evolution_from", "evolution_to"):
             entries = pokemon.get(field)
             if entries is None:
@@ -61,18 +63,19 @@ def _get_evolution_relations(pokemon_by_id: dict):
 
 
 def _build_evolution_chain(pokemon_id: int, pokemon_by_id: dict):
-    relations = _get_evolution_relations(pokemon_by_id)
+    # 조건 검증 전에 연결만 찾습니다. 다른 계보의 잘못된 데이터가 조회를 막지 않도록 합니다.
+    # 연결된 포켓몬의 잘못된 항목은 계보를 찾은 뒤 아래에서 검증합니다.
     neighbors = {}
-    for relation in relations:
-        source = relation["from_pokemon_id"]
-        target = relation["to_pokemon_id"]
-        neighbors.setdefault(source, set()).add(target)
-        neighbors.setdefault(target, set()).add(source)
-
-    if pokemon_id not in neighbors:
-        pokemon = pokemon_by_id[pokemon_id]
-        registered = all(field in pokemon for field in ("evolution_from", "evolution_to"))
-        return [] if registered else None
+    for source, pokemon in pokemon_by_id.items():
+        for field in ("evolution_from", "evolution_to"):
+            entries = pokemon.get(field)
+            if not isinstance(entries, list):
+                continue
+            for entry in entries:
+                target = entry.get("id") if isinstance(entry, dict) else None
+                if type(target) is int and target in pokemon_by_id:
+                    neighbors.setdefault(source, set()).add(target)
+                    neighbors.setdefault(target, set()).add(source)
 
     # 양방향으로 탐색해 이전 단계와 이후 단계, 같은 계보의 분기를 모두 찾습니다.
     family = set()
@@ -82,7 +85,13 @@ def _build_evolution_chain(pokemon_id: int, pokemon_by_id: dict):
         if current in family:
             continue
         family.add(current)
-        pending.extend(neighbors[current] - family)
+        pending.extend(neighbors.get(current, set()) - family)
+
+    relations = _get_evolution_relations(pokemon_by_id, family)
+    if not relations:
+        pokemon = pokemon_by_id[pokemon_id]
+        registered = all(field in pokemon for field in ("evolution_from", "evolution_to"))
+        return [] if registered else None
 
     result = []
     for relation in relations:

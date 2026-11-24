@@ -1,3 +1,4 @@
+from copy import deepcopy
 import unittest
 from unittest.mock import patch
 
@@ -125,7 +126,6 @@ class PokemonDetailApiTest(unittest.TestCase):
         self.assertIsNone(self.get_detail(4)["evolution_chain"])
 
     def test_broken_evolution_data_returns_500(self):
-        from copy import deepcopy
         original = deepcopy(self.pokemon)
         cases = [
             ("missing pokemon", [{"id": 999, "condition": "17"}]),
@@ -144,6 +144,37 @@ class PokemonDetailApiTest(unittest.TestCase):
                     self.pokemon[1]["evolution_to"] = entries
                     response = client.get("/api/pokemon/1")
                     self.assertEqual(response.status_code, 500)
+
+    def test_unrelated_broken_evolution_does_not_block_valid_details(self):
+        original = deepcopy(self.pokemon)
+        cases = [
+            [{"id": 999, "condition": "17"}],
+            [{"id": True, "condition": "17"}],
+            [{"id": 7}],
+            [{"id": 7, "condition": " "}],
+            [None],
+            {},
+            [{"id": 6, "condition": "17"}],
+            [{"id": 7, "condition": "충돌하는 조건"}],
+        ]
+        expected = self.get_detail(1)["evolution_chain"]
+        with TestClient(app, raise_server_exceptions=False) as client:
+            for entries in cases:
+                with self.subTest(entries=entries):
+                    self.pokemon[:] = deepcopy(original)
+                    self.pokemon[6]["evolution_to"] = entries
+                    for pokemon_id in (1, 2, 3):
+                        self.assertEqual(self.get_detail(pokemon_id)["evolution_chain"], expected)
+                    self.assertEqual(self.get_detail(0)["evolution_chain"], [])
+                    self.assertIsNone(self.get_detail(4)["evolution_chain"])
+                    self.assertEqual(client.get("/api/pokemon/6").status_code, 500)
+
+    def test_connected_broken_evolution_blocks_every_stage(self):
+        self.pokemon[3]["evolution_to"] = [{"id": 999, "condition": "50"}]
+        with TestClient(app, raise_server_exceptions=False) as client:
+            for pokemon_id in (1, 2, 3):
+                with self.subTest(pokemon_id=pokemon_id):
+                    self.assertEqual(client.get(f"/api/pokemon/{pokemon_id}").status_code, 500)
 
     def test_unknown_id_does_not_parse_evolution_data(self):
         self.pokemon[1]["evolution_to"] = "잘못된 데이터"

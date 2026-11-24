@@ -3,6 +3,7 @@ from pathlib import Path
 import unittest
 
 from algorithm.type_chart import TYPES
+from api.services.pokemon_service import _get_evolution_relations
 
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"
 
@@ -39,6 +40,10 @@ class DataIntegrityTest(unittest.TestCase):
                 self.assertLessEqual(set(types), set(TYPES))
                 ids.append(pokemon["id"])
         self.assertEqual(len(ids), len(set(ids)), "포켓몬 ID 중복")
+
+    def test_evolution_relations_are_valid(self):
+        # 전체 진화 데이터 오류는 요청 시점이 아니라 CI에서 먼저 차단합니다.
+        _get_evolution_relations({pokemon["id"]: pokemon for pokemon in self.pokemon})
 
     def test_location_references(self):
         place_ids = {place["id"] for place in self.places}
