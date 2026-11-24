@@ -124,6 +124,166 @@
 .dsg .mon.empty-slot { border: 2px dashed #c9d0d7; background: #f5f7f9; }
 .dsg .namebox { background: var(--slate2); color: #fff; font-weight: 900; padding: 3px 14px; border-radius: 6px; text-align: center; white-space: nowrap; }
 
+/* ---------- trainer: 상대 선택 (배틀 VS 패널) ---------- */
+.dsg .flag-stage { height: 746px; display: flex; justify-content: center; align-items: flex-start; gap: 14px; padding: 40px 60px 0; }
+/* 두 구역 나누기 (사천왕 | VS | 챔피언) */
+.dsg .flag-stage.split { gap: 0; padding: 40px 40px 0; }
+.dsg .flag-zone { display: flex; justify-content: center; align-items: flex-start; gap: 12px; }
+.dsg .flag-zone.main { width: 790px; flex: none; }
+.dsg .flag-zone.side { flex: 1; }
+/* 두 구역 사이 (잠금 해제 진행 바 자리): 패널 가운데 높이에, 양쪽 패널과 닿지 않게 */
+.dsg .flag-between { flex: none; width: 150px; height: var(--between-h, 560px); display: flex; align-items: center; margin-top: 0; }
+
+/* 잠금 해제 진행 바: 유튜브 재생바처럼 몬스터볼이 굴러가며 지나간 자리가 빨갛게 채워짐 */
+.dsg .unlock-track { position: relative; width: 100%; height: 40px; --travel: 1600ms; }
+.dsg .ut-rail {
+  position: absolute; left: 0; right: 0; top: 50%; height: 12px; margin-top: -6px; border-radius: 6px;
+  background: rgba(30,39,48,.18); border: 2px solid #1e2730; overflow: hidden; box-shadow: inset 0 2px 0 rgba(0,0,0,.12);
+}
+.dsg .ut-fill { height: 100%; background: linear-gradient(180deg, #ff5a3c, #e3350d); transition: width var(--travel) cubic-bezier(.45,.05,.35,1); }
+.dsg .unlock-track.arrived .ut-fill { animation: ut-glow 1s ease-in-out var(--travel) 2; }
+@keyframes ut-glow { 50% { filter: brightness(1.4); } }
+.dsg .ut-ball {
+  position: absolute; top: 50%; width: 34px; height: 34px; border-radius: 50%;
+  background: linear-gradient(180deg, #e3350d 0 46%, #1e2730 46% 54%, #f4f6f8 54% 100%);
+  border: 3px solid #1e2730; box-shadow: 0 3px 0 rgba(0,0,0,.25);
+  transition: left var(--travel) cubic-bezier(.45,.05,.35,1), transform var(--travel) cubic-bezier(.45,.05,.35,1);
+}
+.dsg .ut-ball::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; transform: translate(-50%,-50%);
+  border-radius: 50%; background: #fff; border: 3px solid #1e2730;
+}
+.dsg .unlock-track.arrived .ut-ball { animation: ut-ball-arrive 600ms ease-out var(--travel); }
+@keyframes ut-ball-arrive { 0% { box-shadow: 0 0 0 0 rgba(255,216,74,.9); } 100% { box-shadow: 0 0 0 16px rgba(255,216,74,0); } }
+@media (prefers-reduced-motion: reduce) {
+  .dsg .unlock-track { --travel: 1ms; }
+}
+/* 패널: 비스듬하게 기운 타입 색 띠 */
+.dsg .vsp {
+  position: relative; flex: none; width: var(--fw); height: var(--fh);
+  transform: skewX(-10deg); border: 4px solid #1e2730; border-radius: 6px; overflow: hidden;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c) 72%, #fff) 0%, var(--c) 48%, color-mix(in srgb, var(--c) 55%, #000) 100%);
+  box-shadow: 6px 6px 0 rgba(30,39,48,.22);
+  transition: transform .18s ease, box-shadow .18s ease, filter .9s ease, background .9s ease;
+}
+/* 안쪽 글씨·사진은 바로 세웁니다 */
+.dsg .vsp-in {
+  position: absolute; inset: 0; transform: skewX(10deg);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: calc(12px * var(--ps, 1));
+  padding-bottom: 30px;
+}
+.dsg .vsp .person {
+  display: flex; flex-direction: column; align-items: center; cursor: pointer;
+  background: none; border: 0; padding: 0;
+}
+/* 사진 칸: 한 명이면 정사각형(전신 그림이 크게), 여러 명이면 2:1. 비율이 다른 그림도 늘어나지 않게 칸 아래에 맞춥니다 */
+/* 사진 칸: 정사각형. 한 명이면 크게(패널 폭에 맞춰), 여러 명이면 조금 작게 (관장 1번 3명도 패널 안에 들어가게) */
+.dsg .vsp .vph { display: block; width: calc(100px * var(--ps, 1)); height: calc(100px * var(--ps, 1)); }
+.dsg .vsp.single .vph {
+  width: min(calc(128px * var(--ps, 1)), calc(var(--fw) - 12px));
+  height: min(calc(128px * var(--ps, 1)), calc(var(--fw) - 12px));
+}
+.dsg .vsp .vph img {
+  display: block; width: 100%; height: 100%; object-fit: contain; object-position: 50% 100%;
+  image-rendering: pixelated; filter: drop-shadow(0 4px 0 rgba(0,0,0,.3));
+}
+.dsg .vsp .person.shadow img { filter: brightness(0) drop-shadow(0 4px 0 rgba(0,0,0,.25)); }
+.dsg .vsp .nm {
+  color: #fff; font-weight: 900; font-size: calc(19px * var(--ps, 1)); letter-spacing: -.3px; margin-top: 6px; white-space: nowrap;
+  text-shadow: 0 2px 0 rgba(0,0,0,.5), 0 0 6px rgba(0,0,0,.35);
+}
+.dsg .vsp .person:not(.shadow):hover .nm { color: #ffe680; }
+.dsg .vsp .sub {
+  font-weight: 900; font-size: calc(10px + 2.5px * var(--ps, 1)); color: #ffe680; letter-spacing: 1px; white-space: nowrap;
+  text-shadow: 0 2px 0 rgba(0,0,0,.5);
+}
+/* 고른 패널: 노란 테두리가 빛나며 살짝 떠오름 */
+.dsg .vsp.sel { transform: skewX(-10deg) translateY(-8px); box-shadow: 0 0 0 5px #ffd84a, 0 0 28px 8px rgba(255,216,74,.85); z-index: 5; }
+/* 잠긴 패널: 회색 + 그림자 */
+.dsg .vsp.locked { background: linear-gradient(180deg, #8a8f96, #5d636b 48%, #3a3f45); }
+.dsg .vsp.locked .person { cursor: default; }
+.dsg .vsp.locked .sub { color: #c9ced4; }
+
+.dsg .flag-footer { position: absolute; left: 28px; right: 28px; bottom: 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.dsg .flag-note { font-size: 13px; color: #5b6775; font-weight: 700; }
+.dsg .demo-btn {
+  height: 38px; padding: 0 16px; border-radius: 8px; background: #fff; border: 2px solid var(--slate);
+  font-size: 14px; font-weight: 800; box-shadow: 0 3px 0 rgba(30,39,48,.25);
+}
+.dsg .demo-btn:disabled { opacity: .5; cursor: default; }
+
+/* ---------- trainer: party page (상대 파티) ---------- */
+.dsg .wrap3 { display: grid; grid-template-columns: 340px 1fr 440px; gap: 18px; padding: 18px 28px; height: 746px; }
+.dsg .col { display: flex; flex-direction: column; gap: 18px; min-height: 0; }
+.dsg .leader .pb { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 16px; }
+.dsg .portrait {
+  width: 100%; flex: none; height: 450px; border-radius: 10px; border: 3px solid #1e2730;
+  display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+  box-shadow: inset 0 0 0 4px rgba(0,0,0,.15);
+}
+.dsg .portrait::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, rgba(255,255,255,.08) 0 10px, transparent 10px 20px); }
+.dsg .portrait img { width: 100%; image-rendering: pixelated; position: relative; filter: drop-shadow(0 4px 0 rgba(0,0,0,.2)); }
+.dsg .portrait .no { position: absolute; left: 12px; top: 10px; color: #fff; font-weight: 900; font-size: 14px; text-shadow: 0 1px 0 rgba(0,0,0,.4); }
+.dsg .lname { background: var(--slate2); color: #fff; font-size: 24px; font-weight: 900; padding: 6px 0; width: 70%; text-align: center; border-radius: 8px; box-shadow: inset 0 -3px 0 rgba(0,0,0,.2); }
+.dsg .leader .type { font-size: 15px; padding: 4px 22px; }
+.dsg .city { background: #fff3b0; border: 2px solid #e2c34a; color: #5c4700; font-weight: 800; font-size: 16px; padding: 6px 0; width: 80%; text-align: center; border-radius: 8px; }
+.dsg .lmeta { display: flex; gap: 6px; font-size: 12.5px; }
+.dsg .lmeta span { background: var(--soft); border: 1px solid var(--line); border-radius: 4px; padding: 3px 8px; font-weight: 700; color: #4b5661; }
+
+.dsg .party .pb { padding: 0; display: flex; flex-direction: column; }
+.dsg .prow { flex: 1; display: grid; grid-template-columns: 74px 1fr auto; align-items: center; gap: 14px; padding: 0 18px; border-bottom: 2px solid var(--slate); }
+.dsg .prow:last-child { border-bottom: 0; }
+.dsg .prow .info { display: grid; grid-template-columns: auto auto; gap: 7px 10px; justify-content: start; align-items: center; }
+.dsg .prow .namebox { font-size: 16px; min-width: 96px; padding: 3px 14px; }
+.dsg .lv { background: #7b4aa0; color: #fff; font-weight: 800; font-size: 13px; padding: 3px 12px; border-radius: 6px; text-align: center; justify-self: start; }
+.dsg .types { display: flex; gap: 5px; }
+.dsg .types .type { min-width: 48px; font-size: 12px; padding: 2px 9px; }
+.dsg .mbtn { background: #ffe680; border: 2px solid #d9b52a; color: #5c4700; font-weight: 900; font-size: 14px; padding: 8px 16px; border-radius: 8px; box-shadow: 0 3px 0 #c9a21a; }
+.dsg .prow.on { background: #fff9dd; box-shadow: inset 5px 0 0 var(--yellow); }
+.dsg .prow.on .mbtn { background: var(--yellow); border-color: #1e2730; box-shadow: 0 1px 0 #1e2730; transform: translateY(2px); }
+.dsg .prow.on .mbtn::after { content: " ▶"; }
+.dsg .prow.empty { color: #b0b9c2; font-size: 14px; font-weight: 700; grid-template-columns: 74px 1fr; }
+.dsg .prow.empty .slot { border: 2px dashed #d3d9df; border-radius: 8px; padding: 10px 14px; }
+
+.dsg .mu .pb { padding: 12px 16px; }
+.dsg .mline { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; }
+.dsg .mline + .mline { border-top: 2px dashed var(--line); }
+.dsg .tag { flex: none; width: 64px; text-align: center; color: #fff; font-weight: 900; font-size: 15px; padding: 7px 0; border-radius: 8px; }
+.dsg .tag.good { background: #2d6fd6; } .dsg .tag.bad { background: #d9402f; }
+.dsg .mline .types { flex-wrap: wrap; gap: 6px; }
+.dsg .mline .type { font-size: 13px; padding: 4px 10px; min-width: 0; }
+.dsg .mline .type em { font-style: normal; margin-left: 4px; background: rgba(0,0,0,.25); border-radius: 3px; padding: 0 4px; font-size: 11px; }
+.dsg .mline small { display: block; font-size: 11.5px; color: var(--muted); font-weight: 700; margin-top: 6px; width: 100%; }
+.dsg .mu .who { font-size: 13px; font-weight: 800; color: var(--muted); }
+.dsg .mu .who b { color: var(--ink); font-size: 15px; }
+
+.dsg .rec .pb { display: flex; flex-direction: column; gap: 12px; }
+.dsg .rlv { font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+.dsg .rlv b { background: var(--red); color: #fff; padding: 2px 12px; border-radius: 6px; font-size: 16px; }
+.dsg .rlv small { margin-left: auto; font-size: 12px; color: var(--muted); font-weight: 700; }
+/* 추천 포켓몬 (추천 API #25, 점수 높은 순) */
+.dsg .rec .pb { position: relative; }
+.dsg .recmore {
+  position: absolute; right: 16px; top: 14px; height: 28px; padding: 0 12px; border-radius: 14px;
+  border: 2px solid var(--slate); background: #fff; font-size: 12px; font-weight: 800; color: var(--ink); cursor: pointer;
+}
+.dsg .recmore:hover { background: #fff8dc; border-color: #e2c34a; }
+.dsg .recgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; align-content: start; }
+.dsg .recgrid.more { overflow-y: auto; min-height: 0; flex: 1; padding-right: 4px; }
+.dsg .recmon {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 4px 7px;
+  border-radius: 10px; border: 2px solid var(--line); background: #f7f9fb; text-decoration: none; color: var(--ink);
+  transition: transform .12s ease, border-color .12s ease;
+}
+.dsg .recmon:hover { transform: translateY(-2px); border-color: #e2c34a; background: #fff8dc; }
+.dsg .recmon img { width: 64px; height: 64px; image-rendering: pixelated; }
+.dsg .recmon .rank { position: absolute; left: 6px; top: 4px; font-size: 12px; font-weight: 900; color: var(--muted); }
+.dsg .recmon .rn { font-size: 13px; font-weight: 900; white-space: nowrap; }
+.dsg .recmon .rs { font-size: 11px; font-weight: 900; padding: 1px 8px; border-radius: 8px; color: #fff; background: #8a95a3; }
+.dsg .recmon.good .rs { background: #2d6fd6; }
+.dsg .recmon.bad .rs { background: #8a3fa0; }
+.dsg .pill { align-self: center; border: 2px solid var(--slate); border-radius: 16px; padding: 3px 16px; font-size: 13px; font-weight: 800; background: #fff; }
+
 /* ---------- map info ---------- */
 .dsg .mapwrap { display: flex; padding: 18px 28px; height: 746px; }
 .dsg .outer { flex: 1; }
@@ -351,6 +511,189 @@
 .dsg .dex .type { font-size: 14px; }
 .dsg-face-fallback { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; font-weight: 900; color: #5b6775; font-size: 18px; }
 .dsg .lbody .empty { margin: 16px; }
+
+/* ---------- trainer category (트레이너 정보 첫 화면) ---------- */
+.dsg .cat-page { position: relative; height: 746px; padding: 18px 28px; }
+.dsg .cat-panel { height: 100%; }
+.dsg .cat-stage {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 34px;
+  padding: 26px 46px 34px;
+}
+
+/* ---------- 카테고리 카드 (블랙·화이트 분위기) ---------- */
+.dsg .cat-card {
+  position: relative; flex: 1; max-width: 420px; height: 500px; padding: 0; overflow: hidden;
+  display: flex; flex-direction: column; align-items: stretch;
+  border-radius: 18px; border: 4px solid #1e2730; color: #fff; cursor: pointer; text-align: center;
+  background: var(--cat-bg);
+  box-shadow: 0 6px 0 rgba(30,39,48,.28);
+  transition: transform .25s cubic-bezier(.2,.8,.3,1.2), box-shadow .25s ease;
+}
+/* 카드 안쪽 빛 (위쪽이 밝게) */
+.dsg .cat-card::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(120% 70% at 50% 0%, rgba(255,255,255,.22), rgba(255,255,255,0) 60%);
+}
+/* 마우스를 올리면: 커지고 노란 테두리가 빛남 */
+.dsg .cat-card:hover,
+.dsg .cat-card:focus-visible {
+  outline: none; transform: translateY(-8px) scale(1.045); z-index: 2;
+  box-shadow: 0 0 0 5px #ffd84a, 0 0 32px 10px rgba(255,216,74,.7), 0 12px 0 rgba(30,39,48,.22);
+}
+.dsg .cat-card.gym { --cat-bg: linear-gradient(165deg, #e2574b 0%, #b62f26 48%, #6e1712 100%); }
+.dsg .cat-card.elite { --cat-bg: linear-gradient(165deg, #7c5ccf 0%, #4b2f96 50%, #23154f 100%); }
+.dsg .cat-card.plasma { --cat-bg: linear-gradient(165deg, #5470c2 0%, #2c3f86 50%, #121a42 100%); }
+
+/* 그림 자리 */
+.dsg .cat-art { position: relative; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+/* 아래 이름 띠 */
+.dsg .cat-label {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 14px 10px 18px; background: rgba(12,16,24,.42); border-top: 3px solid rgba(255,255,255,.18);
+}
+.dsg .cat-label b { font-size: 34px; font-weight: 900; letter-spacing: -.5px; text-shadow: 0 3px 0 rgba(0,0,0,.35); }
+.dsg .cat-label small { font-size: 14px; font-weight: 800; color: #ffe680; letter-spacing: .5px; }
+
+/* 인물: 평소 PNG → 마우스를 올리면 같은 자리의 숨쉬기 GIF로 서서히 */
+.dsg .cat-sprite { position: relative; display: block; width: var(--s); height: var(--s); flex: none; }
+.dsg .cat-sprite img { position: absolute; image-rendering: pixelated; transition: opacity .35s ease; filter: drop-shadow(0 3px 0 rgba(0,0,0,.28)); }
+.dsg .cat-sprite .still { inset: 0; width: 100%; height: 100%; }
+.dsg .cat-sprite .moving { left: calc(var(--s) * -2 / 80); top: calc(var(--s) * -2 / 80); width: calc(var(--s) * 84 / 80); height: calc(var(--s) * 84 / 80); opacity: 0; }
+.dsg .cat-card:hover .cat-sprite .still, .dsg .cat-card:focus-visible .cat-sprite .still { opacity: 0; }
+.dsg .cat-card:hover .cat-sprite .moving, .dsg .cat-card:focus-visible .cat-sprite .moving { opacity: 1; }
+
+/* 관장: 몬스터볼 + 관장 8명 */
+.dsg .gym-art { gap: 22px; padding-top: 10px; }
+.dsg .gym-ball { position: relative; width: 64px; height: 64px; }
+.dsg .gym-ball .ball { position: absolute; inset: 0; transform-origin: 50% 90%; }
+.dsg .gym-ball .lid, .dsg .gym-ball .base { position: absolute; left: 0; right: 0; height: 50%; border: 4px solid #1e2730; }
+.dsg .gym-ball .lid {
+  top: 0; border-radius: 64px 64px 0 0; border-bottom-width: 3px;
+  background: radial-gradient(circle at 32% 32%, #ff8a6e 0 12%, #e3350d 40%, #a51f06 100%);
+}
+.dsg .gym-ball .base {
+  bottom: 0; border-radius: 0 0 64px 64px; border-top-width: 3px;
+  background: radial-gradient(circle at 40% 0%, #ffffff 0 30%, #d9dee4 100%);
+}
+.dsg .gym-ball .btn {
+  position: absolute; left: 50%; top: 50%; width: 20px; height: 20px; transform: translate(-50%, -50%);
+  border-radius: 50%; background: #fff; border: 4px solid #1e2730; box-shadow: 0 0 0 2px #fff inset;
+}
+/* 마우스를 올리고 있는 동안: 잡을 때처럼 세 번 흔들리고 잠깐 쉬기를 반복 (한 번에 2.4초) */
+.dsg .cat-card:hover .gym-ball .ball, .dsg .cat-card:focus-visible .gym-ball .ball { animation: ball-wobble 2.4s ease-in-out infinite; }
+@keyframes ball-wobble {
+  0%, 75%, 100% { transform: rotate(0); }
+  8% { transform: rotate(-16deg); } 16% { transform: rotate(12deg); } 24% { transform: rotate(0); }
+  33% { transform: rotate(-16deg); } 41% { transform: rotate(12deg); } 49% { transform: rotate(0); }
+  58% { transform: rotate(-16deg); } 66% { transform: rotate(12deg); }
+}
+
+.dsg .gym-rows { display: grid; grid-template-columns: repeat(4, 76px); gap: 4px 14px; justify-items: center; }
+
+/* 사천왕 및 챔피언: 뒤에 노간주, 앞에 사천왕 4명과 방 문의 파란 불빛 */
+.dsg .elite-art { gap: 0; padding-top: 6px; }
+.dsg .elite-art .champ { position: relative; display: flex; justify-content: center; margin-bottom: -6px; }
+.dsg .elite-art .aura {
+  position: absolute; left: 50%; top: 50%; width: 230px; height: 230px; transform: translate(-50%, -50%) scale(.6);
+  border-radius: 50%; background: radial-gradient(circle, rgba(255,222,110,.95) 0%, rgba(255,200,60,.45) 40%, rgba(255,200,60,0) 70%);
+  opacity: 0; transition: opacity .45s ease .45s, transform .6s ease .45s;
+}
+.dsg .cat-card:hover .elite-art .aura, .dsg .cat-card:focus-visible .elite-art .aura { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.dsg .elite-row { display: flex; gap: 6px; }
+.dsg .elite-slot { position: relative; display: flex; flex-direction: column; align-items: center; }
+.dsg .door-light {
+  width: 70px; height: 16px; margin-top: -8px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(120,170,255,.55), rgba(120,170,255,0) 70%);
+  opacity: .35; transition: opacity .25s ease, box-shadow .25s ease;
+}
+.dsg .cat-card:hover .door-light, .dsg .cat-card:focus-visible .door-light {
+  opacity: 1; background: radial-gradient(ellipse, #bfe2ff 0%, rgba(80,160,255,.9) 35%, rgba(80,160,255,0) 72%);
+  transition-delay: calc(var(--i) * 110ms);
+}
+
+/* 플라스마단: 엠블럼. 평소 PNG → 마우스를 올리면 커지며 반짝이는 GIF로 */
+.dsg .plasma-art .emblem { position: relative; display: block; width: 210px; height: 210px; transition: transform .35s cubic-bezier(.2,.8,.3,1.2); }
+.dsg .plasma-art .emblem img { position: absolute; transition: opacity .4s ease; filter: drop-shadow(0 6px 0 rgba(0,0,0,.3)); }
+.dsg .plasma-art .emblem .still { inset: 0; width: 100%; height: 100%; }
+/* GIF는 엠블럼이 그림 안에서 차지하는 비율이 PNG와 달라, 112.5%로 키우고 위치를 맞춰 정확히 겹칩니다 */
+.dsg .plasma-art .emblem .moving { left: -6.3%; top: -5.0%; width: 112.5%; height: 112.5%; opacity: 0; }
+.dsg .plasma-art .emblem .glow {
+  position: absolute; inset: -30px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(120,220,255,.55) 0%, rgba(120,220,255,0) 65%); opacity: 0; transition: opacity .4s ease;
+}
+.dsg .cat-card:hover .plasma-art .emblem, .dsg .cat-card:focus-visible .plasma-art .emblem { transform: scale(1.12); }
+.dsg .cat-card:hover .plasma-art .still, .dsg .cat-card:focus-visible .plasma-art .still { opacity: 0; }
+.dsg .cat-card:hover .plasma-art .moving, .dsg .cat-card:focus-visible .plasma-art .moving { opacity: 1; }
+.dsg .cat-card:hover .plasma-art .glow, .dsg .cat-card:focus-visible .plasma-art .glow { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dsg .cat-card, .dsg .plasma-art .emblem { transition: none; }
+  .dsg .cat-card:hover .gym-ball .ball, .dsg .cat-card:focus-visible .gym-ball .ball { animation: none; }
+}
+
+/* ---------- N 스토리 목록 (관장 선택처럼 차례로 풀림) ---------- */
+.dsg .nstory-page { height: 680px; padding: 24px 28px 0; }
+.dsg .nstory-panel { height: 100%; }
+.dsg .nstory-row {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 0;
+  padding: 0 22px;
+}
+/* 스토리 한 칸: 플라스마단 남색 카드 */
+.dsg .nstep {
+  position: relative; flex: none; width: 178px; height: 300px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  border-radius: 14px; border: 3px solid #1e2730; cursor: pointer; padding: 0;
+  background: linear-gradient(180deg, #34478f, #22306a);
+  box-shadow: 0 4px 0 rgba(30, 39, 48, .25);
+  transition: transform .15s ease, box-shadow .15s ease, background .9s ease;
+}
+.dsg .nstep .no {
+  color: #ffe680; font-weight: 900; font-size: 15px; letter-spacing: 1px;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .35);
+}
+.dsg .nstep .face {
+  width: 160px; height: 80px; display: flex; align-items: center; justify-content: center;
+}
+.dsg .nstep .face img {
+  width: 160px; height: 80px; image-rendering: pixelated; display: block;
+  filter: drop-shadow(0 4px 0 rgba(0, 0, 0, .25));
+  transition: filter .9s ease;
+}
+.dsg .nstep .place {
+  color: #fff; font-weight: 900; font-size: 18px; letter-spacing: -.3px; text-align: center;
+  padding: 0 8px; text-shadow: 0 2px 0 rgba(0, 0, 0, .4);
+}
+/* 지금 할 스토리: 노란 테두리가 은은하게 빛남 */
+.dsg .nstep.now { border-color: #ffd84a; box-shadow: 0 0 0 3px rgba(255, 216, 74, .35), 0 0 18px 4px rgba(255, 216, 74, .45), 0 4px 0 rgba(30, 39, 48, .25); }
+.dsg .nstep:not(.locked):hover { transform: translateY(-4px) scale(1.03); }
+.dsg .nstep:not(.locked):hover .place { color: #ffe680; }
+/* 깬 스토리: 조금 차분하게 */
+.dsg .nstep.done { background: linear-gradient(180deg, #2c3b78, #1c2758); }
+/* 잠긴 스토리: 회색 카드 + N 그림자 */
+.dsg .nstep.locked { cursor: default; background: linear-gradient(180deg, #5d636b, #42474e); }
+.dsg .nstep.locked .face img { filter: brightness(0) drop-shadow(0 4px 0 rgba(0, 0, 0, .25)); }
+.dsg .nstep.locked .no { color: #c9ced4; }
+.dsg .nstep.locked .place { color: #c9ced4; }
+/* 스토리 사이 화살표: 앞 스토리를 깨면 노랗게 켜져 다음을 가리킵니다 */
+.dsg .narrow { flex: none; width: 46px; height: 30px; display: flex; align-items: center; justify-content: center; }
+.dsg .narrow i {
+  display: block; width: 0; height: 0;
+  border-top: 13px solid transparent; border-bottom: 13px solid transparent; border-left: 20px solid #b9c0c8;
+  transition: border-left-color .9s ease, filter .9s ease;
+}
+.dsg .narrow.on i {
+  border-left-color: #ffd84a;
+  filter: drop-shadow(0 0 6px rgba(255, 200, 40, .9));
+  animation: narrow-nudge 1s ease-in-out infinite;
+}
+@keyframes narrow-nudge {
+  0%, 100% { transform: translateX(-3px); }
+  50% { transform: translateX(4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dsg .narrow.on i { animation: none; }
+}
 
 /* ---------- 공통 상태 화면 (불러오는 중 / 정보 없음 / 오류) ---------- */
 .dsg .status-view {

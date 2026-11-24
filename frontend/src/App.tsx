@@ -14,8 +14,8 @@ export function App() {
   return (
     <Routes>
       <Route path="/" element={<MainMenuPage />} />
-      <Route path="/map" element={<MapInfoPage />} />
 
+      <Route path="/map" element={<MapInfoPage />} />
       <Route path="/pokemon" element={<PokemonSearchPage />} />
       <Route path="/pokemon/:pokemonId" element={<PokemonDetailPage />} />
 

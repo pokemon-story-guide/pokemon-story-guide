@@ -1,115 +1,96 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { DesignFrame, DesignTopbar } from "../../components/DesignFrame";
 import { EliteIntro } from "../../components/EliteIntro";
-import { TRAINERS } from "../../config/trainerData";
-import { CHAMPION_ID, ELITE_FOUR_IDS, PORTRAIT_FORMAT, trainerImageSrc } from "../../config/trainerGroups";
+import { LeaderFlags, type FlagItem, type FlagPerson } from "../../components/LeaderFlags";
+import { UnlockTrack } from "../../components/UnlockTrack";
+import { TrainersGate, type TrainerGroups } from "../../api/trainers";
+import { CHAMPION_ID } from "../../config/trainerGroups";
+import { TYPE_COLOR, typeLabel } from "../../lib/pokemon";
+import { playSound, SOUND_CHOOSE } from "../../sound";
+
+/** 챔피언 노간주의 깃발 색 (목업의 노란 깃발 색) */
+const CHAMPION_COLOR = "#e8b919";
 
 /**
- * 챔피언 노간주가 열리는 조건: 사천왕 4명을 모두 이기면 열립니다.
- * 지금은 시연 버튼으로 엽니다. 승리 상태 저장 방식은 나중에 정합니다.
- */
-
-/** 칸의 사진 한 장. 파일이 없으면 이름 첫 글자를 보여 줍니다. */
-function Portrait({ id, name, locked }: { id: string; name: string; locked: boolean }) {
-  const [failed, setFailed] = useState(false);
-  if (failed) {
-    return <span className="gym-card__fallback" aria-hidden="true">{name.charAt(0)}</span>;
-  }
-  return (
-    <img
-      className={locked ? "gym-card__portrait gym-card__portrait--shadow" : "gym-card__portrait"}
-      src={trainerImageSrc(id, PORTRAIT_FORMAT)}
-      alt=""
-      onError={() => setFailed(true)}
-    />
-  );
-}
-
-/**
- * 사천왕 · 챔피언 화면.
- * - 왼쪽 2×2는 사천왕 4명, 오른쪽 큰 칸은 챔피언 노간주입니다.
- * - 마우스를 올리면 선택 효과(사진 확대)만 보입니다. 팝오버는 쓰지 않습니다.
- * - 사천왕을 클릭하면 연출이 재생되고, 끝나면 상세 화면으로 갑니다. 챔피언은 열린 뒤에만 반응합니다.
+ * 사천왕 및 챔피언 화면 (목업 leader_select 틀). 왼쪽 구역에 사천왕 4명, 오른쪽 구역에 챔피언 혼자 큰 깃발로 둡니다.
+ * - 사천왕 4명은 연출 후 상대 파티 화면으로 갑니다.
+ * - 챔피언은 사천왕 4명을 모두 이긴 뒤에만 열립니다. 지금은 시연 버튼으로 엽니다.
  */
 export function EliteSelectPage() {
   const navigate = useNavigate();
-  const [hoverId, setHoverId] = useState<string | null>(null);
   const [championUnlocked, setChampionUnlocked] = useState(false);
-  /** 사천왕 연출 중인 인물 ID (없으면 null) */
-  const [introId, setIntroId] = useState<string | null>(null);
-  const championLocked = !championUnlocked;
+  /** 챔피언까지의 진행도 (0~1). 오른쪽 끝(1)에 몬스터볼이 닿으면 챔피언이 열립니다. */
+  const [progress, setProgress] = useState(0);
+  const [intro, setIntro] = useState<{ id: string; key: number } | null>(null);
+  const introSeq = useRef(0);
 
-  const openDetail = (id: string) => navigate(`/trainers/detail/${id}`);
-  const enter = (id: string) => setHoverId(id);
-  const leave = () => setHoverId(null);
+  /** 왼쪽 구역: 사천왕 4명 (API 순서) */
+  const eliteFlags = (groups: TrainerGroups): FlagItem[] =>
+    groups.eliteFour.map((t) => ({
+      key: t.id,
+      color: TYPE_COLOR[t.type ?? "normal"],
+      people: [{ id: t.id, name: t.name }],
+      sub: t.type ? typeLabel(t.type) : undefined,
+    }));
+
+  /** 오른쪽 구역: 챔피언 혼자 */
+  const championFlags = (groups: TrainerGroups): FlagItem[] =>
+    groups.champion
+      ? [
+          {
+            key: groups.champion.id,
+            color: CHAMPION_COLOR,
+            people: [{ id: groups.champion.id, name: groups.champion.name }],
+            locked: !championUnlocked,
+            sub: championUnlocked ? "하나지방 챔피언" : "잠김",
+          },
+        ]
+      : [];
+
+  const handlePick = (person: FlagPerson) => {
+    playSound(SOUND_CHOOSE);
+    introSeq.current += 1;
+    setIntro({ id: person.id, key: introSeq.current });
+  };
 
   return (
-    <div className="trainer-page">
-      <div className="trainer-categories trainer-categories--dark trainer-categories--gym-fill">
-        <p className="trainer-categories__title trainer-categories__title--gym">사천왕 · 챔피언</p>
-
-        <div className="trainer-categories__body trainer-categories__body--compact trainer-categories__body--gym">
-          <div className="gym-grid elite-grid">
-            {ELITE_FOUR_IDS.map((id) => {
-              const selected = hoverId === id;
-              return (
-                <div
-                  key={id}
-                  className={selected ? "gym-card gym-card--selected" : "gym-card"}
-                  aria-label={`${TRAINERS[id].name} 사천왕`}
-                  onMouseEnter={() => enter(id)}
-                  onMouseLeave={leave}
-                  onClick={() => setIntroId(id)}
-                >
-                  <span className="gym-card__image">
-                    <Portrait id={id} name={TRAINERS[id].name} locked={false} />
-                  </span>
-                </div>
-              );
-            })}
-
-            <div
-              className={
-                championLocked
-                  ? "gym-card gym-card--locked elite-champion"
-                  : hoverId === CHAMPION_ID
-                    ? "gym-card gym-card--selected elite-champion"
-                    : "gym-card elite-champion"
-              }
-              aria-label={`${TRAINERS[CHAMPION_ID].name} 챔피언${championLocked ? " (잠김)" : ""}`}
-              aria-disabled={championLocked}
-              onMouseEnter={() => !championLocked && enter(CHAMPION_ID)}
-              onMouseLeave={leave}
-              onClick={() => !championLocked && openDetail(CHAMPION_ID)}
-            >
-              <span className="gym-card__image">
-                <Portrait id={CHAMPION_ID} name={TRAINERS[CHAMPION_ID].name} locked={championLocked} />
-              </span>
+    <DesignFrame>
+      <DesignTopbar backTo="/trainers" backLabel="트레이너 정보" />
+      <TrainersGate>
+        {(groups) => (
+          <>
+            <LeaderFlags
+              group="elite"
+              flags={eliteFlags(groups)}
+              aside={{
+                group: "champion",
+                flags: championFlags(groups),
+                between: (
+                  <UnlockTrack progress={progress} onArrive={() => setChampionUnlocked(true)} label="챔피언까지 진행도" />
+                ),
+              }}
+              onPick={handlePick}
+            />
+            <div className="flag-footer">
+              <span className="flag-note">사천왕 4명 · 챔피언 1명{championUnlocked ? "" : " (사천왕 4명을 이기면 열립니다)"}</span>
+              {/* 시연용: 챔피언 열기. 몬스터볼이 끝까지 굴러가면 열립니다. 실제에서는 사천왕 4명 승리 시 진행됩니다. */}
+              <button type="button" className="demo-btn" onClick={() => setProgress(1)} disabled={progress >= 1}>
+                챔피언 열기 (시연)
+              </button>
             </div>
-          </div>
-        </div>
-
-        <div className="trainer-categories__footer">
-          {/* 시연용: 챔피언 열기. 실제에서는 사천왕 4명 승리 시 열립니다. */}
-          <button
-            type="button"
-            className="demo-unlock"
-            onClick={() => setChampionUnlocked(true)}
-            disabled={championUnlocked}
-          >
-            챔피언 열기 (시연)
-          </button>
-          <Link to="/" className="return-icon" aria-label="메인으로" title="메인으로">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M3 12a9 9 0 1 0 3-6.7" />
-              <path d="M3 4v5h5" />
-            </svg>
-          </Link>
-        </div>
-      </div>
-
-      {introId !== null && <EliteIntro id={introId} onDone={() => openDetail(introId)} />}
-
-    </div>
+            {intro !== null && (
+              <EliteIntro
+                key={intro.key}
+                id={intro.id}
+                name={groups.byId[intro.id]?.name ?? ""}
+                layout={intro.id === CHAMPION_ID ? "champion" : "elite"}
+                onDone={() => navigate(`/trainers/detail/${intro.id}`)}
+              />
+            )}
+          </>
+        )}
+      </TrainersGate>
+    </DesignFrame>
   );
 }
