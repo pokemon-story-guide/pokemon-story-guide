@@ -1,0 +1,383 @@
+/*
+ * 목업 디자인 (화면목업_원본_HTML 기준). 모든 규칙은 .dsg 아래에만 적용되어 다른 화면과 섞이지 않습니다.
+ * 캔버스는 1440×810 고정이며, 실제 크기에 맞춰 DesignFrame이 비율대로 줄입니다.
+ */
+.dsg-viewport {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: linear-gradient(160deg, #e3f7ea 0%, #d6f1e8 50%, #d3ecf6 100%);
+}
+.dsg {
+  --bg: linear-gradient(160deg, #e3f7ea 0%, #d6f1e8 50%, #d3ecf6 100%);
+  --slate: #3d4752;
+  --slate2: #59646f;
+  --line: #cfd5db;
+  --soft: #f3f5f7;
+  --ink: #1e2730;
+  --muted: #7a8591;
+  --red: #e3350d;
+  --yellow: #f5c63c;
+  --green: #1f7a5a;
+  --t-water: #4f86e8; --t-fire: #ef7a2e; --t-grass: #5fb04a; --t-electric: #e8b919;
+  --t-ground: #c9a14a; --t-rock: #a8923a; --t-flying: #8f7be6; --t-bug: #93a51c;
+  --t-poison: #9b46a3; --t-normal: #9a9a7a; --t-ice: #5fc2c8; --t-dragon: #6a3ef0;
+  --t-fighting: #c0392b; --t-psychic: #ef5687; --t-steel: #9a9ab8;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1440px;
+  height: 810px;
+  overflow: hidden;
+  font-family: "Noto Sans CJK KR", "Malgun Gothic", sans-serif;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(135deg, #d6f1e8 0 2px, transparent 2px 14px),
+    var(--bg);
+  transform-origin: 0 0;
+}
+.dsg * { box-sizing: border-box; margin: 0; padding: 0; }
+.dsg button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+/* ---------- top bar ---------- */
+.dsg .topbar {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: linear-gradient(180deg, #9ad8ff, #62bdf6);
+  border-bottom: 4px solid #1b2a5a;
+  position: relative;
+}
+.dsg .brand { height: 46px; image-rendering: pixelated; filter: drop-shadow(0 2px 0 rgba(0,0,0,.15)); }
+.dsg .back {
+  position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+  height: 36px; padding: 0 14px; display: flex; align-items: center; gap: 6px;
+  background: #fff; border: 2px solid var(--slate); border-radius: 8px;
+  font-size: 14px; font-weight: 800; color: var(--slate); text-decoration: none;
+  box-shadow: 0 3px 0 rgba(30,39,48,.25);
+}
+.dsg .back:hover { border-color: var(--red); color: var(--red); }
+
+/* ---------- panels ---------- */
+.dsg .panel {
+  background: #fff;
+  border: 2px solid var(--slate);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 0 rgba(30,39,48,.18);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.dsg .ph {
+  background: linear-gradient(180deg, var(--slate2), var(--slate));
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  padding: 9px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -.2px;
+  flex: none;
+}
+.dsg .ph::before { content: ""; width: 6px; height: 16px; background: var(--yellow); border-radius: 2px; }
+.dsg .ph .sub { margin-left: auto; font-size: 12px; font-weight: 500; color: #cfd6dc; }
+.dsg .pb { padding: 14px 16px; flex: 1; min-height: 0; }
+.dsg .empty { color: #a3adb7; font-size: 14px; font-weight: 700; text-align: center; padding: 18px 8px; border: 2px dashed #c3cad1; border-radius: 8px; }
+
+/* ---------- type badges ---------- */
+.dsg .type {
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 800; font-size: 13px;
+  padding: 3px 12px; border-radius: 4px; min-width: 52px;
+  text-shadow: 0 1px 0 rgba(0,0,0,.25);
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,.18);
+  white-space: nowrap;
+}
+.dsg .water{background:var(--t-water)} .dsg .fire{background:var(--t-fire)} .dsg .grass{background:var(--t-grass)}
+.dsg .electric{background:var(--t-electric)} .dsg .ground{background:var(--t-ground)} .dsg .rock{background:var(--t-rock)}
+.dsg .flying{background:var(--t-flying)} .dsg .bug{background:var(--t-bug)} .dsg .poison{background:var(--t-poison)}
+.dsg .normal{background:var(--t-normal)} .dsg .ice{background:var(--t-ice)} .dsg .dragon{background:var(--t-dragon)}
+.dsg .fighting{background:var(--t-fighting)} .dsg .dark{background:#5a4a3f} .dsg .ghost{background:#6b5a9e}
+.dsg .psychic{background:var(--t-psychic)} .dsg .steel{background:var(--t-steel)}
+
+.dsg .chip {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 10px;
+  background: #edf0f3; color: #9aa4ae; border: 1px solid #dde2e7; white-space: nowrap;
+}
+.dsg .chip.on { background: #fff6d6; color: #8a6400; border-color: #f0cf6a; }
+
+/* ---------- shared pokemon pieces ---------- */
+.dsg .mon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, #fff, #e3e9ef);
+  border: 2px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; flex: none;
+}
+.dsg .mon img { width: 88px; height: 88px; image-rendering: pixelated; margin-top: 4px; object-fit: contain; }
+.dsg .mon.empty-slot { border: 2px dashed #c9d0d7; background: #f5f7f9; }
+.dsg .namebox { background: var(--slate2); color: #fff; font-weight: 900; padding: 3px 14px; border-radius: 6px; text-align: center; white-space: nowrap; }
+
+/* ---------- map info ---------- */
+.dsg .mapwrap { display: flex; padding: 18px 28px; height: 746px; }
+.dsg .outer { flex: 1; }
+/* 지도는 원본(256×168)의 정확히 3배(768×504)로 보여 줘서 픽셀이 고르게 보이게 합니다. 테두리 3px 포함 774×510 */
+.dsg .outer .pb { display: grid; grid-template-columns: 774px 1fr; gap: 20px; padding: 18px 20px; }
+.dsg .left { display: flex; flex-direction: column; gap: 12px; }
+.dsg .mapbox { position: relative; width: 774px; height: 510px; border: 3px solid var(--slate); border-radius: 10px; overflow: hidden; background: #3a6fb5; }
+/* 지도는 표시 크기보다 큰 이미지(map-large.png, 1228×806)라, 부드럽게 줄여서 보여 줍니다 */
+.dsg .mapbox > img { width: 100%; height: 100%; image-rendering: auto; display: block; }
+.dsg .mapbox .dim { position: absolute; inset: 0; background: rgba(0,0,0,.12); }
+.dsg .lens {
+  position: absolute; width: 168px; height: 168px; border-radius: 50%; transform: translate(-50%,-50%);
+  background-repeat: no-repeat; image-rendering: pixelated;
+  border: 5px solid var(--yellow); box-shadow: 0 0 0 3px #1e2730, 0 0 24px 8px rgba(255,220,80,.85), 0 8px 18px rgba(0,0,0,.4);
+}
+.dsg .lens::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 22px; height: 22px; transform: translate(-50%,-50%); border-radius: 50%;
+  background: #fff6c4; border: 4px solid var(--red); box-shadow: 0 0 10px 4px rgba(255,240,170,.9);
+}
+.dsg .ring { position: absolute; transform: translate(-50%,-50%); border-radius: 50%; border: 3px solid rgba(255,226,90,.7); }
+.dsg .ring.r1 { width: 200px; height: 200px; } .dsg .ring.r2 { width: 236px; height: 236px; opacity: .45; }
+.dsg .spark { position: absolute; color: #fff7b0; font-size: 22px; text-shadow: 0 0 8px #ffd84a; }
+.dsg .placebar {
+  height: 54px; border-radius: 10px; background: linear-gradient(180deg, #f6a25a, #e8833a); border: 3px solid #1e2730;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  color: #fff; font-weight: 900; font-size: 24px; letter-spacing: -.3px; text-shadow: 0 2px 0 rgba(0,0,0,.25); box-shadow: 0 3px 0 rgba(30,39,48,.25);
+}
+.dsg .pin { width: 16px; height: 16px; border-radius: 50% 50% 50% 0; background: #fff; transform: rotate(-45deg); box-shadow: 0 2px 0 rgba(0,0,0,.25); flex: none; }
+.dsg .placesel {
+  appearance: none; -webkit-appearance: none; background: transparent; border: 0; color: #fff; font: inherit; font-weight: 900; font-size: 24px;
+  text-align: center; text-align-last: center; cursor: pointer; max-width: 600px; outline: none;
+}
+.dsg .placesel option { color: var(--ink); font-size: 16px; }
+.dsg .list { border: 3px solid var(--slate); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; background: #fff; }
+.dsg .list .lh { background: linear-gradient(180deg, var(--slate2), var(--slate)); color: #fff; font-weight: 800; font-size: 16px; padding: 10px 16px; display: flex; align-items: center; gap: 8px; }
+.dsg .list .lh::before { content: ""; width: 6px; height: 16px; background: var(--yellow); border-radius: 2px; }
+.dsg .list .lh small { margin-left: auto; font-size: 12px; color: #cfd6dc; font-weight: 600; }
+.dsg .lbody { flex: 1; min-height: 0; display: flex; flex-direction: column; overflow-y: auto; }
+.dsg .lrow { flex: none; height: 96px; display: flex; align-items: center; gap: 14px; padding: 0 16px; border-bottom: 2px dashed var(--line); cursor: pointer; background: #fff; border-left: 0; border-right: 0; border-top: 0; text-align: left; }
+.dsg .lrow:last-child { border-bottom: 0; }
+.dsg .lrow:hover { background: #fff8dc; }
+.dsg .lrow.blank { cursor: default; }
+.dsg .lrow.blank:hover { background: #fff; }
+.dsg .lrow .nm { background: var(--slate2); color: #fff; font-weight: 900; font-size: 17px; padding: 5px 0; width: 104px; text-align: center; border-radius: 6px; }
+.dsg .lrow .tp { background: #ffe680; border: 2px solid #e2c34a; color: #5c4700; font-weight: 800; font-size: 14px; padding: 4px 0; width: 92px; text-align: center; border-radius: 6px; margin-left: auto; }
+.dsg .nomap { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 16px; background: rgba(12,16,22,.3); text-shadow: 0 2px 0 rgba(0,0,0,.4); }
+
+/* 장소 이동 버튼 (맵 정보): 왼쪽·오른쪽 화살표와 장소 이름 */
+.dsg .placebar { position: relative; }
+.dsg .placebar .pname { flex: 1; text-align: center; }
+/* 위·아래 버튼은 오른쪽 끝에 붙여서 장소 이름이 바 가운데에 오게 합니다 */
+.dsg .placebar .navgroup { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); display: flex; gap: 8px; }
+.dsg .navbtn {
+  width: 40px; height: 30px; border-radius: 6px;
+  background: rgba(0,0,0,.22); color: #fff; font-size: 15px; font-weight: 900;
+  border: 0; cursor: pointer;
+}
+.dsg .navbtn:hover { background: rgba(0,0,0,.4); }
+.dsg .navbtn:disabled { opacity: .35; cursor: default; background: rgba(0,0,0,.22); }
+.dsg .navhint { font-size: 12px; color: #5b6775; font-weight: 700; text-align: center; }
+/*
+ * 지도 위 현재 위치.
+ * 빨간 원(CSS, 마을 원의 청록 속과 같은 크기)만 장소를 따라 움직이며 깜빡입니다.
+ * 시티에서는 원 안에 꼭 맞게 겹쳐서 원 안이 청록색 ↔ 빨간색으로 바뀌어 보입니다.
+ */
+/* 지도 위 마을·시티 원을 누르는 칸 (맵 정보). 마우스를 올리면 원 둘레가 빛납니다 */
+.dsg .mapcity {
+  position: absolute; z-index: 2; padding: 0; border: 0; border-radius: 50%;
+  background: transparent; cursor: pointer;
+}
+.dsg .mapcity:hover { box-shadow: 0 0 0 3px rgba(255, 255, 255, .85), 0 0 14px 4px rgba(255, 236, 140, .9); }
+.dsg .mapcity:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.dsg .mapcity.on { cursor: default; box-shadow: none; }
+/* 현재 위치 빨간 원: 지도 속 마을 원의 청록 속과 같은 크기의 매끈한 원 (가장자리는 진한 빨강 테) */
+.dsg .mapbox > .mapnode {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background: radial-gradient(circle at 38% 34%, #ff8a70 0%, #f2391c 38%, #c4200a 100%);
+  box-shadow: inset 0 0 0 2px #7a1406;
+  pointer-events: none;
+}
+.dsg .mapnode-red {
+  z-index: 3;
+  animation: mapnode-flash 1s ease-in-out infinite;
+}
+@keyframes mapnode-flash {
+  0%, 100% { opacity: 1; filter: brightness(1.15) drop-shadow(0 0 4px rgba(255, 60, 30, .95)) drop-shadow(0 0 10px rgba(255, 120, 60, .6)); }
+  50% { opacity: .15; filter: brightness(1) drop-shadow(0 0 0 rgba(255, 60, 30, 0)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dsg .mapnode-red { animation: none; }
+}
+/* 관장 칸 (시티 장소일 때) */
+.dsg .lrow.leader { cursor: default; gap: 14px; }
+.dsg .lrow.leader .face { width: 120px; height: 60px; border: 2px solid #8db3ef; border-radius: 6px; overflow: hidden; background: #edf4ff; flex: none; }
+.dsg .lrow.leader .face img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; display: block; }
+
+/* ---------- pokemon search ---------- */
+.dsg .sbar { display: flex; gap: 12px; padding: 14px 18px; background: linear-gradient(180deg, var(--slate2), var(--slate)); align-items: center; }
+.dsg .sbox { flex: 1; height: 50px; background: #fff; border-radius: 8px; display: flex; align-items: center; overflow: hidden; border: 2px solid #2b333c; }
+.dsg .sbox .q { width: 56px; height: 100%; display: flex; align-items: center; justify-content: center; border-right: 2px solid var(--line); flex: none; }
+.dsg .sbox .q i { width: 20px; height: 20px; border: 3px solid var(--slate); border-radius: 50%; position: relative; }
+.dsg .sbox .q i::after { content: ""; position: absolute; width: 9px; height: 3px; background: var(--slate); right: -8px; bottom: -4px; transform: rotate(45deg); border-radius: 2px; }
+.dsg .sbox input { flex: 1; height: 100%; border: 0; outline: none; padding: 0 16px; font: inherit; font-size: 16px; font-weight: 600; color: var(--ink); background: transparent; min-width: 0; }
+.dsg .sbox input::placeholder { color: #9aa4ae; }
+.dsg .filter { position: relative; height: 50px; padding: 0 14px; background: #fff; border-radius: 8px; border: 2px solid #2b333c; display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 15px; color: var(--slate); }
+.dsg .filter select { appearance: none; -webkit-appearance: none; border: 0; background: transparent; font: inherit; font-weight: 800; font-size: 15px; color: var(--slate); padding-right: 18px; outline: none; cursor: pointer; }
+.dsg .chev { position: absolute; right: 14px; top: 50%; width: 9px; height: 9px; border-right: 3px solid var(--slate2); border-bottom: 3px solid var(--slate2); transform: translateY(-70%) rotate(45deg); pointer-events: none; }
+.dsg .meta { display: flex; align-items: center; padding: 10px 20px 0; font-size: 13px; font-weight: 700; color: var(--muted); }
+.dsg .meta b { color: var(--ink); margin: 0 4px; }
+.dsg .meta .sort { margin-left: auto; }
+.dsg .area { position: relative; flex: 1; overflow: hidden; padding: 12px 40px 0 20px; min-height: 0; }
+.dsg .area .scroll { overflow-y: auto; height: 100%; padding-bottom: 20px; scrollbar-width: thin; }
+.dsg .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.dsg .card {
+  background: #fff; border: 2px solid var(--slate); border-radius: 10px; overflow: hidden; height: 318px;
+  display: flex; flex-direction: column; box-shadow: 0 3px 0 rgba(30,39,48,.18); cursor: pointer;
+  text-decoration: none; color: inherit; transition: transform .12s ease, border-color .12s ease;
+}
+.dsg .card:hover { border-color: var(--red); box-shadow: 0 0 0 3px rgba(227,53,13,.18), 0 6px 0 rgba(30,39,48,.18); transform: translateY(-3px); }
+.dsg .ctab { height: 44px; display: flex; align-items: stretch; border-bottom: 2px solid var(--slate); flex: none; }
+.dsg .ctab .no { background: var(--slate); color: #fff; font-weight: 900; font-size: 16px; padding: 0 26px 0 12px; display: flex; align-items: center; clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%); }
+.dsg .ctab b { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 19px; font-weight: 900; letter-spacing: -.4px; padding-right: 10px; }
+.dsg .cimg { flex: 1; display: flex; align-items: flex-end; justify-content: center; background: radial-gradient(circle at 50% 55%, #fff 0, #eef2f6 72%); margin: 10px 12px 0; border-radius: 8px; border: 1px solid var(--line); min-height: 0; }
+.dsg .cimg img { height: calc((92% - 8px) * 0.8); max-width: 92%; object-fit: contain; }
+.dsg .ctypes { display: flex; justify-content: center; gap: 8px; padding: 12px 0 14px; }
+.dsg .ctypes .type { min-width: 72px; font-size: 14px; padding: 5px 14px; }
+.dsg .fade { position: absolute; left: 0; right: 0; bottom: 0; height: 40px; background: linear-gradient(180deg, rgba(255,255,255,0), #fff); pointer-events: none; }
+
+/* ---------- pokemon detail ---------- */
+.dsg .dwrap { display: grid; grid-template-columns: 400px 1fr 1fr; gap: 18px; padding: 18px 28px; height: 746px; }
+.dsg .dex { flex: 1; }
+.dsg .dex .tab { display: flex; align-items: stretch; height: 46px; background: #fff; border-bottom: 2px solid var(--slate); flex: none; }
+.dsg .dex .no { background: var(--slate); color: #fff; font-weight: 900; font-size: 22px; letter-spacing: .5px; padding: 0 34px 0 18px; display: flex; align-items: center; clip-path: polygon(0 0, 100% 0, 84% 100%, 0 100%); }
+.dsg .dex .region { margin-left: auto; align-self: center; margin-right: 14px; font-size: 12px; color: var(--muted); font-weight: 700; }
+.dsg .dex .body { padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; flex: 1; min-height: 0; }
+.dsg .dimg { height: 232px; flex: none; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 60%, #fff 0, #eef2f6 70%); border: 2px solid var(--line); border-radius: 8px; }
+.dsg .dimg img { height: 100%; object-fit: contain; }
+.dsg .namerow { display: flex; align-items: center; gap: 10px; }
+.dsg .namerow h1 { font-size: 26px; font-weight: 900; letter-spacing: -.5px; }
+.dsg .namerow .type { font-size: 14px; padding: 4px 16px; }
+.dsg .facts { display: grid; grid-template-columns: 58px 1.3fr 62px 1fr; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; font-size: 13px; flex: none; }
+.dsg .facts div { padding: 6px 10px; border-bottom: 1px solid var(--line); }
+.dsg .facts .k { background: var(--slate2); color: #fff; font-weight: 700; text-align: center; white-space: nowrap; padding: 6px 4px; }
+.dsg .facts .v { background: var(--soft); font-weight: 600; color: #6a7782; }
+.dsg .facts div:nth-last-child(-n+4) { border-bottom: 0; }
+.dsg .mapbtn { height: 40px; border-radius: 8px; background: linear-gradient(180deg, #6b7681, #4e5862); color: #fff; font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 3px 0 #333c45; flex: none; }
+.dsg .mapbtn:disabled { opacity: .5; }
+.dsg .locs h3 { font-size: 13px; color: var(--muted); font-weight: 800; margin-bottom: 7px; }
+.dsg .loc { display: flex; align-items: center; gap: 8px; border: 2px solid var(--slate); border-radius: 7px; padding: 10px 12px; margin-bottom: 7px; font-size: 14px; font-weight: 700; }
+.dsg .loc .chips { margin-left: auto; display: flex; gap: 4px; }
+.dsg .mrow { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px dashed var(--line); }
+.dsg .mrow:last-child { border-bottom: 0; }
+.dsg .mlab { width: 100px; flex: none; display: flex; justify-content: space-between; align-items: center; color: #fff; font-weight: 800; font-size: 14px; padding: 5px 10px; border-radius: 6px; }
+.dsg .mlab b { font-size: 12px; font-weight: 700; opacity: .9; }
+.dsg .adv { background: #e8833a; } .dsg .half { background: #e8a25e; } .dsg .weak { background: #d9573f; } .dsg .zero { background: #8b939b; }
+.dsg .mrow .types { display: flex; gap: 6px; flex-wrap: wrap; }
+.dsg .mrow .types .type { min-width: 44px; padding: 3px 9px; }
+.dsg .mnote { font-size: 12px; color: var(--muted); font-weight: 700; margin-left: 6px; }
+.dsg .evo .pb { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; position: relative; }
+.dsg .evo .dimg { width: 300px; height: 210px; }
+/* 진화 칸의 애니메이션 GIF: 칸 안에 맞춰 같은 비율로 키웁니다 (도트라서 pixelated) */
+.dsg .evo .dimg img { width: auto; height: 100%; max-width: 100%; object-fit: contain; image-rendering: pixelated; }
+/* 진화 화살표: 왼쪽은 이전 진화, 오른쪽은 다음 진화로 이동합니다 (있을 때만 보임) */
+.dsg a.arrow { text-decoration: none; cursor: pointer; }
+.dsg .arrow.prev { right: auto; left: 18px; }
+.dsg .tri-left {
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 26px solid var(--yellow);
+  filter: drop-shadow(0 2px 0 #c99a12);
+}
+.dsg a.arrow:hover .tri,
+.dsg a.arrow:hover .tri-left,
+.dsg a.arrow:focus-visible .tri,
+.dsg a.arrow:focus-visible .tri-left { filter: drop-shadow(0 0 6px rgba(255,216,74,.95)) drop-shadow(0 2px 0 #c99a12); }
+.dsg .evname { background: var(--t-ground); color: #fff; font-weight: 900; font-size: 18px; padding: 8px 40px; border-radius: 8px; box-shadow: inset 0 -3px 0 rgba(0,0,0,.18); }
+.dsg .arrow { position: absolute; top: 50%; right: 18px; transform: translateY(-62%); display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.dsg .arrow .tri { width: 0; height: 0; border-top: 20px solid transparent; border-bottom: 20px solid transparent; border-left: 26px solid var(--yellow); filter: drop-shadow(0 2px 0 #c99a12); }
+.dsg .arrow small { font-size: 11px; font-weight: 700; color: var(--muted); text-align: center; line-height: 1.3; }
+.dsg .leaders .pb { display: flex; flex-direction: column; gap: 8px; padding: 10px 14px; }
+.dsg .lrow2 { display: flex; gap: 10px; align-items: center; }
+.dsg .lrow2 .tag2 { width: 52px; flex: none; font-size: 15px; font-weight: 900; text-align: center; }
+.dsg .lrow2.good .tag2 { color: #2d6fd6; } .dsg .lrow2.bad .tag2 { color: #8a3fa0; }
+.dsg .ld { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0; }
+.dsg .ld .face { width: 100%; aspect-ratio: 2 / 1; border-radius: 6px; overflow: hidden; border: 2px solid var(--line); background: #eef2f6; }
+.dsg .lrow2.good .face { border-color: #8db3ef; background: #edf4ff; } .dsg .lrow2.bad .face { border-color: #c79ad4; background: #f7eefa; }
+.dsg .ld .face img { width: 100%; height: 100%; object-fit: contain; object-position: 50% 100%; image-rendering: pixelated; display: block; }
+/* 관장 상성 점수 (추천 API, 0~100) */
+.dsg .ld .face { position: relative; }
+.dsg .ld .score {
+  position: absolute; right: 3px; top: 3px; min-width: 26px; padding: 1px 5px; border-radius: 8px;
+  font-size: 12px; font-weight: 900; color: #fff; text-align: center; border: 2px solid #1e2730;
+}
+.dsg .lrow2.good .score { background: #2d6fd6; } .dsg .lrow2.bad .score { background: #8a3fa0; }
+.dsg .leaders .lnote { margin: 2px 0 0; font-size: 11px; font-weight: 700; color: #7a8693; }
+.dsg .ld .namebox { font-size: 13px; font-weight: 800; padding: 2px 0; width: 100%; text-align: center; border-radius: 4px; }
+.dsg .lsep { height: 1px; background: var(--line); }
+.dsg .moves .pb { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: start; }
+.dsg .desc { padding: 13px 16px; font-size: 14px; line-height: 1.55; color: #36414c; flex: none; }
+.dsg .desc b { color: var(--ink); margin-right: 8px; }
+
+/* ---------- popover (맵보기) ---------- */
+.dsg .overlay { position: absolute; inset: 0; background: rgba(12,16,22,.68); display: flex; align-items: center; justify-content: center; }
+.dsg .modal { width: 880px; background: #fff; border: 3px solid var(--slate); border-radius: 14px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+.dsg .modal .ph { font-size: 18px; padding: 12px 18px; }
+.dsg .close { margin-left: auto; width: 28px; height: 28px; border-radius: 6px; background: rgba(255,255,255,.15); position: relative; cursor: pointer; }
+.dsg .close::before, .dsg .close::after { content: ""; position: absolute; left: 6px; top: 13px; width: 16px; height: 2.5px; background: #fff; transform: rotate(45deg); }
+.dsg .close::after { transform: rotate(-45deg); }
+.dsg .mfoot { display: flex; align-items: center; gap: 10px; padding: 14px 24px 18px; font-size: 13px; color: var(--muted); font-weight: 600; }
+.dsg .mlist { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 24px 6px; }
+.dsg .mlist .loc { margin: 0; }
+.dsg .nonetxt { color: #a3adb7; font-size: 13px; font-weight: 600; }
+.dsg .dex .no small { font-size: 12px; font-weight: 600; color: #b9c2ca; margin-right: 8px; }
+.dsg .spot { position: absolute; transform: translate(-50%,-50%); }
+.dsg .spot .core { width: 26px; height: 26px; border-radius: 50%; background: #fff6c4; border: 4px solid var(--yellow); box-shadow: 0 0 18px 8px rgba(255,226,90,.95); position: relative; z-index: 2; }
+.dsg .spot .ring { position: absolute; left: 50%; top: 50%; border-radius: 50%; border: 3px solid rgba(255,230,110,.9); transform: translate(-50%,-50%); }
+.dsg .spot .r1 { width: 58px; height: 58px; } .dsg .spot .r2 { width: 92px; height: 92px; opacity: .55; } .dsg .spot .r3 { width: 128px; height: 128px; opacity: .25; }
+.dsg .mapbox .spot { z-index: 2; }
+.dsg .dex .type { font-size: 14px; }
+.dsg-face-fallback { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; font-weight: 900; color: #5b6775; font-size: 18px; }
+.dsg .lbody .empty { margin: 16px; }
+
+/* ---------- 공통 상태 화면 (불러오는 중 / 정보 없음 / 오류) ---------- */
+.dsg .status-view {
+  height: 100%; min-height: 240px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  color: #3d4855; font-weight: 800; font-size: 18px; text-align: center;
+}
+.dsg .status-view p { margin: 0; }
+.dsg .status-view small { color: #7a8693; font-weight: 700; font-size: 13px; }
+.dsg .status-view .spinner {
+  width: 44px; height: 44px; border-radius: 50%; border: 5px solid #d6dee6; border-top-color: var(--red, #e3350d);
+  animation: status-spin .8s linear infinite;
+}
+@keyframes status-spin { to { transform: rotate(360deg); } }
+.dsg .status-view .sicon {
+  width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 30px; font-weight: 900; line-height: 1;
+}
+.dsg .status-view .sicon.none { color: #7a8693; border: 4px solid #b9c0c8; }
+.dsg .status-view .sicon.err { color: #fff; background: var(--red, #e3350d); }
+.dsg .status-view .retry {
+  margin-top: 4px; padding: 8px 20px; border-radius: 10px; border: 3px solid #1e2730; background: #ffd84a;
+  color: #3a2c00; font-weight: 900; font-size: 15px; cursor: pointer; box-shadow: 0 3px 0 rgba(30, 39, 48, .25);
+}
+.dsg .status-view .retry:hover { filter: brightness(1.05); }
+/* 화면 전체(깃발 영역 등)를 상태 화면으로 채울 때 */
+.dsg .status-page { height: 746px; padding: 24px 28px; }
+.dsg .status-page > .panel { height: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  .dsg .status-view .spinner { animation-duration: 2.4s; }
+}

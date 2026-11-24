@@ -11,6 +11,11 @@ npm run dev        # http://localhost:5173
 npm run build      # 타입 검사 후 배포용 빌드
 ```
 
+화면의 포켓몬·장소·트레이너 정보는 백엔드 API에서 받으므로, **백엔드 서버를 먼저 켭니다** (`backend/api/README.md` 참고, 기본 http://127.0.0.1:8000).
+
+- `/api/...` 요청은 Vite가 백엔드로 넘깁니다 (`vite.config.ts`의 proxy). 백엔드 주소가 다르면 환경 변수 `API_TARGET`으로 바꿉니다.
+- 백엔드가 꺼져 있으면 각 화면에 "정보를 불러오지 못했어요" 오류 화면과 [다시 시도] 버튼이 나옵니다.
+
 ## 폴더 구조
 
 ```text
@@ -31,4 +36,5 @@ src/assets/               로고, 배경 등 이미지 (디자인 확정 후 추
 
 - 메뉴 이름과 경로는 `src/config/menuItems.ts`에서 관리합니다.
 - 지금 기능 화면은 `PlaceholderPage`를 씁니다. 기능을 구현할 때는 `src/pages/`에 기능별 페이지를 만들고 `src/App.tsx`의 라우트에서 교체합니다.
-- API 주소와 프록시 설정은 서버 연결 방식이 정해진 뒤 `vite.config.ts`와 설정 파일에 추가합니다.
+- API 연결은 `src/api/`에 있습니다 (`client.ts`: 응답 타입·요청·`useApi`, `trainers.tsx`: 트레이너 목록 묶음).
+- 백엔드 응답 모양이 바뀌면 `src/api/client.ts`의 타입부터 맞춥니다. 프론트에 데이터 복사본을 두지 않습니다.
