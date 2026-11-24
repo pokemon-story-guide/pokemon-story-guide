@@ -2,6 +2,8 @@ import json
 from pathlib import Path
 from unicodedata import normalize
 
+from algorithm.matchup import get_pokemon_matchups
+from algorithm.type_chart import TYPES
 from api.services import location_service
 
 DATA_DIR = Path(__file__).resolve().parents[3] / "data"
@@ -85,3 +87,31 @@ def get_pokemon_locations(pokemon_id: int):
     places_by_id = {place["id"]: place for place in location_service.get_locations()}
     # 연결이 잘못된 데이터는 오류로 처리하고 일부 장소만 정상 결과로 반환하지 않습니다.
     return [places_by_id[location_id] for location_id in location_ids]
+
+
+
+TYPE_MATCHUP_BASIS = (
+    "5세대 타입 상성 기준입니다. 방어는 포켓몬의 실제 타입 조합을 사용하며, "
+    "공격은 포켓몬 자신의 타입 중 상대 단일 타입에 가장 유리한 배율을 사용합니다. "
+    "실제 기술·특성·능력치·레벨은 반영하지 않으며, 공격 평가는 상대의 복합 타입을 반영하지 않습니다."
+)
+
+
+def get_pokemon_type_matchups(pokemon_id: int):
+    """ID로 포켓몬 타입을 조회하고 공통 상성 알고리즘의 결과를 반환합니다."""
+    pokemon = next((row for row in _load_pokemon() if row["id"] == pokemon_id), None)
+    if pokemon is None:
+        return None
+    types = pokemon["types"]
+    if (
+        not isinstance(types, list)
+        or not 1 <= len(types) <= 2
+        or any(not isinstance(value, str) or value not in TYPES for value in types)
+        or len(set(types)) != len(types)
+    ):
+        raise ValueError("포켓몬 타입 데이터가 올바르지 않습니다.")
+    return {
+        "pokemon_id": pokemon_id,
+        **get_pokemon_matchups(types),
+        "evaluation_basis": TYPE_MATCHUP_BASIS,
+    }

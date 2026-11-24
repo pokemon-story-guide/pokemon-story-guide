@@ -3,7 +3,7 @@ from typing import Annotated
 from fastapi import APIRouter, HTTPException, Path, Query
 
 from api.schemas.location import Location
-from api.schemas.pokemon import PokemonCard, PokemonDetail, PokemonType
+from api.schemas.pokemon import PokemonCard, PokemonDetail, PokemonType, PokemonTypeMatchups
 from api.services import pokemon_service
 
 router = APIRouter(prefix="/pokemon", tags=["pokemon"])
@@ -109,3 +109,47 @@ def list_pokemon_locations(
     if locations is None:
         raise HTTPException(status_code=404, detail="존재하지 않는 포켓몬입니다.")
     return locations
+
+
+
+@router.get(
+    "/{pokemon_id}/type-matchups",
+    response_model=PokemonTypeMatchups,
+    summary="포켓몬 타입별 공격·방어 상성 조회",
+    description=(
+        "포켓몬 ID로 타입을 조회하고 기존 공통 알고리즘으로 상성을 계산합니다.\n\n"
+        "**입력**\n"
+        "- 하나도감 기준 포켓몬 ID만 입력합니다. 타입을 직접 입력하지 않습니다.\n"
+        "- ID `0`(비크티니)도 조회할 수 있습니다.\n\n"
+        "**방어 상성 (`defense`)**\n"
+        "- `weak`: 2배·4배 약점, `resist`: 0.5배·0.25배 반감\n"
+        "- `immune`: 0배 무효, `neutral`: 1배 보통\n\n"
+        "**공격 상성 (`offense`)**\n"
+        "- `strong`: 유리, `weak`: 불리, `no_effect`: 효과 없음, `neutral`: 보통\n"
+        "- 자신의 타입이 두 개이면 상대 단일 타입에 가장 유리한 배율을 사용합니다.\n\n"
+        "**계산 범위**\n"
+        "- 각 목록의 항목은 `type`과 `multiplier`로 구성됩니다. 해당 타입이 없으면 빈 목록입니다.\n"
+        "- 공격·방어 각각 5세대 17종 타입을 한 번씩 분류합니다.\n"
+        "- 실제 기술·특성·능력치·레벨은 반영하지 않으며, 공격 평가는 상대의 복합 타입을 반영하지 않습니다."
+    ),
+    response_description="포켓몬 ID·타입, 타입별 공격·방어 상성과 배율, 계산 기준",
+    responses={
+        404: {"description": "등록되지 않은 포켓몬 ID입니다."},
+        422: {"description": "포켓몬 ID가 음수이거나 정수로 해석할 수 없습니다."},
+        500: {"description": "데이터 읽기 실패, 누락·중복·허용되지 않은 타입 등 서버 데이터 오류입니다."},
+    },
+)
+def get_pokemon_type_matchups(
+    pokemon_id: Annotated[int, Path(
+        ge=0,
+        description="하나도감 기준 포켓몬 ID. 예: 35 = 두더류. 타입은 데이터에서 조회합니다.",
+        examples=[35],
+    )],
+):
+    try:
+        result = pokemon_service.get_pokemon_type_matchups(pokemon_id)
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        raise HTTPException(status_code=500, detail="타입 상성 계산에 필요한 데이터가 올바르지 않습니다.") from error
+    if result is None:
+        raise HTTPException(status_code=404, detail="존재하지 않는 포켓몬입니다.")
+    return result
