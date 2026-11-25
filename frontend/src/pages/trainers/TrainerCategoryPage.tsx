@@ -1,5 +1,6 @@
-import type { CSSProperties, ReactNode } from "react";
+import { useState, type CSSProperties, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
+import { useApi, type TrainerSummary } from "../../api/client";
 import { DesignFrame, DesignTopbar } from "../../components/DesignFrame";
 import { CHAMPION_ID, forVersion, TRAINER_IMAGE_BASE } from "../../config/trainerGroups";
 import emblemPng from "../../data/plasma/plasma-emblem.png";
@@ -26,12 +27,24 @@ const gifOf = (id: string) => `${TRAINER_IMAGE_BASE}/${id === "marshal" ? "marsh
 /**
  * 인물 한 명: 평소에는 PNG, 카드에 마우스를 올리면 같은 자리의 숨쉬기 GIF로 서서히 바뀝니다.
  * (GIF는 84×84 칸에 그림이 2px 안쪽에 있어서, 84/80배로 키우고 2px만큼 당겨 PNG와 정확히 겹칩니다)
+ * 그림 파일이 없으면(저장소에서 제외됨) PNG 자리에 이름 첫 글자 타일을 두고, GIF가 없으면 PNG(또는 타일)를 그대로 둡니다.
  */
 function Sprite({ id, size, className = "" }: { id: string; size: number; className?: string }) {
+  const [pngFailed, setPngFailed] = useState(false);
+  const [gifFailed, setGifFailed] = useState(false);
+  // 이름은 트레이너 목록 API에서 받습니다 (같은 주소는 한 번만 요청됩니다).
+  const trainers = useApi<TrainerSummary[]>("/trainers");
+  const name = trainers.status === "ok" ? trainers.data.find((t) => t.id === id)?.name ?? "" : "";
   return (
-    <span className={`cat-sprite ${className}`} style={{ "--s": `${size}px` } as CSSProperties}>
-      <img className="still" src={pngOf(id)} alt="" />
-      <img className="moving" src={gifOf(id)} alt="" />
+    <span className={`cat-sprite ${gifFailed ? "no-gif" : ""} ${className}`} style={{ "--s": `${size}px` } as CSSProperties}>
+      {pngFailed ? (
+        <span className="still cat-fallback" aria-hidden="true">
+          {name.charAt(0)}
+        </span>
+      ) : (
+        <img className="still" src={pngOf(id)} alt="" onError={() => setPngFailed(true)} />
+      )}
+      {!gifFailed && <img className="moving" src={gifOf(id)} alt="" onError={() => setGifFailed(true)} />}
     </span>
   );
 }

@@ -223,6 +223,7 @@
 }
 .dsg .portrait::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, rgba(255,255,255,.08) 0 10px, transparent 10px 20px); }
 .dsg .portrait img { width: 100%; image-rendering: pixelated; position: relative; filter: drop-shadow(0 4px 0 rgba(0,0,0,.2)); }
+.dsg .portrait .portrait-fallback { position: relative; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; border: 3px solid #c9d1da; border-radius: 18px; background: #f2f5f8; color: #5b6775; font-size: 64px; font-weight: 900; }
 .dsg .portrait .no { position: absolute; left: 12px; top: 10px; color: #fff; font-weight: 900; font-size: 14px; text-shadow: 0 1px 0 rgba(0,0,0,.4); }
 .dsg .lname { background: var(--slate2); color: #fff; font-size: 24px; font-weight: 900; padding: 6px 0; width: 70%; text-align: center; border-radius: 8px; box-shadow: inset 0 -3px 0 rgba(0,0,0,.2); }
 .dsg .leader .type { font-size: 15px; padding: 4px 22px; }
@@ -566,6 +567,9 @@
 .dsg .cat-sprite .moving { left: calc(var(--s) * -2 / 80); top: calc(var(--s) * -2 / 80); width: calc(var(--s) * 84 / 80); height: calc(var(--s) * 84 / 80); opacity: 0; }
 .dsg .cat-card:hover .cat-sprite .still, .dsg .cat-card:focus-visible .cat-sprite .still { opacity: 0; }
 .dsg .cat-card:hover .cat-sprite .moving, .dsg .cat-card:focus-visible .cat-sprite .moving { opacity: 1; }
+/* 그림 파일이 없을 때: 첫 글자 타일, GIF가 없으면 마우스를 올려도 그대로 둠 */
+.dsg .cat-sprite .cat-fallback { position: absolute; inset: 14%; display: flex; align-items: center; justify-content: center; border: 2px solid #c9d1da; border-radius: 10px; background: #f2f5f8; color: #5b6775; font-weight: 900; font-size: calc(var(--s) * .3); }
+.dsg .cat-card:hover .cat-sprite.no-gif .still, .dsg .cat-card:focus-visible .cat-sprite.no-gif .still { opacity: 1; }
 
 /* 관장: 몬스터볼 + 관장 8명 */
 .dsg .gym-art { gap: 22px; padding-top: 10px; }

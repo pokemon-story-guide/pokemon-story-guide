@@ -123,6 +123,19 @@ function RecMoreButton({ more, onToggle, total }: { more: boolean; onToggle: () 
   );
 }
 
+/** 인물 그림. 파일이 없으면(저장소에서 제외됨) 이름 첫 글자 타일을 보여 줍니다. */
+function Portrait({ id, name }: { id: string; name: string }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) {
+    return (
+      <span className="portrait-fallback" role="img" aria-label={name}>
+        {name.charAt(0)}
+      </span>
+    );
+  }
+  return <img src={detailPortraitSrc(id)} alt={name} onError={() => setFailed(true)} />;
+}
+
 function TrainerDetailView({ trainer }: { trainer: TrainerDetail }) {
   const [selected, setSelected] = useState(0);
   const roleLabel = ROLE_LABEL[trainer.category];
@@ -150,7 +163,7 @@ function TrainerDetailView({ trainer }: { trainer: TrainerDetail }) {
           <div className="pb">
             <div className="portrait">
               {cityIndex >= 0 && <span className="no">No.{cityIndex + 1}</span>}
-              <img src={detailPortraitSrc(trainer.id)} alt={trainer.name} />
+              <Portrait id={trainer.id} name={trainer.name} />
             </div>
             <div className="lname">{trainer.name}</div>
             {trainer.type && <span className={`type ${trainer.type}`}>{typeLabel(trainer.type)}</span>}
