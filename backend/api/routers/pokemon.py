@@ -3,8 +3,9 @@ from typing import Annotated
 from fastapi import APIRouter, HTTPException, Path, Query
 
 from api.schemas.location import Location
-from api.schemas.pokemon import PokemonCard, PokemonDetail, PokemonType
-from api.services import pokemon_service
+from api.schemas.overall_recommendation import OverallRecommendation
+from api.schemas.pokemon import PokemonCard, PokemonDetail, PokemonType, PokemonTypeMatchups
+from api.services import overall_recommendation_service, pokemon_service
 
 router = APIRouter(prefix="/pokemon", tags=["pokemon"])
 
@@ -53,16 +54,19 @@ def list_pokemon(
         "- 진화 계보: 이전·이후 단계와 같은 계보의 분기\n"
         "- 중간·최종 진화체를 선택해도 전체 계보를 반환합니다.\n\n"
         "**진화 정보 읽는 법**\n"
-        "- `null`: 진화 정보 미등록\n"
-        "- `[]`: 진화 관계가 없는 것으로 등록됨\n\n"
+        "- `null`: 관련 관계를 찾지 못했고 진화 필드가 미등록됨\n"
+        "- `[]`: 양쪽 진화 필드가 등록되어 있으나 관계가 없음\n\n"
         "**현재 데이터**\n"
-        "- 일부 개발용 목 데이터만 연결되어 있습니다.\n"
-        "- ID `1`·`2`·`3`: 주리비얀 → 샤비 → 샤로다 계보를 확인할 수 있습니다."
+        "- `mon.json`에 등록된 실제 진화 관계를 사용합니다.\n"
+        "- ID `1`·`2`·`3`: 주리비얀 → 샤비 → 샤로다 계보를 확인할 수 있습니다.\n"
+        "- ID `35`·`36`: 두더류 → 레벨 31 → 몰드류.\n"
+        "- 돌·통신·친밀도 등 레벨 이외의 조건은 원문대로 반환합니다."
     ),
     response_description="포켓몬 기본 정보와 진화 관계 목록",
     responses={
         404: {"description": "등록된 포켓몬이 없는 ID입니다."},
         422: {"description": "포켓몬 ID를 정수로 해석할 수 없습니다."},
+        500: {"description": "데이터 읽기 실패, 존재하지 않는 진화 포켓몬 참조 또는 잘못된 진화 조건 등 서버 데이터 오류입니다."},
     },
 )
 def get_pokemon(
@@ -109,3 +113,83 @@ def list_pokemon_locations(
     if locations is None:
         raise HTTPException(status_code=404, detail="존재하지 않는 포켓몬입니다.")
     return locations
+
+
+@router.get(
+    "/{pokemon_id}/overall-recommendation",
+    response_model=OverallRecommendation,
+    summary="포켓몬의 스토리 주요 상대 전체 추천도 조회",
+    description=(
+        "선택한 포켓몬 한 마리를 주요 상대 파티들과 비교해 종합 점수를 반환합니다.\n\n"
+        "**사용 방법**\n"
+        "- 포켓몬 상세 화면에서 하나도감 ID로 요청합니다. 타입을 직접 입력할 필요는 없습니다.\n"
+        "- 예: `/api/pokemon/35/overall-recommendation` → 두더류의 전체 추천도\n\n"
+        "**계산 방법**\n"
+        "- 체육관·사천왕·챔피언·게치스를 포함하고 N은 제외합니다.\n"
+        "- 같은 체육관의 관장들은 먼저 평균 내어 한 그룹으로 계산합니다.\n"
+        "- 현재 데이터는 체육관 8개·사천왕 4명·챔피언·게치스의 14개 그룹이며, 그룹 비중은 모두 같습니다.\n"
+        "- 각 파티 상대 평가와 전체 평균 계산은 기존 공통 알고리즘을 사용합니다.\n\n"
+        "**반환 정보**\n"
+        "- 전체 점수·평가·짧은 설명, 그룹별 점수·비중, 개별 트레이너별 평가\n"
+        "- 최고·최저 점수 그룹 ID는 details의 group으로 연결합니다. 최고 점수라도 반드시 유리하다는 뜻은 아닙니다.\n\n"
+        "**평가 범위**\n"
+        "- 타입 상성 기준이며 실제 기술·특성·능력치·레벨은 반영하지 않습니다.\n"
+        "- 현재 위치·진행도에 따른 포획 가능 여부는 반영하지 않습니다. 점수는 승률이 아닙니다."
+    ),
+    response_description="포켓몬 전체 상성 평가와 주요 상대별 평가 내역",
+    responses={
+        404: {"description": "등록되지 않은 포켓몬 ID입니다."},
+        422: {"description": "포켓몬 ID가 음수이거나 정수가 아닙니다."},
+        500: {"description": "데이터 읽기 실패, 잘못된 ID·타입·파티 참조 또는 평가할 상대 없음 등 데이터 오류입니다."},
+    },
+)
+def get_overall_recommendation(
+    pokemon_id: Annotated[int, Path(ge=0, description="하나도감 기준 포켓몬 ID. 0(비크티니)도 유효합니다.", examples=[35])],
+):
+    try:
+        return overall_recommendation_service.get_overall_recommendation(pokemon_id)
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        raise HTTPException(status_code=500, detail="전체 추천도 계산에 필요한 데이터가 올바르지 않습니다.") from error
+
+
+@router.get(
+    "/{pokemon_id}/type-matchups",
+    response_model=PokemonTypeMatchups,
+    summary="포켓몬 타입별 공격·방어 상성 조회",
+    description=(
+        "포켓몬 ID로 타입을 조회하고 기존 공통 알고리즘으로 상성을 계산합니다.\n\n"
+        "**입력**\n"
+        "- 하나도감 기준 포켓몬 ID만 입력합니다. 타입을 직접 입력하지 않습니다.\n"
+        "- ID `0`(비크티니)도 조회할 수 있습니다.\n\n"
+        "**방어 상성 (`defense`)**\n"
+        "- `weak`: 2배·4배 약점, `resist`: 0.5배·0.25배 반감\n"
+        "- `immune`: 0배 무효, `neutral`: 1배 보통\n\n"
+        "**공격 상성 (`offense`)**\n"
+        "- `strong`: 유리, `weak`: 불리, `no_effect`: 효과 없음, `neutral`: 보통\n"
+        "- 자신의 타입이 두 개이면 상대 단일 타입에 가장 유리한 배율을 사용합니다.\n\n"
+        "**계산 범위**\n"
+        "- 각 목록의 항목은 `type`과 `multiplier`로 구성됩니다. 해당 타입이 없으면 빈 목록입니다.\n"
+        "- 공격·방어 각각 5세대 17종 타입을 한 번씩 분류합니다.\n"
+        "- 실제 기술·특성·능력치·레벨은 반영하지 않으며, 공격 평가는 상대의 복합 타입을 반영하지 않습니다."
+    ),
+    response_description="포켓몬 ID·타입, 타입별 공격·방어 상성과 배율, 계산 기준",
+    responses={
+        404: {"description": "등록되지 않은 포켓몬 ID입니다."},
+        422: {"description": "포켓몬 ID가 음수이거나 정수로 해석할 수 없습니다."},
+        500: {"description": "데이터 읽기 실패, 누락·중복·허용되지 않은 타입 등 서버 데이터 오류입니다."},
+    },
+)
+def get_pokemon_type_matchups(
+    pokemon_id: Annotated[int, Path(
+        ge=0,
+        description="하나도감 기준 포켓몬 ID. 예: 35 = 두더류. 타입은 데이터에서 조회합니다.",
+        examples=[35],
+    )],
+):
+    try:
+        result = pokemon_service.get_pokemon_type_matchups(pokemon_id)
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        raise HTTPException(status_code=500, detail="타입 상성 계산에 필요한 데이터가 올바르지 않습니다.") from error
+    if result is None:
+        raise HTTPException(status_code=404, detail="존재하지 않는 포켓몬입니다.")
+    return result

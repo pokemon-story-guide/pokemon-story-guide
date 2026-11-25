@@ -43,3 +43,24 @@ class PokemonTrainerEvaluations(BaseModel):
         description="트레이너별 평가. 트레이너 목록 API와 같은 순서(관장 배지 순 → 사천왕 → 챔피언 → 플라스마단)입니다.",
     )
     evaluation_basis: str = Field(description="평가에 반영한 정보와 반영하지 않은 정보 안내.")
+
+
+class TrainerRecommendationItem(BaseModel):
+    pokemon_id: int = Field(ge=0, description="후보 포켓몬의 하나도감 ID. 전국도감 번호와 다릅니다.")
+    name: str = Field(description="후보 포켓몬의 한글 이름.")
+    types: list[PokemonType] = Field(min_length=1, max_length=2, description="후보 포켓몬의 영문 타입 목록.")
+    score: int = Field(ge=0, le=100, description="공격·방어 상성 점수. 승률이 아닙니다.")
+    rating: Literal["good", "normal", "bad"] = Field(description="평가 코드: 좋음·보통·나쁨.")
+    rating_label: Literal["좋음", "보통", "나쁨"] = Field(description="화면에 표시할 평가 문구.")
+    reasons: list[str] = Field(description="이 후보의 공격·방어상 이점. 중립이면 중립 설명을 반환합니다.")
+    warnings: list[str] = Field(description="이 후보의 공격 반감·무효 또는 방어 약점. 없으면 빈 목록입니다.")
+
+
+class TrainerRecommendations(BaseModel):
+    trainer_id: str = Field(description="선택한 상대 트레이너 ID.", examples=["elesa"])
+    trainer_name: str = Field(description="선택한 상대 트레이너의 한글 이름.", examples=["카밀레"])
+    total_count: int = Field(ge=0, description="usable이 1인 후보 수. usable 필터 적용 후, limit 적용 전 개수.")
+    items: list[TrainerRecommendationItem] = Field(
+        description="usable이 1인 후보의 상성 점수 내림차순 추천 목록. 동점은 포켓몬 ID 오름차순. limit개까지 반환합니다.",
+    )
+    evaluation_basis: str = Field(description="평가 기준과 포획 가능 여부 등 반영하지 않은 정보 안내.")
