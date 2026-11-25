@@ -8,7 +8,7 @@ from api.services.recommendation_explanation import EVALUATION_BASIS, build_expl
 from api.services.recommendation_service import _validate_pokemon
 
 EVALUATION_SCOPE = (
-    EVALUATION_BASIS + " 등록된 포켓몬 전체를 후보로 평가하며, "
+    EVALUATION_BASIS + " usable이 1인 포켓몬만 추천 후보로 평가하며, "
     "현재 위치·스토리 진행도에 따른 포획 가능 여부는 반영하지 않습니다. "
     "점수는 승률이 아닙니다."
 )
@@ -21,13 +21,15 @@ def get_trainer_recommendations(trainer_id: str, limit: int = 10) -> dict:
     if not isinstance(trainer["name"], str) or not trainer["name"].strip():
         raise ValueError("트레이너 이름 데이터가 올바르지 않습니다.")
 
-    candidates = pokemon_service.search_pokemon()
+    pokemon = pokemon_service.search_pokemon()
     pokemon_by_id = {}
-    for candidate in candidates:
+    for candidate in pokemon:
         pokemon_id = candidate["id"]
         if type(pokemon_id) is not int or pokemon_id < 0 or pokemon_id in pokemon_by_id:
             raise ValueError("포켓몬 ID가 올바르지 않거나 중복되었습니다.")
         _validate_pokemon(candidate)
+        if type(candidate.get("usable")) is not int or candidate["usable"] not in (0, 1):
+            raise ValueError("포켓몬 추천 가능 여부(usable)는 0 또는 1이어야 합니다.")
         pokemon_by_id[pokemon_id] = candidate
 
     party = []
@@ -40,6 +42,8 @@ def get_trainer_recommendations(trainer_id: str, limit: int = 10) -> dict:
     if not party:
         raise ValueError("상대 파티가 비어 있습니다.")
 
+    # 상대 파티 참조에는 전체 데이터를 사용하고, 추천 후보만 제한합니다.
+    candidates = [candidate for candidate in pokemon if candidate["usable"] == 1]
     ranked = rank_candidates(candidates, party)
     return {
         "trainer_id": trainer_id,

@@ -36,8 +36,8 @@ class TrainerRecommendationItem(BaseModel):
 class TrainerRecommendations(BaseModel):
     trainer_id: str = Field(description="선택한 상대 트레이너 ID.", examples=["elesa"])
     trainer_name: str = Field(description="선택한 상대 트레이너의 한글 이름.", examples=["카밀레"])
-    total_count: int = Field(ge=0, description="개수 제한을 적용하기 전 전체 평가 후보 수.")
+    total_count: int = Field(ge=0, description="usable이 1인 후보 수. usable 필터 적용 후, limit 적용 전 개수.")
     items: list[TrainerRecommendationItem] = Field(
-        description="상성 점수 내림차순 추천 목록. 동점은 포켓몬 ID 오름차순. limit개까지 반환합니다.",
+        description="usable이 1인 후보의 상성 점수 내림차순 추천 목록. 동점은 포켓몬 ID 오름차순. limit개까지 반환합니다.",
     )
     evaluation_basis: str = Field(description="평가 기준과 포획 가능 여부 등 반영하지 않은 정보 안내.")
