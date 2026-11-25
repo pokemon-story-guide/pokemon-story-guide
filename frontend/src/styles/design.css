@@ -161,6 +161,9 @@
 .dsg .list .lh { background: linear-gradient(180deg, var(--slate2), var(--slate)); color: #fff; font-weight: 800; font-size: 16px; padding: 10px 16px; display: flex; align-items: center; gap: 8px; }
 .dsg .list .lh::before { content: ""; width: 6px; height: 16px; background: var(--yellow); border-radius: 2px; }
 .dsg .list .lh small { margin-left: auto; font-size: 12px; color: #cfd6dc; font-weight: 600; }
+.dsg .list .lh .lpager { display: flex; align-items: center; gap: 6px; margin-left: 6px; font-size: 13px; color: #fff; }
+.dsg .list .lh .lpager button { width: 26px; height: 24px; border: 2px solid var(--ink); border-radius: 6px; background: var(--yellow); color: var(--ink); font-size: 11px; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.dsg .list .lh .lpager button:disabled { background: #8a939c; color: #d6dbe0; cursor: default; }
 .dsg .lbody { flex: 1; min-height: 0; display: flex; flex-direction: column; overflow-y: auto; }
 .dsg .lrow { flex: none; height: 96px; display: flex; align-items: center; gap: 14px; padding: 0 16px; border-bottom: 2px dashed var(--line); cursor: pointer; background: #fff; border-left: 0; border-right: 0; border-top: 0; text-align: left; }
 .dsg .lrow:last-child { border-bottom: 0; }
