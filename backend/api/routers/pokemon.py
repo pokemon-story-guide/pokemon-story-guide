@@ -3,8 +3,9 @@ from typing import Annotated
 from fastapi import APIRouter, HTTPException, Path, Query
 
 from api.schemas.location import Location
+from api.schemas.overall_recommendation import OverallRecommendation
 from api.schemas.pokemon import PokemonCard, PokemonDetail, PokemonType, PokemonTypeMatchups
-from api.services import pokemon_service
+from api.services import overall_recommendation_service, pokemon_service
 
 router = APIRouter(prefix="/pokemon", tags=["pokemon"])
 
@@ -113,6 +114,42 @@ def list_pokemon_locations(
         raise HTTPException(status_code=404, detail="존재하지 않는 포켓몬입니다.")
     return locations
 
+
+@router.get(
+    "/{pokemon_id}/overall-recommendation",
+    response_model=OverallRecommendation,
+    summary="포켓몬의 스토리 주요 상대 전체 추천도 조회",
+    description=(
+        "선택한 포켓몬 한 마리를 주요 상대 파티들과 비교해 종합 점수를 반환합니다.\n\n"
+        "**사용 방법**\n"
+        "- 포켓몬 상세 화면에서 하나도감 ID로 요청합니다. 타입을 직접 입력할 필요는 없습니다.\n"
+        "- 예: `/api/pokemon/35/overall-recommendation` → 두더류의 전체 추천도\n\n"
+        "**계산 방법**\n"
+        "- 체육관·사천왕·챔피언·게치스를 포함하고 N은 제외합니다.\n"
+        "- 같은 체육관의 관장들은 먼저 평균 내어 한 그룹으로 계산합니다.\n"
+        "- 현재 데이터는 체육관 8개·사천왕 4명·챔피언·게치스의 14개 그룹이며, 그룹 비중은 모두 같습니다.\n"
+        "- 각 파티 상대 평가와 전체 평균 계산은 기존 공통 알고리즘을 사용합니다.\n\n"
+        "**반환 정보**\n"
+        "- 전체 점수·평가·짧은 설명, 그룹별 점수·비중, 개별 트레이너별 평가\n"
+        "- 최고·최저 점수 그룹 ID는 details의 group으로 연결합니다. 최고 점수라도 반드시 유리하다는 뜻은 아닙니다.\n\n"
+        "**평가 범위**\n"
+        "- 타입 상성 기준이며 실제 기술·특성·능력치·레벨은 반영하지 않습니다.\n"
+        "- 현재 위치·진행도에 따른 포획 가능 여부는 반영하지 않습니다. 점수는 승률이 아닙니다."
+    ),
+    response_description="포켓몬 전체 상성 평가와 주요 상대별 평가 내역",
+    responses={
+        404: {"description": "등록되지 않은 포켓몬 ID입니다."},
+        422: {"description": "포켓몬 ID가 음수이거나 정수가 아닙니다."},
+        500: {"description": "데이터 읽기 실패, 잘못된 ID·타입·파티 참조 또는 평가할 상대 없음 등 데이터 오류입니다."},
+    },
+)
+def get_overall_recommendation(
+    pokemon_id: Annotated[int, Path(ge=0, description="하나도감 기준 포켓몬 ID. 0(비크티니)도 유효합니다.", examples=[35])],
+):
+    try:
+        return overall_recommendation_service.get_overall_recommendation(pokemon_id)
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        raise HTTPException(status_code=500, detail="전체 추천도 계산에 필요한 데이터가 올바르지 않습니다.") from error
 
 
 @router.get(
