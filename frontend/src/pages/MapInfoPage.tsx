@@ -148,7 +148,8 @@ export function MapInfoPage() {
               </div>
             </div>
 
-            <PlacePanel stop={stop} onPokemon={(id) => navigate(`/pokemon/${id}`)} />
+            {/* key: 장소를 옮기면 출현 목록 페이지를 처음으로 되돌립니다 */}
+            <PlacePanel key={stop.id} stop={stop} onPokemon={(id) => navigate(`/pokemon/${id}`)} />
           </div>
         </section>
       </div>
@@ -167,6 +168,7 @@ function PlacePanel({ stop, onPokemon }: { stop: MapStop; onPokemon: (id: number
   const trainers = useTrainers();
   // 한 점에 장소가 둘이면(리조트데저트 + 고대의 성) 둘 다 불러와 합칩니다.
   const found = useApiAll<LocationPokemon[]>(needsPeople ? [] : stop.ids.map((id) => `/locations/${id}/pokemon`));
+  const [page, setPage] = useState(0);
 
   if (needsPeople) {
     if (trainers.status !== "ok" || !trainers.groups) {
@@ -202,12 +204,28 @@ function PlacePanel({ stop, onPokemon }: { stop: MapStop; onPokemon: (id: number
     );
   }
   const encounters = found.data.flat().filter((p, i, all) => all.findIndex((q) => q.id === p.id) === i);
-  const shown = encounters.slice(0, SLOTS);
+  // 6마리씩 페이지로 나눠 보여 줍니다 (바람개비숲처럼 20마리인 곳도 모두 볼 수 있게).
+  const pages = Math.max(1, Math.ceil(encounters.length / SLOTS));
+  const cur = Math.min(page, pages - 1);
+  const shown = encounters.slice(cur * SLOTS, cur * SLOTS + SLOTS);
   const blanks = Math.max(0, SLOTS - shown.length);
   return (
     <div className="list">
       <div className="lh">
         출현 포켓몬<small>{encounters.length}마리</small>
+        {pages > 1 && (
+          <span className="lpager">
+            <button type="button" onClick={() => setPage(cur - 1)} disabled={cur === 0} aria-label="이전 출현 포켓몬">
+              ◀
+            </button>
+            <span>
+              {cur + 1}/{pages}
+            </span>
+            <button type="button" onClick={() => setPage(cur + 1)} disabled={cur === pages - 1} aria-label="다음 출현 포켓몬">
+              ▶
+            </button>
+          </span>
+        )}
       </div>
       <div className="lbody">
         {shown.map((p) => (
