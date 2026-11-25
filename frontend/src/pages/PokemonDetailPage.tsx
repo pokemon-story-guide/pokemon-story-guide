@@ -118,7 +118,11 @@ function PokemonDetailView({
     return m > 0 && m < 1;
   });
   /** 방어 기준: 상대 공격이 이 포켓몬에게 주는 배율 */
-  const weakTo = TYPE_KEYS.filter((a) => attackMultiplier(a, pokemon.types) > 1);
+  // 복합 타입은 4배 약점이 생길 수 있어, 4배를 앞에 두고 칩에 ×4를 붙입니다.
+  const weakTo = TYPE_KEYS.filter((a) => attackMultiplier(a, pokemon.types) > 1).sort(
+    (a, b) => attackMultiplier(b, pokemon.types) - attackMultiplier(a, pokemon.types),
+  );
+  const hasX4 = weakTo.some((a) => attackMultiplier(a, pokemon.types) >= 4);
   const immuneTo = TYPE_KEYS.filter((a) => attackMultiplier(a, pokemon.types) === 0);
 
   // 관장 상성: 추천 API(#25)로 관장마다 점수·평가·이유를 받습니다 (상대 파티 전체 기준, 서버 알고리즘).
@@ -133,6 +137,8 @@ function PokemonDetailView({
 
   // 진화 관계는 API의 진화 계보(evolution_chain)에서 이 포켓몬의 앞·뒤 단계를 찾습니다.
   // 다음 진화가 여러 갈래면 첫 번째로 이동합니다.
+  // evolution_chain이 null이면 아직 등록되지 않은 것이라 "다음 진화 없음"과 구분합니다.
+  const evoUnknown = pokemon.evolution_chain == null;
   const chain = pokemon.evolution_chain ?? [];
   const prevId = chain.find((r) => r.to.id === pokemon.id)?.from.id;
   const nextEvo = chain.find((r) => r.from.id === pokemon.id);
@@ -233,7 +239,7 @@ function PokemonDetailView({
               </div>
               <div className="mrow">
                 <span className="mlab weak">
-                  약점 <b>×2</b>
+                  약점 <b>{hasX4 ? "×2~4" : "×2"}</b>
                 </span>
                 {weakTo.length === 0 ? (
                   <span className="nonetxt">해당 없음</span>
@@ -242,6 +248,7 @@ function PokemonDetailView({
                     {weakTo.map((t) => (
                       <span key={t} className={`type ${t}`}>
                         {typeLabel(t)}
+                        {attackMultiplier(t, pokemon.types) >= 4 && <b className="x4">×4</b>}
                       </span>
                     ))}
                   </div>
@@ -271,7 +278,14 @@ function PokemonDetailView({
 
           <section className="panel evo" style={{ flex: 1 }}>
             <div className="ph">
-              진화 정보<span className="sub">{nextEvo ? `다음 진화: ${nextEvo.to.name}${nextEvo.condition ? ` (${nextEvo.condition})` : ""}` : "다음 진화 없음"}</span>
+              진화 정보
+              <span className="sub">
+                {evoUnknown
+                  ? "진화 정보 연결 대기"
+                  : nextEvo
+                    ? `다음 진화: ${nextEvo.to.name}${nextEvo.condition ? ` (${nextEvo.condition})` : ""}`
+                    : "다음 진화 없음"}
+              </span>
             </div>
             <div className="pb">
               <div className="dimg">
@@ -343,6 +357,19 @@ function recTitle(t: RatedLeader): string {
   return lines.join("\n");
 }
 
+/** 관장 얼굴. 그림 파일이 없으면(저장소에서 제외됨) 이름 첫 글자 타일을 보여 줍니다. */
+function LeaderFace({ id, name }: { id: string; name: string }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) {
+    return (
+      <span className="dsg-face-fallback" aria-hidden="true">
+        {name.charAt(0)}
+      </span>
+    );
+  }
+  return <img src={trainerImageSrc(id, PORTRAIT_FORMAT)} alt="" onError={() => setFailed(true)} />;
+}
+
 function LeaderRow({ tag, cls, leaders }: { tag: string; cls: "good" | "bad"; leaders: RatedLeader[] }) {
   return (
     <div className={`lrow2 ${cls}`}>
@@ -354,7 +381,7 @@ function LeaderRow({ tag, cls, leaders }: { tag: string; cls: "good" | "bad"; le
           {leaders.map((t) => (
             <div key={t.id} className="ld" style={{ width: 96 }} title={recTitle(t)}>
               <div className="face">
-                <img src={trainerImageSrc(t.id, PORTRAIT_FORMAT)} alt="" />
+                <LeaderFace id={t.id} name={t.name} />
                 <span className="score">{t.rec.score}</span>
               </div>
               <div className="namebox">{t.name}</div>
