@@ -48,3 +48,36 @@ def get_recommendation(pokemon_id: int, trainer_id: str) -> dict:
         **build_explanation(evaluation),
         "evaluation_basis": EVALUATION_BASIS,
     }
+
+
+def get_trainer_evaluations(pokemon_id: int, category: str | None = None) -> dict:
+    """포켓몬 한 마리를 트레이너마다 평가해 트레이너 목록 순서대로 모읍니다."""
+    pokemon_by_id = {row["id"]: row for row in pokemon_service.search_pokemon()}
+    pokemon = pokemon_by_id.get(pokemon_id)
+    if pokemon is None:
+        raise HTTPException(status_code=404, detail="존재하지 않는 포켓몬입니다.")
+    _validate_pokemon(pokemon)
+
+    items = []
+    # 같은 계산 기준을 유지하려고 트레이너마다 기존 평가 함수를 그대로 사용합니다.
+    for trainer in trainer_service.get_trainers(category):
+        evaluation = get_recommendation(pokemon_id, trainer["id"])
+        items.append({
+            "trainer_id": trainer["id"],
+            "trainer_name": trainer["name"],
+            "category": trainer["category"],
+            "badge_order": trainer.get("badge_order"),
+            "score": evaluation["score"],
+            "rating": evaluation["rating"],
+            "rating_label": evaluation["rating_label"],
+            "reasons": evaluation["reasons"],
+            "warnings": evaluation["warnings"],
+        })
+
+    return {
+        "pokemon_id": pokemon_id,
+        "name": pokemon["name"],
+        "types": pokemon["types"],
+        "items": items,
+        "evaluation_basis": EVALUATION_BASIS,
+    }

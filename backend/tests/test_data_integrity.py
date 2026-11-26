@@ -3,6 +3,7 @@ from pathlib import Path
 import unittest
 
 from algorithm.type_chart import TYPES
+from api.services.pokemon_service import _get_evolution_relations
 
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"
 
@@ -48,6 +49,10 @@ class DataIntegrityTest(unittest.TestCase):
                 self.assertEqual(len(stats), 6, "종족값은 HP·공격·방어·특공·특방·스피드 6개")
                 self.assertTrue(all(type(value) is int and value > 0 for value in stats))
                 self.assertEqual(sum(stats), pokemon["base_stat_total"], "종족값 합계 불일치")
+
+    def test_evolution_relations_are_valid(self):
+        # 전체 진화 데이터 오류는 요청 시점이 아니라 CI에서 먼저 차단합니다.
+        _get_evolution_relations({pokemon["id"]: pokemon for pokemon in self.pokemon})
 
     def test_location_references(self):
         place_ids = {place["id"] for place in self.places}
