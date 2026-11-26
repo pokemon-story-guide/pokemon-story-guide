@@ -40,6 +40,15 @@ class DataIntegrityTest(unittest.TestCase):
                 ids.append(pokemon["id"])
         self.assertEqual(len(ids), len(set(ids)), "포켓몬 ID 중복")
 
+    def test_base_stats(self):
+        for pokemon in self.pokemon:
+            with self.subTest(pokemon=pokemon["id"], name=pokemon["name"]):
+                stats = pokemon["base_stats"]
+                self.assertIsInstance(stats, list)
+                self.assertEqual(len(stats), 6, "종족값은 HP·공격·방어·특공·특방·스피드 6개")
+                self.assertTrue(all(type(value) is int and value > 0 for value in stats))
+                self.assertEqual(sum(stats), pokemon["base_stat_total"], "종족값 합계 불일치")
+
     def test_location_references(self):
         place_ids = {place["id"] for place in self.places}
         for pokemon in self.pokemon:

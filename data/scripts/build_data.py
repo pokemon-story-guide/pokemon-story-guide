@@ -43,6 +43,11 @@ FIXED_EXPECTED_POWER = {
 # PokeAPI 상에서 오류가 있는 기술
 MOVE_NAME_OVERRIDES = {280: "깨트리기", 343: "탐내기"}
 
+# PokeAPI past_stats 값이 잘못된 포켓몬의 5세대 종족값
+BASE_STATS_OVERRIDES = {
+    615: [70, 50, 30, 95, 135, 105],  # 프리지오: past_stats에 공격·방어가 뒤바뀌어 있음
+}
+
 # 종족값 리스트 순서: HP, 공격, 방어, 특수공격, 특수방어, 스피드
 STAT_ORDER = ["hp", "attack", "defense", "special-attack", "special-defense", "speed"]
 
@@ -130,6 +135,8 @@ def gen5_types(pokemon: dict) -> list[str]:
 
 def gen5_base_stats(pokemon: dict, national_id: int) -> list[int]:
     """5세대 당시 종족값을 STAT_ORDER 순서의 리스트로 반환합니다."""
+    if national_id in BASE_STATS_OVERRIDES:
+        return list(BASE_STATS_OVERRIDES[national_id])
     stats = {row["stat"]["name"]: row["base_stat"] for row in pokemon["stats"]}
     target = generation_number(GENERATION)
     candidates = [
