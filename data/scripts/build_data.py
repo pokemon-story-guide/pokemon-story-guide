@@ -43,8 +43,24 @@ FIXED_EXPECTED_POWER = {
 # PokeAPI 상에서 오류가 있는 기술
 MOVE_NAME_OVERRIDES = {280: "깨트리기", 343: "탐내기"}
 
-# 5세대 이후에 종족값이 바뀐 포켓몬
-STAT_CHANGES = {508: -10, 521: -10, 526: -10, 537: -10, 542: -11, 545: -10, 553: -10}
+# PokeAPI past_stats 값이 잘못된 포켓몬의 5세대 종족값
+BASE_STATS_OVERRIDES = {
+    615: [70, 50, 30, 95, 135, 105],  # 프리지오: past_stats에 공격·방어가 뒤바뀌어 있음
+}
+
+# 종족값 리스트 순서: HP, 공격, 방어, 특수공격, 특수방어, 스피드
+STAT_ORDER = ["hp", "attack", "defense", "special-attack", "special-defense", "speed"]
+
+# 5세대 이후에 종족값이 바뀐 포켓몬 (5세대 값 - 현재 값). PokeAPI 응답에 past_stats가 없을 때만 사용
+STAT_CHANGES = {
+    508: {"attack": -10},           # 바랜드
+    521: {"attack": -10},           # 켄호로우
+    526: {"special-defense": -10},  # 기가이아스
+    537: {"attack": -10},           # 두빅굴
+    542: {"special-defense": -10},  # 모아머
+    545: {"attack": -10},           # 펜드라
+    553: {"defense": -10},          # 악비아르
+}
 
 
 # ---------------------------------------------------------------- PokeAPI 호출
@@ -117,7 +133,11 @@ def gen5_types(pokemon: dict) -> list[str]:
     return [slot["type"]["name"] for slot in sorted(slots, key=lambda slot: slot["slot"])]
 
 
-def gen5_base_stat_total(pokemon: dict, national_id: int) -> int:
+def gen5_base_stats(pokemon: dict, national_id: int) -> list[int]:
+    """5세대 당시 종족값을 STAT_ORDER 순서의 리스트로 반환합니다."""
+    if national_id in BASE_STATS_OVERRIDES:
+        return list(BASE_STATS_OVERRIDES[national_id])
+    stats = {row["stat"]["name"]: row["base_stat"] for row in pokemon["stats"]}
     target = generation_number(GENERATION)
     candidates = [
         past for past in pokemon.get("past_stats", [])
@@ -125,10 +145,12 @@ def gen5_base_stat_total(pokemon: dict, national_id: int) -> int:
     ]
     if candidates:
         old = min(candidates, key=lambda past: generation_number(past["generation"]["name"]))
-        old_by_stat = {row["stat"]["name"]: row["base_stat"] for row in old["stats"]}
-        return sum(old_by_stat.get(row["stat"]["name"], row["base_stat"]) for row in pokemon["stats"])
-    current = sum(row["base_stat"] for row in pokemon["stats"])
-    return current + STAT_CHANGES.get(national_id, 0)
+        for row in old["stats"]:
+            stats[row["stat"]["name"]] = row["base_stat"]
+    else:
+        for name, delta in STAT_CHANGES.get(national_id, {}).items():
+            stats[name] += delta
+    return [stats[name] for name in STAT_ORDER]
 
 
 def evolution_condition(details: list[dict]) -> str:
@@ -178,11 +200,13 @@ def build_pokemon(encounters: dict[str, list[int]]):
                 if source in to_local and target in to_local:
                     relations.add((to_local[source], to_local[target], condition))
 
+        base_stats = gen5_base_stats(pokemon, national_id)
         mons.append({
             "id": local_id,
             "name": korean_name(species),
             "types": gen5_types(pokemon),
-            "base_stat_total": gen5_base_stat_total(pokemon, national_id),
+            "base_stats": base_stats,
+            "base_stat_total": sum(base_stats),
             "location_ids": encounters.get(str(local_id)),
             "evolution_from": None,
             "evolution_to": None,
