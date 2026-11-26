@@ -58,3 +58,30 @@ export const PORTRAIT_FORMAT: "png" | "gif" = "png";
 export function trainerImageSrc(trainerId: string, format: "webp" | "png" | "gif" = "webp"): string {
   return `${TRAINER_IMAGE_BASE}/${imageIdFor(trainerId)}.${format}`;
 }
+
+/** 게임 버전 */
+export type GameVersion = "black" | "white";
+
+/**
+ * 버전마다 다른 상대 (같은 자리, 다른 사람).
+ * - 8번 체육관: 블랙 = 사간, 화이트 = 아이리스
+ * - N의 성: 블랙·화이트 각각
+ * 여기 없는 트레이너는 두 버전 모두 나옵니다.
+ */
+export const VERSION_ONLY: Readonly<Record<string, GameVersion>> = {
+  drayden: "black",
+  iris: "white",
+  "n-castle-black": "black",
+  "n-castle-white": "white",
+};
+
+/**
+ * 지금 고른 게임 버전. null이면 두 버전을 모두 보여 줍니다.
+ * 스토리 진행(사용자 진행도)을 연결할 때 사용자가 고른 버전으로 바뀝니다.
+ */
+export const CURRENT_VERSION: GameVersion | null = null;
+
+/** 버전에 맞는 트레이너만 남깁니다. version이 null이면 그대로 둡니다. */
+export function forVersion(ids: readonly string[], version: GameVersion | null = CURRENT_VERSION): string[] {
+  return ids.filter((id) => version === null || VERSION_ONLY[id] === undefined || VERSION_ONLY[id] === version);
+}
