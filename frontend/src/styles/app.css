@@ -24,7 +24,8 @@
 }
 
 .main-menu__logo {
-  /* 로고 이미지가 생기면 background-image 또는 img로 교체합니다. */
+  /* 로고는 최대 430px, 작은 화면에서는 화면 폭 안에 맞춥니다. */
+  width: min(430px, 100%);
   min-height: 0;
   display: flex;
   align-items: center;
@@ -38,7 +39,7 @@
 
 /* 로고는 원본(2172px)의 1/6인 362px로 씁니다. 픽셀 칸이 고르게 보이도록 정수 배율로 맞춥니다. */
 .main-menu__title img {
-  width: 430px;
+  width: 100%;
   height: auto;
   image-rendering: pixelated;
   display: block;
@@ -1131,4 +1132,451 @@
   42% { opacity: 1; }
   81.6% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+/* 플라스마단 칸: 관장·사천왕과 같은 틀. 테두리 없는 PNG, PNG 바로 아래 이름. */
+.plasma-stage {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 12px 0;
+}
+
+.plasma-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.plasma-card__image {
+  height: 150px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.plasma-card__image img {
+  height: 100%;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  transition:
+    transform 180ms ease,
+    filter 180ms ease;
+}
+
+.plasma-card__fallback {
+  font-size: 96px;
+  font-weight: 700;
+  color: var(--color-panel-text);
+  line-height: 150px;
+}
+
+.plasma-card__name {
+  margin: 8px 0 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-panel-text);
+}
+
+/* 호버: 살짝 커지고 흰색 + 하늘색 빛(노란 빛 아님). */
+.plasma-card:hover .plasma-card__image img,
+.plasma-card:focus-visible .plasma-card__image img {
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 6px #ffffff) drop-shadow(0 0 12px #80d0ff);
+}
+
+/* 플라스마 연출: 검은 화면에서 시작해 띠·문양·게치스 PNG를 순서대로 보여 줍니다. */
+.plasma-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  /* 띠 높이: 화면 높이의 17%, 72~150px 사이. 게치스 PNG 높이는 띠와 같고, 이름 글씨도 이 값에 비례합니다. */
+  --band-h: clamp(72px, 17vh, 150px);
+  background: #000;
+  overflow: hidden;
+}
+
+.plasma-intro__bolt {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  /* 화면 전체 너비. 오른쪽 밖에서 들어와 왼쪽 끝(0)에 닿으면 멈춥니다. */
+  width: 100vw;
+  height: min(36vh, 260px);
+  object-fit: fill;
+  transform: translate(100%, -50%);
+  /* 빔 머리(왼쪽 끝)는 GIF 가장자리 찌꺼기가 점선으로 보이지 않도록 왼쪽 48px을 페이드합니다. */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 48px);
+  mask-image: linear-gradient(to right, transparent 0, #000 48px);
+  filter: drop-shadow(0 0 3px #4fd8ff) drop-shadow(0 0 6px #00aaff);
+  image-rendering: pixelated;
+  /* 0.3초 동안 오른쪽에서 왼쪽으로 흘러 들어온 뒤, 왼쪽 끝에서 0.9초 유지 (전기 구간 총 1.2초) */
+  animation: plasma-bolt-flow 300ms linear forwards;
+}
+
+@keyframes plasma-bolt-flow {
+  from {
+    transform: translate(100%, -50%);
+  }
+  to {
+    transform: translate(0, -50%);
+  }
+}
+
+/* 세로 중심을 기준으로 띠를 놓습니다. 띠 높이 78px, 아래선 = 중심 + 39px */
+.plasma-intro__stage {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 0;
+}
+
+/* PNG 양쪽에는 투명 여백이 각 약 0.75%(16px/2172px) 있어서, 띠를 양쪽으로 그만큼 늘려 여백이 화면 밖으로 나가게 합니다. */
+.plasma-intro__band {
+  position: absolute;
+  left: -0.75%;
+  right: -0.75%;
+  top: calc(var(--band-h) / -2);
+  height: var(--band-h);
+  opacity: 0;
+  transition: none;
+}
+
+.plasma-intro__stage.is-band .plasma-intro__band {
+  opacity: 1;
+}
+
+.plasma-intro__bandimg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.plasma-intro__emblem {
+  position: absolute;
+  right: 12%;
+  /* 문양은 띠 높이에 비례합니다 (원래 비율: 띠 78px 기준 높이 160px, 위쪽 -100px). */
+  top: calc(var(--band-h) * -1.28);
+  height: calc(var(--band-h) * 2.05);
+  width: auto;
+  opacity: 0;
+  transition: none;
+}
+
+.plasma-intro__stage.is-band .plasma-intro__emblem {
+  opacity: 1;
+}
+
+/* 게치스 PNG: 아래선은 띠 아래선(중심 + 39px)에 맞추고, 위로만 튀어나옵니다. */
+.plasma-intro__portrait {
+  position: absolute;
+  left: 12%;
+  /* PNG 아래선은 띠 아래선에 맞추고, 높이는 띠와 같아서 위로도 넘지 않습니다. */
+  bottom: calc(var(--band-h) / -2);
+  height: var(--band-h);
+  width: auto;
+  aspect-ratio: 126 / 64;
+  image-rendering: pixelated;
+  opacity: 0;
+  transition: none;
+}
+
+.plasma-intro__stage.is-band .plasma-intro__portrait {
+  opacity: 1;
+}
+
+.plasma-intro__name {
+  position: absolute;
+  left: 12%;
+  /* 이름은 띠 아래쪽에 둡니다 (띠 아래선 + 8px). */
+  top: calc(var(--band-h) / 2 + 8px);
+  margin: 0;
+  color: #fff;
+  font-size: clamp(18px, 3.2vh, 30px);
+  font-weight: 700;
+  opacity: 0;
+  transition: none;
+}
+
+.plasma-intro__stage.is-band .plasma-intro__name {
+  opacity: 1;
+}
+
+/* 번쩍임: 번개가 0.3초 동안 밝았다 어두워지기를 반복합니다. */
+.plasma-intro__boltwrap {
+  position: absolute;
+  inset: 0;
+}
+
+.plasma-intro__boltwrap.is-flicker {
+  animation: plasma-intro-flicker 1000ms linear forwards;
+}
+
+/* 찌릿찌릿: 번개가 좌우로 살짝 떨리며 밝기가 튀고, 위에 흰 섬광이 번쩍인 뒤 띠가 나타납니다. */
+@keyframes plasma-intro-flicker {
+  0% { transform: translate(0, 0); filter: brightness(1); opacity: 1; }
+  8% { transform: translate(-12px, 4px) skewX(-2deg); filter: brightness(3.2); opacity: 1; }
+  16% { transform: translate(10px, -4px); filter: brightness(1); opacity: 0.15; }
+  26% { transform: translate(-9px, 3px) skewX(2deg); filter: brightness(3.5); opacity: 1; }
+  36% { transform: translate(11px, -2px); filter: brightness(1); opacity: 0.3; }
+  48% { transform: translate(-7px, 2px) skewX(-1.5deg); filter: brightness(3); opacity: 1; }
+  60% { transform: translate(6px, -1px); filter: brightness(1.2); opacity: 0.5; }
+  70% { transform: translate(-4px, 1px); filter: brightness(3.2); opacity: 1; }
+  76% { transform: translate(0, 0); filter: brightness(4); opacity: 1; }
+  78% { transform: translate(0, 0); filter: brightness(1); opacity: 0; }
+  100% { transform: translate(0, 0); filter: brightness(1); opacity: 0; }
+}
+
+
+.plasma-intro__flash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+  animation: plasma-intro-flash 1000ms linear forwards;
+}
+
+@keyframes plasma-intro-flash {
+  0% { opacity: 0; }
+  8% { opacity: 0.9; }
+  20% { opacity: 0; }
+  34% { opacity: 0.7; }
+  48% { opacity: 0; }
+  62% { opacity: 0.5; }
+  78% { opacity: 0; }
+  88% { opacity: 0.9; }
+  100% { opacity: 0.9; }
+}
+
+/* 띠 등장: 밝게 튀었다가 제 밝기로 가라앉으며 나타납니다. */
+.plasma-intro__stage.is-band .plasma-intro__band {
+  animation: plasma-intro-strike 380ms ease-out;
+}
+
+@keyframes plasma-intro-strike {
+  0% { opacity: 1; filter: brightness(3.5); transform: scaleY(1.35); }
+  45% { filter: brightness(1.6); transform: scaleY(0.94); }
+  100% { opacity: 1; filter: brightness(1); transform: scaleY(1); }
+}
+
+/* 띠가 나오는 순간 화면 전체가 쾅 하고 흔들렸다 가라앉습니다 (플라스마·관장·사천왕 공통) */
+@keyframes intro-impact {
+  0% { transform: translate(0, 0); }
+  12% { transform: translate(-10px, 6px); }
+  24% { transform: translate(9px, -5px); }
+  38% { transform: translate(-6px, 3px); }
+  54% { transform: translate(4px, -2px); }
+  72% { transform: translate(-2px, 1px); }
+  100% { transform: translate(0, 0); }
+}
+
+.plasma-intro__stage.is-band {
+  animation: intro-impact 450ms ease-out;
+}
+
+/* 움직임 줄이기 설정을 켠 사용자에게만 효과를 끕니다 (예전에는 이 감싸기가 빠져 효과가 항상 꺼져 있었습니다) */
+@media (prefers-reduced-motion: reduce) {
+  .plasma-intro__boltwrap.is-flicker,
+  .plasma-intro__stage.is-band,
+  .plasma-intro__stage.is-band .plasma-intro__band {
+    animation: none;
+  }
+}
+
+/* 사천왕 연출: 게치스(플라스마단)와 같은 순서. 금색 띠, 사진 위치, 이름(띠 왼쪽 위)은 그대로입니다. */
+.elite-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  /* 띠 높이: 화면 높이의 17%, 72~150px 사이. 사진 높이는 띠와 같고, 이름 글씨도 이 값에 비례합니다. */
+  --band-h: clamp(72px, 17vh, 150px);
+  background: #000;
+  overflow: hidden;
+  /* 연출 중에도 뒤의 칸을 클릭할 수 있도록 마우스 이벤트를 통과시킵니다. */
+  pointer-events: none;
+}
+
+.elite-intro__boltwrap {
+  position: absolute;
+  inset: 0;
+}
+
+.elite-intro__boltwrap.is-flicker {
+  animation: elite-intro-flicker 1000ms linear forwards;
+}
+
+/* 찌릿찌릿: 번개가 좌우로 살짝 떨리며 밝기가 튀고, 위에 흰 섬광이 번쩍인 뒤 띠가 나타납니다. */
+@keyframes elite-intro-flicker {
+  0% { transform: translate(0, 0); filter: brightness(1); opacity: 1; }
+  8% { transform: translate(-12px, 4px) skewX(-2deg); filter: brightness(3.2); opacity: 1; }
+  16% { transform: translate(10px, -4px); filter: brightness(1); opacity: 0.15; }
+  26% { transform: translate(-9px, 3px) skewX(2deg); filter: brightness(3.5); opacity: 1; }
+  36% { transform: translate(11px, -2px); filter: brightness(1); opacity: 0.3; }
+  48% { transform: translate(-7px, 2px) skewX(-1.5deg); filter: brightness(3); opacity: 1; }
+  60% { transform: translate(6px, -1px); filter: brightness(1.2); opacity: 0.5; }
+  70% { transform: translate(-4px, 1px); filter: brightness(3.2); opacity: 1; }
+  76% { transform: translate(0, 0); filter: brightness(4); opacity: 1; }
+  78% { transform: translate(0, 0); filter: brightness(1); opacity: 0; }
+  100% { transform: translate(0, 0); filter: brightness(1); opacity: 0; }
+}
+
+
+.elite-intro__flash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+  animation: elite-intro-flash 1000ms linear forwards;
+}
+
+@keyframes elite-intro-flash {
+  0% { opacity: 0; }
+  8% { opacity: 0.9; }
+  20% { opacity: 0; }
+  34% { opacity: 0.7; }
+  48% { opacity: 0; }
+  62% { opacity: 0.5; }
+  78% { opacity: 0; }
+  88% { opacity: 0.9; }
+  100% { opacity: 0.9; }
+}
+
+.elite-intro__bolt {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100vw;
+  height: min(36vh, 260px);
+  object-fit: fill;
+  transform: translate(100%, -50%);
+  image-rendering: pixelated;
+  /* 빔 머리(왼쪽 끝)는 GIF 가장자리 찌꺼기가 점선으로 보이지 않도록 왼쪽 48px을 페이드합니다. */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 48px);
+  mask-image: linear-gradient(to right, transparent 0, #000 48px);
+  filter: drop-shadow(0 0 3px #ffe066) drop-shadow(0 0 6px #ffd000);
+  animation: elite-intro-flow 300ms linear forwards;
+}
+
+@keyframes elite-intro-flow {
+  from { transform: translate(100%, -50%); }
+  to { transform: translate(0, -50%); }
+}
+
+/* 세로 중심 기준: 띠 높이 80px, 아래선 = 중심 + 40px */
+.elite-intro__stage {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 0;
+}
+
+.elite-intro__band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(var(--band-h) / -2);
+  height: var(--band-h);
+  background: linear-gradient(90deg, #8a4b00, #d98a00 45%, #ffd21f);
+  opacity: 0;
+}
+
+.elite-intro__photo {
+  position: absolute;
+  right: 4vw;
+  /* 사진 칸은 2:1(그림 128×64와 같은 비율)이라 빈 공간이 생기지 않고, 아래 끝이 띠 아래 끝과 맞습니다. */
+  bottom: calc(var(--band-h) / -2);
+  height: var(--band-h);
+  aspect-ratio: 2 / 1;
+  opacity: 0;
+}
+
+.elite-intro__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: 50% 100%;
+  image-rendering: pixelated;
+}
+
+.elite-intro__fallback {
+  font-size: calc(var(--band-h) * 0.8);
+  font-weight: 700;
+  color: #ffd21f;
+  line-height: 1;
+}
+
+.elite-intro__name {
+  position: absolute;
+  left: 14px;
+  top: calc(var(--band-h) / -2 + 6px);
+  color: #fff;
+  font-size: clamp(18px, 3.2vh, 30px);
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+}
+
+/* 띠·사진·이름은 섬광 직후 같은 순간에 밝게 튀었다가 가라앉으며 나타납니다. */
+.elite-intro__stage.is-band .elite-intro__band,
+.elite-intro__stage.is-band .elite-intro__photo,
+.elite-intro__stage.is-band .elite-intro__name {
+  opacity: 1;
+  animation: elite-intro-strike 380ms ease-out;
+}
+
+/* 띠는 세로로 크게 튀었다가 제자리로 (사진·이름은 밝기만) */
+.elite-intro__stage.is-band .elite-intro__band {
+  animation: elite-intro-band-strike 380ms ease-out;
+}
+
+.elite-intro__stage.is-band {
+  animation: intro-impact 450ms ease-out;
+}
+
+/* 챔피언 연출: 띠·번개는 사천왕과 같고, 사진·이름 위치만 게치스·N 연출과 같게 (사진 왼쪽 12%, 이름은 띠 아래) */
+.elite-intro--champion .elite-intro__photo {
+  right: auto;
+  left: 12%;
+}
+
+.elite-intro--champion .elite-intro__name {
+  left: 12%;
+  top: calc(var(--band-h) / 2 + 8px);
+}
+
+@keyframes elite-intro-strike {
+  from { opacity: 1; filter: brightness(3.5); }
+  to { opacity: 1; filter: brightness(1); }
+}
+
+@keyframes elite-intro-band-strike {
+  0% { opacity: 1; filter: brightness(3.5); transform: scaleY(1.35); }
+  45% { filter: brightness(1.6); transform: scaleY(0.94); }
+  100% { opacity: 1; filter: brightness(1); transform: scaleY(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .elite-intro__bolt {
+    transform: translate(0, -50%);
+    animation: none;
+  }
+
+  .elite-intro__boltwrap.is-flicker,
+  .elite-intro__stage.is-band,
+  .elite-intro__stage.is-band .elite-intro__band,
+  .elite-intro__stage.is-band .elite-intro__photo,
+  .elite-intro__stage.is-band .elite-intro__name {
+    animation: none;
+  }
 }
