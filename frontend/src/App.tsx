@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { MENU_ITEMS } from "./config/menuItems";
 import { MainMenuPage } from "./pages/MainMenuPage";
-import { PlaceholderPage } from "./pages/PlaceholderPage";
+import { MapInfoPage } from "./pages/MapInfoPage";
 import { PokemonDetailPage } from "./pages/PokemonDetailPage";
 import { PokemonSearchPage } from "./pages/PokemonSearchPage";
 import { EliteSelectPage } from "./pages/trainers/EliteSelectPage";
@@ -15,10 +14,7 @@ export function App() {
   return (
     <Routes>
       <Route path="/" element={<MainMenuPage />} />
-      {/* 맵 정보는 아직 자리표시자입니다. */}
-      {MENU_ITEMS.filter((item) => item.id === "map").map((item) => (
-        <Route key={item.id} path={item.path} element={<PlaceholderPage title={item.label} />} />
-      ))}
+      <Route path="/map" element={<MapInfoPage />} />
 
       <Route path="/pokemon" element={<PokemonSearchPage />} />
       <Route path="/pokemon/:pokemonId" element={<PokemonDetailPage />} />
