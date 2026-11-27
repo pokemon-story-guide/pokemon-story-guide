@@ -13,6 +13,9 @@ URL = "/api/recommendations/explanation"
 
 class AiExplanationApiTest(unittest.TestCase):
     def setUp(self):
+        settings = patch.dict("os.environ", {"OLLAMA_ENABLED": "true", "OLLAMA_TIMEOUT_SECONDS": "10"})
+        settings.start()
+        self.addCleanup(settings.stop)
         self.client = TestClient(app)
         self.addCleanup(self.client.close)
         self.pokemon = [
@@ -55,6 +58,10 @@ class AiExplanationApiTest(unittest.TestCase):
         self.assertIsNone(data["neutral_explanation"])
         self.assertTrue(data["recommendation_reason"].startswith("두더류는 땅 타입이라"))
         self.assertIn("에몽가 2마리는 비행 타입이라", data["warning"])
+        self.assertEqual(data["recommendation_reason"], " ".join(data["reasons"]))
+        self.assertEqual(data["warning"], " ".join(data["warnings"]))
+        self.assertEqual(len(data["reasons"]), 2)
+        self.assertEqual(len(data["warnings"]), 1)
         self.assertEqual(self.request_model.call_args.kwargs["timeout"], 10)
         self.assertEqual(self.request_model.call_args.args[0]["score"], 54)
         self.assertIn("실제 기술·특성·능력치·레벨은 반영하지 않습니다", data["evaluation_scope"])
@@ -113,6 +120,8 @@ class AiExplanationApiTest(unittest.TestCase):
         self.assertFalse(data["used_fallback"])
         self.assertIn("하데리어·보르그", data["neutral_explanation"])
         self.assertIn("서로 1배입니다", data["neutral_explanation"])
+        self.assertEqual(data["reasons"], [])
+        self.assertEqual(data["warnings"], [])
         self.request_model.assert_not_called()
 
     def test_zero_pokemon_id_is_accepted(self):
@@ -152,6 +161,8 @@ class AiExplanationApiTest(unittest.TestCase):
             {"pokemon_id": 35, "trainer_id": "elesa", "score": 100},
             {"pokemon_id": 35, "trainer_id": "elesa", "model": "another"},
             {"pokemon_id": 35, "trainer_id": "elesa", "timeout": 120},
+            {"pokemon_id": 35, "trainer_id": "elesa", "OLLAMA_ENABLED": False},
+            {"pokemon_id": 35, "trainer_id": "elesa", "OLLAMA_TIMEOUT_SECONDS": 120},
         ]
         for body in cases:
             with self.subTest(body=body):
@@ -170,7 +181,7 @@ class AiExplanationApiTest(unittest.TestCase):
         self.pokemon[1]["types"] = ["fairy"]
         response = self.request()
         self.assertEqual(response.status_code, 500, response.text)
-        self.assertEqual(response.json()["detail"], "추천 설명에 필요한 데이터가 올바르지 않습니다.")
+        self.assertEqual(response.json()["detail"], "추천 설명에 필요한 데이터 또는 서버 설정이 올바르지 않습니다.")
         self.request_model.assert_not_called()
 
     def test_broken_party_reference_returns_500(self):
@@ -190,6 +201,72 @@ class AiExplanationApiTest(unittest.TestCase):
         self.assertEqual(response.status_code, 500, response.text)
         self.assertNotIn("PRIVATE_FILE_ERROR", response.text)
         self.request_model.assert_not_called()
+
+    def test_disabled_model_returns_default_explanation_without_connection_attempt(self):
+        with patch.dict("os.environ", {"OLLAMA_ENABLED": "false"}):
+            response = self.request()
+        self.assertEqual(response.status_code, 200, response.text)
+        data = response.json()
+        self.assertFalse(data["ai_used"])
+        self.assertTrue(data["used_fallback"])
+        self.assertFalse(data["used_neutral_explanation"])
+        self.assertEqual(data["score"], 54)
+        self.assertEqual(len(data["reasons"]), 2)
+        self.assertEqual(len(data["warnings"]), 1)
+        self.assertIn("에몽가", data["warnings"][0])
+        self.request_model.assert_not_called()
+
+    def test_timeout_is_configurable_on_server_only(self):
+        with patch.dict("os.environ", {"OLLAMA_TIMEOUT_SECONDS": "30.5"}):
+            response = self.request()
+        self.assertEqual(response.status_code, 200, response.text)
+        self.assertEqual(self.request_model.call_args.kwargs["timeout"], 30.5)
+
+    def test_invalid_server_timeout_returns_500_without_model_call(self):
+        for value in ("0", "-1", "nan", "inf", "abc", ""):
+            with self.subTest(value=value), patch.dict("os.environ", {"OLLAMA_TIMEOUT_SECONDS": value}):
+                response = self.request()
+                self.assertEqual(response.status_code, 500, response.text)
+                self.assertEqual(response.json()["detail"], "추천 설명에 필요한 데이터 또는 서버 설정이 올바르지 않습니다.")
+        self.request_model.assert_not_called()
+
+    def test_invalid_enabled_setting_returns_500(self):
+        with patch.dict("os.environ", {"OLLAMA_ENABLED": "maybe"}):
+            response = self.request()
+        self.assertEqual(response.status_code, 500, response.text)
+        self.request_model.assert_not_called()
+
+    def test_disabled_model_keeps_neutral_handling_separate_from_fallback(self):
+        self.get_trainer.return_value = {"id": "lenora", "name": "알로에", "party": [
+            {"pokemon_id": 13, "level": 18}, {"pokemon_id": 11, "level": 20},
+        ]}
+        with patch.dict("os.environ", {"OLLAMA_ENABLED": "false"}):
+            response = self.request(25, "lenora")
+        data = response.json()
+        self.assertEqual(response.status_code, 200, response.text)
+        self.assertTrue(data["used_neutral_explanation"])
+        self.assertFalse(data["used_fallback"])
+        self.assertFalse(data["ai_used"])
+        self.assertEqual(data["reasons"], [])
+        self.assertEqual(data["warnings"], [])
+        self.assertIn("하데리어", data["neutral_explanation"])
+        self.request_model.assert_not_called()
+
+    def test_disabled_model_does_not_hide_invalid_source_data(self):
+        self.pokemon[1]["types"] = []
+        with patch.dict("os.environ", {"OLLAMA_ENABLED": "false"}):
+            response = self.request()
+        self.assertEqual(response.status_code, 500, response.text)
+        self.request_model.assert_not_called()
+
+    def test_timeout_fallback_also_returns_lists_in_default_order(self):
+        self.request_model.side_effect = TimeoutError("test timeout")
+        data = self.request().json()
+        self.assertTrue(data["used_fallback"])
+        self.assertTrue(data["reasons"][0].startswith("제브라이카"))
+        self.assertTrue(data["reasons"][1].startswith("두더류"))
+        self.assertEqual(data["recommendation_reason"], " ".join(data["reasons"]))
+        self.assertEqual(data["warning"], " ".join(data["warnings"]))
 
     def test_openapi_describes_request_response_and_errors(self):
         schema = self.client.get("/openapi.json").json()
@@ -220,6 +297,16 @@ class RealAiExplanationApiTest(unittest.TestCase):
                     self.assertEqual(set(data), {"pokemon_id", "trainer_id", *RESPONSE_FIELDS})
                     self.assertFalse(data["ai_used"])
                     self.assertEqual(data["used_fallback"], not data["used_neutral_explanation"])
+
+
+    def test_decimal_multiplier_stays_in_one_list_item(self):
+        with TestClient(app) as client, patch.dict("os.environ", {"OLLAMA_ENABLED": "false"}):
+            response = client.post(URL, json={"pokemon_id": 113, "trainer_id": "alder"})
+        self.assertEqual(response.status_code, 200, response.text)
+        data = response.json()
+        self.assertTrue(any("0.25배" in text for text in data["reasons"]))
+        self.assertTrue(all(text.endswith("습니다.") for text in data["reasons"]))
+        self.assertEqual(data["recommendation_reason"], " ".join(data["reasons"]))
 
 
 if __name__ == "__main__":

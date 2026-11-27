@@ -160,7 +160,7 @@ def validate_selection(raw_answer: str, catalog: dict) -> dict:
     return selection
 
 
-def generate_safe_explanation(evidence: dict, *, model: str = DEFAULT_MODEL, timeout: float = 120) -> dict:
+def generate_safe_explanation(evidence: dict, *, model: str = DEFAULT_MODEL, timeout: float = 120, enabled: bool = True) -> dict:
     """AI 선택 오류나 호출 실패 시 기본 순서로 설명합니다. 원본 데이터 오류는 숨기지 않습니다."""
     catalog = build_explanation_catalog(evidence)
     selection = _default_selection(catalog)
@@ -171,7 +171,9 @@ def generate_safe_explanation(evidence: dict, *, model: str = DEFAULT_MODEL, tim
         "used_neutral_explanation": not catalog["facts"] and bool(catalog["neutral_facts"]),
         "neutral_explanation": None,
     }
-    if catalog["facts"]:
+    if catalog["facts"] and not enabled:
+        result.update(used_fallback=True, fallback_reason="disabled")
+    if catalog["facts"] and enabled:
         started = time.perf_counter()
         try:
             # 등배 자료는 미리보기·기본 안내용이며 기존 AI 입력에는 추가하지 않습니다.
@@ -193,10 +195,14 @@ def generate_safe_explanation(evidence: dict, *, model: str = DEFAULT_MODEL, tim
     if result["used_neutral_explanation"]:
         result["neutral_explanation"] = _neutral_summary(evidence, catalog["neutral_facts"])
     facts_by_id = {fact["id"]: fact["text"] for fact in catalog["facts"]}
+    reasons = [facts_by_id[value] for value in selection["recommendation_order"]]
+    warnings = [facts_by_id[value] for value in selection["warning_order"]]
     result.update(
-        recommendation_reason=" ".join(facts_by_id[value] for value in selection["recommendation_order"])
+        reasons=reasons,
+        warnings=warnings,
+        recommendation_reason=" ".join(reasons)
         or "이번 타입 상성 비교에서는 뚜렷한 이점이 없습니다.",
-        warning=" ".join(facts_by_id[value] for value in selection["warning_order"])
+        warning=" ".join(warnings)
         or "이번 타입 상성 비교에서는 뚜렷한 주의점이 없습니다.",
         evaluation_scope=evidence["evaluation_basis"],
         selected_order=selection,

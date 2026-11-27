@@ -97,24 +97,28 @@ def get_trainer_recommendations(
         "- 실제 기술·특성·능력치·레벨·현재 포획 가능 여부는 반영하지 않으며 점수는 승률이 아닙니다.\n\n"
         "**프론트 표시 방법**\n"
         "- `used_neutral_explanation=true`이면 `neutral_explanation`을 표시합니다.\n"
-        "- 나머지는 `recommendation_reason`과 `warning`을 표시합니다.\n"
+        "- 나머지는 `reasons`·`warnings` 목록을 항목별로 표시할 수 있습니다.\n"
+        "- 기존 연결을 위해 `recommendation_reason`·`warning` 문자열도 유지합니다. 목록이 비면 안내 문자열을 사용할 수 있습니다.\n"
         "- 공통으로 `evaluation_scope`를 평가 기준 안내에 사용합니다.\n\n"
         "**AI 실패와 등배 처리**\n"
-        "- Ollama 통신 timeout은 10초입니다. 모델은 현재 백엔드와 같은 호스트의 로컬 Ollama를 사용합니다.\n"
+        "- 웹 API는 서버 환경변수 `OLLAMA_ENABLED`(기본 true), `OLLAMA_TIMEOUT_SECONDS`(기본 10)를 사용합니다.\n"
+        "- `OLLAMA_ENABLED=false`이면 모델 연결 시도 없이 기본 설명으로 200을 반환합니다. 전체 등배는 대체 처리와 구분합니다.\n"
+        "- timeout은 0보다 큰 유한한 초 단위 숫자이며, 모델 통신 대기 설정입니다. 전체 요청 시간의 절대 상한은 아닙니다.\n"
+        "- 이 설정은 요청 본문에서 변경할 수 없습니다. 로컬 실험 도구는 기존 CLI 옵션을 사용합니다.\n"
         "- 연결 실패·시간 초과·잘못된 AI 선택은 기본 설명으로 대체하고 `200 OK`를 반환합니다.\n"
-        "- 대체 시 `ai_used=false`, `used_fallback=true`입니다.\n"
+        "- 비활성화·오류로 기본 설명을 사용할 때 `ai_used=false`, `used_fallback=true`입니다.\n"
         "- 전체 등배는 모델을 호출하지 않으며 세 플래그는 각각 false·false·true입니다.\n"
-        "- 원본 데이터 오류는 기본 설명으로 숨기지 않고 500으로 구분합니다."
+        "- 원본 데이터 오류나 잘못된 서버 설정은 500으로 구분합니다."
     ),
     response_description="기존 점수·평가, 추천 이유·주의점 또는 등배 안내와 처리 방식",
     responses={
         404: {"description": "등록되지 않은 포켓몬 또는 트레이너 ID입니다."},
         422: {"description": "필수 ID 누락, 음수·정수가 아닌 포켓몬 ID, 공백이 있는 트레이너 ID 또는 허용되지 않은 추가 필드입니다."},
-        500: {"description": "데이터 읽기 실패, 잘못된 타입·파티 참조 또는 빈 상대 파티 등 원본 데이터 오류입니다."},
+        500: {"description": "원본 데이터 읽기·타입·파티 참조 오류 또는 잘못된 서버 AI 설정입니다."},
     },
 )
 def create_recommendation_explanation(request: AiExplanationRequest):
     try:
         return ai_explanation_service.get_explanation(request.pokemon_id, request.trainer_id)
     except (OSError, ValueError, KeyError, TypeError) as error:
-        raise HTTPException(status_code=500, detail="추천 설명에 필요한 데이터가 올바르지 않습니다.") from error
+        raise HTTPException(status_code=500, detail="추천 설명에 필요한 데이터 또는 서버 설정이 올바르지 않습니다.") from error
