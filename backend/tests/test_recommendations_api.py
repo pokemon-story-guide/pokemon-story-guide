@@ -500,17 +500,17 @@ class SafeExplanationServiceTest(unittest.TestCase):
         self.assertEqual([row["id"] for row in catalog["facts"]], ["F1", "F2", "F3"])
         self.assertEqual([row["category"] for row in catalog["facts"]], ["recommendation", "recommendation", "warning"])
         self.assertIn("2배", catalog["facts"][0]["text"])
-        self.assertIn("두더류의 땅 타입 때문에 제브라이카의 전기 타입 공격은 통하지 않아요", catalog["facts"][1]["text"])
-        self.assertIn("에몽가 2마리의 비행 타입 때문에 두더류의 땅 타입 공격은 통하지 않아요", catalog["facts"][2]["text"])
+        self.assertIn("두더류는 땅 타입이라 제브라이카의 전기 공격이 통하지 않습니다", catalog["facts"][1]["text"])
+        self.assertIn("에몽가 2마리는 비행 타입이라 두더류의 땅 공격이 통하지 않습니다", catalog["facts"][2]["text"])
 
     def test_valid_order_only_changes_backend_sentence_order(self):
         result = self.generate({"recommendation_order": ["F2", "F1"], "warning_order": ["F3"]})
         self.assertTrue(result["ai_used"])
         self.assertFalse(result["used_fallback"])
         self.assertIsNone(result["fallback_reason"])
-        self.assertTrue(result["recommendation_reason"].startswith("두더류의 땅 타입 때문에"))
-        self.assertIn("제브라이카의 전기 타입에 2배", result["recommendation_reason"])
-        self.assertIn("에몽가 2마리의 비행 타입", result["warning"])
+        self.assertTrue(result["recommendation_reason"].startswith("두더류는 땅 타입이라"))
+        self.assertIn("제브라이카는 전기 타입이라 두더류의 땅 공격에 2배", result["recommendation_reason"])
+        self.assertIn("에몽가 2마리는 비행 타입", result["warning"])
         self.assertEqual((result["score"], result["rating"], result["rating_label"]), (54, "normal", "보통"))
         self.assertEqual(result["evaluation_scope"], self.evidence["evaluation_basis"])
 
@@ -531,7 +531,7 @@ class SafeExplanationServiceTest(unittest.TestCase):
                 self.assertTrue(result["used_fallback"])
                 self.assertEqual(result["fallback_reason"], "invalid_response")
                 self.assertEqual(result["selected_order"], {"recommendation_order": ["F1", "F2"], "warning_order": ["F3"]})
-                self.assertIn("비행 타입 때문에 두더류의 땅 타입 공격은 통하지", result["warning"])
+                self.assertIn("비행 타입이라 두더류의 땅 공격이 통하지", result["warning"])
                 self.assertNotIn("공격력이 감소", result["warning"])
                 self.assertEqual(result["score"], 54)
 
@@ -577,8 +577,8 @@ class SafeExplanationServiceTest(unittest.TestCase):
         request.assert_not_called()
         self.assertFalse(result["ai_used"])
         self.assertFalse(result["used_fallback"])
-        self.assertIn("뚜렷한 이점이 확인되지", result["recommendation_reason"])
-        self.assertIn("뚜렷한 주의점이 확인되지", result["warning"])
+        self.assertIn("뚜렷한 이점이 없습니다", result["recommendation_reason"])
+        self.assertIn("뚜렷한 주의점이 없습니다", result["warning"])
         self.assertEqual(result["score"], 50)
 
     def test_same_species_count_does_not_replace_our_own_pokemon(self):
@@ -587,10 +587,10 @@ class SafeExplanationServiceTest(unittest.TestCase):
         direction = _build_direction("같은 이름", "같은 이름", "fire", ["fire"], 0.5)
         offense = _fact_text(direction, "offense", "같은 이름", 2)
         defense = _fact_text(direction, "defense", "같은 이름", 2)
-        self.assertTrue(offense.startswith("같은 이름의 불꽃"))
-        self.assertIn("같은 이름 2마리의 불꽃 타입에", offense)
-        self.assertTrue(defense.startswith("같은 이름 2마리의 불꽃"))
-        self.assertIn("같은 이름의 불꽃 타입에", defense)
+        self.assertIn("같은 이름의 불꽃 공격에", offense)
+        self.assertTrue(offense.startswith("같은 이름 2마리는 불꽃 타입이라"))
+        self.assertIn("같은 이름 2마리의 불꽃 공격에", defense)
+        self.assertTrue(defense.startswith("같은 이름은 불꽃 타입이라"))
 
     def test_original_evidence_is_unchanged(self):
         import json
