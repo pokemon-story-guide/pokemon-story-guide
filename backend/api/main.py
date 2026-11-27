@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from api.routers import health, locations, pokemon, recommendations, trainers
+from api.routers import health, locations, pokemon, progress, recommendations, trainers
 
 
 app = FastAPI(title="포켓몬 스토리 공략 도우미 API")
@@ -15,3 +15,4 @@ app.include_router(locations.router, prefix="/api")
 app.include_router(pokemon.router, prefix="/api")
 
 app.include_router(recommendations.router, prefix="/api")
+app.include_router(progress.router, prefix="/api")
