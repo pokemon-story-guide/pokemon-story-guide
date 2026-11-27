@@ -2,10 +2,12 @@
 
 import json
 import math
+import os
 import time
 from urllib.request import Request, urlopen
 
-OLLAMA_URL = "http://127.0.0.1:11434/api/chat"
+# 전체 API 주소를 환경변수로 받습니다. 미설정 시 기존 로컬 연결을 유지합니다.
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://127.0.0.1:11434/api/chat")
 DEFAULT_MODEL = "qwen2.5:7b"
 OUTPUT_SCHEMA = {
     "type": "object",

@@ -353,14 +353,14 @@ class OllamaExplanationClientTest(unittest.TestCase):
 
     def test_request_keeps_evidence_separate_from_system_instructions(self):
         import json
-        from ai.ollama_client import request_explanation, validate_explanation_format
+        from ai.ollama_client import OLLAMA_URL, request_explanation, validate_explanation_format
         evidence = {"score": 54, "rating_label": "보통", "facts": [{"id": "F1"}]}
         original = json.dumps(evidence)
         with patch("ai.ollama_client.urlopen", return_value=self.response()) as call:
             result = request_explanation(evidence, timeout=30)
         request = call.call_args.args[0]
         payload = json.loads(request.data)
-        self.assertEqual(request.full_url, "http://127.0.0.1:11434/api/chat")
+        self.assertEqual(request.full_url, OLLAMA_URL)
         self.assertEqual(request.method, "POST")
         self.assertEqual(payload["model"], "qwen2.5:7b")
         self.assertFalse(payload["stream"])
@@ -370,6 +370,39 @@ class OllamaExplanationClientTest(unittest.TestCase):
         self.assertEqual(call.call_args.kwargs["timeout"], 30)
         self.assertEqual(json.dumps(evidence), original)
         self.assertEqual(validate_explanation_format(result["raw_answer"]), self.answer())
+
+    def _request_url_with_environment(self, configured_url):
+        import os
+        from pathlib import Path
+        import subprocess
+        import sys
+        environment = os.environ.copy()
+        environment.pop("OLLAMA_URL", None)
+        if configured_url is not None:
+            environment["OLLAMA_URL"] = configured_url
+        # 별도 프로세스에서 import 시 설정을 읽게 하며 실제 HTTP 요청은 대체합니다.
+        script = """
+import io
+from unittest.mock import patch
+from ai.ollama_client import request_explanation
+response = io.BytesIO(b'{"done":true,"message":{"content":"{}"}}')
+with patch("ai.ollama_client.urlopen", return_value=response) as call:
+    request_explanation({})
+    print(call.call_args.args[0].full_url)
+"""
+        completed = subprocess.run(
+            [sys.executable, "-B", "-c", script],
+            cwd=Path(__file__).resolve().parents[1],
+            env=environment, capture_output=True, text=True, check=True,
+        )
+        return completed.stdout.strip()
+
+    def test_ollama_url_defaults_to_local_when_unset(self):
+        self.assertEqual(self._request_url_with_environment(None), "http://127.0.0.1:11434/api/chat")
+
+    def test_ollama_url_environment_is_used_for_actual_request(self):
+        url = "http://model-server.example.test:11434/api/chat"
+        self.assertEqual(self._request_url_with_environment(url), url)
 
     def test_unfinished_and_truncated_model_responses_are_rejected(self):
         from ai.ollama_client import request_explanation
