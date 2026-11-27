@@ -1,7 +1,8 @@
 from fastapi import APIRouter, HTTPException, Path, Query
 
+from api.schemas.ai_explanation import AiExplanationRequest, AiExplanationResponse
 from api.schemas.recommendation import Recommendation, TrainerRecommendations
-from api.services import recommendation_service, trainer_recommendation_service
+from api.services import ai_explanation_service, recommendation_service, trainer_recommendation_service
 
 router = APIRouter(prefix="/recommendations", tags=["recommendations"])
 
@@ -78,3 +79,46 @@ def get_trainer_recommendations(
         return trainer_recommendation_service.get_trainer_recommendations(trainer_id, limit)
     except (OSError, ValueError, KeyError, TypeError) as error:
         raise HTTPException(status_code=500, detail="추천 계산에 필요한 데이터가 올바르지 않습니다.") from error
+
+
+@router.post(
+    "/explanation",
+    response_model=AiExplanationResponse,
+    summary="선택한 포켓몬·트레이너 조합의 추천 설명 구성",
+    description=(
+        "포켓몬 ID와 트레이너 ID를 JSON 본문으로 보내면 실제 데이터로 추천 설명을 구성합니다.\n\n"
+        "**사용 방법**\n"
+        "- 예: `{\"pokemon_id\": 35, \"trainer_id\": \"elesa\"}` → 두더류·카밀레\n"
+        "- ID는 목록 API에서 조회합니다. 포켓몬 ID는 하나도감 기준이며 전국도감 번호와 다릅니다.\n"
+        "- 타입·점수·모델 이름·프롬프트는 클라이언트가 전달하지 않습니다.\n\n"
+        "**설명 구성**\n"
+        "- 백엔드가 기존 알고리즘으로 점수와 타입 상성 원인을 계산합니다.\n"
+        "- AI는 근거 순서만 선택합니다. 선택 결과를 검증하고 최종 문장은 백엔드가 구성합니다.\n"
+        "- 실제 기술·특성·능력치·레벨·현재 포획 가능 여부는 반영하지 않으며 점수는 승률이 아닙니다.\n\n"
+        "**프론트 표시 방법**\n"
+        "- `used_neutral_explanation=true`이면 `neutral_explanation`을 표시합니다.\n"
+        "- 나머지는 `reasons`·`warnings` 목록을 항목별로 표시할 수 있습니다.\n"
+        "- 기존 연결을 위해 `recommendation_reason`·`warning` 문자열도 유지합니다. 목록이 비면 안내 문자열을 사용할 수 있습니다.\n"
+        "- 공통으로 `evaluation_scope`를 평가 기준 안내에 사용합니다.\n\n"
+        "**AI 실패와 등배 처리**\n"
+        "- 웹 API는 서버 환경변수 `OLLAMA_ENABLED`(기본 true), `OLLAMA_TIMEOUT_SECONDS`(기본 10)를 사용합니다.\n"
+        "- `OLLAMA_ENABLED=false`이면 모델 연결 시도 없이 기본 설명으로 200을 반환합니다. 전체 등배는 대체 처리와 구분합니다.\n"
+        "- timeout은 0보다 큰 유한한 초 단위 숫자이며, 모델 통신 대기 설정입니다. 전체 요청 시간의 절대 상한은 아닙니다.\n"
+        "- 이 설정은 요청 본문에서 변경할 수 없습니다. 로컬 실험 도구는 기존 CLI 옵션을 사용합니다.\n"
+        "- 연결 실패·시간 초과·잘못된 AI 선택은 기본 설명으로 대체하고 `200 OK`를 반환합니다.\n"
+        "- 비활성화·오류로 기본 설명을 사용할 때 `ai_used=false`, `used_fallback=true`입니다.\n"
+        "- 전체 등배는 모델을 호출하지 않으며 세 플래그는 각각 false·false·true입니다.\n"
+        "- 원본 데이터 오류나 잘못된 서버 설정은 500으로 구분합니다."
+    ),
+    response_description="기존 점수·평가, 추천 이유·주의점 또는 등배 안내와 처리 방식",
+    responses={
+        404: {"description": "등록되지 않은 포켓몬 또는 트레이너 ID입니다."},
+        422: {"description": "필수 ID 누락, 음수·정수가 아닌 포켓몬 ID, 공백이 있는 트레이너 ID 또는 허용되지 않은 추가 필드입니다."},
+        500: {"description": "원본 데이터 읽기·타입·파티 참조 오류 또는 잘못된 서버 AI 설정입니다."},
+    },
+)
+def create_recommendation_explanation(request: AiExplanationRequest):
+    try:
+        return ai_explanation_service.get_explanation(request.pokemon_id, request.trainer_id)
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        raise HTTPException(status_code=500, detail="추천 설명에 필요한 데이터 또는 서버 설정이 올바르지 않습니다.") from error
