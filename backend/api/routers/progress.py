@@ -1,3 +1,4 @@
+import json
 import uuid
 from typing import Annotated
 
@@ -72,6 +73,9 @@ def read_progress(response: Response, progress_id: ProgressCookie = None):
         data = progress_service.get_progress(progress_id)
     except redis.RedisError:
         raise _redis_unavailable()
+    except json.JSONDecodeError:
+        # 저장된 기록이 깨져 JSON으로 읽을 수 없으면 처음 상태로 돌려줍니다.
+        return Progress()
     if data is None:
         return Progress()
     try:

@@ -127,6 +127,13 @@ class ProgressApiTest(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json(), DEFAULT)
 
+    def test_broken_json_record_returns_default(self):
+        progress_id = uuid.uuid4().hex
+        self.redis.data[f"progress:{progress_id}"] = "{not json"
+        response = self.client.get("/api/progress", headers=self._cookie_header(progress_id))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), DEFAULT)
+
     def test_redis_error_returns_503(self):
         self.redis.broken = True
         requests = [
