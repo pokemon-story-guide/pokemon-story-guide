@@ -148,5 +148,44 @@ class ProgressApiTest(unittest.TestCase):
                 self.assertIn("기록 저장소", response.json()["detail"])
 
 
+    def test_patch_changes_only_sent_fields(self):
+        self.client.put("/api/progress", json=VALID)
+        response = self.client.patch("/api/progress", json={"gym_unlocked": 5})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), {**VALID, "gym_unlocked": 5})
+        self.assertEqual(self.client.get("/api/progress").json(), {**VALID, "gym_unlocked": 5})
+
+    def test_patch_without_record_starts_from_default(self):
+        response = self.client.patch("/api/progress", json={"champion_unlocked": True})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), {**DEFAULT, "champion_unlocked": True})
+        key = f"progress:{self.client.cookies['progress_id']}"
+        self.assertEqual(json.loads(self.redis.data[key]), {**DEFAULT, "champion_unlocked": True})
+
+    def test_patch_version_null_resets_version(self):
+        self.client.put("/api/progress", json=VALID)
+        response = self.client.patch("/api/progress", json={"version": None})
+        self.assertEqual(response.json(), {**VALID, "version": None})
+
+    def test_invalid_patch_returns_422_without_saving(self):
+        cases = [
+            {"gym_unlocked": None},
+            {"gym_unlocked": 9},
+            {"n_story_cleared": -1},
+            {"version": "red"},
+            {"cleared_badges": [1, 2]},
+        ]
+        for body in cases:
+            with self.subTest(body=body):
+                response = self.client.patch("/api/progress", json=body)
+                self.assertEqual(response.status_code, 422)
+        self.assertEqual(self.redis.data, {})
+
+    def test_patch_redis_error_returns_503(self):
+        self.redis.broken = True
+        response = self.client.patch("/api/progress", json={"gym_unlocked": 5})
+        self.assertEqual(response.status_code, 503)
+        self.assertIn("기록 저장소", response.json()["detail"])
+
 if __name__ == "__main__":
     unittest.main()

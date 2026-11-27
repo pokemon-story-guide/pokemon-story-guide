@@ -6,7 +6,7 @@ import redis
 from fastapi import APIRouter, Cookie, HTTPException, Response
 from pydantic import ValidationError
 
-from api.schemas.progress import Progress
+from api.schemas.progress import Progress, ProgressUpdate
 from api.services import progress_service
 
 router = APIRouter(prefix="/progress", tags=["progress"])
@@ -52,6 +52,22 @@ def _redis_unavailable() -> HTTPException:
     return HTTPException(status_code=503, detail="기록 저장소에 연결하지 못했습니다. 잠시 후 다시 시도해 주세요.")
 
 
+def _load_progress(progress_id: str) -> Progress:
+    """저장된 기록을 읽습니다. 없거나 깨졌거나 예전 모양이면 처음 상태를 반환합니다. Redis 오류는 그대로 올립니다."""
+    try:
+        data = progress_service.get_progress(progress_id)
+    except json.JSONDecodeError:
+        # 저장된 기록이 깨져 JSON으로 읽을 수 없으면 처음 상태로 돌려줍니다.
+        return Progress()
+    if data is None:
+        return Progress()
+    try:
+        return Progress.model_validate(data)
+    except ValidationError:
+        # 저장 모양이 바뀌기 전에 남은 예전 기록이면 처음 상태로 돌려줍니다.
+        return Progress()
+
+
 @router.get(
     "",
     response_model=Progress,
@@ -70,19 +86,9 @@ def _redis_unavailable() -> HTTPException:
 def read_progress(response: Response, progress_id: ProgressCookie = None):
     progress_id = _use_cookie(progress_id, response)
     try:
-        data = progress_service.get_progress(progress_id)
+        return _load_progress(progress_id)
     except redis.RedisError:
         raise _redis_unavailable()
-    except json.JSONDecodeError:
-        # 저장된 기록이 깨져 JSON으로 읽을 수 없으면 처음 상태로 돌려줍니다.
-        return Progress()
-    if data is None:
-        return Progress()
-    try:
-        return Progress.model_validate(data)
-    except ValidationError:
-        # 저장 모양이 바뀌기 전에 남은 예전 기록이면 처음 상태로 돌려줍니다.
-        return Progress()
 
 
 @router.put(
@@ -133,3 +139,36 @@ def reset_progress(response: Response, progress_id: ProgressCookie = None):
         progress_service.delete_progress(progress_id)
     except redis.RedisError:
         raise _redis_unavailable()
+
+
+@router.patch(
+    "",
+    response_model=Progress,
+    summary="사용자 진행 상태 일부 저장",
+    description=(
+        "보낸 값만 바꾸고, 보내지 않은 값은 저장된 값을 그대로 둡니다. 화면마다 자기 값만 보낼 때 사용합니다.\n\n"
+        "**사용 예**\n"
+        "- 체육관 화면: `{\"gym_unlocked\": 5}`\n"
+        "- 사천왕 화면: `{\"champion_unlocked\": true}`\n"
+        "- 버전을 고르지 않은 상태로 되돌리기: `{\"version\": null}`\n\n"
+        "**규칙**\n"
+        "- 기록이 없으면 처음 상태에 보낸 값을 더해 저장합니다.\n"
+        "- `version` 외의 값에는 `null`을 보낼 수 없습니다. 바꾸지 않을 값은 빼고 보내 주세요.\n"
+        "- 범위를 벗어나거나 정해지지 않은 값이 있으면 저장하지 않고 422를 반환합니다.\n"
+        "- 저장할 때마다 보관 기간이 90일로 다시 늘어납니다."
+    ),
+    response_description="합쳐서 저장된 진행 상태",
+    responses={
+        422: {"description": "값의 범위를 벗어났거나, 정해지지 않은 값 또는 null을 보낸 경우입니다."},
+        503: REDIS_ERROR_RESPONSE,
+    },
+)
+def patch_progress(update: ProgressUpdate, response: Response, progress_id: ProgressCookie = None):
+    progress_id = _use_cookie(progress_id, response)
+    try:
+        current = _load_progress(progress_id)
+        merged = Progress.model_validate({**current.model_dump(), **update.model_dump(exclude_unset=True)})
+        progress_service.save_progress(progress_id, merged.model_dump())
+    except redis.RedisError:
+        raise _redis_unavailable()
+    return merged
