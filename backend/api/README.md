@@ -15,6 +15,18 @@ uvicorn api.main:app --reload
 - 헬스 체크: http://127.0.0.1:8000/health
 - API 문서: http://127.0.0.1:8000/docs
 
+### 진행 상태 API(`/api/progress`)까지 확인할 때
+
+`uvicorn`만 실행하면 Redis가 없어 진행 상태 API는 연결을 기다리다 503을 반환합니다(다른 API는 영향 없음). 저장까지 확인하려면 Redis를 따로 띄우고 주소를 지정합니다.
+
+```bash
+docker run -d --name redis-local -p 127.0.0.1:6379:6379 redis:7   # 처음 한 번 (다음부터는 docker start redis-local)
+REDIS_URL=redis://127.0.0.1:6379/0 uvicorn api.main:app --reload
+```
+
+- 윈도우(PowerShell): `$env:REDIS_URL="redis://127.0.0.1:6379/0"` 실행 후 `uvicorn api.main:app --reload`
+- `127.0.0.1`로만 열어서 내 컴퓨터에서만 접속됩니다.
+
 ## 폴더 구조
 
 ```
